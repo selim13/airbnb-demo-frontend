@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Container from "../Container";
-import Topmenu from "./Topmenu";
+import Menu from "./Menu";
 import Search from "./Search";
 
 import logo from "./logo.svg";
@@ -47,7 +47,7 @@ export default function() {
           </div>
 
           <div className="col-md-4 col-md-offset-2">
-            <Topmenu className="box" />
+            <Menu className="box" />
           </div>
         </BarInner>
       </Container>

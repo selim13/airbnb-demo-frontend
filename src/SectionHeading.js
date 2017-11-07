@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { bp } from "./vars";
 
-import rightArrowSvg from "./right-arrow.svg";
+import rightArrowSvg from "./rightArrow.svg";
 
 const Heading = styled.h2`
   margin: 0;

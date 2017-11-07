@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Topbar from "./Topbar/Topbar";
-import Explore from "./Explore/Explore";
-import Experinces from "./Experiences/Experiences";
+import Topbar from "./Topbar";
+import Explore from "./Explore";
+import Experiences from "./Experiences";
 
 const Section = styled.section`margin: 48px 0;`;
 
@@ -18,7 +18,7 @@ class App extends Component {
             <Explore />
           </Section>
           <Section>
-            <Experinces />
+            <Experiences />
           </Section>
         </main>
       </div>
