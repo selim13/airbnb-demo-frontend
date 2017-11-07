@@ -1,13 +1,23 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
 import Topbar from "./Topbar/Topbar";
+import Explore from "./Explore/Explore";
 import Content from "./Content";
+
+const Section = styled.section`margin: 48px 0;`;
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Topbar />
-        <Content />
+
+        <main>
+          <Section>
+            <Explore />
+          </Section>
+        </main>
       </div>
     );
   }

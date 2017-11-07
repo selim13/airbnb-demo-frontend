@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { bp } from "../vars";
+
 const Menu = styled.ul`
   display: none;
   flex-flow: row nowrap;
@@ -9,7 +11,7 @@ const Menu = styled.ul`
   padding: 0;
   list-style: none;
 
-  @media (min-width: 1124px) {
+  @media (min-width: ${bp.desktop}px) {
     display: flex;
   }
 `;
