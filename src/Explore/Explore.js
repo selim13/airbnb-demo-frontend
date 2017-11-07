@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Container from "../Container";
-import Heading from "../Heading";
+import SectionHeading from "../SectionHeading";
 
 import homeImg from "./homes.png";
 import expImg from "./experiences.png";
@@ -44,7 +44,7 @@ export default function() {
   return (
     <div>
       <Container>
-        <Heading>Explore Airbnb</Heading>
+        <SectionHeading>Explore Airbnb</SectionHeading>
 
         <div className="row">
           <div className="col-md-4">

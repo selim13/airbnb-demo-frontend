@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Topbar from "./Topbar/Topbar";
 import Explore from "./Explore/Explore";
-import Content from "./Content";
+import Experinces from "./Experiences/Experiences";
 
 const Section = styled.section`margin: 48px 0;`;
 
@@ -16,6 +16,9 @@ class App extends Component {
         <main>
           <Section>
             <Explore />
+          </Section>
+          <Section>
+            <Experinces />
           </Section>
         </main>
       </div>
