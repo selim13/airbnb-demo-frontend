@@ -10,8 +10,8 @@ const Star = styled.span`color: #008489;`;
 export default function({ stars, number, label, dot }) {
   const starsList = [];
   for (let i = 0; i < 5; i++) {
-    if (i < stars) starsList.push(<Star>★</Star>);
-    else starsList.push(<Star>☆</Star>);
+    if (i < stars) starsList.push(<Star key={i}>★</Star>);
+    else starsList.push(<Star key={i}>☆</Star>);
   }
 
   return (
