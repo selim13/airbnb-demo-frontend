@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Topbar from "./Topbar";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
+import Footer from "./Footer";
 
 const Section = styled.section`margin: 48px 0;`;
 
@@ -21,6 +22,8 @@ class App extends Component {
             <Experiences />
           </Section>
         </main>
+
+        <Footer />
       </div>
     );
   }
