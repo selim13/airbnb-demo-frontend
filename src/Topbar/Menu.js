@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
+import Link from "../Link";
 
 const Nav = styled.nav`
   display: none;
@@ -11,22 +12,19 @@ const Nav = styled.nav`
     display: flex;
   }
 `;
-const Link = styled.a`
+const MenuLink = Link.extend`
   margin-left: 8px;
   padding: 1rem 0.5rem;
   font-size: 14px;
-  line-height: 24px;
-  text-decoration: none;
-  color: #383838;
 `;
 
 export default function() {
   return (
     <Nav>
-      <Link href="#">Become a host</Link>
-      <Link href="#">Help</Link>
-      <Link href="#">Sign up</Link>
-      <Link href="#">Log in</Link>
+      <MenuLink href="#">Become a host</MenuLink>
+      <MenuLink href="#">Help</MenuLink>
+      <MenuLink href="#">Sign up</MenuLink>
+      <MenuLink href="#">Log in</MenuLink>
     </Nav>
   );
 }

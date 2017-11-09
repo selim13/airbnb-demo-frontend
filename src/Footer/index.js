@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { bp } from "../vars";
 import Container from "../Container";
 import Menu from "./Menu";
-import Bar from "./Bar";
+import BottomBar from "./BottomBar";
 
 const Footer = styled.footer`
   border-top: 1px solid rgba(72, 72, 72, 0.3);
@@ -21,7 +21,7 @@ export default function() {
     <Footer>
       <Container>
         <Menu />
-        <Bar />
+        <BottomBar />
       </Container>
     </Footer>
   );

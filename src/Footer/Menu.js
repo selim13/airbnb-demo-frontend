@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
+import Link from "../Link";
 import Select from "../Select";
 
 const Menu = styled.div`
@@ -28,11 +29,9 @@ const Heading = styled.p`
   font-weight: bold;
   color: #383838;
 `;
-const Link = styled.a`
+const MenuLink = Link.extend`
   display: block;
   margin-bottom: 8px;
-  color: #636363;
-  text-decoration: none;
 `;
 
 export default function() {
@@ -67,33 +66,33 @@ export default function() {
         <div className="col-md-2 col-md-offset-1">
           <Nav>
             <Heading>Airbnb</Heading>
-            <Link href="#">About us</Link>
-            <Link href="#">Careers</Link>
-            <Link href="#">Press</Link>
-            <Link href="#">Policies</Link>
-            <Link href="#">Help</Link>
-            <Link href="#">Diversity &amp; Belonging</Link>
+            <MenuLink href="#">About us</MenuLink>
+            <MenuLink href="#">Careers</MenuLink>
+            <MenuLink href="#">Press</MenuLink>
+            <MenuLink href="#">Policies</MenuLink>
+            <MenuLink href="#">Help</MenuLink>
+            <MenuLink href="#">Diversity &amp; Belonging</MenuLink>
           </Nav>
         </div>
         <div className="col-md-2 col-md-offset-1">
           <Nav>
             <Heading>Discover</Heading>
-            <Link href="#">Trust &amp; Safety</Link>
-            <Link href="#">Travel Credit</Link>
-            <Link href="#">Gift Cards</Link>
-            <Link href="#">Airbnb Citizen</Link>
-            <Link href="#">Business Travel</Link>
-            <Link href="#">Guidebooks</Link>
-            <Link href="#">Airbnbmag</Link>
+            <MenuLink href="#">Trust &amp; Safety</MenuLink>
+            <MenuLink href="#">Travel Credit</MenuLink>
+            <MenuLink href="#">Gift Cards</MenuLink>
+            <MenuLink href="#">Airbnb Citizen</MenuLink>
+            <MenuLink href="#">Business Travel</MenuLink>
+            <MenuLink href="#">Guidebooks</MenuLink>
+            <MenuLink href="#">Airbnbmag</MenuLink>
           </Nav>
         </div>
         <div className="col-md-2 col-md-offset-1">
           <Nav>
             <Heading>Hosting</Heading>
-            <Link href="#">Why Host</Link>
-            <Link href="#">Hospitality</Link>
-            <Link href="#">Responsible Hosting</Link>
-            <Link href="#">Community Center</Link>
+            <MenuLink href="#">Why Host</MenuLink>
+            <MenuLink href="#">Hospitality</MenuLink>
+            <MenuLink href="#">Responsible Hosting</MenuLink>
+            <MenuLink href="#">Community Center</MenuLink>
           </Nav>
         </div>
       </div>
