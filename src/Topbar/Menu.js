@@ -3,20 +3,16 @@ import styled from "styled-components";
 
 import { bp } from "../vars";
 
-const Menu = styled.ul`
+const Nav = styled.nav`
   display: none;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  justify-content: flex-end;
 
-  @media (min-width: ${bp.desktop}px) {
+  @media (min-width: ${bp.lg}px) {
     display: flex;
   }
 `;
-
-const MenuLink = styled.a`
+const Link = styled.a`
+  margin-left: 8px;
   padding: 1rem 0.5rem;
   font-size: 14px;
   line-height: 24px;
@@ -26,21 +22,11 @@ const MenuLink = styled.a`
 
 export default function() {
   return (
-    <nav>
-      <Menu>
-        <li>
-          <MenuLink href="#">Become a host</MenuLink>
-        </li>
-        <li>
-          <MenuLink href="#">Help</MenuLink>
-        </li>
-        <li>
-          <MenuLink href="#">Sign up</MenuLink>
-        </li>
-        <li>
-          <MenuLink href="#">Log in</MenuLink>
-        </li>
-      </Menu>
-    </nav>
+    <Nav>
+      <Link href="#">Become a host</Link>
+      <Link href="#">Help</Link>
+      <Link href="#">Sign up</Link>
+      <Link href="#">Log in</Link>
+    </Nav>
   );
 }
