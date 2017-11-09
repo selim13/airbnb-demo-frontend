@@ -20,6 +20,10 @@ const Select = styled.select`
   background: #ffffff url(${downArrowSvg}) right 20px center no-repeat;
   appearance: none;
 
+  &::-ms-expand {
+    display: none;
+  }
+
   @media (min-width: ${bp.sm}px) {
     font-size: 15px;
   }
