@@ -16,17 +16,14 @@ const Select = styled.select`
   font-size: 18px;
   font-weight: 300;
   color: #495057;
-  background-color: #fff;
-  background: url(${downArrowSvg}) right 20px center no-repeat;
+  background: #ffffff url(${downArrowSvg}) right 20px center no-repeat;
   appearance: none;
 `;
 
 export default function({ className, id, name, label, children }) {
   return (
     <div className={className}>
-      <Label htmlFor={id} className="hidden">
-        {label}
-      </Label>
+      <Label htmlFor={id}>{label}</Label>
       <Select name={name} id={id}>
         {children}
       </Select>

@@ -1,42 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
+import Hidden from "../Hidden";
 import searchIcon from "./search.svg";
 
-const IconWrap = styled.div`
-  flex: 0 1 auto;
+const Label = Hidden.withComponent("label");
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 48px;
-`;
-const InputWrap = styled.div`flex: 1;`;
 const Input = styled.input`
   display: block;
   width: 100%;
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0.5rem 0.75rem 53px;
   border: none;
 
   font-size: 16px;
   line-height: 24px;
   font-family: inherit;
 
-  background-color: transparent;
-  background-image: none;
-
-  outline: none;
+  background: #ffffff url(${searchIcon}) left 16px center no-repeat;\
 `;
 
 const Search = ({ className, id, name, placeholder, value }) => {
   return (
     <div className={className}>
-      <IconWrap>
-        <img src={searchIcon} alt="" width="21" height="22" />
-      </IconWrap>
-      <InputWrap>
-        <Input id={id} name={name} placeholder={placeholder} value={value} />
-      </InputWrap>
+      <Label htmlFor={id}>Search</Label>
+      <Input id={id} name={name} placeholder={placeholder} value={value} />
     </div>
   );
 };
