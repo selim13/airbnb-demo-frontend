@@ -10,14 +10,12 @@ const Heading = styled.h2`
   font-size: 24px;
   font-weight: bold;
 
-  @media (min-width: ${bp.tablet}) {
+  @media (min-width: ${bp.md}px) {
     font-size: 32px;
   }
 `;
-
 const Wrap = styled.div`
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
   margin-bottom: 24px;
 `;
@@ -25,6 +23,7 @@ const Link = styled.a`
   margin-left: auto;
   font-size: 14px;
   text-decoration: none;
+  white-space: nowrap;
   color: #383838;
 `;
 

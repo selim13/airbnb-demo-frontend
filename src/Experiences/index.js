@@ -14,11 +14,18 @@ import img4 from "./4.png";
 
 const Card = styled.a`
   display: block;
-  min-width: 229px;
+  width: 144px;
+  min-width: 144px;
   margin: 0 8px;
-  font-size: 15px;
+  font-size: 13px;
   color: #383838;
   text-decoration: none;
+
+  @media (min-width: 670px) {
+    width: 229px;
+    min-width: 229px;
+    font-size: 15px;
+  }
 `;
 const Image = styled.img`
   display: block;

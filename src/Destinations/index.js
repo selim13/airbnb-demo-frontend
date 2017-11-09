@@ -16,11 +16,17 @@ import img6 from "./6.png";
 
 const Card = styled.a`
   display: block;
-  min-width: 147px;
+  width: 91px;
+  min-width: 91px;
   margin: 0 8px;
   font-size: 15px;
   color: #383838;
   text-decoration: none;
+
+  @media (min-width: 670px) {
+    width: 147px;
+    min-width: 147px;
+  }
 `;
 const Image = styled.img`
   display: block;
@@ -28,30 +34,21 @@ const Image = styled.img`
   height: auto;
   margin-bottom: 8px;
 `;
-const Category = styled.p`
-  margin: 0;
-  font-size: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-`;
 const Heading = styled.p`
   margin: 0;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
-`;
-const Description = styled.p`
-  margin: 0;
-  font-size: 18px;
-  font-weight: 300;
+
+  @media (min-width: 670px) {
+    font-size: 15px;
+  }
 `;
 
 export default function() {
   return (
     <div>
       <Container>
-        <SectionHeading href="#">
-          Popular reservations around the world
-        </SectionHeading>
+        <SectionHeading href="#">Featured destinations</SectionHeading>
       </Container>
       <Slider hasDesktopNav imagesHeight="220">
         <Card href="#">

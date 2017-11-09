@@ -14,11 +14,18 @@ import img4 from "./4.png";
 
 const Card = styled.a`
   display: block;
-  min-width: 229px;
+  width: 144px;
+  min-width: 144px;
   margin: 0 8px;
-  font-size: 15px;
+  font-size: 13px;
   color: #383838;
   text-decoration: none;
+
+  @media (min-width: 670px) {
+    width: 229px;
+    min-width: 229px;
+    font-size: 15px;
+  }
 `;
 const Image = styled.img`
   display: block;
@@ -28,19 +35,31 @@ const Image = styled.img`
 `;
 const Category = styled.p`
   margin: 0;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: bold;
   text-transform: uppercase;
+
+  @media (min-width: 670px) {
+    font-size: 10px;
+  }
 `;
 const Heading = styled.p`
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
+
+  @media (min-width: 670px) {
+    font-size: 18px;
+  }
 `;
 const Description = styled.p`
   margin: 0;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 300;
+
+  @media (min-width: 670px) {
+    font-size: 19px;
+  }
 `;
 
 export default function() {

@@ -10,29 +10,42 @@ import homeImg from "./homes.png";
 import expImg from "./experiences.png";
 import restaurantsImg from "./restaurants.png";
 
-const Link = styled.a`
-  flex: 0 0 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  min-width: 310px;
-  margin: 0 8px;
-
-  border: 1px solid rgba(72, 72, 72, 0.2);
+const Card = styled.a`
+  min-width: 144px;
+  margin: 4px 8px;
   border-radius: 4px;
+  border: 1px solid rgba(72, 72, 72, 0.2);
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
-  font-family: CircularAir;
-  font-size: 17px;
-  font-weight: bold;
-  color: #383838;
   text-decoration: none;
   background: #ffffff;
+
+  @media (min-width: 490px) {
+    display: flex;
+    align-items: center;
+    min-width: 310px;
+  }
 `;
 const Image = styled.img`
   display: block;
-  width: 96px;
+  max-width: 100%;
   height: auto;
-  margin-right: 24px;
+  margin: -1px;
+  border-radius: 4px 4px 0 0;
+
+  @media (min-width: 490px) {
+    width: 96px;
+    border-radius: 4px 0 0 4px;
+  }
+`;
+const Heading = styled.div`
+  padding: 1rem 1.5rem;
+  font-size: 12px;
+  font-weight: bold;
+  color: #383838;
+
+  @media (min-width: 490px) {
+    font-size: 17px;
+  }
 `;
 
 export default function() {
@@ -42,20 +55,20 @@ export default function() {
         <SectionHeading>Explore Airbnb</SectionHeading>
       </Container>
       <Slider>
-        <Link href="#">
+        <Card href="#">
           <Image src={homeImg} width="192" height="144" alt="" />
-          Homes
-        </Link>
+          <Heading>Homes</Heading>
+        </Card>
 
-        <Link href="#">
+        <Card href="#">
           <Image src={expImg} width="192" height="144" alt="" />
-          Experiences
-        </Link>
+          <Heading>Experiences</Heading>
+        </Card>
 
-        <Link href="#">
+        <Card href="#">
           <Image src={restaurantsImg} width="192" height="144" alt="" />
-          Restaurants
-        </Link>
+          <Heading>Restaurants</Heading>
+        </Card>
       </Slider>
     </div>
   );

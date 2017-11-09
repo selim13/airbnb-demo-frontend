@@ -1,20 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
+import { bp } from "../vars";
+
 import logoSvg from "./logo.svg";
 import facebookSvg from "./facebook.svg";
 import instagramSvg from "./instagram.svg";
 import twitterSvg from "./twitter.svg";
 
 const Bar = styled.div`
-  display: flex;
-  justify-content: space-between;
   padding: 32px 0;
   border-top: 1px solid rgba(72, 72, 72, 0.3);
+
+  @media (min-width: ${bp.sm}px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 const LogoWrap = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 8px;
 `;
 const Copyright = styled.span`margin-left: 16px;`;
 const Navs = styled.div`

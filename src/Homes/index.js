@@ -13,11 +13,18 @@ import img3 from "./3.png";
 
 const Card = styled.a`
   display: block;
-  min-width: 310px;
+  width: 197px;
+  min-width: 197px;
   margin: 0 8px;
-  font-size: 15px;
+  font-size: 13px;
   color: #383838;
   text-decoration: none;
+
+  @media (min-width: 660px) {
+    width: 310px;
+    min-width: 310px;
+    font-size: 15px;
+  }
 `;
 const Image = styled.img`
   display: block;

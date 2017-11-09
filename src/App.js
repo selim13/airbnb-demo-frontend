@@ -35,7 +35,7 @@ class App extends Component {
           </Section>
         </main>
 
-        <Footer />
+        {<Footer />}
       </div>
     );
   }

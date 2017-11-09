@@ -11,30 +11,20 @@ import logo from "./logo.svg";
 import downArrowSvg from "./downArrow.svg";
 
 const Bar = styled.header`border-bottom: 1px solid rgba(72, 72, 72, 0.3);`;
-const BarInner = styled.div`height: 80px;`;
+const BarInner = styled.div`min-height: 80px;`;
 
-const Input = styled.input`
-  width: 100%;
-  padding: 12px 1em;
-  font-size: 16px;
-  line-height: 24px;
-
-  background: #ffffff;
-  border: 1px solid rgba(72, 72, 72, 0.2);
-  box-sizing: border-box;
-  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
-  border-radius: 4px;
-`;
 const LogoButton = styled.button`
-  padding: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
   margin: 0;
   border: 0;
-  background-color: transparent;
+  background: transparent url(${downArrowSvg}) right center no-repeat;
   cursor: pointer;
 
   @media (min-width: ${bp.lg}px) {
-    padding-right: 16px;
-    background: transparent url(${downArrowSvg}) right center no-repeat;
+    padding: none;
+    background: transparent;
   }
 `;
 

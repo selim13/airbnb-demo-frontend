@@ -10,10 +10,14 @@ const SliderContainer = styled.div`
   max-width: ${bp.lg}px;
   margin: 0 auto;
   overflow-x: auto;
+
+  @media (min-width: ${bp.lg}px) {
+    overflow-x: hidden;
+  }
 `;
 const Slider = styled.div`
   display: flex;
-  //width: fit-content;
+  width: fit-content;
   justify-content: space-between;
 `;
 const NavBtn = styled.button`
