@@ -27,6 +27,18 @@ const LogoButton = styled.button`
     background: transparent;
   }
 `;
+const LogoButton = styled.button`
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media (min-width: ${bp.lg}px) {
+    padding-right: 16px;
+    background: transparent url(${downArrowSvg}) right center no-repeat;
+  }
+`;
 
 export default function() {
   return (
