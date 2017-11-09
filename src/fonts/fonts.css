@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "CircularAir";
+  font-style: normal;
+  font-weight: 300;
+  src: url("Circular/Circular_Air-Light.woff") format("woff"),
+    url("Circular/Circular_Air-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CircularAir";
+  font-style: normal;
+  font-weight: 400;
+  src: url("Circular/Circular_Air-Book.woff") format("woff"),
+    url("Circular/Circular_Air-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CircularAir";
+  font-style: normal;
+  font-weight: 700;
+  src: url("Circular/Circular_Air-Bold.woff") format("woff"),
+    url("Circular/Circular_Air-Bold.ttf") format("truetype");
+}
