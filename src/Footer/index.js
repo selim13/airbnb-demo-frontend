@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { bp } from "../vars";
+import bp from "../breakpoints";
 import Container from "../Container";
 import Menu from "./Menu";
 import BottomBar from "./BottomBar";

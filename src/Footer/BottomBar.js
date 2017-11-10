@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { bp } from "../vars";
+import bp from "../breakpoints";
 import Link from "../Link";
 
 import logoSvg from "./logo.svg";

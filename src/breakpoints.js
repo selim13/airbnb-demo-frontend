@@ -1,4 +1,4 @@
-export const bp = {
+export default {
   sm: 576,
   md: 768,
   lg: 992,

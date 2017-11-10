@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { bp } from "./vars";
+import bp from "./breakpoints";
 
 export default styled.div`
   max-width: ${bp.lg}px;
