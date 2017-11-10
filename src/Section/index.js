@@ -9,7 +9,11 @@ const Section = styled.section`margin-bottom: 48px;`;
 const HeadingWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+
+  @media (min-width: ${bp.md}px) {
+    margin-bottom: 24px;
+  }
 `;
 const Heading = styled.h2`
   margin: 0;
@@ -23,10 +27,14 @@ const Heading = styled.h2`
 const SeeAll = styled.a`
   margin-left: auto;
   padding-left: 16px;
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   white-space: nowrap;
   color: #383838;
+
+  @media (min-width: ${bp.md}px) {
+    font-size: 14px;
+  }
 `;
 const RightArrow = styled.img`margin-left: 8px;`;
 
