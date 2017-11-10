@@ -13,7 +13,7 @@ const Text = styled.span`
   font-size: 12px;
 `;
 
-export default function({ rating, number, hasLabel, status }) {
+export default function({ rating, number, label, status }) {
   const starsList = [];
   for (let i = 0; i < 5; i++) {
     if (i < rating)
@@ -31,7 +31,7 @@ export default function({ rating, number, hasLabel, status }) {
       {starsList}
       <Text>
         {number > 0 && number}
-        {number > 0 && hasLabel && " reviews"}
+        {number > 0 && label && " " + label}
         {status && " · " + status}
       </Text>
     </div>

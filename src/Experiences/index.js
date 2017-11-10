@@ -43,7 +43,7 @@ export default function() {
           <Heading>
             <b>$29</b> Forest therapy
           </Heading>
-          <Reviews rating={4} number={44} hasLabel />
+          <Reviews rating={4} number={44} label="reviews" />
         </Card>
 
         <Card href="#">
@@ -51,7 +51,7 @@ export default function() {
           <Heading>
             <b>$29</b> Whale watching
           </Heading>
-          <Reviews rating={5} number={146} hasLabel />
+          <Reviews rating={5} number={146} label="reviews" />
         </Card>
 
         <Card href="#">
@@ -59,7 +59,7 @@ export default function() {
           <Heading>
             <b>$29</b> Table Mountain Summit, Cable Car Down
           </Heading>
-          <Reviews rating={5} number={44} hasLabel />
+          <Reviews rating={5} number={44} label="reviews" />
         </Card>
 
         <Card href="#">
@@ -67,7 +67,7 @@ export default function() {
           <Heading>
             <b>$50</b> Salsa Night
           </Heading>
-          <Reviews rating={5} number={44} hasLabel />
+          <Reviews rating={5} number={44} label="reviews" />
         </Card>
       </Slider>
     </Section>
