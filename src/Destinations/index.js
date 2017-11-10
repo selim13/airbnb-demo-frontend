@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
-import Container from "../Container";
-import SectionHeading from "../SectionHeading";
-import Rating from "../Rating";
+import Section from "../Section";
 import Slider from "../Slider";
 
 import img1 from "./1.png";
@@ -46,10 +44,7 @@ const Heading = styled.p`
 
 export default function() {
   return (
-    <div>
-      <Container>
-        <SectionHeading href="#">Featured destinations</SectionHeading>
-      </Container>
+    <Section title="Featured destinations" href="#">
       <Slider hasDesktopNav imagesHeight="220">
         <Card href="#">
           <Image src={img1} width="147" height="220" alt="" />
@@ -81,6 +76,6 @@ export default function() {
           <Heading>Los Angeles</Heading>
         </Card>
       </Slider>
-    </div>
+    </Section>
   );
 }

@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
-import Container from "../Container";
-import SectionHeading from "../SectionHeading";
-import Rating from "../Rating";
+import Section from "../Section";
 import Slider from "../Slider";
 
 import img1 from "./1.png";
@@ -64,12 +62,7 @@ const Description = styled.p`
 
 export default function() {
   return (
-    <div>
-      <Container>
-        <SectionHeading href="#">
-          Popular reservations around the world
-        </SectionHeading>
-      </Container>
+    <Section title="Popular reservations around the world" href="#">
       <Slider hasDesktopNav imagesHeight="161">
         <Card href="#">
           <Image src={img1} width="229" height="161" alt="" />
@@ -99,6 +92,6 @@ export default function() {
           <Description>About $70 per person</Description>
         </Card>
       </Slider>
-    </div>
+    </Section>
   );
 }

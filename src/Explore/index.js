@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
-import Container from "../Container";
-import SectionHeading from "../SectionHeading";
+import Section from "../Section";
 import Slider from "../Slider";
 
 import homeImg from "./homes.png";
@@ -50,10 +49,7 @@ const Heading = styled.div`
 
 export default function() {
   return (
-    <div>
-      <Container>
-        <SectionHeading>Explore Airbnb</SectionHeading>
-      </Container>
+    <Section title="Explore Airbnb">
       <Slider>
         <Card href="#">
           <Image src={homeImg} width="192" height="144" alt="" />
@@ -70,6 +66,6 @@ export default function() {
           <Heading>Restaurants</Heading>
         </Card>
       </Slider>
-    </div>
+    </Section>
   );
 }

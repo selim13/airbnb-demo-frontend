@@ -10,7 +10,10 @@ import Search from "./Search";
 import logo from "./logo.svg";
 import downArrowSvg from "./downArrow.svg";
 
-const Bar = styled.header`border-bottom: 1px solid rgba(72, 72, 72, 0.3);`;
+const Bar = styled.header`
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
+`;
 const BarInner = styled.div`min-height: 80px;`;
 
 const LogoButton = styled.button`

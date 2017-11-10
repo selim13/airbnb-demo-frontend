@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
-import Container from "../Container";
-import SectionHeading from "../SectionHeading";
+import Section from "../Section";
 import Rating from "../Rating";
 import Slider from "../Slider";
 
@@ -37,10 +36,7 @@ const Description = styled.div`font-weight: 300;`;
 
 export default function() {
   return (
-    <div>
-      <Container>
-        <SectionHeading href="#">Homes</SectionHeading>
-      </Container>
+    <Section title="Homes" href="#">
       <Slider hasDesktopNav imagesHeight="204">
         <Card href="#">
           <Image src={img1} width="310" height="204" alt="" />
@@ -69,6 +65,6 @@ export default function() {
           <Rating stars={5} number={364} label="Superhost" dot />
         </Card>
       </Slider>
-    </div>
+    </Section>
   );
 }
