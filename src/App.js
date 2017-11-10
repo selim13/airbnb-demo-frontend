@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Topbar from "./Topbar";
+import Navbar from "./Navbar";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
 import Homes from "./Homes";
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Topbar />
+        <Navbar />
 
         <main>
           <Explore />
