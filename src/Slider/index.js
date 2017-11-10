@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { bp } from "../vars";
-
 import rightArrowSvg from "./rightArrow.svg";
 
 const SliderContainer = styled.div`
@@ -21,14 +20,10 @@ const Slider = styled.div`
   justify-content: space-between;
 `;
 const NavBtn = styled.button`
-  display: none;
-  @media (min-width: ${bp.lg}px) {
-    display: block;
-  }
-
   position: absolute;
-  top: ${props =>
-    props.imagesHeight ? props.imagesHeight / 2 - 20 + "px" : "50%"};
+  top: calc(50% - 20px);
+  z-index: 10;
+  display: none;
   width: 40px;
   height: 40px;
   padding: 0;
@@ -36,19 +31,23 @@ const NavBtn = styled.button`
   border: 0.5px solid rgba(72, 72, 72, 0.2);
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
   border-radius: 20px;
-  background: #ffffff url(${rightArrowSvg}) left 16px center no-repeat;
   cursor: pointer;
+
+  @media (min-width: ${bp.lg}px) {
+    display: block;
+  }
 `;
 const NextBtn = NavBtn.extend`
   right: 0;
   background: #ffffff url(${rightArrowSvg}) left 16px center no-repeat;
 `;
 
-export default function({ children, hasDesktopNav, imagesHeight }) {
+export default function({ children, hasDesktopNavigation }) {
   return (
     <SliderContainer>
+      {/* TODO: PrevBtn */}
       <Slider>{children}</Slider>
-      {hasDesktopNav && <NextBtn imagesHeight={imagesHeight} />}
+      {hasDesktopNavigation && <NextBtn />}
     </SliderContainer>
   );
 }

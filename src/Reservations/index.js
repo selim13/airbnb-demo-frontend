@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { bp } from "../vars";
 import Section from "../Section";
 import Slider from "../Slider";
 
@@ -13,7 +12,6 @@ import img4 from "./4.png";
 const Card = styled.a`
   display: block;
   width: 144px;
-  min-width: 144px;
   margin: 0 8px;
   font-size: 13px;
   color: #383838;
@@ -21,7 +19,6 @@ const Card = styled.a`
 
   @media (min-width: 670px) {
     width: 229px;
-    min-width: 229px;
     font-size: 15px;
   }
 `;
@@ -50,7 +47,7 @@ const Heading = styled.p`
     font-size: 18px;
   }
 `;
-const Description = styled.p`
+const Price = styled.p`
   margin: 0;
   font-size: 12px;
   font-weight: 300;
@@ -63,33 +60,33 @@ const Description = styled.p`
 export default function() {
   return (
     <Section title="Popular reservations around the world" href="#">
-      <Slider hasDesktopNav imagesHeight="161">
+      <Slider hasDesktopNavigation>
         <Card href="#">
           <Image src={img1} width="229" height="161" alt="" />
           <Category>Speakeasy</Category>
           <Heading>Chumley’s</Heading>
-          <Description>About $60 per person</Description>
+          <Price>About $60 per person</Price>
         </Card>
 
         <Card href="#">
           <Image src={img2} width="229" height="161" alt="" />
           <Category>Korean gastropub</Category>
           <Heading>Hanjan</Heading>
-          <Description>About $50 per person</Description>
+          <Price>About $50 per person</Price>
         </Card>
 
         <Card href="#">
           <Image src={img3} width="229" height="161" alt="" />
           <Category>German american</Category>
           <Heading>Prime Meats</Heading>
-          <Description>About $55 per person</Description>
+          <Price>About $55 per person</Price>
         </Card>
 
         <Card href="#">
           <Image src={img4} width="229" height="161" alt="" />
           <Category>Fine seafood</Category>
           <Heading>Seaprice</Heading>
-          <Description>About $70 per person</Description>
+          <Price>About $70 per person</Price>
         </Card>
       </Slider>
     </Section>

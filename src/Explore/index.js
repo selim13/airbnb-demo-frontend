@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { bp } from "../vars";
 import Section from "../Section";
 import Slider from "../Slider";
 

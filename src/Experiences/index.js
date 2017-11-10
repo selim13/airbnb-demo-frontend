@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { bp } from "../vars";
 import Section from "../Section";
-import Rating from "../Rating";
+import Reviews from "../Reviews";
 import Slider from "../Slider";
 
 import img1 from "./1.png";
@@ -14,7 +13,6 @@ import img4 from "./4.png";
 const Card = styled.a`
   display: block;
   width: 144px;
-  min-width: 144px;
   margin: 0 8px;
   font-size: 13px;
   color: #383838;
@@ -22,7 +20,6 @@ const Card = styled.a`
 
   @media (min-width: 670px) {
     width: 229px;
-    min-width: 229px;
     font-size: 15px;
   }
 `;
@@ -32,42 +29,45 @@ const Image = styled.img`
   height: auto;
   margin-bottom: 8px;
 `;
-const Heading = styled.span`font-weight: 300;`;
+const Heading = styled.p`
+  margin: 0;
+  font-weight: 300;
+`;
 
 export default function() {
   return (
     <Section title="Experiences" href="#">
-      <Slider hasDesktopNav imagesHeight="347">
+      <Slider hasDesktopNavigation>
         <Card href="#">
           <Image src={img1} width="229" height="347" alt="" />
-          <div>
-            <b>$29</b> <Heading>Forest therapy</Heading>
-          </div>
-          <Rating stars={4} number={44} label="reviews" />
+          <Heading>
+            <b>$29</b> Forest therapy
+          </Heading>
+          <Reviews rating={4} number={44} hasLabel />
         </Card>
 
         <Card href="#">
           <Image src={img2} width="229" height="347" alt="" />
-          <div>
-            <b>$29</b> <Heading>Whale watching</Heading>
-          </div>
-          <Rating stars={5} number={146} label="reviews" />
+          <Heading>
+            <b>$29</b> Whale watching
+          </Heading>
+          <Reviews rating={5} number={146} hasLabel />
         </Card>
 
         <Card href="#">
           <Image src={img3} width="229" height="347" alt="" />
-          <div>
-            <b>$29</b> <Heading>Table Mountain Summit, Cable Car Down</Heading>
-          </div>
-          <Rating stars={5} number={44} label="reviews" />
+          <Heading>
+            <b>$29</b> Table Mountain Summit, Cable Car Down
+          </Heading>
+          <Reviews rating={5} number={44} hasLabel />
         </Card>
 
         <Card href="#">
           <Image src={img4} width="229" height="347" alt="" />
-          <div>
-            <b>$50</b> <Heading>Salsa Night</Heading>
-          </div>
-          <Rating stars={5} number={44} label="reviews" />
+          <Heading>
+            <b>$50</b> Salsa Night
+          </Heading>
+          <Reviews rating={5} number={44} hasLabel />
         </Card>
       </Slider>
     </Section>

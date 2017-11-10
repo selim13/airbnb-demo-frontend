@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { bp } from "../vars";
 import Section from "../Section";
 import Slider from "../Slider";
 
@@ -15,7 +14,6 @@ import img6 from "./6.png";
 const Card = styled.a`
   display: block;
   width: 91px;
-  min-width: 91px;
   margin: 0 8px;
   font-size: 15px;
   color: #383838;
@@ -23,7 +21,6 @@ const Card = styled.a`
 
   @media (min-width: 670px) {
     width: 147px;
-    min-width: 147px;
   }
 `;
 const Image = styled.img`
@@ -44,8 +41,8 @@ const Heading = styled.p`
 
 export default function() {
   return (
-    <Section title="Featured destinations" href="#">
-      <Slider hasDesktopNav imagesHeight="220">
+    <Section title="Featured destinations">
+      <Slider hasDesktopNavigation>
         <Card href="#">
           <Image src={img1} width="147" height="220" alt="" />
           <Heading>Paris</Heading>
