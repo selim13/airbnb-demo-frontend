@@ -42,6 +42,7 @@ export default function() {
           <div className="row">
             <div className="col-xs-6 col-md-12">
               <LanguageSelect
+                id="language-selector"
                 name="language-selector"
                 label="Choose your language"
               >
@@ -55,7 +56,11 @@ export default function() {
               </LanguageSelect>
             </div>
             <div className="col-xs-6 col-md-12">
-              <Select name="currency-selector" label="Choose your currency">
+              <Select
+                id="currency-selector"
+                name="currency-selector"
+                label="Choose your currency"
+              >
                 <option>United States dollar</option>
                 <option>Russian Rouble</option>
               </Select>
