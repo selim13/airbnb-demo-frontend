@@ -14,17 +14,12 @@ const Text = styled.span`
 `;
 
 export default function({ rating, number, label, status }) {
-  const starsList = [];
-  for (let i = 0; i < 5; i++) {
-    if (i < rating)
-      starsList.push(
-        <Star src={starFilledSvg} key={i} width="12" height="13" alt="" />
-      );
+  const starsList = [1, 2, 3, 4, 5].map(i => {
+    if (i <= rating)
+      return <Star src={starFilledSvg} key={i} width="12" height="13" alt="" />;
     else
-      starsList.push(
-        <Star src={starEmptySvg} key={i} width="12" height="13" alt="" />
-      );
-  }
+      return <Star src={starEmptySvg} key={i} width="12" height="13" alt="" />;
+  });
 
   return (
     <div>
