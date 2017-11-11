@@ -31,7 +31,19 @@ const Image = styled.img`
 `;
 const Heading = styled.p`
   margin: 0;
+  overflow: hidden;
   font-weight: bold;
+  font-size: 13px;
+  line-height: 18px;
+  max-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @media (min-width: 660px) {
+    font-size: 15px;
+    line-height: 21px;
+    max-height: 21px;
+  }
 `;
 const Description = styled.p`
   margin: 0;
@@ -51,7 +63,7 @@ export default function() {
 
         <Card href="#">
           <Image src={img2} width="310" height="204" alt="" />
-          <Heading>$82 Your private 3 bedr. riad and exclusi…</Heading>
+          <Heading>$82 Your private 3 bedr. riad and exclusive rental</Heading>
           <Description>Entire house · 9 beds</Description>
           <Reviews rating={5} number={161} status="Superhost" />
         </Card>
