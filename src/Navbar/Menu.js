@@ -16,6 +16,7 @@ const MenuLink = Link.extend`
   margin-left: 8px;
   padding: 1rem 0.5rem;
   font-size: 14px;
+  color: #383838;
 `;
 
 export default function() {
