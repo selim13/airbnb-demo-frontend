@@ -15,7 +15,6 @@ const Bar = styled.header`
   border-bottom: 1px solid rgba(72, 72, 72, 0.3);
 `;
 const BarInner = styled.div`min-height: 80px;`;
-
 const LogoButton = styled.button`
   display: flex;
   align-items: center;
@@ -30,6 +29,7 @@ const LogoButton = styled.button`
     background: transparent;
   }
 `;
+const NavbarSearch = styled(Search)`margin: 1rem 0;`;
 
 export default function() {
   return (
@@ -43,7 +43,7 @@ export default function() {
           </div>
 
           <div className="col-xs-10 col-md-7 col-lg-5">
-            <Search
+            <NavbarSearch
               name="site-search"
               id="site-search"
               placeholder="Try Miami"
