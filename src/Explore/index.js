@@ -9,6 +9,7 @@ import expImg from "./experiences.png";
 import restaurantsImg from "./restaurants.png";
 
 const Card = styled.a`
+  flex: 0 0 auto;
   min-width: 144px;
   margin: 4px 8px;
   border-radius: 4px;

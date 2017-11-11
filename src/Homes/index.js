@@ -10,6 +10,7 @@ import img2 from "./2.png";
 import img3 from "./3.png";
 
 const Card = styled.a`
+  flex: 0 0 auto;
   display: block;
   width: 197px;
   margin: 0 8px;

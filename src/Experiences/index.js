@@ -11,6 +11,7 @@ import img3 from "./3.png";
 import img4 from "./4.png";
 
 const Card = styled.a`
+  flex: 0 0 auto;
   display: block;
   width: 144px;
   margin: 0 8px;

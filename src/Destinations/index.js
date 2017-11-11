@@ -12,6 +12,7 @@ import img5 from "./5.png";
 import img6 from "./6.png";
 
 const Card = styled.a`
+  flex: 0 0 auto;
   display: block;
   width: 91px;
   margin: 0 8px;
