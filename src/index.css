@@ -1,5 +1,10 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+html {
+  box-sizing: border-box;
+  font: normal 15px/1.4 "CircularAir", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
