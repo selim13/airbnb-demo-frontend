@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Section from "../Section";
 import Reviews from "../Reviews";
 import Slider from "../Slider";
 
@@ -37,40 +36,38 @@ const Heading = styled.p`
 
 export default function() {
   return (
-    <Section title="Experiences" href="#">
-      <Slider hasDesktopNavigation>
-        <Card href="#">
-          <Image src={img1} width="229" height="347" alt="" />
-          <Heading>
-            <b>$29</b> Forest therapy
-          </Heading>
-          <Reviews rating={4} number={44} label="reviews" />
-        </Card>
+    <Slider hasDesktopNavigation>
+      <Card href="#">
+        <Image src={img1} width="229" height="347" alt="" />
+        <Heading>
+          <b>$29</b> Forest therapy
+        </Heading>
+        <Reviews rating={4} number={44} label="reviews" />
+      </Card>
 
-        <Card href="#">
-          <Image src={img2} width="229" height="347" alt="" />
-          <Heading>
-            <b>$29</b> Whale watching
-          </Heading>
-          <Reviews rating={5} number={146} label="reviews" />
-        </Card>
+      <Card href="#">
+        <Image src={img2} width="229" height="347" alt="" />
+        <Heading>
+          <b>$29</b> Whale watching
+        </Heading>
+        <Reviews rating={5} number={146} label="reviews" />
+      </Card>
 
-        <Card href="#">
-          <Image src={img3} width="229" height="347" alt="" />
-          <Heading>
-            <b>$29</b> Table Mountain Summit, Cable Car Down
-          </Heading>
-          <Reviews rating={5} number={44} label="reviews" />
-        </Card>
+      <Card href="#">
+        <Image src={img3} width="229" height="347" alt="" />
+        <Heading>
+          <b>$29</b> Table Mountain Summit, Cable Car Down
+        </Heading>
+        <Reviews rating={5} number={44} label="reviews" />
+      </Card>
 
-        <Card href="#">
-          <Image src={img4} width="229" height="347" alt="" />
-          <Heading>
-            <b>$50</b> Salsa Night
-          </Heading>
-          <Reviews rating={5} number={44} label="reviews" />
-        </Card>
-      </Slider>
-    </Section>
+      <Card href="#">
+        <Image src={img4} width="229" height="347" alt="" />
+        <Heading>
+          <b>$50</b> Salsa Night
+        </Heading>
+        <Reviews rating={5} number={44} label="reviews" />
+      </Card>
+    </Slider>
   );
 }

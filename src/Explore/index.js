@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Section from "../Section";
 import Slider from "../Slider";
 
 import homeImg from "./homes.png";
@@ -49,23 +48,21 @@ const Heading = styled.div`
 
 export default function() {
   return (
-    <Section title="Explore Airbnb">
-      <Slider>
-        <Card href="#">
-          <Image src={homeImg} width="192" height="144" alt="" />
-          <Heading>Homes</Heading>
-        </Card>
+    <Slider>
+      <Card href="#">
+        <Image src={homeImg} width="192" height="144" alt="" />
+        <Heading>Homes</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={expImg} width="192" height="144" alt="" />
-          <Heading>Experiences</Heading>
-        </Card>
+      <Card href="#">
+        <Image src={expImg} width="192" height="144" alt="" />
+        <Heading>Experiences</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={restaurantsImg} width="192" height="144" alt="" />
-          <Heading>Restaurants</Heading>
-        </Card>
-      </Slider>
-    </Section>
+      <Card href="#">
+        <Image src={restaurantsImg} width="192" height="144" alt="" />
+        <Heading>Restaurants</Heading>
+      </Card>
+    </Slider>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import bp from "../breakpoints";
-import Container from "../Container";
+import bp from "../../breakpoints";
+import Container from "../../Container";
 import rightArrowSvg from "./rightArrow.svg";
 
 const Section = styled.section`margin-bottom: 48px;`;

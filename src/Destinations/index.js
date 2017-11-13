@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Section from "../Section";
 import Slider from "../Slider";
 
 import img1 from "./1.png";
@@ -42,38 +41,36 @@ const Heading = styled.p`
 
 export default function() {
   return (
-    <Section title="Featured destinations">
-      <Slider hasDesktopNavigation>
-        <Card href="#">
-          <Image src={img1} width="147" height="220" alt="" />
-          <Heading>Paris</Heading>
-        </Card>
+    <Slider hasDesktopNavigation>
+      <Card href="#">
+        <Image src={img1} width="147" height="220" alt="" />
+        <Heading>Paris</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={img2} width="147" height="220" alt="" />
-          <Heading>Miami</Heading>
-        </Card>
+      <Card href="#">
+        <Image src={img2} width="147" height="220" alt="" />
+        <Heading>Miami</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={img3} width="147" height="220" alt="" />
-          <Heading>Tokyo</Heading>
-        </Card>
+      <Card href="#">
+        <Image src={img3} width="147" height="220" alt="" />
+        <Heading>Tokyo</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={img4} width="147" height="220" alt="" />
-          <Heading>Cape town</Heading>
-        </Card>
+      <Card href="#">
+        <Image src={img4} width="147" height="220" alt="" />
+        <Heading>Cape town</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={img5} width="147" height="220" alt="" />
-          <Heading>Seoul</Heading>
-        </Card>
+      <Card href="#">
+        <Image src={img5} width="147" height="220" alt="" />
+        <Heading>Seoul</Heading>
+      </Card>
 
-        <Card href="#">
-          <Image src={img6} width="147" height="220" alt="" />
-          <Heading>Los Angeles</Heading>
-        </Card>
-      </Slider>
-    </Section>
+      <Card href="#">
+        <Image src={img6} width="147" height="220" alt="" />
+        <Heading>Los Angeles</Heading>
+      </Card>
+    </Slider>
   );
 }

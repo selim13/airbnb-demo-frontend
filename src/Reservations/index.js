@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Section from "../Section";
 import Slider from "../Slider";
 
 import img1 from "./1.png";
@@ -60,36 +59,34 @@ const Price = styled.p`
 
 export default function() {
   return (
-    <Section title="Popular reservations around the world" href="#">
-      <Slider hasDesktopNavigation>
-        <Card href="#">
-          <Image src={img1} width="229" height="161" alt="" />
-          <Category>Speakeasy</Category>
-          <Heading>Chumley’s</Heading>
-          <Price>About $60 per person</Price>
-        </Card>
+    <Slider hasDesktopNavigation>
+      <Card href="#">
+        <Image src={img1} width="229" height="161" alt="" />
+        <Category>Speakeasy</Category>
+        <Heading>Chumley’s</Heading>
+        <Price>About $60 per person</Price>
+      </Card>
 
-        <Card href="#">
-          <Image src={img2} width="229" height="161" alt="" />
-          <Category>Korean gastropub</Category>
-          <Heading>Hanjan</Heading>
-          <Price>About $50 per person</Price>
-        </Card>
+      <Card href="#">
+        <Image src={img2} width="229" height="161" alt="" />
+        <Category>Korean gastropub</Category>
+        <Heading>Hanjan</Heading>
+        <Price>About $50 per person</Price>
+      </Card>
 
-        <Card href="#">
-          <Image src={img3} width="229" height="161" alt="" />
-          <Category>German american</Category>
-          <Heading>Prime Meats</Heading>
-          <Price>About $55 per person</Price>
-        </Card>
+      <Card href="#">
+        <Image src={img3} width="229" height="161" alt="" />
+        <Category>German american</Category>
+        <Heading>Prime Meats</Heading>
+        <Price>About $55 per person</Price>
+      </Card>
 
-        <Card href="#">
-          <Image src={img4} width="229" height="161" alt="" />
-          <Category>Fine seafood</Category>
-          <Heading>Seaprice</Heading>
-          <Price>About $70 per person</Price>
-        </Card>
-      </Slider>
-    </Section>
+      <Card href="#">
+        <Image src={img4} width="229" height="161" alt="" />
+        <Category>Fine seafood</Category>
+        <Heading>Seaprice</Heading>
+        <Price>About $70 per person</Price>
+      </Card>
+    </Slider>
   );
 }
