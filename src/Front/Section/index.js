@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
@@ -24,7 +25,7 @@ const Heading = styled.h2`
     font-size: 32px;
   }
 `;
-const SeeAll = styled.a`
+const SeeAll = styled(Link)`
   margin-left: auto;
   padding-left: 16px;
   font-size: 12px;
@@ -38,14 +39,14 @@ const SeeAll = styled.a`
 `;
 const RightArrow = styled.img`margin-left: 8px;`;
 
-export default function({ children, title, href }) {
+export default function({ children, title, to }) {
   return (
     <Section>
       <Container>
         <HeadingWrapper>
           <Heading>{title}</Heading>
-          {href && (
-            <SeeAll href={href}>
+          {to && (
+            <SeeAll to={to}>
               See all{" "}
               <RightArrow src={rightArrowSvg} aria-hidden="true" alt="" />
             </SeeAll>

@@ -13,13 +13,13 @@ export default function() {
       <Section title="Explore Airbnb">
         <Explore />
       </Section>
-      <Section title="Experiences" href="#">
+      <Section title="Experiences" to="/experiences">
         <Experiences />
       </Section>
-      <Section title="Homes" href="/homes">
+      <Section title="Homes" to="/homes">
         <HomesSlider />
       </Section>
-      <Section title="Popular reservations around the world" href="#">
+      <Section title="Popular reservations around the world" to="/reservations">
         <Reservations />
       </Section>
 
