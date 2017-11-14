@@ -4,7 +4,7 @@ import Section from "./Section";
 import Explore from "../Explore";
 import Experiences from "../Experiences";
 import HomesSlider from "../Homes/Slider";
-import Reservations from "../Reservations";
+import Restaurants from "../Restaurants";
 import Destinations from "../Destinations";
 
 export default function() {
@@ -19,10 +19,9 @@ export default function() {
       <Section title="Homes" to="/homes">
         <HomesSlider />
       </Section>
-      <Section title="Popular reservations around the world" to="/reservations">
-        <Reservations />
+      <Section title="Popular reservations around the world" to="/restaurants">
+        <Restaurants />
       </Section>
-
       <Section title="Featured destinations">
         <Destinations />
       </Section>

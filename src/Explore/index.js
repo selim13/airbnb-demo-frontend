@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import Slider from "../Slider";
 
@@ -7,7 +8,7 @@ import homeImg from "./homes.png";
 import expImg from "./experiences.png";
 import restaurantsImg from "./restaurants.png";
 
-const Card = styled.a`
+const Card = styled(Link)`
   flex: 0 0 auto;
   min-width: 144px;
   margin: 4px 8px;
@@ -49,17 +50,17 @@ const Heading = styled.div`
 export default function() {
   return (
     <Slider>
-      <Card href="#">
+      <Card to="/homes">
         <Image src={homeImg} width="192" height="144" alt="" />
         <Heading>Homes</Heading>
       </Card>
 
-      <Card href="#">
+      <Card to="/experiences">
         <Image src={expImg} width="192" height="144" alt="" />
         <Heading>Experiences</Heading>
       </Card>
 
-      <Card href="#">
+      <Card to="/restaurants">
         <Image src={restaurantsImg} width="192" height="144" alt="" />
         <Heading>Restaurants</Heading>
       </Card>
