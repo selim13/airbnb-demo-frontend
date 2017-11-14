@@ -5,16 +5,11 @@ import { Link } from "react-router-dom";
 import Reviews from "../Reviews";
 
 const Card = styled(Link)`
-  flex: 0 0 auto;
-  display: block;
-  width: 197px;
-  margin: 0 8px;
   font-size: 13px;
   color: #383838;
   text-decoration: none;
 
   @media (min-width: 660px) {
-    width: 310px;
     font-size: 15px;
   }
 `;
@@ -56,7 +51,7 @@ export default function({
 }) {
   return (
     <Card to={"/homes/" + id}>
-      <Image src={image} width="310" height="204" alt="" />
+      <Image src={image} width="368" height="204" alt="" />
       <Heading>
         ${price} {name}
       </Heading>

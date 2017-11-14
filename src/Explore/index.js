@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import Slider from "../Slider";
+import { Slider } from "../UI/Slider";
 
 import homeImg from "./homes.png";
 import expImg from "./experiences.png";

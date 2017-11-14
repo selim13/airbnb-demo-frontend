@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 
-import bp from "../breakpoints";
+import bp from "../../breakpoints";
 import rightArrowSvg from "./rightArrow.svg";
 
-const SliderContainer = styled.div`
+export const SliderContainer = styled.div`
   position: relative;
   max-width: ${bp.lg}px;
   margin: 0 auto;
@@ -14,10 +13,9 @@ const SliderContainer = styled.div`
     overflow-x: hidden;
   }
 `;
-const Slider = styled.div`
+export const SliderRow = styled.div`
   display: flex;
   width: fit-content;
-  justify-content: space-between;
 `;
 const NavBtn = styled.button`
   position: absolute;
@@ -37,17 +35,7 @@ const NavBtn = styled.button`
     display: block;
   }
 `;
-const NextBtn = NavBtn.extend`
+export const NextBtn = NavBtn.extend`
   right: 0;
   background: #ffffff url(${rightArrowSvg}) left 16px center no-repeat;
 `;
-
-export default function({ children, hasDesktopNavigation }) {
-  return (
-    <SliderContainer>
-      {/* TODO: PrevBtn */}
-      <Slider>{children}</Slider>
-      {hasDesktopNavigation && <NextBtn />}
-    </SliderContainer>
-  );
-}
