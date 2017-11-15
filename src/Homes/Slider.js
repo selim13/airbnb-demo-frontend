@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import bp from "../breakpoints";
 import { Slider, Slide } from "../UI/Slider";
