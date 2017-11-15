@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
+import GoogleMapReact from "google-map-react";
 
 import bp from "../breakpoints";
 import Container from "../Container";
@@ -97,7 +98,12 @@ export default function() {
           </Col>
         </Row>
       </Container>
-      <Map />
+      <Map>
+        <GoogleMapReact
+          defaultCenter={{ lat: 57.307, lng: 15.53 }}
+          defaultZoom={5}
+        />
+      </Map>
       <ToggleMapButton title="Show map" />
     </div>
   );
