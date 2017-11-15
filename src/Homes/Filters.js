@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import bp from "../breakpoints";
 import Container from "../Container";
 import Button from "../UI/Button";
 
@@ -24,6 +25,12 @@ const FilterButton = Button.extend`
     margin-right: 0;
   }
 `;
+const DesktopFilterButton = FilterButton.extend`
+  display: none;
+  @media (min-width: ${bp.md}px) {
+    display: inline-block;
+  }
+`;
 const BarRow = styled.div`
   display: flex;
   align-items: center;
@@ -38,9 +45,9 @@ export default function() {
           <BarRow>
             <FilterButton>Dates</FilterButton>
             <FilterButton>Guests</FilterButton>
-            <FilterButton>Room type</FilterButton>
-            <FilterButton>Price</FilterButton>
-            <FilterButton>Instant book</FilterButton>
+            <DesktopFilterButton>Room type</DesktopFilterButton>
+            <DesktopFilterButton>Price</DesktopFilterButton>
+            <DesktopFilterButton>Instant book</DesktopFilterButton>
             <FilterButton>More filters</FilterButton>
           </BarRow>
         </Container>
