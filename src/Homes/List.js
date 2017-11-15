@@ -45,7 +45,7 @@ const PaginationWrap = styled.div`
   }
 
   @media (min-width: ${bp.md}px) {
-    margin-top: 0;
+    margin-top: 8px;
   }
 `;
 const Info = styled.p`
@@ -55,16 +55,13 @@ const Info = styled.p`
   text-align: center;
 
   @media (min-width: ${bp.sm}px) {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
   }
 `;
 const ToggleMapButton = styled.button`
   position: fixed;
   right: 8px;
   bottom: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 40px;
   width: 40px;
   margin-left: 8px;
