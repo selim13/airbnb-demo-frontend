@@ -25,24 +25,43 @@ const Map = styled.aside`
   right: 0;
 
   display: none;
-  width: 33%;
-  background-color: #555;
+  width: 33.33333%;
+  padding-left: 8px;
 
   @media (min-width: ${bp.md}px) {
     display: block;
   }
-`;
 
+  @media (min-width: ${bp.lg}px) {
+    width: calc(50% - 165px);
+  }
+`;
+const PaginationWrap = styled.div`
+  margin-top: 20px;
+  margin-bottom: 24px;
+
+  @media (min-width: ${bp.sm}px) {
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: ${bp.md}px) {
+    margin-top: 0;
+  }
+`;
 const Info = styled.p`
-  margin: 40px 0;
+  margin-bottom: 65px;
   font-size: 16px;
   color: #636363;
   text-align: center;
+
+  @media (min-width: ${bp.sm}px) {
+    margin-bottom: 40px;
+  }
 `;
 const ToggleMapButton = styled.button`
   position: fixed;
   right: 8px;
-  bottom: 8px;
+  bottom: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,10 +104,12 @@ export default function() {
       <Container>
         <Row>
           <Col xs={12} md={8}>
-            <Row center="xs">{homesList}</Row>
+            <Row>{homesList}</Row>
             <Row center="xs">
               <Col xs={12}>
-                <Pagination />
+                <PaginationWrap>
+                  <Pagination />
+                </PaginationWrap>
                 <Info>
                   Enter dates to see full pricing. Additional fees apply. Taxes
                   may be added.
