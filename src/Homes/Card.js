@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import Reviews from "../Reviews";
+import Reviews from "../UI/Reviews";
 
 const Card = styled(Link)`
   font-size: 13px;

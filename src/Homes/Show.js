@@ -1,6 +1,6 @@
 import React from "react";
 
-import Container from "../Container";
+import Container from "../UI/Container";
 
 export default function({ match }) {
   return (

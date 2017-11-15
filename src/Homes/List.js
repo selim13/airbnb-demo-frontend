@@ -4,7 +4,7 @@ import { Row, Col } from "react-flexbox-grid";
 import GoogleMapReact from "google-map-react";
 
 import bp from "../breakpoints";
-import Container from "../Container";
+import Container from "../UI/Container";
 import Card from "./Card";
 import Filters from "./Filters";
 import Pagination from "../UI/Pagination";

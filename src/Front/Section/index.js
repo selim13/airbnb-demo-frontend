@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
-import Container from "../../Container";
+import Container from "../../UI/Container";
 import rightArrowSvg from "./rightArrow.svg";
 
-const Section = styled.section`margin-bottom: 48px;`;
+const Section = styled.section`margin: 48px 0;`;
 const HeadingWrapper = styled.div`
   display: flex;
   align-items: center;

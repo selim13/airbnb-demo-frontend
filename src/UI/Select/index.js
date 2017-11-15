@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import bp from "../breakpoints";
-import Hidden from "../Hidden";
+import bp from "../../breakpoints";
+import VisuallyHidden from "../../UI/VisuallyHidden";
 import downArrowSvg from "./downArrow.svg";
 
-const Label = Hidden.withComponent("label");
+const Label = VisuallyHidden.withComponent("label");
 
 const Select = styled.select`
   display: block;

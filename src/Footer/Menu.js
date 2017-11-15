@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../breakpoints";
-import Link from "../Link";
-import Select from "../Select";
+import Link from "../UI/Link";
+import Select from "../UI/Select";
 
 const Menu = styled.div`
   padding: 16px 0;

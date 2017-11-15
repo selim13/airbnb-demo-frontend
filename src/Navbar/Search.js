@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import Hidden from "../Hidden";
+import VisuallyHidden from "../UI/VisuallyHidden";
 import searchIcon from "./search.svg";
 
-const Label = Hidden.withComponent("label");
+const Label = VisuallyHidden.withComponent("label");
 
 const Input = styled.input`
   display: block;

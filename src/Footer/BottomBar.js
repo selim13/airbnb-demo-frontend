@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../breakpoints";
-import Link from "../Link";
+import Link from "../UI/Link";
 
 import logoSvg from "./logo.svg";
 import facebookSvg from "./facebook.svg";

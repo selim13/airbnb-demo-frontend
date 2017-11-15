@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../breakpoints";
-import Container from "../Container";
+import Container from "../UI/Container";
 import Button from "../UI/Button";
 
 const FixedPlaceholder = styled.div`
