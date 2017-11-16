@@ -8,8 +8,8 @@ import data from "../Homes/staticData";
 
 const HomeSlide = Slide.extend`
   max-width: 197px;
-  @media (min-width: ${bp.md}px) {
-    max-width: 320px;
+  @media (min-width: ${bp.sm}px) {
+    max-width: 314px;
   }
 `;
 

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import bp from "../breakpoints";
 import Reviews from "../UI/Reviews";
 
 const Card = styled(Link)`
@@ -9,7 +10,7 @@ const Card = styled(Link)`
   color: #383838;
   text-decoration: none;
 
-  @media (min-width: 660px) {
+  @media (min-width: ${bp.sm}px) {
     font-size: 15px;
   }
 `;
@@ -29,7 +30,7 @@ const Heading = styled.p`
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  @media (min-width: 660px) {
+  @media (min-width: ${bp.sm}px) {
     font-size: 15px;
     line-height: 21px;
     max-height: 21px;
@@ -51,7 +52,7 @@ export default function({
 }) {
   return (
     <Card to={"/homes/" + id}>
-      <Image src={image} width="368" height="204" alt="" />
+      <Image src={image} width="738" height="494" alt="" />
       <Heading>
         ${price} {name}
       </Heading>

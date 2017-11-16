@@ -2,23 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import bp from "../breakpoints";
+
 const Card = styled(Link)`
-  flex: 0 0 auto;
-  display: block;
-  width: 144px;
-  margin: 0 8px;
   font-size: 13px;
   color: #383838;
   text-decoration: none;
 
-  @media (min-width: 670px) {
+  @media (min-width: ${bp.sm}px) {
     width: 229px;
     font-size: 15px;
   }
 `;
 const Image = styled.img`
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   margin-bottom: 8px;
 `;
@@ -28,7 +26,7 @@ const Category = styled.p`
   font-weight: bold;
   text-transform: uppercase;
 
-  @media (min-width: 670px) {
+  @media (min-width: ${bp.sm}px) {
     font-size: 10px;
   }
 `;
@@ -37,7 +35,7 @@ const Heading = styled.p`
   font-size: 14px;
   font-weight: bold;
 
-  @media (min-width: 670px) {
+  @media (min-width: ${bp.sm}px) {
     font-size: 18px;
   }
 `;
@@ -46,7 +44,7 @@ const Price = styled.p`
   font-size: 12px;
   font-weight: 300;
 
-  @media (min-width: 670px) {
+  @media (min-width: ${bp.sm}px) {
     font-size: 19px;
   }
 `;
@@ -54,7 +52,7 @@ const Price = styled.p`
 export default function({ id, name, image, category, price }) {
   return (
     <Card to={"/restaurants/" + id}>
-      <Image src={image} width="229" height="161" alt="" />
+      <Image src={image} width="458" height="238" alt="" />
       <Category>{category}</Category>
       <Heading>{name}</Heading>
       <Price>About ${price} per person</Price>

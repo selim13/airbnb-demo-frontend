@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import bp from "../../breakpoints";
 import { Slider } from "../../UI/Slider";
 
 import homeImg from "./homes.png";
@@ -18,10 +19,10 @@ const Card = styled(Link)`
   text-decoration: none;
   background: #ffffff;
 
-  @media (min-width: 490px) {
+  @media (min-width: ${bp.sm}px) {
     display: flex;
     align-items: center;
-    min-width: 310px;
+    min-width: 314px;
   }
 `;
 const Image = styled.img`
@@ -31,7 +32,7 @@ const Image = styled.img`
   margin: -1px;
   border-radius: 4px 4px 0 0;
 
-  @media (min-width: 490px) {
+  @media (min-width: ${bp.sm}px) {
     width: 96px;
     border-radius: 4px 0 0 4px;
   }
@@ -42,7 +43,7 @@ const Heading = styled.div`
   font-weight: bold;
   color: #383838;
 
-  @media (min-width: 490px) {
+  @media (min-width: ${bp.sm}px) {
     font-size: 17px;
   }
 `;
