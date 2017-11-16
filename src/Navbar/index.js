@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
+import { Link } from "react-router-dom";
 
 import bp from "../breakpoints";
 
@@ -23,7 +24,7 @@ const Bar = styled.div`
   background-color: #ffffff;
 `;
 const BarRow = styled(Row)`height: 79px;`;
-const LogoButton = styled.button`
+const LogoButton = styled(Link)`
   display: flex;
   align-items: center;
   padding-right: 16px;
@@ -45,7 +46,7 @@ export default function({ searchPlaceholder = "Search", searchValue }) {
         <Container>
           <BarRow middle="xs">
             <Col xs={2} md={1}>
-              <LogoButton>
+              <LogoButton to="/">
                 <img src={logo} alt="AirBnB" width="30" height="32" />
               </LogoButton>
             </Col>
