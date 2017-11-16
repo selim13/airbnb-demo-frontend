@@ -3,11 +3,11 @@ import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import Section from "./Section";
-import Explore from "../Explore";
-import Experiences from "../Experiences";
-import HomesSlider from "../Homes/Slider";
-import Restaurants from "../Restaurants";
-import Destinations from "../Destinations";
+import Explore from "./Explore";
+import Experiences from "./Experiences";
+import Homes from "./Homes";
+import Reservations from "./Reservations";
+import Destinations from "./Destinations";
 
 export default function() {
   return (
@@ -22,13 +22,13 @@ export default function() {
           <Experiences />
         </Section>
         <Section title="Homes" to="/homes">
-          <HomesSlider />
+          <Homes />
         </Section>
         <Section
           title="Popular reservations around the world"
           to="/restaurants"
         >
-          <Restaurants />
+          <Reservations />
         </Section>
         <Section title="Featured destinations">
           <Destinations />

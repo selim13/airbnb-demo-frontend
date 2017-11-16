@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Slider } from "../UI/Slider";
-import Card from "./Card";
+import Card from "../Experiences/Card";
 
-import data from "./staticData";
+import data from "../Experiences/staticData";
 
 export default function() {
   const experiencesList = data.map(experience => (
