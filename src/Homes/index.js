@@ -10,7 +10,10 @@ import Show from "./Show";
 export default function() {
   return (
     <div>
-      <Navbar searchPlaceholder="Anywhere &middot; Homes" />
+      <Navbar
+        searchPlaceholder="Anywhere"
+        searchValue="Anywhere &middot; Homes"
+      />
 
       <main>
         <Route exact path="/homes" component={List} />
