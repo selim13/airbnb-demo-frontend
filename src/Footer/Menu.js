@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Row, Col } from "react-flexbox-grid";
 
 import bp from "../breakpoints";
 import Link from "../UI/Link";
@@ -37,10 +38,10 @@ const MenuLink = Link.extend`
 export default function() {
   return (
     <Menu>
-      <div className="row">
-        <div className="col-xs-12 col-md-3">
-          <div className="row">
-            <div className="col-xs-6 col-md-12">
+      <Row>
+        <Col xs={12} md={3}>
+          <Row>
+            <Col xs={6} md={12}>
               <LanguageSelect
                 id="language-selector"
                 name="language-selector"
@@ -54,8 +55,8 @@ export default function() {
                 <option>Русский</option>
                 <option>ภาษาไทย</option>
               </LanguageSelect>
-            </div>
-            <div className="col-xs-6 col-md-12">
+            </Col>
+            <Col xs={6} md={12}>
               <Select
                 id="currency-selector"
                 name="currency-selector"
@@ -64,11 +65,11 @@ export default function() {
                 <option>United States dollar</option>
                 <option>Russian Rouble</option>
               </Select>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Col>
 
-        <div className="col-md-2 col-md-offset-1">
+        <Col md={2} mdOffset={1}>
           <Nav>
             <Heading>Airbnb</Heading>
             <MenuLink href="#">About us</MenuLink>
@@ -78,8 +79,8 @@ export default function() {
             <MenuLink href="#">Help</MenuLink>
             <MenuLink href="#">Diversity &amp; Belonging</MenuLink>
           </Nav>
-        </div>
-        <div className="col-md-2 col-md-offset-1">
+        </Col>
+        <Col md={2} mdOffset={1}>
           <Nav>
             <Heading>Discover</Heading>
             <MenuLink href="#">Trust &amp; Safety</MenuLink>
@@ -90,8 +91,8 @@ export default function() {
             <MenuLink href="#">Guidebooks</MenuLink>
             <MenuLink href="#">Airbnbmag</MenuLink>
           </Nav>
-        </div>
-        <div className="col-md-2 col-md-offset-1">
+        </Col>
+        <Col md={2} mdOffset={1}>
           <Nav>
             <Heading>Hosting</Heading>
             <MenuLink href="#">Why Host</MenuLink>
@@ -99,8 +100,8 @@ export default function() {
             <MenuLink href="#">Responsible Hosting</MenuLink>
             <MenuLink href="#">Community Center</MenuLink>
           </Nav>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Menu>
   );
 }

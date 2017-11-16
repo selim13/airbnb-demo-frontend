@@ -2693,12 +2693,6 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flexboxgrid2@^7.0.0-alpha11:
-  version "7.0.0-alpha11"
-  resolved "https://registry.yarnpkg.com/flexboxgrid2/-/flexboxgrid2-7.0.0-alpha11.tgz#9af4a6f2e1c725e5841c08c983b6bde4c69ce498"
-  dependencies:
-    normalize.css "^7.0.0"
-
 flexboxgrid2@^7.0.0-alpha7:
   version "7.0.0-alpha9"
   resolved "https://registry.yarnpkg.com/flexboxgrid2/-/flexboxgrid2-7.0.0-alpha9.tgz#f4025e67ef36b2a1e0700af77c94ca3f5eee2ec9"

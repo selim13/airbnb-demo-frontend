@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Row, Col } from "react-flexbox-grid";
 
 import bp from "../breakpoints";
 
@@ -21,7 +22,7 @@ const Bar = styled.div`
   border-bottom: 1px solid rgba(72, 72, 72, 0.3);
   background-color: #ffffff;
 `;
-const BarRow = styled.div`height: 79px;`;
+const BarRow = styled(Row)`height: 79px;`;
 const LogoButton = styled.button`
   display: flex;
   align-items: center;
@@ -42,25 +43,25 @@ export default function({ searchPlaceholder = "Search", searchValue }) {
     <FixedPlaceholder>
       <Bar>
         <Container>
-          <BarRow className="row middle-xs">
-            <div className="col-xs-2 col-md-1">
+          <BarRow middle="xs">
+            <Col xs={2} md={1}>
               <LogoButton>
                 <img src={logo} alt="AirBnB" width="30" height="32" />
               </LogoButton>
-            </div>
+            </Col>
 
-            <div className="col-xs-10 col-md-7 col-lg-5">
+            <Col xs={10} md={7} lg={5}>
               <Search
                 name="site-search"
                 id="site-search"
                 placeholder={searchPlaceholder}
                 value={searchValue}
               />
-            </div>
+            </Col>
 
-            <div className="col-lg-6">
+            <Col lg={6}>
               <Menu />
-            </div>
+            </Col>
           </BarRow>
         </Container>
       </Bar>
