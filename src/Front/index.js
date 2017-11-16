@@ -12,7 +12,7 @@ import Destinations from "../Destinations";
 export default function() {
   return (
     <div>
-      <Navbar />
+      <Navbar searchPlaceholder="Try &quot;Miami&quot;" />
 
       <main>
         <Section title="Explore Airbnb">

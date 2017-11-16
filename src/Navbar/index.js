@@ -37,7 +37,7 @@ const LogoButton = styled.button`
   }
 `;
 
-export default function() {
+export default function({ searchPlaceholder = "Search" }) {
   return (
     <FixedPlaceholder>
       <Bar>
@@ -53,7 +53,7 @@ export default function() {
               <Search
                 name="site-search"
                 id="site-search"
-                placeholder="Try Miami"
+                placeholder={searchPlaceholder}
               />
             </div>
 
