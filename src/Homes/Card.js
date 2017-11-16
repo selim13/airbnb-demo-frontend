@@ -15,7 +15,7 @@ const Card = styled(Link)`
 `;
 const Image = styled.img`
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   margin-bottom: 8px;
 `;

@@ -15,7 +15,6 @@ const HomeSlide = Slide.extend`
 
 export default function() {
   const homesList = data.map(home => (
-    // FIXME: grid class on a styled component sux
     <HomeSlide key={home.id}>
       <Card
         id={home.id}
@@ -29,9 +28,5 @@ export default function() {
     </HomeSlide>
   ));
 
-  return (
-    <Slider className="row" hasDesktopNavigation>
-      {homesList}
-    </Slider>
-  );
+  return <Slider hasDesktopNavigation>{homesList}</Slider>;
 }
