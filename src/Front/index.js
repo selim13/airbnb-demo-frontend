@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import Section from "./Section";
+import Section from "../UI/Section";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
 import Homes from "./Homes";
