@@ -18,7 +18,7 @@ const CardWrap = styled.div`
     margin-bottom: 40px;
   }
 `;
-const Map = styled.aside`
+const MapBox = styled.aside`
   position: fixed;
   top: 135px;
   bottom: 0;
@@ -116,12 +116,12 @@ export default function() {
           </Col>
         </Row>
       </Container>
-      <Map>
+      <MapBox>
         <GoogleMapReact
           defaultCenter={{ lat: 57.307, lng: 15.53 }}
           defaultZoom={5}
         />
-      </Map>
+      </MapBox>
       <ToggleMapButton title="Show map" />
     </div>
   );
