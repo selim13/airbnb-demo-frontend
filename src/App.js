@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Front from "./Front";
+import Landing from "./Landing";
 import Homes from "./Homes";
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={Front} />
+          <Route exact path="/" component={Landing} />
           <Route path="/homes" component={Homes} />
         </div>
       </BrowserRouter>
