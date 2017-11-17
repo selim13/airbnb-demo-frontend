@@ -13,7 +13,7 @@ const Text = styled.span`
   font-size: 12px;
 `;
 
-export default function({ rating, number, label, status }) {
+export default function({ rating, count, label, status }) {
   const starsList = [1, 2, 3, 4, 5].map(i => {
     if (i <= rating)
       return <Star src={starFilledSvg} key={i} width="12" height="13" alt="" />;
@@ -25,8 +25,8 @@ export default function({ rating, number, label, status }) {
     <div>
       {starsList}
       <Text>
-        {number > 0 && number}
-        {number > 0 && label && " " + label}
+        {count > 0 && count}
+        {count > 0 && label && " " + label}
         {status && " · " + status}
       </Text>
     </div>

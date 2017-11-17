@@ -61,7 +61,7 @@ export default function({
       </Description>
       <Reviews
         rating={reviews.rating}
-        number={reviews.number}
+        count={reviews.count}
         status={reviews.status}
       />
     </Card>

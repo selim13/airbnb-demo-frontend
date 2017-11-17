@@ -13,7 +13,7 @@ export default [
     price: 82,
     roomType: "Entire house",
     bedsNumber: 9,
-    reviews: { rating: 4, number: 97, status: "Superhost" }
+    reviews: { rating: 4, count: 97, status: "Superhost" }
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export default [
     price: 82,
     roomType: "Entire house",
     bedsNumber: 9,
-    reviews: { rating: 5, number: 161, status: "Superhost" }
+    reviews: { rating: 5, count: 161, status: "Superhost" }
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export default [
     price: 200,
     roomType: "Entire treehouse",
     bedsNumber: 9,
-    reviews: { rating: 5, number: 364, status: "Superhost" }
+    reviews: { rating: 5, count: 364, status: "Superhost" }
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ export default [
     price: 110,
     roomType: "Entire apartment",
     bedsNumber: 1,
-    reviews: { rating: 5, number: 369, status: "Superhost" }
+    reviews: { rating: 5, count: 369, status: "Superhost" }
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export default [
     price: 83,
     roomType: "Entire apartment",
     bedsNumber: 6,
-    reviews: { rating: 5, number: 105, status: "Superhost" }
+    reviews: { rating: 5, count: 105, status: "Superhost" }
   },
   {
     id: 6,
@@ -58,6 +58,6 @@ export default [
     price: 72,
     roomType: "Entire house",
     bedsNumber: 3,
-    reviews: { rating: 5, number: 221, status: "Superhost" }
+    reviews: { rating: 5, count: 221, status: "Superhost" }
   }
 ];

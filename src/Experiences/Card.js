@@ -32,11 +32,7 @@ export default function({ id, name, image, price, reviews = {} }) {
       <Heading>
         <b>${price}</b> {name}
       </Heading>
-      <Reviews
-        rating={reviews.rating}
-        number={reviews.number}
-        label="reviews"
-      />
+      <Reviews rating={reviews.rating} count={reviews.count} label="reviews" />
     </Card>
   );
 }
