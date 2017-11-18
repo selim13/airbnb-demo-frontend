@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import pluralize from "pluralize";
 
 import bp from "../../breakpoints";
 import NumericInput from "../../UI/NumericInput";
@@ -28,10 +29,18 @@ export default class extends React.Component {
   };
 
   guestsLabelFormatter(adults, children, infants) {
-    const guestsTotal = adults + children + infants;
+    const guests = adults + children;
 
-    // TODO: display infants separately
-    if (guestsTotal > 1) return `${guestsTotal} guests`;
+    if (guests + infants > 1) {
+      if (infants > 0) {
+        return (
+          `${guests} ${pluralize("guest", guests)}, ` +
+          `${infants} ${pluralize("infant", infants)}`
+        );
+      } else {
+        return `${guests} ${pluralize("guest", guests)}`;
+      }
+    }
 
     return "Guests";
   }
