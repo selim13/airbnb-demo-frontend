@@ -7,7 +7,7 @@ import Dropdown from "../../UI/Dropdown";
 import DatePicker from "../../UI/DatePicker";
 import {
   Container,
-  MobileHeader,
+  MobileHeader as FilterMobileHeader,
   CloseButton,
   ResetButton,
   Footer,
@@ -18,8 +18,9 @@ import {
 import closeSvg from "./close.svg";
 import arrowRightSvg from "./arrowRight.svg";
 
+const MobileHeader = FilterMobileHeader.extend`border-bottom: none;`;
 const Body = styled.div`
-  padding-top: 40px;
+  padding-top: 22px;
   @media (min-width: ${bp.sm}px) {
     padding-top: 10px;
   }
@@ -44,6 +45,10 @@ export default class extends React.Component {
 
   static defaultProps = {};
 
+  reset = () => {
+    this.setState({ startDate: null, endDate: null });
+  };
+
   render() {
     let dateText = "Dates";
     if (this.state.startDate) {
@@ -57,6 +62,7 @@ export default class extends React.Component {
 
       dateText += " " + this.state.endDate.format("D");
     }
+
     const checkIn = this.state.startDate
       ? this.state.startDate.format("MMM D")
       : "Check in";
@@ -73,7 +79,7 @@ export default class extends React.Component {
                 <img src={closeSvg} alt="" />
               </CloseButton>
               When
-              <ResetButton>Reset</ResetButton>
+              <ResetButton onClick={this.reset}>Reset</ResetButton>
             </MobileHeader>
           </MediaQuery>
           <Body>
