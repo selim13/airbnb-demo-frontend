@@ -18,27 +18,40 @@ const BottomBar = styled.div`
     justify-content: space-between;
   }
 `;
+
 const LogoWrap = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+
+  @media (min-width: ${bp.sm}px) {
+    margin-bottom: 0;
+  }
 `;
+
 const Copyright = styled.span`margin-left: 16px;`;
 const Navs = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const MenuNav = styled.nav`
   display: flex;
   margin-left: -8px;
 `;
+
 const MenuLink = Link.extend`padding: 0 8px;`;
 const SocialNav = styled.nav`
   display: flex;
   margin-left: 10px;
   margin-right: -6px;
 `;
-const SocialLink = styled.a`padding: 0 6px;`;
+
+const SocialLink = styled.a`
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+`;
 
 export default function() {
   return (

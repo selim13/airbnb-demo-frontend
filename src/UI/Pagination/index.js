@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import leftArrowSvg from "./leftArrow.svg";
+// import leftArrowSvg from "./leftArrow.svg";
 import rightArrowSvg from "./rightArrow.svg";
 
 const Pagination = styled.div`text-align: center;`;
@@ -54,9 +54,9 @@ export default function() {
   return (
     <Pagination>
       <List>
-        <PrevNext href="#" title="Previous page">
+        {/* <PrevNext href="#" title="Previous page">
           <img src={leftArrowSvg} alt="" />
-        </PrevNext>
+        </PrevNext> */}
         <PageNumber href="#">1</PageNumber>
         <PageNumber href="#" isActive>
           2

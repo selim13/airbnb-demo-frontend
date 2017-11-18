@@ -43,6 +43,8 @@ const Price = styled.p`
   margin: 0;
   font-size: 12px;
   font-weight: 300;
+  mix-blend-mode: normal;
+  opacity: 0.9;
 
   @media (min-width: ${bp.sm}px) {
     font-size: 19px;

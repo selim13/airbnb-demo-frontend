@@ -24,13 +24,14 @@ const Heading = styled.p`
   margin: 0;
   font-weight: 300;
 `;
+const Price = styled.span`font-weight: bold;`;
 
 export default function({ id, name, image, price, reviews = {} }) {
   return (
     <Card to={"/experiences/" + id}>
       <Image src={image} width="458" height="694" alt="" />
       <Heading>
-        <b>${price}</b> {name}
+        <Price>${price}</Price> {name}
       </Heading>
       <Reviews rating={reviews.rating} count={reviews.count} label="reviews" />
     </Card>
