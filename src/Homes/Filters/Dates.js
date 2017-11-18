@@ -38,20 +38,21 @@ export default class extends React.Component {
     this.setState({ startDate: null, endDate: null });
   };
 
+  dateLabelFormatter(startDate, endDate) {
+    if (startDate && !endDate) {
+      return startDate.format("MMM D");
+    }
+
+    if (startDate && endDate) {
+      if (endDate.isSame(startDate, "month"))
+        return startDate.format("MMM D") + " – " + endDate.format("D");
+      else return startDate.format("MMM D") + " – " + endDate.format("MMM D");
+    }
+
+    return "Dates";
+  }
+
   render() {
-    let dateText = "Dates";
-    if (this.state.startDate) {
-      dateText = this.state.startDate.format("MMM D");
-    }
-
-    if (this.state.endDate) {
-      dateText += " – ";
-      if (!this.state.endDate.isSame(this.state.startDate, "month"))
-        dateText += this.state.endDate.format("MMM");
-
-      dateText += " " + this.state.endDate.format("D");
-    }
-
     const checkIn = this.state.startDate
       ? this.state.startDate.format("MMM D")
       : "Check in";
@@ -60,7 +61,14 @@ export default class extends React.Component {
       : "Check out";
 
     return (
-      <Filter buttonText={dateText} heading="When" onReset={this.reset}>
+      <Filter
+        buttonText={this.dateLabelFormatter(
+          this.state.startDate,
+          this.state.endDate
+        )}
+        heading="When"
+        onReset={this.reset}
+      >
         <Body>
           <MediaQuery maxDeviceWidth={bp.sm - 1}>
             <DateRange>

@@ -27,16 +27,23 @@ export default class extends React.Component {
     this.setState({ adults: 1, children: 0, infants: 0 });
   };
 
-  render() {
-    let buttonText = "Guests";
-    // TODO: display infants separately
-    const guestsTotal =
-      this.state.adults + this.state.children + this.state.infants;
-    if (guestsTotal > 1) buttonText = `${guestsTotal} guests`;
+  guestsLabelFormatter(adults, children, infants) {
+    const guestsTotal = adults + children + infants;
 
+    // TODO: display infants separately
+    if (guestsTotal > 1) return `${guestsTotal} guests`;
+
+    return "Guests";
+  }
+
+  render() {
     return (
       <Filter
-        buttonText={buttonText}
+        buttonText={this.guestsLabelFormatter(
+          this.state.adults,
+          this.state.children,
+          this.state.infants
+        )}
         heading="Guests"
         hasMobileHeaderSeparator
         hasMobileFooter
