@@ -60,7 +60,7 @@ export default class extends React.Component {
       : "Check out";
 
     return (
-      <Filter buttonText={dateText} heading="When" onReset={this.reset} active>
+      <Filter buttonText={dateText} heading="When" onReset={this.reset}>
         <Body>
           <MediaQuery maxDeviceWidth={bp.sm - 1}>
             <DateRange>

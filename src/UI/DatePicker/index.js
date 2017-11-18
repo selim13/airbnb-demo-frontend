@@ -31,6 +31,7 @@ export default class extends React.Component {
     keepOpenOnDateSelect: false,
     renderCalendarInfo: null,
     isRTL: false,
+    hideKeyboardShortcutsPanel: true,
 
     // navigation related props
     navPrev: null,
