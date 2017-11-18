@@ -8,11 +8,11 @@ const Wrap = styled.div`position: relative;`;
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: this.props.defaultOpen };
+    this.state = { isOpen: this.props.active };
   }
 
   static defaultProps = {
-    defaultOpen: false
+    active: false
   };
 
   close = () => {

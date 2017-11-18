@@ -8,6 +8,7 @@ export const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 500;
 
   display: flex;
   flex-direction: column;
@@ -27,14 +28,8 @@ export const Container = styled.div`
     border-radius: 4px;
   }
 `;
-export const Body = styled.div`
-  padding: 40px 8px 8px;
-
-  @media (min-width: ${bp.sm}px) {
-    padding: 30px 16px 0 24px;
-  }
-`;
 export const MobileHeader = styled.div`
+  flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

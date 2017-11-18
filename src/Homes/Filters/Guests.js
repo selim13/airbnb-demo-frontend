@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import MediaQuery from "react-responsive";
 
 import bp from "../../breakpoints";
@@ -9,7 +10,6 @@ import {
   MobileHeader,
   CloseButton,
   ResetButton,
-  Body,
   ControlsGroup,
   Label,
   Caption,
@@ -21,6 +21,14 @@ import {
 } from "./styled";
 
 import closeSvg from "./close.svg";
+
+export const Body = styled.div`
+  padding: 40px 8px 8px;
+
+  @media (min-width: ${bp.sm}px) {
+    padding: 30px 16px 0 24px;
+  }
+`;
 
 export default class extends React.Component {
   state = { adults: 1, children: 0, infants: 0 };
@@ -44,12 +52,12 @@ export default class extends React.Component {
     return (
       <Dropdown buttonText={buttonText}>
         <Container>
-          <MediaQuery maxDeviceWidth={bp.sm}>
+          <MediaQuery maxDeviceWidth={bp.sm - 1}>
             <MobileHeader>
               <CloseButton>
                 <img src={closeSvg} alt="" />
               </CloseButton>
-              When
+              Guests
               <ResetButton onClick={this.reset}>Reset</ResetButton>
             </MobileHeader>
           </MediaQuery>
