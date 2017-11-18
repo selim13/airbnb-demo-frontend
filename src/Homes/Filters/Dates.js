@@ -3,22 +3,11 @@ import styled from "styled-components";
 import MediaQuery from "react-responsive";
 
 import bp from "../../breakpoints";
-import Dropdown from "../../UI/Dropdown";
+import Filter from "./Filter";
 import DatePicker from "../../UI/DatePicker";
-import {
-  Container,
-  MobileHeader as FilterMobileHeader,
-  CloseButton,
-  ResetButton,
-  Footer,
-  CancelButton,
-  ApplyButton
-} from "./styled";
 
-import closeSvg from "./close.svg";
 import arrowRightSvg from "./arrowRight.svg";
 
-const MobileHeader = FilterMobileHeader.extend`border-bottom: none;`;
 const Body = styled.div`
   padding-top: 22px;
   @media (min-width: ${bp.sm}px) {
@@ -71,72 +60,55 @@ export default class extends React.Component {
       : "Check out";
 
     return (
-      <Dropdown buttonText={dateText} active>
-        <Container>
+      <Filter buttonText={dateText} heading="When" onReset={this.reset} active>
+        <Body>
           <MediaQuery maxDeviceWidth={bp.sm - 1}>
-            <MobileHeader>
-              <CloseButton>
-                <img src={closeSvg} alt="" />
-              </CloseButton>
-              When
-              <ResetButton onClick={this.reset}>Reset</ResetButton>
-            </MobileHeader>
+            <DateRange>
+              <DateRangeLabel active={!this.state.startDate}>
+                {checkIn}
+              </DateRangeLabel>
+              <DateRangeArrow src={arrowRightSvg} alt="" />
+              <DateRangeLabel
+                active={this.state.startDate && !this.state.endDate}
+              >
+                {checkOut}
+              </DateRangeLabel>
+            </DateRange>
           </MediaQuery>
-          <Body>
+          <DatePickerWrap>
             <MediaQuery maxDeviceWidth={bp.sm - 1}>
-              <DateRange>
-                <DateRangeLabel active={!this.state.startDate}>
-                  {checkIn}
-                </DateRangeLabel>
-                <DateRangeArrow src={arrowRightSvg} alt="" />
-                <DateRangeLabel
-                  active={this.state.startDate && !this.state.endDate}
-                >
-                  {checkOut}
-                </DateRangeLabel>
-              </DateRange>
+              <DatePicker
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onDatesChange={({ startDate, endDate }) =>
+                  this.setState({ startDate, endDate })}
+                orientation="vertical"
+                numberOfMonths={2}
+                navPrev=""
+                navNext=""
+              />
             </MediaQuery>
-            <DatePickerWrap>
-              <MediaQuery maxDeviceWidth={bp.sm - 1}>
-                <DatePicker
-                  startDate={this.state.startDate}
-                  endDate={this.state.endDate}
-                  onDatesChange={({ startDate, endDate }) =>
-                    this.setState({ startDate, endDate })}
-                  orientation="vertical"
-                  numberOfMonths={2}
-                  navPrev=""
-                  navNext=""
-                />
-              </MediaQuery>
-              <MediaQuery minDeviceWidth={bp.sm} maxDeviceWidth={bp.md - 1}>
-                <DatePicker
-                  startDate={this.state.startDate}
-                  endDate={this.state.endDate}
-                  onDatesChange={({ startDate, endDate }) =>
-                    this.setState({ startDate, endDate })}
-                  numberOfMonths={1}
-                />
-              </MediaQuery>
-              <MediaQuery minDeviceWidth={bp.md}>
-                <DatePicker
-                  startDate={this.state.startDate}
-                  endDate={this.state.endDate}
-                  onDatesChange={({ startDate, endDate }) =>
-                    this.setState({ startDate, endDate })}
-                  numberOfMonths={2}
-                />
-              </MediaQuery>
-            </DatePickerWrap>
-          </Body>
-          <MediaQuery minDeviceWidth={bp.sm}>
-            <Footer>
-              <CancelButton>Cancel</CancelButton>
-              <ApplyButton>Apply</ApplyButton>
-            </Footer>
-          </MediaQuery>
-        </Container>
-      </Dropdown>
+            <MediaQuery minDeviceWidth={bp.sm} maxDeviceWidth={bp.md - 1}>
+              <DatePicker
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onDatesChange={({ startDate, endDate }) =>
+                  this.setState({ startDate, endDate })}
+                numberOfMonths={1}
+              />
+            </MediaQuery>
+            <MediaQuery minDeviceWidth={bp.md}>
+              <DatePicker
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onDatesChange={({ startDate, endDate }) =>
+                  this.setState({ startDate, endDate })}
+                numberOfMonths={2}
+              />
+            </MediaQuery>
+          </DatePickerWrap>
+        </Body>
+      </Filter>
     );
   }
 }
