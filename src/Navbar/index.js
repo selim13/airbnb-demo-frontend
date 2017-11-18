@@ -20,7 +20,7 @@ const Bar = styled.div`
   right: 0;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
+  border-bottom: 1px solid #e3e3e3;
   background-color: #ffffff;
 `;
 const BarRow = styled(Row)`height: 79px;`;

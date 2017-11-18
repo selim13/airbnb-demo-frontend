@@ -11,7 +11,7 @@ import twitterSvg from "./twitter.svg";
 
 const BottomBar = styled.div`
   padding: 32px 0;
-  border-top: 1px solid rgba(72, 72, 72, 0.3);
+  border-top: 1px solid rgba(72, 72, 72, 0.08);
 
   @media (min-width: ${bp.sm}px) {
     display: flex;

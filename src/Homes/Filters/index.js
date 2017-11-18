@@ -18,7 +18,7 @@ const Bar = styled.div`
   right: 0;
   z-index: 100;
   width: 100%;
-  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
+  border-bottom: 1px solid #e3e3e3;
   background-color: #ffffff;
 `;
 const FilterButton = styled.div`
