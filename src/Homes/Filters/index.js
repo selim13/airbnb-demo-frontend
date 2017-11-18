@@ -4,8 +4,8 @@ import styled from "styled-components";
 import bp from "../../breakpoints";
 import Container from "../../UI/Container";
 import Button from "../../UI/Button";
-import Dropdown from "../../UI/Dropdown";
-import GuestsFilter from "./Guests";
+import Guests from "./Guests";
+import Dates from "./Dates";
 
 const FixedPlaceholder = styled.div`
   height: 56px;
@@ -46,10 +46,10 @@ export default function() {
         <Container>
           <BarRow>
             <FilterButton>
-              <Dropdown buttonText="Dates">Dates</Dropdown>
+              <Dates />
             </FilterButton>
             <FilterButton>
-              <GuestsFilter />
+              <Guests />
             </FilterButton>
             <DesktopFilterButton>
               <Button>Room type</Button>

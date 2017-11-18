@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "google-map-react": "^0.25.0",
+    "moment": "^2.19.2",
     "normalize.css": "^7.0.0",
     "react": "^16.0.0",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dates": "^15.1.0",
     "react-dom": "^16.0.0",
     "react-flexbox-grid": "^2.0.0",
     "react-responsive": "^4.0.0",
