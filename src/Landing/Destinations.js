@@ -15,9 +15,8 @@ const DestinationsSlide = Slide.extend`
 
 export default function() {
   const destinationsList = data.map(destination => (
-    <DestinationsSlide>
+    <DestinationsSlide key={destination.code}>
       <Card
-        key={destination.code}
         code={destination.code}
         name={destination.name}
         image={destination.image}

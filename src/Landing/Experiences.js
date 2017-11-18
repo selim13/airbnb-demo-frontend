@@ -15,9 +15,8 @@ const ExperienceSlide = Slide.extend`
 
 export default function() {
   const experiencesList = data.map(experience => (
-    <ExperienceSlide>
+    <ExperienceSlide key={experience.id}>
       <Card
-        key={experience.id}
         id={experience.id}
         name={experience.name}
         image={experience.image}
