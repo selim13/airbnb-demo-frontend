@@ -1,29 +1,18 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 
-import Navbar from "./Navbar";
-import Explore from "./Explore";
-import Experiences from "./Experiences";
+import Landing from "./Landing";
 import Homes from "./Homes";
-import Reservations from "./Reservations";
-import Destinations from "./Destinations";
-import Footer from "./Footer";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Navbar />
-
-        <main>
-          <Explore />
-          <Experiences />
-          <Homes />
-          <Reservations />
-          <Destinations />
-        </main>
-
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={Landing} />
+          <Route path="/homes" component={Homes} />
+        </div>
+      </BrowserRouter>
     );
   }
 }

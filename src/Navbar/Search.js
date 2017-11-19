@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import Hidden from "../Hidden";
+import VisuallyHidden from "../UI/VisuallyHidden";
 import searchIcon from "./search.svg";
 
-const Label = Hidden.withComponent("label");
+const Label = VisuallyHidden.withComponent("label");
 
 const Input = styled.input`
   display: block;
@@ -18,15 +18,26 @@ const Input = styled.input`
   font-size: 16px;
   line-height: 24px;
   font-family: inherit;
+  color: #383838;
 
-  background: #ffffff url(${searchIcon}) left 16px center no-repeat;\
+  background: #ffffff url(${searchIcon}) left 16px center no-repeat;
+
+  &::placeholder {
+    color: #383838;
+    opacity: 0.64;
+  }
 `;
 
 export default function({ className, id, name, placeholder, value }) {
   return (
     <div className={className}>
       <Label htmlFor={id}>Search</Label>
-      <Input id={id} name={name} placeholder={placeholder} value={value} />
+      <Input
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        defaultValue={value}
+      />
     </div>
   );
 }
