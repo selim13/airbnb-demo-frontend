@@ -30,12 +30,9 @@ const DatePickerWrap = styled.div`
 `;
 
 export default class extends React.Component {
-  state = { startDate: null, endDate: null };
-
-  static defaultProps = {};
-
-  reset = () => {
-    this.setState({ startDate: null, endDate: null });
+  static defaultProps = {
+    onFilterChange: () => {},
+    onReset: () => {}
   };
 
   dateLabelFormatter(startDate, endDate) {
@@ -53,31 +50,34 @@ export default class extends React.Component {
   }
 
   render() {
-    const checkIn = this.state.startDate
-      ? this.state.startDate.format("MMM D")
+    const checkIn = this.props.startDate
+      ? this.props.startDate.format("MMM D")
       : "Check in";
-    const checkOut = this.state.endDate
-      ? this.state.endDate.format("MMM D")
+    const checkOut = this.props.endDate
+      ? this.props.endDate.format("MMM D")
       : "Check out";
 
     return (
       <Filter
+        isOpen={this.props.isOpen}
         buttonText={this.dateLabelFormatter(
-          this.state.startDate,
-          this.state.endDate
+          this.props.startDate,
+          this.props.endDate
         )}
         heading="When"
-        onReset={this.reset}
+        onClick={this.props.onClick}
+        onClose={this.props.onClose}
+        onReset={this.props.onReset}
       >
         <Body>
           <MediaQuery maxDeviceWidth={bp.sm - 1}>
             <DateRange>
-              <DateRangeLabel active={!this.state.startDate}>
+              <DateRangeLabel active={!this.props.startDate}>
                 {checkIn}
               </DateRangeLabel>
               <DateRangeArrow src={arrowRightSvg} alt="" />
               <DateRangeLabel
-                active={this.state.startDate && !this.state.endDate}
+                active={this.props.startDate && !this.props.endDate}
               >
                 {checkOut}
               </DateRangeLabel>
@@ -86,10 +86,10 @@ export default class extends React.Component {
           <DatePickerWrap>
             <MediaQuery maxDeviceWidth={bp.sm - 1}>
               <DatePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
+                startDate={this.props.startDate}
+                endDate={this.props.endDate}
                 onDatesChange={({ startDate, endDate }) =>
-                  this.setState({ startDate, endDate })}
+                  this.props.onFilterChange({ startDate, endDate })}
                 orientation="vertical"
                 numberOfMonths={2}
                 navPrev=""
@@ -98,19 +98,19 @@ export default class extends React.Component {
             </MediaQuery>
             <MediaQuery minDeviceWidth={bp.sm} maxDeviceWidth={bp.md - 1}>
               <DatePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
+                startDate={this.props.startDate}
+                endDate={this.props.endDate}
                 onDatesChange={({ startDate, endDate }) =>
-                  this.setState({ startDate, endDate })}
+                  this.props.onFilterChange({ startDate, endDate })}
                 numberOfMonths={1}
               />
             </MediaQuery>
             <MediaQuery minDeviceWidth={bp.md}>
               <DatePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
+                startDate={this.props.startDate}
+                endDate={this.props.endDate}
                 onDatesChange={({ startDate, endDate }) =>
-                  this.setState({ startDate, endDate })}
+                  this.props.onFilterChange({ startDate, endDate })}
                 numberOfMonths={2}
               />
             </MediaQuery>

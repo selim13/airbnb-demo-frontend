@@ -17,15 +17,14 @@ export const Body = styled.div`
 `;
 
 export default class extends React.Component {
-  state = { adults: 1, children: 0, infants: 0 };
-
   static defaultProps = {
     maxGuests: 10,
-    maxInfants: 5
-  };
-
-  reset = () => {
-    this.setState({ adults: 1, children: 0, infants: 0 });
+    maxInfants: 5,
+    adults: 1,
+    children: 0,
+    infants: 0,
+    onFilterChange: () => {},
+    onReset: () => {}
   };
 
   guestsLabelFormatter(adults, children, infants) {
@@ -48,15 +47,18 @@ export default class extends React.Component {
   render() {
     return (
       <Filter
+        isOpen={this.props.isOpen}
         buttonText={this.guestsLabelFormatter(
-          this.state.adults,
-          this.state.children,
-          this.state.infants
+          this.props.adults,
+          this.props.children,
+          this.props.infants
         )}
         heading="Guests"
         hasMobileHeaderSeparator
         hasMobileFooter
-        onReset={this.reset}
+        onClick={this.props.onClick}
+        onClose={this.props.onClose}
+        onReset={this.props.onReset}
       >
         <Body>
           <ControlsGroup>
@@ -65,9 +67,10 @@ export default class extends React.Component {
             </div>
             <NumericInput
               min={1}
-              max={this.props.maxGuests - this.state.children}
-              value={this.state.adults}
-              onValueChange={value => this.setState({ adults: value })}
+              max={this.props.maxGuests - this.props.children}
+              value={this.props.adults}
+              onValueChange={adults =>
+                this.props.onFilterChange({ adults: adults })}
             />
           </ControlsGroup>
           <ControlsGroup>
@@ -77,9 +80,10 @@ export default class extends React.Component {
             </div>
             <NumericInput
               min={0}
-              max={this.props.maxGuests - this.state.adults}
-              value={this.state.children}
-              onValueChange={value => this.setState({ children: value })}
+              max={this.props.maxGuests - this.props.adults}
+              value={this.props.children}
+              onValueChange={value =>
+                this.props.onFilterChange({ children: value })}
             />
           </ControlsGroup>
           <ControlsGroup>
@@ -90,8 +94,9 @@ export default class extends React.Component {
             <NumericInput
               min={0}
               max={this.props.maxInfants}
-              value={this.state.infants}
-              onValueChange={value => this.setState({ infants: value })}
+              value={this.props.infants}
+              onValueChange={value =>
+                this.props.onFilterChange({ infants: value })}
             />
           </ControlsGroup>
         </Body>
