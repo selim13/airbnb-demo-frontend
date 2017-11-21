@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import MediaQuery from "react-responsive";
 
 import bp from "../../breakpoints";
 import Filter from "./Filter";
+import { XsOnly, SmOnly, Md } from "../../UI/MediaQueries";
 import DatePicker from "../../UI/DatePicker";
 
 import arrowRightSvg from "./arrowRight.svg";
@@ -70,7 +70,7 @@ export default class extends React.Component {
         onReset={this.props.onReset}
       >
         <Body>
-          <MediaQuery maxDeviceWidth={bp.sm - 1}>
+          <XsOnly>
             <DateRange>
               <DateRangeLabel active={!this.props.startDate}>
                 {checkIn}
@@ -82,9 +82,9 @@ export default class extends React.Component {
                 {checkOut}
               </DateRangeLabel>
             </DateRange>
-          </MediaQuery>
+          </XsOnly>
           <DatePickerWrap>
-            <MediaQuery maxDeviceWidth={bp.sm - 1}>
+            <XsOnly>
               <DatePicker
                 startDate={this.props.startDate}
                 endDate={this.props.endDate}
@@ -95,8 +95,8 @@ export default class extends React.Component {
                 navPrev=""
                 navNext=""
               />
-            </MediaQuery>
-            <MediaQuery minDeviceWidth={bp.sm} maxDeviceWidth={bp.md - 1}>
+            </XsOnly>
+            <SmOnly>
               <DatePicker
                 startDate={this.props.startDate}
                 endDate={this.props.endDate}
@@ -104,8 +104,8 @@ export default class extends React.Component {
                   this.props.onFilterChange({ startDate, endDate })}
                 numberOfMonths={1}
               />
-            </MediaQuery>
-            <MediaQuery minDeviceWidth={bp.md}>
+            </SmOnly>
+            <Md>
               <DatePicker
                 startDate={this.props.startDate}
                 endDate={this.props.endDate}
@@ -113,7 +113,7 @@ export default class extends React.Component {
                   this.props.onFilterChange({ startDate, endDate })}
                 numberOfMonths={2}
               />
-            </MediaQuery>
+            </Md>
           </DatePickerWrap>
         </Body>
       </Filter>

@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import MediaQuery from "react-responsive";
 
-import bp from "../../../breakpoints";
 import closeSvg from "./close.svg";
 
 import Button from "../../../UI/Button";
+import { XsOnly, Sm } from "../../../UI/MediaQueries";
 import {
   Container,
   MobileHeader,
@@ -48,7 +47,7 @@ export default class extends React.Component {
         {this.props.isOpen &&
           this.props.children && (
             <Container>
-              <MediaQuery maxDeviceWidth={bp.sm - 1}>
+              <XsOnly>
                 <MobileHeader separator={this.props.hasMobileHeaderSeparator}>
                   <CloseButton onClick={this.props.onClose}>
                     <img src={closeSvg} alt="" width="16" height="16" />
@@ -58,26 +57,26 @@ export default class extends React.Component {
                     {this.props.resetButtonTitle}
                   </ResetButton>
                 </MobileHeader>
-              </MediaQuery>
+              </XsOnly>
 
               {this.props.children}
 
-              <MediaQuery minDeviceWidth={bp.sm}>
+              <Sm>
                 <Footer>
                   <CancelButton onClick={this.props.onReset}>
                     Cancel
                   </CancelButton>
                   <ApplyButton onClick={this.props.onClose}>Apply</ApplyButton>
                 </Footer>
-              </MediaQuery>
+              </Sm>
               {this.props.hasMobileFooter && (
-                <MediaQuery maxDeviceWidth={bp.sm - 1}>
+                <XsOnly>
                   <MobileFooter>
                     <MobilePrimaryButton onClick={this.props.onClose}>
                       Save
                     </MobilePrimaryButton>
                   </MobileFooter>
-                </MediaQuery>
+                </XsOnly>
               )}
             </Container>
           )}

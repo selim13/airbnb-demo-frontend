@@ -1,6 +1,6 @@
 import React from "react";
-import bp from "../../breakpoints";
-import MediaQuery from "react-responsive";
+
+import { Md } from "../../UI/MediaQueries";
 import Container from "../../UI/Container";
 import { FixedPlaceholder, Bar, BarRow } from "./styled";
 import Filter from "./Filter";
@@ -67,11 +67,11 @@ export default class extends React.Component {
                 onClose={this.close}
               />
 
-              <MediaQuery minDeviceWidth={bp.md}>
+              <Md>
                 <Filter buttonText="Room type" />
                 <Filter buttonText="Price" />
                 <Filter buttonText="Instant book" />
-              </MediaQuery>
+              </Md>
 
               <Filter buttonText="More filters" />
             </BarRow>
