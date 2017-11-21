@@ -4,7 +4,7 @@ import pluralize from "pluralize";
 
 import bp from "../../breakpoints";
 import NumericInput from "../../UI/NumericInput";
-import Filter from "./Filter";
+import Dropdown from "../../UI/Dropdown";
 
 import { ControlsGroup, Label, Caption } from "./styled";
 
@@ -46,7 +46,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <Filter
+      <Dropdown
         isOpen={this.props.isOpen}
         buttonText={this.guestsLabelFormatter(
           this.props.adults,
@@ -100,7 +100,7 @@ export default class extends React.Component {
             />
           </ControlsGroup>
         </Body>
-      </Filter>
+      </Dropdown>
     );
   }
 }

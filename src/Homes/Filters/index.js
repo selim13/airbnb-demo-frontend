@@ -3,7 +3,7 @@ import React from "react";
 import { Md } from "../../UI/MediaQueries";
 import Container from "../../UI/Container";
 import { FixedPlaceholder, Bar, BarRow } from "./styled";
-import Filter from "./Filter";
+import Dropdown from "../../UI/Dropdown";
 import Guests from "./Guests";
 import Dates from "./Dates";
 
@@ -68,12 +68,12 @@ export default class extends React.Component {
               />
 
               <Md>
-                <Filter buttonText="Room type" />
-                <Filter buttonText="Price" />
-                <Filter buttonText="Instant book" />
+                <Dropdown buttonText="Room type" />
+                <Dropdown buttonText="Price" />
+                <Dropdown buttonText="Instant book" />
               </Md>
 
-              <Filter buttonText="More filters" />
+              <Dropdown buttonText="More filters" />
             </BarRow>
           </Container>
         </Bar>

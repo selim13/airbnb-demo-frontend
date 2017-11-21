@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
-import Filter from "./Filter";
+import Dropdown from "../../UI/Dropdown";
 import { XsOnly, SmOnly, Md } from "../../UI/MediaQueries";
 import DatePicker from "../../UI/DatePicker";
 
@@ -58,7 +58,7 @@ export default class extends React.Component {
       : "Check out";
 
     return (
-      <Filter
+      <Dropdown
         isOpen={this.props.isOpen}
         buttonText={this.dateLabelFormatter(
           this.props.startDate,
@@ -116,7 +116,7 @@ export default class extends React.Component {
             </Md>
           </DatePickerWrap>
         </Body>
-      </Filter>
+      </Dropdown>
     );
   }
 }

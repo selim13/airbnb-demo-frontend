@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import closeSvg from "./close.svg";
 
-import Button from "../../../UI/Button";
-import { XsOnly, Sm } from "../../../UI/MediaQueries";
+import Button from "../Button";
+import { XsOnly, Sm } from "../MediaQueries";
 import {
   Container,
   MobileHeader,
