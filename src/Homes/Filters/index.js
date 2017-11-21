@@ -58,6 +58,8 @@ export default class extends React.Component {
               />
               <Guests
                 isOpen={this.state.openedFilter === "guests"}
+                maxGuests={10}
+                maxInfants={5}
                 adults={this.state.guests.adults}
                 children={this.state.guests.children}
                 infants={this.state.guests.infants}

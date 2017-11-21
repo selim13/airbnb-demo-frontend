@@ -16,91 +16,83 @@ export const Body = styled.div`
   }
 `;
 
-export default class extends React.Component {
-  static defaultProps = {
-    maxGuests: 10,
-    maxInfants: 5,
-    adults: 1,
-    children: 0,
-    infants: 0,
-    onFilterChange: () => {},
-    onReset: () => {}
-  };
+function guestsLabelFormatter(adults, children, infants) {
+  const guests = adults + children;
 
-  guestsLabelFormatter(adults, children, infants) {
-    const guests = adults + children;
-
-    if (guests + infants > 1) {
-      if (infants > 0) {
-        return (
-          `${guests} ${pluralize("guest", guests)}, ` +
-          `${infants} ${pluralize("infant", infants)}`
-        );
-      } else {
-        return `${guests} ${pluralize("guest", guests)}`;
-      }
+  if (guests + infants > 1) {
+    if (infants > 0) {
+      return (
+        `${guests} ${pluralize("guest", guests)}, ` +
+        `${infants} ${pluralize("infant", infants)}`
+      );
+    } else {
+      return `${guests} ${pluralize("guest", guests)}`;
     }
-
-    return "Guests";
   }
 
-  render() {
-    return (
-      <Dropdown
-        isOpen={this.props.isOpen}
-        buttonText={this.guestsLabelFormatter(
-          this.props.adults,
-          this.props.children,
-          this.props.infants
-        )}
-        heading="Guests"
-        hasMobileHeaderSeparator
-        hasMobileFooter
-        onClick={this.props.onClick}
-        onClose={this.props.onClose}
-        onReset={this.props.onReset}
-      >
-        <Body>
-          <ControlsGroup>
-            <div>
-              <Label>Adults</Label>
-            </div>
-            <NumericInput
-              min={1}
-              max={this.props.maxGuests - this.props.children}
-              value={this.props.adults}
-              onValueChange={adults =>
-                this.props.onFilterChange({ adults: adults })}
-            />
-          </ControlsGroup>
-          <ControlsGroup>
-            <div>
-              <Label>Children</Label>
-              <Caption>Ages 2 &ndash; 12</Caption>
-            </div>
-            <NumericInput
-              min={0}
-              max={this.props.maxGuests - this.props.adults}
-              value={this.props.children}
-              onValueChange={value =>
-                this.props.onFilterChange({ children: value })}
-            />
-          </ControlsGroup>
-          <ControlsGroup>
-            <div>
-              <Label>Infants</Label>
-              <Caption>Under 2</Caption>
-            </div>
-            <NumericInput
-              min={0}
-              max={this.props.maxInfants}
-              value={this.props.infants}
-              onValueChange={value =>
-                this.props.onFilterChange({ infants: value })}
-            />
-          </ControlsGroup>
-        </Body>
-      </Dropdown>
-    );
-  }
+  return "Guests";
+}
+
+export default function({
+  isOpen = false,
+  maxGuests = 10,
+  maxInfants = 5,
+  adults = 1,
+  children = 0,
+  infants = 0,
+  onFilterChange = () => {},
+  onClick = () => {},
+  onClose = () => {},
+  onReset = () => {}
+}) {
+  return (
+    <Dropdown
+      isOpen={isOpen}
+      buttonText={guestsLabelFormatter(adults, children, infants)}
+      heading="Guests"
+      hasMobileHeaderSeparator
+      hasMobileFooter
+      onClick={onClick}
+      onClose={onClose}
+      onReset={onReset}
+    >
+      <Body>
+        <ControlsGroup>
+          <div>
+            <Label>Adults</Label>
+          </div>
+          <NumericInput
+            min={1}
+            max={maxGuests - children}
+            value={adults}
+            onValueChange={adults => onFilterChange({ adults: adults })}
+          />
+        </ControlsGroup>
+        <ControlsGroup>
+          <div>
+            <Label>Children</Label>
+            <Caption>Ages 2 &ndash; 12</Caption>
+          </div>
+          <NumericInput
+            min={0}
+            max={maxGuests - adults}
+            value={children}
+            onValueChange={value => onFilterChange({ children: value })}
+          />
+        </ControlsGroup>
+        <ControlsGroup>
+          <div>
+            <Label>Infants</Label>
+            <Caption>Under 2</Caption>
+          </div>
+          <NumericInput
+            min={0}
+            max={maxInfants}
+            value={infants}
+            onValueChange={value => onFilterChange({ infants: value })}
+          />
+        </ControlsGroup>
+      </Body>
+    </Dropdown>
+  );
 }

@@ -29,94 +29,84 @@ const DatePickerWrap = styled.div`
   justify-content: center;
 `;
 
-export default class extends React.Component {
-  static defaultProps = {
-    onFilterChange: () => {},
-    onReset: () => {}
-  };
-
-  dateLabelFormatter(startDate, endDate) {
-    if (startDate && !endDate) {
-      return startDate.format("MMM D");
-    }
-
-    if (startDate && endDate) {
-      if (endDate.isSame(startDate, "month"))
-        return startDate.format("MMM D") + " – " + endDate.format("D");
-      else return startDate.format("MMM D") + " – " + endDate.format("MMM D");
-    }
-
-    return "Dates";
+function dateLabelFormatter(startDate, endDate) {
+  if (startDate && !endDate) {
+    return startDate.format("MMM D");
   }
 
-  render() {
-    const checkIn = this.props.startDate
-      ? this.props.startDate.format("MMM D")
-      : "Check in";
-    const checkOut = this.props.endDate
-      ? this.props.endDate.format("MMM D")
-      : "Check out";
+  if (startDate && endDate) {
+    if (endDate.isSame(startDate, "month"))
+      return startDate.format("MMM D") + " – " + endDate.format("D");
+    else return startDate.format("MMM D") + " – " + endDate.format("MMM D");
+  }
 
-    return (
-      <Dropdown
-        isOpen={this.props.isOpen}
-        buttonText={this.dateLabelFormatter(
-          this.props.startDate,
-          this.props.endDate
-        )}
-        heading="When"
-        onClick={this.props.onClick}
-        onClose={this.props.onClose}
-        onReset={this.props.onReset}
-      >
-        <Body>
+  return "Dates";
+}
+
+export default function({
+  isOpen = false,
+  startDate = null,
+  endDate = null,
+  onFilterChange = () => {},
+  onClick = () => {},
+  onClose = () => {},
+  onReset = () => {}
+}) {
+  const checkIn = startDate ? startDate.format("MMM D") : "Check in";
+  const checkOut = endDate ? endDate.format("MMM D") : "Check out";
+
+  return (
+    <Dropdown
+      isOpen={isOpen}
+      buttonText={dateLabelFormatter(startDate, endDate)}
+      heading="When"
+      onClick={onClick}
+      onClose={onClose}
+      onReset={onReset}
+    >
+      <Body>
+        <XsOnly>
+          <DateRange>
+            <DateRangeLabel active={!startDate}>{checkIn}</DateRangeLabel>
+            <DateRangeArrow src={arrowRightSvg} alt="" width="18" height="11" />
+            <DateRangeLabel active={startDate && !endDate}>
+              {checkOut}
+            </DateRangeLabel>
+          </DateRange>
+        </XsOnly>
+        <DatePickerWrap>
           <XsOnly>
-            <DateRange>
-              <DateRangeLabel active={!this.props.startDate}>
-                {checkIn}
-              </DateRangeLabel>
-              <DateRangeArrow src={arrowRightSvg} alt="" />
-              <DateRangeLabel
-                active={this.props.startDate && !this.props.endDate}
-              >
-                {checkOut}
-              </DateRangeLabel>
-            </DateRange>
+            <DatePicker
+              startDate={startDate}
+              endDate={endDate}
+              onDatesChange={({ startDate, endDate }) =>
+                onFilterChange({ startDate, endDate })}
+              orientation="vertical"
+              numberOfMonths={2}
+              navPrev=""
+              navNext=""
+            />
           </XsOnly>
-          <DatePickerWrap>
-            <XsOnly>
-              <DatePicker
-                startDate={this.props.startDate}
-                endDate={this.props.endDate}
-                onDatesChange={({ startDate, endDate }) =>
-                  this.props.onFilterChange({ startDate, endDate })}
-                orientation="vertical"
-                numberOfMonths={2}
-                navPrev=""
-                navNext=""
-              />
-            </XsOnly>
-            <SmOnly>
-              <DatePicker
-                startDate={this.props.startDate}
-                endDate={this.props.endDate}
-                onDatesChange={({ startDate, endDate }) =>
-                  this.props.onFilterChange({ startDate, endDate })}
-                numberOfMonths={1}
-              />
-            </SmOnly>
-            <Md>
-              <DatePicker
-                startDate={this.props.startDate}
-                endDate={this.props.endDate}
-                onDatesChange={({ startDate, endDate }) =>
-                  this.props.onFilterChange({ startDate, endDate })}
-                numberOfMonths={2}
-              />
-            </Md>
-          </DatePickerWrap>
-        </Body>
-      </Dropdown>
-    );
-  }
+          <SmOnly>
+            <DatePicker
+              startDate={startDate}
+              endDate={endDate}
+              onDatesChange={({ startDate, endDate }) =>
+                onFilterChange({ startDate, endDate })}
+              numberOfMonths={1}
+            />
+          </SmOnly>
+          <Md>
+            <DatePicker
+              startDate={startDate}
+              endDate={endDate}
+              onDatesChange={({ startDate, endDate }) =>
+                onFilterChange({ startDate, endDate })}
+              numberOfMonths={2}
+            />
+          </Md>
+        </DatePickerWrap>
+      </Body>
+    </Dropdown>
+  );
 }
