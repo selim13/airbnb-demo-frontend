@@ -2,18 +2,31 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
-import { ToMd } from "../../UI/MediaQueries";
 import NumericInput from "../../UI/NumericInput";
-import Dropdown from "../../UI/Dropdown";
+import Dropdown from "./MoreDropdown";
 import RoomTypes from "./RoomTypes";
 
 import { ControlsGroup, Label, Caption } from "./styled";
 
-export const Body = styled.div`
-  padding: 40px 8px 8px;
+const Section = styled.div`
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e3e3e3;
 
   @media (min-width: ${bp.sm}px) {
-    padding: 30px 16px 0 24px;
+    margin-top: 23px;
+    padding-bottom: 23px;
+  }
+`;
+
+// TODO: make this an actual heading?
+const Heading = styled.p`
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 18px;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 20px;
   }
 `;
 
@@ -36,11 +49,12 @@ export default function({
       onClose={onClose}
       onReset={onReset}
     >
-      <Body>
-        <ToMd>
+      <div>
+        <Section>
+          <Heading>Room type</Heading>
           <RoomTypes roomTypes={roomTypes} onFilterChange={onFilterChange} />
-        </ToMd>
-      </Body>
+        </Section>
+      </div>
     </Dropdown>
   );
 }

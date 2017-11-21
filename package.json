@@ -9,6 +9,7 @@
     "pluralize": "^7.0.0",
     "react": "^16.0.0",
     "react-addons-shallow-compare": "^15.6.2",
+    "react-body-classname": "^1.2.0",
     "react-dates": "^15.1.0",
     "react-dom": "^16.0.0",
     "react-flexbox-grid": "^2.0.0",

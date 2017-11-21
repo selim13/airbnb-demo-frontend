@@ -23,6 +23,7 @@ const MapBox = styled.aside`
   top: 135px;
   bottom: 0;
   right: 0;
+  z-index: 200;
 
   display: none;
   width: 33.33333%;

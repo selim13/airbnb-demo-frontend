@@ -1,15 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-
-import closeSvg from "./close.svg";
+import BodyClassName from "react-body-classname";
 
 import Button from "../Button";
 import { XsOnly, Sm } from "../MediaQueries";
+import MobileHeader from "./MobileHeader";
 import {
-  Container,
-  MobileHeader,
-  CloseButton,
-  ResetButton,
+  Dropdown,
   Footer,
   CancelButton,
   ApplyButton,
@@ -46,17 +43,14 @@ export default class extends React.Component {
         </Button>
         {this.props.isOpen &&
           this.props.children && (
-            <Container>
+            <Dropdown>
               <XsOnly>
-                <MobileHeader separator={this.props.hasMobileHeaderSeparator}>
-                  <CloseButton onClick={this.props.onClose}>
-                    <img src={closeSvg} alt="" width="16" height="16" />
-                  </CloseButton>
-                  {this.props.heading}
-                  <ResetButton onClick={this.props.onReset}>
-                    {this.props.resetButtonTitle}
-                  </ResetButton>
-                </MobileHeader>
+                <MobileHeader
+                  heading={this.props.heading}
+                  hasSeparator={this.props.hasMobileHeaderSeparator}
+                  onClose={this.props.onClose}
+                  onReset={this.props.onReset}
+                />
               </XsOnly>
 
               {this.props.children}
@@ -71,14 +65,16 @@ export default class extends React.Component {
               </Sm>
               {this.props.hasMobileFooter && (
                 <XsOnly>
-                  <MobileFooter>
-                    <MobilePrimaryButton onClick={this.props.onClose}>
-                      Save
-                    </MobilePrimaryButton>
-                  </MobileFooter>
+                  <BodyClassName className="body--fixed">
+                    <MobileFooter>
+                      <MobilePrimaryButton onClick={this.props.onClose}>
+                        Save
+                      </MobilePrimaryButton>
+                    </MobileFooter>
+                  </BodyClassName>
                 </XsOnly>
               )}
-            </Container>
+            </Dropdown>
           )}
       </Wrap>
     );

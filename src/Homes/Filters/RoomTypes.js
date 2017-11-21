@@ -1,11 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 
+import bp from "../../breakpoints";
 import Checkbox from "../../UI/Checkbox";
 import { ControlsGroup } from "./styled";
 
 import entireSvg from "./entire.svg";
 import privateSvg from "./private.svg";
 import sharedSvg from "./shared.svg";
+
+const TypeImg = styled.img`
+  display: none;
+  margin-left: 1rem;
+
+  @media (min-width: ${bp.sm}px) {
+    display: block;
+  }
+`;
 
 export default function({
   isOpen = false,
@@ -24,7 +35,7 @@ export default function({
           label="Entire home"
           caption="Have a place to yourself"
         />
-        <img src={entireSvg} alt="" width="32" height="32" />
+        <TypeImg src={entireSvg} alt="" width="32" height="32" />
       </ControlsGroup>
       <ControlsGroup>
         <Checkbox
@@ -33,7 +44,7 @@ export default function({
           label="Private room"
           caption="Have your own room and share some common spaces"
         />
-        <img src={privateSvg} alt="" width="32" height="32" />
+        <TypeImg src={privateSvg} alt="" width="32" height="32" />
       </ControlsGroup>
       <ControlsGroup>
         <Checkbox
@@ -42,7 +53,7 @@ export default function({
           label="Shared room"
           caption="Stay in a shared space, like a common room"
         />
-        <img src={sharedSvg} alt="" width="32" height="32" />
+        <TypeImg src={sharedSvg} alt="" width="32" height="32" />
       </ControlsGroup>
     </div>
   );
