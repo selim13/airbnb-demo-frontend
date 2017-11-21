@@ -2,11 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
-import NumericInput from "../../UI/NumericInput";
 import Dropdown from "./MoreDropdown";
 import RoomTypes from "./RoomTypes";
-
-import { ControlsGroup, Label, Caption } from "./styled";
 
 const Section = styled.div`
   margin-top: 32px;
@@ -40,7 +37,7 @@ export default function({
 }) {
   return (
     <Dropdown
-      isOpen={true}
+      isOpen={isOpen}
       buttonText="More filters"
       heading="All filters (0)"
       hasMobileHeaderSeparator

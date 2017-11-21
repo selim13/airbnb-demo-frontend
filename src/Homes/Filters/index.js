@@ -7,6 +7,7 @@ import Dropdown from "../../UI/Dropdown";
 import Guests from "./Guests";
 import Dates from "./Dates";
 import RoomTypes from "./RoomTypesDropdown";
+import Price from "./PriceDropdown";
 import More from "./More";
 
 export default class extends React.Component {
@@ -15,7 +16,7 @@ export default class extends React.Component {
     dates: { startDate: null, endDate: null },
     guests: { adults: 1, children: 0, infants: 0 },
     roomTypes: { entire: false, private: false, shared: false },
-    price: { from: null, to: null },
+    price: { min: 0, max: 1000 },
     instantBook: false,
     rooms: { bedrooms: 0, beds: 0, bathrooms: 0 },
     superhost: false
@@ -35,6 +36,7 @@ export default class extends React.Component {
   close = () => this.setState({ openedFilter: null });
 
   changeFilter = (filter, newValues) => {
+    console.log(newValues);
     this.setState(prevState => {
       return {
         [filter]: { ...prevState[filter], ...newValues }
@@ -85,7 +87,16 @@ export default class extends React.Component {
                     this.changeFilter("roomTypes", values)}
                   onClose={this.close}
                 />
-                <Dropdown buttonText="Price" />
+
+                <Price
+                  isOpen={this.state.openedFilter === "price"}
+                  range={{ min: 0, max: 1000 }}
+                  values={this.state.price}
+                  onClick={() => this.toggle("price")}
+                  onFilterChange={values => this.changeFilter("price", values)}
+                  onClose={this.close}
+                />
+
                 <Dropdown buttonText="Instant book" />
               </Md>
 
