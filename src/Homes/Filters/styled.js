@@ -28,18 +28,20 @@ export const ControlsGroup = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
-  @media (min-width: ${bp.sm}px) {
-    margin-bottom: 27px;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
 
 export const Label = styled.label`
   display: block;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 300;
 
   @media (min-width: ${bp.sm}px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 `;
 

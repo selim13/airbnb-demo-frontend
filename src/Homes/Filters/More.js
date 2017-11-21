@@ -5,6 +5,15 @@ import bp from "../../breakpoints";
 import Dropdown from "./MoreDropdown";
 import RoomTypes from "./RoomTypes";
 import Price from "./Price";
+import Rooms from "./Rooms";
+
+const Body = styled.div`
+  padding-top: 15px;
+
+  @media (min-width: ${bp.sm}px) {
+    padding-top: 20px;
+  }
+`;
 
 const Section = styled.div`
   margin-top: 32px;
@@ -49,11 +58,12 @@ export default function({
       onClose={onClose}
       onReset={onReset}
     >
-      <div>
+      <Body>
         <Section>
           <Heading>Room type</Heading>
           <RoomTypes roomTypes={roomTypes} onFilterChange={onFilterChange} />
         </Section>
+
         <Section>
           <Heading>Price range</Heading>
           <Price
@@ -62,7 +72,28 @@ export default function({
             onFilterChange={onFilterChange}
           />
         </Section>
-      </div>
+
+        <Section>
+          <Heading>Rooms and beds</Heading>
+          <Rooms
+            range={priceRange}
+            values={priceValues}
+            onFilterChange={onFilterChange}
+          />
+        </Section>
+
+        <Section>
+          <Heading>More options</Heading>
+        </Section>
+
+        <Section>
+          <Heading>Amenities</Heading>
+        </Section>
+
+        <Section>
+          <Heading>Facilities</Heading>
+        </Section>
+      </Body>
     </Dropdown>
   );
 }

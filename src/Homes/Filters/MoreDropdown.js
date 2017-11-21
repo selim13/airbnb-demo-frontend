@@ -25,16 +25,12 @@ const Dropdown = styled.div`
   left: 0;
   right: 0;
 
-  display: flex;
-  flex-direction: column;
+  overflow: auto;
 
   background: #ffffff;
 
   @media (min-width: ${bp.sm}px) {
-    top: auto;
-    bottom: auto;
-    height: 100vh;
-    margin-top: 10px;
+    top: 134px;
   }
 `;
 
@@ -42,8 +38,8 @@ const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 32px;
-
+  margin-top: 24px;
+  padding: 8px 0;
   @media (min-width: ${bp.md}px) {
     justify-content: flex-end;
   }

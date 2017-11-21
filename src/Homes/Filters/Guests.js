@@ -6,13 +6,32 @@ import bp from "../../breakpoints";
 import NumericInput from "../../UI/NumericInput";
 import Dropdown from "../../UI/Dropdown";
 
-import { ControlsGroup, Label, Caption } from "./styled";
+import { Caption } from "./styled";
 
 export const Body = styled.div`
   padding: 40px 8px 8px;
 
   @media (min-width: ${bp.sm}px) {
     padding: 30px 16px 0 24px;
+  }
+`;
+
+export const ControlsGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  @media (min-width: ${bp.sm}px) {
+    margin-bottom: 27px;
+  }
+`;
+
+const Label = styled.label`
+  display: block;
+  font-size: 18px;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 20px;
   }
 `;
 

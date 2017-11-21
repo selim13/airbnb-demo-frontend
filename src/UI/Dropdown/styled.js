@@ -12,6 +12,7 @@ export const Dropdown = styled.div`
 
   display: flex;
   flex-direction: column;
+  overflow: auto;
 
   background: #ffffff;
 
@@ -23,6 +24,7 @@ export const Dropdown = styled.div`
     left: auto;
     right: auto;
     margin-top: 8px;
+    overflow: hidden;
     border: 1px solid rgba(72, 72, 72, 0.2);
     box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
     border-radius: 4px;
