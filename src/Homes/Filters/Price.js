@@ -56,7 +56,7 @@ export default function({
       <Rheostat
         min={range.min}
         max={range.max}
-        values={[range.min, range.max]}
+        values={[values.min, values.max]}
         onValuesUpdated={values =>
           onFilterChange({ min: values.values[0], max: values.values[1] })}
       />

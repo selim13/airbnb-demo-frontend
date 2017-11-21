@@ -4,6 +4,7 @@ import styled from "styled-components";
 import bp from "../../breakpoints";
 import Dropdown from "./MoreDropdown";
 import RoomTypes from "./RoomTypes";
+import Price from "./Price";
 
 const Section = styled.div`
   margin-top: 32px;
@@ -29,7 +30,9 @@ const Heading = styled.p`
 
 export default function({
   isOpen = false,
-  roomTypes = { entire: false, private: false, shared: false },
+  roomTypes,
+  priceRange,
+  priceValues,
   onFilterChange = () => {},
   onClick = () => {},
   onClose = () => {},
@@ -50,6 +53,14 @@ export default function({
         <Section>
           <Heading>Room type</Heading>
           <RoomTypes roomTypes={roomTypes} onFilterChange={onFilterChange} />
+        </Section>
+        <Section>
+          <Heading>Price range</Heading>
+          <Price
+            range={priceRange}
+            values={priceValues}
+            onFilterChange={onFilterChange}
+          />
         </Section>
       </div>
     </Dropdown>

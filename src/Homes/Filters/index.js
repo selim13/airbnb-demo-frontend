@@ -36,7 +36,6 @@ export default class extends React.Component {
   close = () => this.setState({ openedFilter: null });
 
   changeFilter = (filter, newValues) => {
-    console.log(newValues);
     this.setState(prevState => {
       return {
         [filter]: { ...prevState[filter], ...newValues }
@@ -102,6 +101,9 @@ export default class extends React.Component {
 
               <More
                 isOpen={this.state.openedFilter === "more"}
+                roomTypes={this.state.roomTypes}
+                priceRange={{ min: 0, max: 1000 }}
+                priceValues={this.state.price}
                 onClick={() => this.toggle("more")}
                 onClose={this.close}
               />
