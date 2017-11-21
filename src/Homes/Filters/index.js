@@ -6,12 +6,19 @@ import { FixedPlaceholder, Bar, BarRow } from "./styled";
 import Dropdown from "../../UI/Dropdown";
 import Guests from "./Guests";
 import Dates from "./Dates";
+import RoomTypes from "./RoomTypesDropdown";
+import More from "./More";
 
 export default class extends React.Component {
   state = {
     openedFilter: null,
     dates: { startDate: null, endDate: null },
-    guests: { adults: 1, children: 0, infants: 0 }
+    guests: { adults: 1, children: 0, infants: 0 },
+    roomTypes: { entire: false, private: false, shared: false },
+    price: { from: null, to: null },
+    instantBook: false,
+    rooms: { bedrooms: 0, beds: 0, bathrooms: 0 },
+    superhost: false
   };
 
   toggle = filter => {
@@ -70,12 +77,23 @@ export default class extends React.Component {
               />
 
               <Md>
-                <Dropdown buttonText="Room type" />
+                <RoomTypes
+                  isOpen={this.state.openedFilter === "roomTypes"}
+                  roomTypes={this.state.roomTypes}
+                  onClick={() => this.toggle("roomTypes")}
+                  onFilterChange={values =>
+                    this.changeFilter("roomTypes", values)}
+                  onClose={this.close}
+                />
                 <Dropdown buttonText="Price" />
                 <Dropdown buttonText="Instant book" />
               </Md>
 
-              <Dropdown buttonText="More filters" />
+              <More
+                isOpen={this.state.openedFilter === "more"}
+                onClick={() => this.toggle("more")}
+                onClose={this.close}
+              />
             </BarRow>
           </Container>
         </Bar>
