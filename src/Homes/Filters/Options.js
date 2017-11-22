@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import includes from "lodash.includes";
 
 import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
@@ -57,7 +58,7 @@ export default class extends React.Component {
           <Checkbox
             label={option}
             name={option}
-            checked={this.props.selected.includes(option)}
+            checked={includes(this.props.selected, option)}
             onChange={e => this.handleCheck(option, e.target.checked)}
           />
         </Option>
