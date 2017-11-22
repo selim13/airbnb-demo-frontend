@@ -8,6 +8,7 @@ import { ControlsGroup, Label, Caption } from "./styled";
 import RoomTypes from "./RoomTypes";
 import Price from "./Price";
 import Rooms from "./Rooms";
+import Options from "./Options";
 
 const Body = styled.div`
   padding-top: 15px;
@@ -39,6 +40,27 @@ const Heading = styled.p`
   }
 `;
 
+const amenities = [
+  "Heating",
+  "Kitchen",
+  "TV",
+  "Wireless Internet",
+  "Washer",
+  "Dryer",
+  "Shampoo",
+  "Iron",
+  "Doorman"
+];
+
+const facilities = [
+  "Elevator",
+  "Free parking on premises",
+  "Pool",
+  "Wheelchair accessible",
+  "Gym",
+  "Hot tub"
+];
+
 export default function({
   isOpen = false,
   priceRange,
@@ -50,7 +72,7 @@ export default function({
 }) {
   return (
     <Dropdown
-      isOpen={isOpen}
+      isOpen={true}
       buttonText="More filters"
       heading="All filters (0)"
       hasMobileHeaderSeparator
@@ -118,11 +140,21 @@ export default function({
         </Section>
 
         <Section>
-          <Heading>Amenities</Heading>
+          <Options
+            heading="Amenities"
+            options={amenities}
+            selected={values.amenities}
+            onFilterChange={values => onMoreFiltersChange("amenities", values)}
+          />
         </Section>
 
         <Section>
-          <Heading>Facilities</Heading>
+          <Options
+            heading="Facilities"
+            options={facilities}
+            selected={values.facilities}
+            onFilterChange={values => onMoreFiltersChange("facilities", values)}
+          />
         </Section>
       </Body>
     </Dropdown>

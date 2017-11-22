@@ -19,7 +19,9 @@ export default class extends React.Component {
     price: { min: 0, max: 1000 },
     instantBook: false,
     rooms: { bedrooms: 0, beds: 0, bathrooms: 0 },
-    superhost: false
+    superhost: false,
+    amenities: [],
+    facilities: []
   };
 
   toggle = filter => {
