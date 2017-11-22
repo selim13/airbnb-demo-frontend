@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BodyClassName from "react-body-classname";
 
 import Button from "../Button";
-import { XsOnly, Sm } from "../MediaQueries";
+import { XsOnly, Sm } from "../mediaQueries";
 import MobileHeader from "./MobileHeader";
 import {
   Dropdown,

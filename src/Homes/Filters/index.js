@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Md } from "../../UI/MediaQueries";
+import { Md } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import { FixedPlaceholder, Bar, BarRow } from "./styled";
 import Dropdown from "../../UI/Dropdown";

@@ -6,7 +6,7 @@ import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
 import Container from "../../UI/Container";
 import Button from "../../UI/Button";
-import { XsOnly, Sm } from "../../UI/MediaQueries";
+import { XsOnly, Sm } from "../../UI/mediaQueries";
 import { MobileFooter, MobilePrimaryButton } from "../../UI/Dropdown/styled";
 import MobileHeader from "../../UI/Dropdown/MobileHeader";
 

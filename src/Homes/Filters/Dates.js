@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import bp from "../../breakpoints";
 import Dropdown from "../../UI/Dropdown";
-import { XsOnly, SmOnly, Md } from "../../UI/MediaQueries";
+import { XsOnly, SmOnly, Md } from "../../UI/mediaQueries";
 import DatePicker from "../../UI/DatePicker";
 
 import arrowRightSvg from "./arrowRight.svg";
