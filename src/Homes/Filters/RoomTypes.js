@@ -31,7 +31,13 @@ export default function({
       <ControlsGroup>
         <Checkbox
           checked={roomTypes.entire}
-          onChange={e => onFilterChange({ entire: e.target.checked })}
+          onChange={e =>
+            onFilterChange({
+              entire: e.target.checked,
+              private: roomTypes.private,
+              shared: roomTypes.shared
+            })
+          }
           label="Entire home"
           caption="Have a place to yourself"
         />
@@ -40,7 +46,13 @@ export default function({
       <ControlsGroup>
         <Checkbox
           checked={roomTypes.private}
-          onChange={e => onFilterChange({ private: e.target.checked })}
+          onChange={e =>
+            onFilterChange({
+              entire: roomTypes.entire,
+              private: e.target.checked,
+              shared: roomTypes.shared
+            })
+          }
           label="Private room"
           caption="Have your own room and share some common spaces"
         />
@@ -49,7 +61,13 @@ export default function({
       <ControlsGroup>
         <Checkbox
           checked={roomTypes.shared}
-          onChange={e => onFilterChange({ shared: e.target.checked })}
+          onChange={e =>
+            onFilterChange({
+              entire: roomTypes.entire,
+              private: roomTypes.private,
+              shared: e.target.checked
+            })
+          }
           label="Shared room"
           caption="Stay in a shared space, like a common room"
         />

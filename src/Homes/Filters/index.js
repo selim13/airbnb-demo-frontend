@@ -3,11 +3,11 @@ import React from "react";
 import { Md } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import { FixedPlaceholder, Bar, BarRow } from "./styled";
-import Dropdown from "../../UI/Dropdown";
 import Guests from "./Guests";
 import Dates from "./Dates";
 import RoomTypes from "./RoomTypesDropdown";
 import Price from "./PriceDropdown";
+import InstantBook from "./InstantBook";
 import More from "./More";
 
 export default class extends React.Component {
@@ -36,10 +36,8 @@ export default class extends React.Component {
   close = () => this.setState({ openedFilter: null });
 
   changeFilter = (filter, newValues) => {
-    this.setState(prevState => {
-      return {
-        [filter]: { ...prevState[filter], ...newValues }
-      };
+    this.setState({
+      [filter]: newValues
     });
   };
 
@@ -83,7 +81,8 @@ export default class extends React.Component {
                   roomTypes={this.state.roomTypes}
                   onClick={() => this.toggle("roomTypes")}
                   onFilterChange={values =>
-                    this.changeFilter("roomTypes", values)}
+                    this.changeFilter("roomTypes", values)
+                  }
                   onClose={this.close}
                 />
 
@@ -96,14 +95,23 @@ export default class extends React.Component {
                   onClose={this.close}
                 />
 
-                <Dropdown buttonText="Instant book" />
+                <InstantBook
+                  isOpen={this.state.openedFilter === "instantBook"}
+                  instantBook={this.state.instantBook}
+                  onClick={() => this.toggle("instantBook")}
+                  onFilterChange={values =>
+                    this.changeFilter("instantBook", values)
+                  }
+                  onClose={this.close}
+                />
               </Md>
 
               <More
                 isOpen={this.state.openedFilter === "more"}
                 roomTypes={this.state.roomTypes}
                 priceRange={{ min: 0, max: 1000 }}
-                priceValues={this.state.price}
+                values={this.state}
+                onMoreFiltersChange={this.changeFilter}
                 onClick={() => this.toggle("more")}
                 onClose={this.close}
               />

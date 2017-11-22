@@ -6,8 +6,6 @@ import bp from "../../breakpoints";
 import NumericInput from "../../UI/NumericInput";
 import Dropdown from "../../UI/Dropdown";
 
-import { Caption } from "./styled";
-
 export const Body = styled.div`
   padding: 40px 8px 8px;
 
@@ -32,6 +30,18 @@ const Label = styled.label`
 
   @media (min-width: ${bp.sm}px) {
     font-size: 20px;
+  }
+`;
+
+export const Caption = styled.small`
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 300;
+
+  @media (min-width: ${bp.sm}px) {
+    margin-top: 8px;
+    font-size: 16px;
   }
 `;
 
@@ -84,7 +94,9 @@ export default function({
             min={1}
             max={maxGuests - children}
             value={adults}
-            onValueChange={adults => onFilterChange({ adults: adults })}
+            onValueChange={value =>
+              onFilterChange({ adults: value, children, infants })
+            }
           />
         </ControlsGroup>
         <ControlsGroup>
@@ -96,7 +108,9 @@ export default function({
             min={0}
             max={maxGuests - adults}
             value={children}
-            onValueChange={value => onFilterChange({ children: value })}
+            onValueChange={value =>
+              onFilterChange({ children: value, adults, infants })
+            }
           />
         </ControlsGroup>
         <ControlsGroup>
@@ -108,7 +122,9 @@ export default function({
             min={0}
             max={maxInfants}
             value={infants}
-            onValueChange={value => onFilterChange({ infants: value })}
+            onValueChange={value =>
+              onFilterChange({ infants: value, adults, children })
+            }
           />
         </ControlsGroup>
       </Body>

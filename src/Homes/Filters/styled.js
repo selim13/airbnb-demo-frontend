@@ -47,12 +47,11 @@ export const Label = styled.label`
 
 export const Caption = styled.small`
   display: block;
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 4px;
+  font-size: 12px;
   font-weight: 300;
 
   @media (min-width: ${bp.sm}px) {
-    margin-top: 8px;
-    font-size: 16px;
+    font-size: 14px;
   }
 `;

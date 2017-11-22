@@ -25,7 +25,9 @@ export default function({
           max={100}
           value={bedrooms}
           suffix="+"
-          onValueChange={bedrooms => onFilterChange({ bedrooms: bedrooms })}
+          onValueChange={value =>
+            onFilterChange({ bedrooms: value, beds, bathrooms })
+          }
         />
       </ControlsGroup>
       <ControlsGroup>
@@ -37,7 +39,9 @@ export default function({
           max={100}
           value={beds}
           suffix="+"
-          onValueChange={beds => onFilterChange({ beds: beds })}
+          onValueChange={value =>
+            onFilterChange({ beds: value, bedrooms, bathrooms })
+          }
         />
       </ControlsGroup>
       <ControlsGroup>
@@ -49,7 +53,9 @@ export default function({
           max={100}
           value={bathrooms}
           suffix="+"
-          onValueChange={bathrooms => onFilterChange({ bathrooms: bathrooms })}
+          onValueChange={value =>
+            onFilterChange({ bathrooms: value, beds, bedrooms })
+          }
         />
       </ControlsGroup>
     </div>
