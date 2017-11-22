@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
+import { ToMd } from "../../UI/mediaQueries";
 import Dropdown from "./MoreDropdown";
 import Toggler from "../../UI/Toggler";
 import { ControlsGroup, Label, Caption } from "./styled";
@@ -9,14 +10,6 @@ import RoomTypes from "./RoomTypes";
 import Price from "./Price";
 import Rooms from "./Rooms";
 import Options from "./Options";
-
-const Body = styled.div`
-  padding-top: 15px;
-
-  @media (min-width: ${bp.sm}px) {
-    padding-top: 20px;
-  }
-`;
 
 const Section = styled.div`
   margin-top: 32px;
@@ -72,7 +65,7 @@ export default function({
 }) {
   return (
     <Dropdown
-      isOpen={true}
+      isOpen={isOpen}
       buttonText="More filters"
       heading="All filters (0)"
       hasMobileHeaderSeparator
@@ -81,7 +74,7 @@ export default function({
       onClose={onClose}
       onReset={onReset}
     >
-      <Body>
+      <ToMd>
         <Section>
           <Heading>Room type</Heading>
           <RoomTypes
@@ -98,20 +91,22 @@ export default function({
             onFilterChange={values => onMoreFiltersChange("price", values)}
           />
         </Section>
+      </ToMd>
 
-        <Section>
-          <Heading>Rooms and beds</Heading>
-          <Rooms
-            bedrooms={values.rooms.bedrooms}
-            beds={values.rooms.beds}
-            bathrooms={values.rooms.bathrooms}
-            onFilterChange={values => onMoreFiltersChange("rooms", values)}
-          />
-        </Section>
+      <Section>
+        <Heading>Rooms and beds</Heading>
+        <Rooms
+          bedrooms={values.rooms.bedrooms}
+          beds={values.rooms.beds}
+          bathrooms={values.rooms.bathrooms}
+          onFilterChange={values => onMoreFiltersChange("rooms", values)}
+        />
+      </Section>
 
-        <Section>
-          <Heading>More options</Heading>
+      <Section>
+        <Heading>More options</Heading>
 
+        <ToMd>
           <ControlsGroup>
             <div>
               <Label>Instant Book</Label>
@@ -126,37 +121,37 @@ export default function({
               }
             />
           </ControlsGroup>
+        </ToMd>
 
-          <ControlsGroup>
-            <div>
-              <Label>Superhost</Label>
-              <Caption>Stay with recognized hosts.</Caption>
-            </div>
-            <Toggler
-              checked={values.superhost}
-              onChange={e => onMoreFiltersChange("superhost", e.target.checked)}
-            />
-          </ControlsGroup>
-        </Section>
-
-        <Section>
-          <Options
-            heading="Amenities"
-            options={amenities}
-            selected={values.amenities}
-            onFilterChange={values => onMoreFiltersChange("amenities", values)}
+        <ControlsGroup>
+          <div>
+            <Label>Superhost</Label>
+            <Caption>Stay with recognized hosts.</Caption>
+          </div>
+          <Toggler
+            checked={values.superhost}
+            onChange={e => onMoreFiltersChange("superhost", e.target.checked)}
           />
-        </Section>
+        </ControlsGroup>
+      </Section>
 
-        <Section>
-          <Options
-            heading="Facilities"
-            options={facilities}
-            selected={values.facilities}
-            onFilterChange={values => onMoreFiltersChange("facilities", values)}
-          />
-        </Section>
-      </Body>
+      <Section>
+        <Options
+          heading="Amenities"
+          options={amenities}
+          selected={values.amenities}
+          onFilterChange={values => onMoreFiltersChange("amenities", values)}
+        />
+      </Section>
+
+      <Section>
+        <Options
+          heading="Facilities"
+          options={facilities}
+          selected={values.facilities}
+          onFilterChange={values => onMoreFiltersChange("facilities", values)}
+        />
+      </Section>
     </Dropdown>
   );
 }

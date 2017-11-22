@@ -7,7 +7,7 @@ import { Row, Col } from "react-flexbox-grid";
 import Container from "../../UI/Container";
 import Button from "../../UI/Button";
 import { XsOnly, Sm } from "../../UI/mediaQueries";
-import { MobileFooter, MobilePrimaryButton } from "../../UI/Dropdown/styled";
+import { MobilePrimaryButton } from "../../UI/Dropdown/styled";
 import MobileHeader from "../../UI/Dropdown/MobileHeader";
 
 const Wrap = styled.div`
@@ -25,7 +25,8 @@ const Dropdown = styled.div`
   left: 0;
   right: 0;
 
-  overflow: auto;
+  display: flex;
+  flex-flow: column nowrap;
 
   background: #ffffff;
 
@@ -35,13 +36,40 @@ const Dropdown = styled.div`
 `;
 
 const Footer = styled.div`
+  border-top: 1px solid rgba(72, 72, 72, 0.3);
+  padding: 8px 0;
+
+  @media (min-width: ${bp.sm}px) {
+    border-top: none;
+  }
+
+  @media (min-width: ${bp.md}px) {
+    justify-content: flex-end;
+  }
+`;
+
+const FooterButtons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
-  padding: 8px 0;
+
   @media (min-width: ${bp.md}px) {
     justify-content: flex-end;
+  }
+`;
+
+const Body = styled.div`
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 15px;
+  padding-bottom: 32px;
+
+  @media (min-width: ${bp.sm}px) {
+    padding-top: 20px;
+  }
+  @media (min-width: ${bp.lg}px) {
+    padding-top: 20px;
+    padding-bottom: 24px;
   }
 `;
 
@@ -64,14 +92,14 @@ const FooterButton = styled.button`
   user-select: none;
 `;
 
-export const CancelButton = FooterButton.extend`
+const CancelButton = FooterButton.extend`
   margin-right: 0.5rem;
   padding: 0.75rem 0.5rem;
   color: #383838;
   cursor: pointer;
 `;
 
-export const SeeHomesButton = FooterButton.extend`
+const SeeHomesButton = FooterButton.extend`
   padding: 0.75rem 1rem;
   font-weight: bold;
   color: #ffffff;
@@ -108,32 +136,39 @@ export default class extends React.Component {
                   />
                 </XsOnly>
 
-                <Container>
-                  <Row>
-                    <Col xs={12} md={8}>
-                      {this.props.children}
+                <Body>
+                  <Container>
+                    <Row>
+                      <Col xs={12} md={8}>
+                        {this.props.children}
+                      </Col>
+                    </Row>
+                  </Container>
+                </Body>
 
-                      <Sm>
-                        <Footer>
-                          <CancelButton onClick={this.props.onReset}>
-                            Cancel
-                          </CancelButton>
-                          <SeeHomesButton onClick={this.props.onClose}>
-                            See homes
-                          </SeeHomesButton>
-                        </Footer>
-                      </Sm>
-
-                      <XsOnly>
-                        <MobileFooter>
-                          <MobilePrimaryButton onClick={this.props.onClose}>
-                            See homes
-                          </MobilePrimaryButton>
-                        </MobileFooter>
-                      </XsOnly>
-                    </Col>
-                  </Row>
-                </Container>
+                <Footer>
+                  <Container>
+                    <Row>
+                      <Col xs={12} md={8}>
+                        <FooterButtons>
+                          <XsOnly>
+                            <MobilePrimaryButton onClick={this.props.onClose}>
+                              See homes
+                            </MobilePrimaryButton>
+                          </XsOnly>
+                          <Sm>
+                            <CancelButton onClick={this.props.onReset}>
+                              Cancel
+                            </CancelButton>
+                            <SeeHomesButton onClick={this.props.onClose}>
+                              See homes
+                            </SeeHomesButton>
+                          </Sm>
+                        </FooterButtons>
+                      </Col>
+                    </Row>
+                  </Container>
+                </Footer>
               </Dropdown>
             </BodyClassName>
           )}
