@@ -28,10 +28,26 @@ const Dropdown = styled.div`
   display: flex;
   flex-flow: column nowrap;
 
-  background: #ffffff;
-
   @media (min-width: ${bp.sm}px) {
     top: 134px;
+  }
+`;
+
+const Fill = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  background: #ffffff;
+
+  @media (min-width: ${bp.md}px) {
+    width: calc(66.6666% + 8px);
+  }
+
+  @media (min-width: ${bp.lg}px) {
+    width: calc(50% + 173px);
   }
 `;
 
@@ -136,6 +152,7 @@ export default class extends React.Component {
                   />
                 </XsOnly>
 
+                <Fill />
                 <Body>
                   <Container>
                     <Row>
