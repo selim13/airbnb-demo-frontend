@@ -2,6 +2,7 @@ import React from "react";
 
 import { Md } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
+
 import { FixedPlaceholder, Bar, BarRow } from "./styled";
 import Guests from "./Guests";
 import Dates from "./Dates";

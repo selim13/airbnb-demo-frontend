@@ -5,6 +5,8 @@ import BodyClassName from "react-body-classname";
 import Button from "../Button";
 import { XsOnly, Sm } from "../mediaQueries";
 import MobileHeader from "./MobileHeader";
+import Overlay from "../Overlay";
+
 import {
   Dropdown,
   Footer,
@@ -22,6 +24,10 @@ const Wrap = styled.div`
   }
 `;
 
+const DropdownOverlay = Overlay.extend`
+  z-index: -1;
+`;
+
 export default class extends React.Component {
   static defaultProps = {
     isOpen: false,
@@ -34,7 +40,6 @@ export default class extends React.Component {
     onClose: () => {},
     onReset: () => {}
   };
-
   render() {
     return (
       <Wrap className={this.props.className}>
@@ -43,38 +48,43 @@ export default class extends React.Component {
         </Button>
         {this.props.isOpen &&
           this.props.children && (
-            <Dropdown>
-              <XsOnly>
-                <MobileHeader
-                  heading={this.props.heading}
-                  hasSeparator={this.props.hasMobileHeaderSeparator}
-                  onClose={this.props.onClose}
-                  onReset={this.props.onReset}
-                />
-              </XsOnly>
-
-              {this.props.children}
-
-              <Sm>
-                <Footer>
-                  <CancelButton onClick={this.props.onReset}>
-                    Cancel
-                  </CancelButton>
-                  <ApplyButton onClick={this.props.onClose}>Apply</ApplyButton>
-                </Footer>
-              </Sm>
-              {this.props.hasMobileFooter && (
+            <div>
+              <Dropdown>
                 <XsOnly>
-                  <BodyClassName className="body--fixed">
-                    <MobileFooter>
-                      <MobilePrimaryButton onClick={this.props.onClose}>
-                        Save
-                      </MobilePrimaryButton>
-                    </MobileFooter>
-                  </BodyClassName>
+                  <MobileHeader
+                    heading={this.props.heading}
+                    hasSeparator={this.props.hasMobileHeaderSeparator}
+                    onClose={this.props.onClose}
+                    onReset={this.props.onReset}
+                  />
                 </XsOnly>
-              )}
-            </Dropdown>
+
+                {this.props.children}
+
+                <Sm>
+                  <Footer>
+                    <CancelButton onClick={this.props.onReset}>
+                      Cancel
+                    </CancelButton>
+                    <ApplyButton onClick={this.props.onClose}>
+                      Apply
+                    </ApplyButton>
+                  </Footer>
+                </Sm>
+                {this.props.hasMobileFooter && (
+                  <XsOnly>
+                    <BodyClassName className="body--fixed">
+                      <MobileFooter>
+                        <MobilePrimaryButton onClick={this.props.onClose}>
+                          Save
+                        </MobilePrimaryButton>
+                      </MobileFooter>
+                    </BodyClassName>
+                  </XsOnly>
+                )}
+              </Dropdown>
+              <DropdownOverlay onClick={this.props.onClose} />
+            </div>
           )}
       </Wrap>
     );

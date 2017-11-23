@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import BodyClassName from "react-body-classname";
 
 import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
@@ -9,6 +8,7 @@ import Button from "../../UI/Button";
 import { XsOnly, Sm } from "../../UI/mediaQueries";
 import { MobilePrimaryButton } from "../../UI/Dropdown/styled";
 import MobileHeader from "../../UI/Dropdown/MobileHeader";
+import Overlay from "../../UI/Overlay";
 
 const Wrap = styled.div`
   position: relative;
@@ -30,6 +30,22 @@ const Dropdown = styled.div`
 
   @media (min-width: ${bp.sm}px) {
     top: 134px;
+  }
+`;
+
+const MapOverlay = Overlay.extend`
+  top: 135px;
+  left: auto;
+
+  width: 33.33333%;
+  padding-left: 8px;
+
+  @media (min-width: ${bp.md}px) {
+    display: block;
+  }
+
+  @media (min-width: ${bp.lg}px) {
+    width: calc(50% - 165px);
   }
 `;
 
@@ -140,8 +156,10 @@ export default class extends React.Component {
         </Button>
         {this.props.isOpen &&
           this.props.children && (
-            <BodyClassName className="body--fixed">
+            <div>
               <Dropdown>
+                <Fill />
+
                 <XsOnly>
                   <MobileHeader
                     heading={this.props.heading}
@@ -152,7 +170,6 @@ export default class extends React.Component {
                   />
                 </XsOnly>
 
-                <Fill />
                 <Body>
                   <Container>
                     <Row>
@@ -162,7 +179,6 @@ export default class extends React.Component {
                     </Row>
                   </Container>
                 </Body>
-
                 <Footer>
                   <Container>
                     <Row>
@@ -186,8 +202,10 @@ export default class extends React.Component {
                     </Row>
                   </Container>
                 </Footer>
+
+                <MapOverlay onClick={this.props.onClose} />
               </Dropdown>
-            </BodyClassName>
+            </div>
           )}
       </Wrap>
     );
