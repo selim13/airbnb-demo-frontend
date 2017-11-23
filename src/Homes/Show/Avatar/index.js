@@ -19,8 +19,8 @@ const AvatarWrap = styled.div`
 
 const Superhost = styled.img`
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -2px;
+  bottom: -1px;
   width: 10px;
   height: auto;
 

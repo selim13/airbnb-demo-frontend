@@ -1,16 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import bp from "../../breakpoints";
 import Reviews from "../../UI/Reviews";
-import Select from "../../UI/Select";
 import ManyViews from "./ManyViews";
 
-import bulbImg from "./bulb.png";
 import downArrowSvg from "./downArrow.svg";
 
 const Form = styled.div`
-  padding: 15px 24px 40px;
+  padding: 15px 24px 24px;
   border: 1px solid rgba(118, 118, 118, 0.2);
   background: #ffffff;
 `;
