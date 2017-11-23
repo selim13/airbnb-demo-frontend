@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "google-map-react": "^0.25.0",
+    "lodash.includes": "^4.3.0",
     "moment": "^2.19.2",
     "normalize.css": "^7.0.0",
     "pluralize": "^7.0.0",
