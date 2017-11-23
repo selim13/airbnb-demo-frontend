@@ -4,7 +4,9 @@ import styled from "styled-components";
 // import leftArrowSvg from "./leftArrow.svg";
 import rightArrowSvg from "./rightArrow.svg";
 
-const Pagination = styled.div`text-align: center;`;
+const Pagination = styled.div`
+  text-align: center;
+`;
 const List = styled.div`
   display: inline-flex;
   margin-bottom: 16px;
@@ -33,7 +35,9 @@ const PageNumber = Button.extend`
     text-decoration: underline;
   }
 `;
-const PrevNext = Button.extend`border-color: #008489;`;
+const PrevNext = Button.extend`
+  border-color: #008489;
+`;
 const Ellipsis = styled.p`
   display: flex;
   justify-content: center;
@@ -50,7 +54,7 @@ const Footer = styled.p`
   font-size: 16px;
 `;
 
-export default function() {
+export default function({ showRange = true }) {
   return (
     <Pagination>
       <List>
@@ -68,7 +72,7 @@ export default function() {
           <img src={rightArrowSvg} alt="" />
         </PrevNext>
       </List>
-      <Footer>1 &ndash; 18 of 300+ Rentals</Footer>
+      {showRange && <Footer>1 &ndash; 18 of 300+ Rentals</Footer>}
     </Pagination>
   );
 }

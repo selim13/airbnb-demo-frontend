@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Row, Col } from "react-flexbox-grid";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import bp from "../../breakpoints";
-import { Md, MdOnly } from "../../UI/mediaQueries";
+import { MdOnly } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
 import SeeAllButton from "../../UI/SeeAllButton";
-import { Row, Col } from "react-flexbox-grid";
 
 import { Link, Section, SectionHeading, SectionParagraph } from "./styled";
 import RequestForm from "./RequestForm";
@@ -18,6 +18,7 @@ import Properties from "./Properties";
 import ManyViews from "./ManyViews";
 import Cancellation from "./Cancellation";
 import Amenities from "./Amenities";
+import Reviews from "./Reviews";
 
 function stickyRequestForm({ isSticky, style }) {
   return (
@@ -153,9 +154,10 @@ export default function() {
 
                 <Section>
                   <SectionHeading>Cancellation</SectionHeading>
-
                   <Cancellation />
                 </Section>
+
+                <Reviews />
               </Col>
               <Col lg={4}>
                 <RequestFormWrap>
