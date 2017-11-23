@@ -7,7 +7,9 @@ import arrowSvg from "./arrow.svg";
 const Button = styled.button`
   padding: 0.5rem 0;
   border: none;
+  font-family: inherit;
   font-size: 14px;
+  font-weight: 400;
   white-space: nowrap;
   color: #0f7276;
   background: none;
