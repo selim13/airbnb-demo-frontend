@@ -87,14 +87,7 @@ export default function({
   return (
     <Card to={"/homes/" + id}>
       <ImageWrap>
-        <Image
-          src={image}
-          width="738"
-          height="494"
-          alt=""
-          width="32"
-          height="28"
-        />
+        <Image src={image} width="738" height="494" alt="" />
         <LikeButton title="Like">
           <img src={LikeSvg} alt="" />
         </LikeButton>

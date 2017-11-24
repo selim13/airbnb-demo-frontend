@@ -6,7 +6,7 @@ import bp from "../../breakpoints";
 import { ToSm, Sm } from "../../UI/mediaQueries";
 import Icon from "../../UI/Icon";
 
-import leadImg from "./lead.png";
+import leadImg from "./lead.jpg";
 
 const Wrap = styled.div`
   position: relative;

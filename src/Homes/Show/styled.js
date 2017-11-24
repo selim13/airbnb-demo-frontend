@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import bp from "../../breakpoints";
+
 export const Link = styled.a`
   border-bottom: 1px solid transparent;
   color: #008489;
@@ -31,4 +33,87 @@ export const SectionParagraph = styled.p`
   font-size: 16px;
   font-weight: 300;
   color: #383838;
+`;
+
+export const RequestFormWrap = styled.div`
+  margin-top: 24px;
+`;
+
+export const Overview = styled.div`
+  margin-bottom: 24px;
+
+  @media (min-width: ${bp.lg}px) {
+    margin-bottom: 32px;
+  }
+`;
+
+export const Heading = styled.h1`
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-wight: bold;
+  color: #383838;
+  font-size: 24px;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 36px;
+  }
+`;
+
+export const Subheading = styled.p`
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 16px;
+  }
+`;
+
+export const AvatarWrap = styled.div`
+  width: 40px;
+  margin-top: 30px;
+
+  @media (min-width: ${bp.sm}px) {
+    width: 64px;
+  }
+`;
+
+export const Description = styled.p`
+  margin-top: 0;
+  color: #383838;
+  font-size: 16px;
+  font-weight: 300;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: ${bp.lg}px) {
+    margin-top: 15px;
+  }
+`;
+
+export const ReportMobile = styled.p`
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(118, 118, 118, 0.2);
+  border-bottom: 1px solid rgba(118, 118, 118, 0.2);
+  font-size: 18px;
+  font-weight: 300;
+`;
+
+export const ReportSticky = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 0;
+  color: #383838;
+  font-size: 14px;
+  text-decoration: none;
+`;
+
+export const ReportFlag = styled.img`
+  margin-right: 8px;
 `;

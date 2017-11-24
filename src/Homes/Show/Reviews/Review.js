@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import flagSvg from "./flag.svg";
+import flagSvg from "../flag.svg";
 
 const Wrap = styled.div`
   margin-bottom: 24px;

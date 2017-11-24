@@ -6,12 +6,11 @@ import bp from "../../breakpoints";
 import DotSeparator from "../../UI/DotSeparator";
 
 export const Link = styled.a`
-  border-bottom: 1px solid transparent;
   color: #636363;
   text-decoration: none;
 
   &:hover {
-    border-color: #636363;
+    text-decoration: underline;
   }
 `;
 

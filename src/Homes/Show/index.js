@@ -1,9 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
 import { StickyContainer, Sticky } from "react-sticky";
 
-import bp from "../../breakpoints";
 import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
@@ -11,7 +9,21 @@ import SeeAllButton from "../../UI/SeeAllButton";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 
-import { Link, Section, SectionHeading, SectionParagraph } from "./styled";
+import {
+  Link,
+  Section,
+  SectionHeading,
+  SectionParagraph,
+  ReportSticky,
+  ReportFlag,
+  Overview,
+  Heading,
+  Subheading,
+  AvatarWrap,
+  Description,
+  ReportMobile,
+  RequestFormWrap
+} from "./styled";
 import RequestForm from "./RequestForm";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -28,84 +40,26 @@ import Similar from "./Similar";
 import Explore from "./Explore";
 
 import avatarImg from "./avatar.png";
+import flagSvg from "./flag.svg";
 
+const navBarHeight = 80;
 function stickyRequestForm({ isSticky, style }) {
   return (
     <div
-      style={{ ...style, paddingTop: isSticky ? 105 : 0, paddingBottom: 24 }}
+      style={{
+        ...style,
+        paddingTop: isSticky ? navBarHeight + 24 : 0,
+        paddingBottom: 24
+      }}
     >
       <RequestForm />
+      <ReportSticky href="#">
+        <ReportFlag src={flagSvg} alt="" width="16" height="16" />
+        Report this listing
+      </ReportSticky>
     </div>
   );
 }
-
-const RequestFormWrap = styled.div`
-  margin-top: 25px;
-`;
-
-const MainInfo = styled.div`
-  margin-bottom: 24px;
-
-  @media (min-width: ${bp.lg}px) {
-    margin-bottom: 32px;
-  }
-`;
-
-const Heading = styled.h1`
-  margin-top: 0;
-  margin-bottom: 4px;
-  font-wight: bold;
-  color: #383838;
-  font-size: 24px;
-
-  @media (min-width: ${bp.sm}px) {
-    font-size: 36px;
-  }
-`;
-
-const Subheading = styled.p`
-  margin: 0;
-  font-size: 14px;
-  font-weight: 300;
-
-  @media (min-width: ${bp.sm}px) {
-    font-size: 16px;
-  }
-`;
-
-const AvatarWrap = styled.div`
-  width: 40px;
-  margin-top: 30px;
-
-  @media (min-width: ${bp.sm}px) {
-    width: 64px;
-  }
-`;
-
-const Description = styled.p`
-  margin-top: 0;
-  color: #383838;
-  font-size: 16px;
-  font-weight: 300;
-
-  @media (min-width: ${bp.sm}px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: ${bp.lg}px) {
-    margin-top: 15px;
-  }
-`;
-
-const ReportMobile = styled.p`
-  margin-top: 0;
-  margin-bottom: 8px;
-  padding: 16px 0;
-  border-top: 1px solid rgba(118, 118, 118, 0.2);
-  border-bottom: 1px solid rgba(118, 118, 118, 0.2);
-  font-size: 18px;
-  font-weight: 300;
-`;
 
 export default function() {
   return (
@@ -121,7 +75,7 @@ export default function() {
                 <Col xs={12} lg={8}>
                   <Nav />
 
-                  <MainInfo>
+                  <Overview id="overview">
                     <Row>
                       <Col xs={10}>
                         <Heading>Romantic Cabana with view</Heading>
@@ -144,7 +98,7 @@ export default function() {
                         </AvatarWrap>
                       </Col>
                     </Row>
-                  </MainInfo>
+                  </Overview>
 
                   <MdOnly>
                     <ManyViews />
@@ -200,16 +154,18 @@ export default function() {
                     <Cancellation />
                   </Section>
 
-                  <Reviews />
+                  <Reviews id="reviews" />
 
-                  <Host />
+                  <Host id="host" />
 
-                  <Neighborhood />
+                  <Neighborhood id="location" />
                 </Col>
                 <Col lg={4}>
                   <Lg>
                     <RequestFormWrap>
-                      <Sticky topOffset={-85}>{stickyRequestForm}</Sticky>
+                      <Sticky topOffset={-navBarHeight}>
+                        {stickyRequestForm}
+                      </Sticky>
                     </RequestFormWrap>
                   </Lg>
                 </Col>

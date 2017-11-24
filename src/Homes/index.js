@@ -1,9 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import Navbar from "../Navbar";
-import Footer from "../Footer";
-import VisuallyHidden from "../UI/VisuallyHidden";
 import List from "./List";
 import Show from "./Show";
 
