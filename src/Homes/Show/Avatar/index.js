@@ -3,14 +3,12 @@ import styled from "styled-components";
 
 import bp from "../../../breakpoints";
 
-import avatarImg from "./avatar.png";
 import superhostSvg from "./superhost.svg";
 
 const Wrap = styled.div`
   display: flex;
   align-items: center;
   flex-flow: column nowrap;
-  margin-top: 30px;
 `;
 
 const AvatarWrap = styled.div`
@@ -31,13 +29,8 @@ const Superhost = styled.img`
 
 const HostAvatar = styled.img`
   display: block;
-  width: 40px;
-  height: 40px;
-
-  @media (min-width: ${bp.sm}px) {
-    width: 64px;
-    height: 64px;
-  }
+  max-width: 100%;
+  height: auto;
 `;
 
 const Name = styled.p`
@@ -54,14 +47,14 @@ const Name = styled.p`
   }
 `;
 
-export default function() {
+export default function({ image, name, superhost }) {
   return (
     <Wrap>
       <AvatarWrap>
-        <HostAvatar src={avatarImg} alt="" width="64" height="64" />
-        <Superhost src={superhostSvg} />
+        <HostAvatar src={image} alt="" width="88" height="88" />
+        {superhost && <Superhost src={superhostSvg} />}
       </AvatarWrap>
-      <Name>Yudi &amp; Victoria</Name>
+      {name && <Name>{name}</Name>}
     </Wrap>
   );
 }

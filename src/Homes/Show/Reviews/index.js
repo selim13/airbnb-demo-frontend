@@ -15,6 +15,7 @@ import avatar2 from "./avatar2.png";
 
 const Wrap = styled.div`
   padding-top: 24px;
+  margin-bottom: 48px;
 `;
 
 const Section = styled.div`

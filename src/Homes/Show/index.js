@@ -4,7 +4,7 @@ import { Row, Col } from "react-flexbox-grid";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import bp from "../../breakpoints";
-import { MdOnly } from "../../UI/mediaQueries";
+import { MdOnly, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
 import SeeAllButton from "../../UI/SeeAllButton";
@@ -19,6 +19,9 @@ import ManyViews from "./ManyViews";
 import Cancellation from "./Cancellation";
 import Amenities from "./Amenities";
 import Reviews from "./Reviews";
+import Host from "./Host";
+
+import avatarImg from "./avatar.png";
 
 function stickyRequestForm({ isSticky, style }) {
   return (
@@ -62,6 +65,15 @@ const Subheading = styled.p`
   }
 `;
 
+const AvatarWrap = styled.div`
+  width: 40px;
+  margin-top: 30px;
+
+  @media (min-width: ${bp.sm}px) {
+    width: 64px;
+  }
+`;
+
 const Description = styled.p`
   margin-top: 0;
   color: #383838;
@@ -98,7 +110,9 @@ export default function() {
                       <Properties guests={2} type="Studio" beds={2} baths={2} />
                     </Col>
                     <Col xs={2}>
-                      <Avatar />
+                      <AvatarWrap>
+                        <Avatar image={avatarImg} name="Yudi &amp; Victoria" />
+                      </AvatarWrap>
                     </Col>
                   </Row>
                 </MainInfo>
@@ -158,11 +172,15 @@ export default function() {
                 </Section>
 
                 <Reviews />
+
+                <Host />
               </Col>
               <Col lg={4}>
-                <RequestFormWrap>
-                  <Sticky topOffset={-85}>{stickyRequestForm}</Sticky>
-                </RequestFormWrap>
+                <Lg>
+                  <RequestFormWrap>
+                    <Sticky topOffset={-85}>{stickyRequestForm}</Sticky>
+                  </RequestFormWrap>
+                </Lg>
               </Col>
             </Row>
           </StickyContainer>
