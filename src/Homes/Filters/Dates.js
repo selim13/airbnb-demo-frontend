@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import MediaQuery from "react-responsive";
 
 import bp from "../../breakpoints";
-import Filter from "./Filter";
+import Dropdown from "../../UI/Dropdown";
+import { XsOnly, SmOnly, Md } from "../../UI/mediaQueries";
 import DatePicker from "../../UI/DatePicker";
 
 import arrowRightSvg from "./arrowRight.svg";
@@ -29,94 +29,84 @@ const DatePickerWrap = styled.div`
   justify-content: center;
 `;
 
-export default class extends React.Component {
-  state = { startDate: null, endDate: null };
-
-  static defaultProps = {};
-
-  reset = () => {
-    this.setState({ startDate: null, endDate: null });
-  };
-
-  dateLabelFormatter(startDate, endDate) {
-    if (startDate && !endDate) {
-      return startDate.format("MMM D");
-    }
-
-    if (startDate && endDate) {
-      if (endDate.isSame(startDate, "month"))
-        return startDate.format("MMM D") + " – " + endDate.format("D");
-      else return startDate.format("MMM D") + " – " + endDate.format("MMM D");
-    }
-
-    return "Dates";
+function dateLabelFormatter(startDate, endDate) {
+  if (startDate && !endDate) {
+    return startDate.format("MMM D");
   }
 
-  render() {
-    const checkIn = this.state.startDate
-      ? this.state.startDate.format("MMM D")
-      : "Check in";
-    const checkOut = this.state.endDate
-      ? this.state.endDate.format("MMM D")
-      : "Check out";
-
-    return (
-      <Filter
-        buttonText={this.dateLabelFormatter(
-          this.state.startDate,
-          this.state.endDate
-        )}
-        heading="When"
-        onReset={this.reset}
-      >
-        <Body>
-          <MediaQuery maxDeviceWidth={bp.sm - 1}>
-            <DateRange>
-              <DateRangeLabel active={!this.state.startDate}>
-                {checkIn}
-              </DateRangeLabel>
-              <DateRangeArrow src={arrowRightSvg} alt="" />
-              <DateRangeLabel
-                active={this.state.startDate && !this.state.endDate}
-              >
-                {checkOut}
-              </DateRangeLabel>
-            </DateRange>
-          </MediaQuery>
-          <DatePickerWrap>
-            <MediaQuery maxDeviceWidth={bp.sm - 1}>
-              <DatePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
-                onDatesChange={({ startDate, endDate }) =>
-                  this.setState({ startDate, endDate })}
-                orientation="vertical"
-                numberOfMonths={2}
-                navPrev=""
-                navNext=""
-              />
-            </MediaQuery>
-            <MediaQuery minDeviceWidth={bp.sm} maxDeviceWidth={bp.md - 1}>
-              <DatePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
-                onDatesChange={({ startDate, endDate }) =>
-                  this.setState({ startDate, endDate })}
-                numberOfMonths={1}
-              />
-            </MediaQuery>
-            <MediaQuery minDeviceWidth={bp.md}>
-              <DatePicker
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
-                onDatesChange={({ startDate, endDate }) =>
-                  this.setState({ startDate, endDate })}
-                numberOfMonths={2}
-              />
-            </MediaQuery>
-          </DatePickerWrap>
-        </Body>
-      </Filter>
-    );
+  if (startDate && endDate) {
+    if (endDate.isSame(startDate, "month"))
+      return startDate.format("MMM D") + " – " + endDate.format("D");
+    else return startDate.format("MMM D") + " – " + endDate.format("MMM D");
   }
+
+  return "Dates";
+}
+
+export default function({
+  isOpen = false,
+  startDate = null,
+  endDate = null,
+  onFilterChange = () => {},
+  onClick = () => {},
+  onClose = () => {},
+  onReset = () => {}
+}) {
+  const checkIn = startDate ? startDate.format("MMM D") : "Check in";
+  const checkOut = endDate ? endDate.format("MMM D") : "Check out";
+
+  return (
+    <Dropdown
+      isOpen={isOpen}
+      buttonText={dateLabelFormatter(startDate, endDate)}
+      heading="When"
+      onClick={onClick}
+      onClose={onClose}
+      onReset={onReset}
+    >
+      <Body>
+        <XsOnly>
+          <DateRange>
+            <DateRangeLabel active={!startDate}>{checkIn}</DateRangeLabel>
+            <DateRangeArrow src={arrowRightSvg} alt="" width="18" height="11" />
+            <DateRangeLabel active={startDate && !endDate}>
+              {checkOut}
+            </DateRangeLabel>
+          </DateRange>
+        </XsOnly>
+        <DatePickerWrap>
+          <XsOnly>
+            <DatePicker
+              startDate={startDate}
+              endDate={endDate}
+              onDatesChange={({ startDate, endDate }) =>
+                onFilterChange({ startDate, endDate })}
+              orientation="vertical"
+              numberOfMonths={2}
+              navPrev=""
+              navNext=""
+            />
+          </XsOnly>
+          <SmOnly>
+            <DatePicker
+              startDate={startDate}
+              endDate={endDate}
+              onDatesChange={({ startDate, endDate }) =>
+                onFilterChange({ startDate, endDate })}
+              numberOfMonths={1}
+            />
+          </SmOnly>
+          <Md>
+            <DatePicker
+              startDate={startDate}
+              endDate={endDate}
+              onDatesChange={({ startDate, endDate }) =>
+                onFilterChange({ startDate, endDate })}
+              numberOfMonths={2}
+            />
+          </Md>
+        </DatePickerWrap>
+      </Body>
+    </Dropdown>
+  );
 }
