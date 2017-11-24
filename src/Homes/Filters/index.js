@@ -12,7 +12,7 @@ import InstantBook from "./InstantBook";
 import More from "./More";
 
 export default class extends React.Component {
-  state = {
+  initialValues = {
     openedFilter: null,
     dates: { startDate: null, endDate: null },
     guests: { adults: 1, children: 0, infants: 0 },
@@ -24,6 +24,8 @@ export default class extends React.Component {
     amenities: [],
     facilities: []
   };
+
+  state = this.initialValues;
 
   toggle = filter => {
     this.setState(
@@ -44,11 +46,17 @@ export default class extends React.Component {
     });
   };
 
-  resetDates = () =>
-    this.setState({ dates: { startDate: null, endDate: null } });
+  reset = filter => this.setState({ [filter]: this.initialValues[filter] });
 
-  resetGuests = () =>
-    this.setState({ guests: { adults: 1, children: 0, infants: 0 } });
+  resetMore = () => {
+    this.reset("roomTypes");
+    this.reset("price");
+    this.reset("instantBook");
+    this.reset("rooms");
+    this.reset("superhost");
+    this.reset("amenities");
+    this.reset("facilities");
+  };
 
   render() {
     return (
@@ -62,7 +70,7 @@ export default class extends React.Component {
                 endDate={this.state.dates.endDate}
                 onClick={() => this.toggle("dates")}
                 onFilterChange={values => this.changeFilter("dates", values)}
-                onReset={this.resetDates}
+                onReset={() => this.reset("dates")}
                 onClose={this.close}
               />
               <Guests
@@ -74,7 +82,7 @@ export default class extends React.Component {
                 infants={this.state.guests.infants}
                 onClick={() => this.toggle("guests")}
                 onFilterChange={values => this.changeFilter("guests", values)}
-                onReset={this.resetGuests}
+                onReset={() => this.reset("guests")}
                 onClose={this.close}
               />
 
@@ -86,6 +94,7 @@ export default class extends React.Component {
                   onFilterChange={values =>
                     this.changeFilter("roomTypes", values)
                   }
+                  onReset={() => this.reset("roomTypes")}
                   onClose={this.close}
                 />
 
@@ -95,6 +104,7 @@ export default class extends React.Component {
                   values={this.state.price}
                   onClick={() => this.toggle("price")}
                   onFilterChange={values => this.changeFilter("price", values)}
+                  onReset={() => this.reset("price")}
                   onClose={this.close}
                 />
 
@@ -105,6 +115,7 @@ export default class extends React.Component {
                   onFilterChange={values =>
                     this.changeFilter("instantBook", values)
                   }
+                  onReset={() => this.reset("instantBook")}
                   onClose={this.close}
                 />
               </Md>
@@ -116,6 +127,7 @@ export default class extends React.Component {
                 values={this.state}
                 onMoreFiltersChange={this.changeFilter}
                 onClick={() => this.toggle("more")}
+                onReset={this.resetMore}
                 onClose={this.close}
               />
             </BarRow>
