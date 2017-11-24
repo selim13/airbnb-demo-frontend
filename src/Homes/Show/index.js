@@ -22,6 +22,7 @@ import Reviews from "./Reviews";
 import Host from "./Host";
 import Neighborhood from "./Neighborhood";
 import NeighborhoodMap from "./NeighborhoodMap";
+import Similar from "./Similar";
 
 import avatarImg from "./avatar.png";
 
@@ -94,7 +95,8 @@ const Description = styled.p`
 `;
 
 const ReportMobile = styled.p`
-  margin-bottom: 48px;
+  margin-top: 0;
+  margin-bottom: 8px;
   padding: 16px 0;
   border-top: 1px solid rgba(118, 118, 118, 0.2);
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
@@ -186,9 +188,9 @@ export default function() {
 
                 <Reviews />
 
-                <Neighborhood />
-
                 <Host />
+
+                <Neighborhood />
               </Col>
               <Col lg={4}>
                 <Lg>
@@ -208,6 +210,8 @@ export default function() {
           </ToLg>
         </article>
       </Container>
+
+      <Similar />
     </div>
   );
 }
