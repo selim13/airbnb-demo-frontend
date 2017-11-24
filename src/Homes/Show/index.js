@@ -4,7 +4,7 @@ import { Row, Col } from "react-flexbox-grid";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import bp from "../../breakpoints";
-import { MdOnly, Lg } from "../../UI/mediaQueries";
+import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
 import SeeAllButton from "../../UI/SeeAllButton";
@@ -20,12 +20,16 @@ import Cancellation from "./Cancellation";
 import Amenities from "./Amenities";
 import Reviews from "./Reviews";
 import Host from "./Host";
+import Neighborhood from "./Neighborhood";
+import NeighborhoodMap from "./NeighborhoodMap";
 
 import avatarImg from "./avatar.png";
 
 function stickyRequestForm({ isSticky, style }) {
   return (
-    <div style={{ ...style, paddingTop: isSticky ? 105 : 0 }}>
+    <div
+      style={{ ...style, paddingTop: isSticky ? 105 : 0, paddingBottom: 24 }}
+    >
       <RequestForm />
     </div>
   );
@@ -87,6 +91,15 @@ const Description = styled.p`
   @media (min-width: ${bp.lg}px) {
     margin-top: 15px;
   }
+`;
+
+const ReportMobile = styled.p`
+  margin-bottom: 48px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(118, 118, 118, 0.2);
+  border-bottom: 1px solid rgba(118, 118, 118, 0.2);
+  font-size: 18px;
+  font-weight: 300;
 `;
 
 export default function() {
@@ -173,6 +186,8 @@ export default function() {
 
                 <Reviews />
 
+                <Neighborhood />
+
                 <Host />
               </Col>
               <Col lg={4}>
@@ -184,6 +199,13 @@ export default function() {
               </Col>
             </Row>
           </StickyContainer>
+          <NeighborhoodMap />
+
+          <ToLg>
+            <ReportMobile>
+              <Link href="#">Report this listing</Link>
+            </ReportMobile>
+          </ToLg>
         </article>
       </Container>
     </div>
