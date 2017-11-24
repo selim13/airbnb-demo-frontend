@@ -8,6 +8,9 @@ import Container from "../UI/Container";
 import Card from "./Card";
 import Filters from "./Filters";
 import Pagination from "../UI/Pagination";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
+import VisuallyHidden from "../UI/VisuallyHidden";
 
 import data from "./staticData";
 import pinIconSvg from "./pinIcon.svg";
@@ -98,32 +101,44 @@ export default function() {
 
   return (
     <div>
+      <Navbar
+        searchPlaceholder="Anywhere"
+        searchValue="Anywhere &middot; Homes"
+      />
+
       <Filters />
-      <Container>
-        <Row>
-          <Col xs={12} md={8}>
-            <Row>{homesList}</Row>
-            <Row center="xs">
-              <Col xs={12}>
-                <PaginationWrap>
-                  <Pagination />
-                </PaginationWrap>
-                <Info>
-                  Enter dates to see full pricing. Additional fees apply. Taxes
-                  may be added.
-                </Info>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-      <MapBox>
-        <GoogleMapReact
-          defaultCenter={{ lat: 57.307, lng: 15.53 }}
-          defaultZoom={5}
-        />
-      </MapBox>
-      <ToggleMapButton title="Show map" />
+
+      <main>
+        <Container>
+          <Row>
+            <Col xs={12} md={8}>
+              <Row>{homesList}</Row>
+              <Row center="xs">
+                <Col xs={12}>
+                  <PaginationWrap>
+                    <Pagination />
+                  </PaginationWrap>
+                  <Info>
+                    Enter dates to see full pricing. Additional fees apply.
+                    Taxes may be added.
+                  </Info>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+        <MapBox>
+          <GoogleMapReact
+            defaultCenter={{ lat: 57.307, lng: 15.53 }}
+            defaultZoom={5}
+          />
+        </MapBox>
+        <ToggleMapButton title="Show map" />
+      </main>
+
+      <VisuallyHidden>
+        <Footer />
+      </VisuallyHidden>
     </div>
   );
 }

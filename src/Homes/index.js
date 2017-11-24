@@ -10,19 +10,8 @@ import Show from "./Show";
 export default function() {
   return (
     <div>
-      <Navbar
-        searchPlaceholder="Anywhere"
-        searchValue="Anywhere &middot; Homes"
-      />
-
-      <main>
-        <Route exact path="/homes" component={List} />
-        <Route exact path="/homes/:id" component={Show} />
-      </main>
-
-      <VisuallyHidden>
-        <Footer />
-      </VisuallyHidden>
+      <Route exact path="/homes" component={List} />
+      <Route exact path="/homes/:id" component={Show} />
     </div>
   );
 }

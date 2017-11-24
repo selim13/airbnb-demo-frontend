@@ -8,6 +8,8 @@ import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
 import SeeAllButton from "../../UI/SeeAllButton";
+import Navbar from "../../Navbar";
+import Footer from "../../Footer";
 
 import { Link, Section, SectionHeading, SectionParagraph } from "./styled";
 import RequestForm from "./RequestForm";
@@ -23,6 +25,7 @@ import Host from "./Host";
 import Neighborhood from "./Neighborhood";
 import NeighborhoodMap from "./NeighborhoodMap";
 import Similar from "./Similar";
+import Explore from "./Explore";
 
 import avatarImg from "./avatar.png";
 
@@ -107,111 +110,129 @@ const ReportMobile = styled.p`
 export default function() {
   return (
     <div>
-      <Header />
-      <Container>
-        <article>
-          <StickyContainer>
-            <Row>
-              <Col xs={12} lg={8}>
-                <Nav />
+      <Navbar searchPlaceholder="Search" />
 
-                <MainInfo>
-                  <Row>
-                    <Col xs={10}>
-                      <Heading>Romantic Cabana with view</Heading>
-                      <Subheading>
-                        Entire cabin <DotSeparator /> Armenia
-                      </Subheading>
-                      <Properties guests={2} type="Studio" beds={2} baths={2} />
-                    </Col>
-                    <Col xs={2}>
-                      <AvatarWrap>
-                        <Avatar image={avatarImg} name="Yudi &amp; Victoria" />
-                      </AvatarWrap>
-                    </Col>
-                  </Row>
-                </MainInfo>
+      <main>
+        <Header />
+        <Container>
+          <article>
+            <StickyContainer>
+              <Row>
+                <Col xs={12} lg={8}>
+                  <Nav />
 
-                <MdOnly>
-                  <ManyViews />
-                </MdOnly>
+                  <MainInfo>
+                    <Row>
+                      <Col xs={10}>
+                        <Heading>Romantic Cabana with view</Heading>
+                        <Subheading>
+                          Entire cabin <DotSeparator /> Armenia
+                        </Subheading>
+                        <Properties
+                          guests={2}
+                          type="Studio"
+                          beds={2}
+                          baths={2}
+                        />
+                      </Col>
+                      <Col xs={2}>
+                        <AvatarWrap>
+                          <Avatar
+                            image={avatarImg}
+                            name="Yudi &amp; Victoria"
+                          />
+                        </AvatarWrap>
+                      </Col>
+                    </Row>
+                  </MainInfo>
 
-                <Section>
-                  <Description>
-                    Located in the coffee region, in the Andean mountains of
-                    Colombia, South America, a charming cabana made from bamboo,
-                    with a great view and a "sendero" or pathway through the
-                    bamboo forest which criss-crosses our 5 acre organic farm,
-                    leading down to a stream. A place to relax and commune with
-                    nature.
-                  </Description>
+                  <MdOnly>
+                    <ManyViews />
+                  </MdOnly>
 
-                  <SeeAllButton label="Read more about the space" />
-                  <br />
-                  <Link href="#">Contact host</Link>
-                </Section>
+                  <Section>
+                    <Description>
+                      Located in the coffee region, in the Andean mountains of
+                      Colombia, South America, a charming cabana made from
+                      bamboo, with a great view and a "sendero" or pathway
+                      through the bamboo forest which criss-crosses our 5 acre
+                      organic farm, leading down to a stream. A place to relax
+                      and commune with nature.
+                    </Description>
 
-                <Section>
-                  <SectionHeading>Amenities</SectionHeading>
+                    <SeeAllButton label="Read more about the space" />
+                    <br />
+                    <Link href="#">Contact host</Link>
+                  </Section>
 
-                  <Amenities />
-                </Section>
+                  <Section>
+                    <SectionHeading>Amenities</SectionHeading>
 
-                <Section>
-                  <SectionHeading>
-                    Always communicate through Airbnb
-                  </SectionHeading>
+                    <Amenities />
+                  </Section>
 
-                  <SectionParagraph>
-                    To protect your payment, never transfer money or communicate
-                    outside of the Airbnb website or app.
-                  </SectionParagraph>
+                  <Section>
+                    <SectionHeading>
+                      Always communicate through Airbnb
+                    </SectionHeading>
 
-                  <Link href="#">Learn more</Link>
-                </Section>
+                    <SectionParagraph>
+                      To protect your payment, never transfer money or
+                      communicate outside of the Airbnb website or app.
+                    </SectionParagraph>
 
-                <Section>
-                  <SectionHeading>House Rules</SectionHeading>
+                    <Link href="#">Learn more</Link>
+                  </Section>
 
-                  <SectionParagraph>
-                    Check-in is anytime after 1PM<br />
-                    Check out by 11AM
-                  </SectionParagraph>
+                  <Section>
+                    <SectionHeading>House Rules</SectionHeading>
 
-                  <SeeAllButton label="Read all rules" />
-                </Section>
+                    <SectionParagraph>
+                      Check-in is anytime after 1PM<br />
+                      Check out by 11AM
+                    </SectionParagraph>
 
-                <Section>
-                  <SectionHeading>Cancellation</SectionHeading>
-                  <Cancellation />
-                </Section>
+                    <SeeAllButton label="Read all rules" />
+                  </Section>
 
-                <Reviews />
+                  <Section>
+                    <SectionHeading>Cancellation</SectionHeading>
+                    <Cancellation />
+                  </Section>
 
-                <Host />
+                  <Reviews />
 
-                <Neighborhood />
-              </Col>
-              <Col lg={4}>
-                <Lg>
-                  <RequestFormWrap>
-                    <Sticky topOffset={-85}>{stickyRequestForm}</Sticky>
-                  </RequestFormWrap>
-                </Lg>
-              </Col>
-            </Row>
-          </StickyContainer>
-          <NeighborhoodMap />
+                  <Host />
 
-          <ToLg>
-            <ReportMobile>
-              <Link href="#">Report this listing</Link>
-            </ReportMobile>
-          </ToLg>
-        </article>
-      </Container>
+                  <Neighborhood />
+                </Col>
+                <Col lg={4}>
+                  <Lg>
+                    <RequestFormWrap>
+                      <Sticky topOffset={-85}>{stickyRequestForm}</Sticky>
+                    </RequestFormWrap>
+                  </Lg>
+                </Col>
+              </Row>
+            </StickyContainer>
+            <NeighborhoodMap />
 
-      <Similar />
+            <ToLg>
+              <ReportMobile>
+                <Link href="#">Report this listing</Link>
+              </ReportMobile>
+            </ToLg>
+          </article>
+        </Container>
+
+        <Similar />
+
+        <Container>
+          <Explore />
+        </Container>
+      </main>
+
+      <Footer />
     </div>
   );
 }
