@@ -108,14 +108,14 @@ const Tip = styled.p`
   margin-bottom: 16px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
-  -: #383838;
+  color: #383838;
   font-size: 12px;
   text-align: center;
 `;
 
-export default function(props) {
+export default function() {
   return (
-    <Form {...props}>
+    <Form>
       <Price>
         $41 <Caption>per night</Caption>
       </Price>

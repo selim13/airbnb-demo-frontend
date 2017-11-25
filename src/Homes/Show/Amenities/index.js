@@ -39,14 +39,18 @@ export default function() {
           <Property>
             <Icon src={internetSvg} /> Internet
           </Property>
-          <Property>
-            <Icon src={wifiSvg} /> Wireless Internet
-          </Property>
         </Col>
         <Col xs={6}>
           <Property>
             <Icon src={kidsFriendlySvg} /> Family/kid friendly
           </Property>
+        </Col>
+        <Col xs={6}>
+          <Property>
+            <Icon src={wifiSvg} /> Wireless Internet
+          </Property>
+        </Col>
+        <Col xs={6}>
           <Property>
             <Icon src={parkingSvg} /> Free parking on premises
           </Property>
