@@ -72,8 +72,8 @@ export default function({
           min={range.min}
           max={range.max}
           values={[values.min, values.max]}
-          onValuesUpdated={values =>
-            onFilterChange({ min: values.values[0], max: values.values[1] })
+          onValuesUpdated={rheostat =>
+            onFilterChange({ min: rheostat.values[0], max: rheostat.values[1] })
           }
         />
       </Slider>
