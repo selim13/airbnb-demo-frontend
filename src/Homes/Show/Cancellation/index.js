@@ -14,10 +14,6 @@ const Heading = styled.p`
   color: #383838;
 `;
 
-const ShieldImg = styled.img`
-  margin-left: 1rem;
-`;
-
 const Hr = styled.hr`
   max-width: 65px;
   height: 1px;
@@ -42,7 +38,7 @@ export default function() {
           </SectionParagraph>
         </Col>
         <Col xs={2}>
-          <ShieldImg src={shieldSvg} alt="" width="42" height="45" />
+          <img src={shieldSvg} alt="" width="42" height="45" />
         </Col>
       </Row>
 
