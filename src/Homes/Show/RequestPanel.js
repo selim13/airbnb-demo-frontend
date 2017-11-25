@@ -65,7 +65,7 @@ const RequestButton = Button.extend`
   }
 `;
 
-export default function() {
+export default function({ onClick }) {
   return (
     <Wrap>
       <div>
@@ -75,7 +75,7 @@ export default function() {
         <Reviews rating={5} count={111} />
       </div>
 
-      <RequestButton>Request a book</RequestButton>
+      <RequestButton onClick={onClick}>Request a book</RequestButton>
     </Wrap>
   );
 }

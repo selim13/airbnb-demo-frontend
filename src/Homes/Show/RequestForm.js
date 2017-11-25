@@ -1,16 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { ToLg } from "../../UI/mediaQueries";
 
 import Reviews from "../../UI/Reviews";
+import Icon from "../../UI/Icon";
 import ManyViews from "./ManyViews";
 
 import downArrowSvg from "./downArrow.svg";
-
-const Form = styled.div`
-  padding: 15px 24px 24px;
-  border: 1px solid rgba(118, 118, 118, 0.2);
-  background: #ffffff;
-`;
 
 const Price = styled.p`
   margin-top: 0;
@@ -25,7 +21,19 @@ const Caption = styled.small`
   font-size: 12px;
 `;
 
-const RatingWrap = styled.div`
+const IconButton = styled.button`
+  margin-left: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  color: #767676;
+`;
+
+const TopWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 15px;
   padding-bottom: 25px;
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
@@ -115,13 +123,26 @@ const Tip = styled.p`
 
 export default function() {
   return (
-    <Form>
-      <Price>
-        $41 <Caption>per night</Caption>
-      </Price>
-      <RatingWrap>
-        <Reviews rating={5} count={111} />
-      </RatingWrap>
+    <div>
+      <TopWrap>
+        <div>
+          <Price>
+            $41 <Caption>per night</Caption>
+          </Price>
+          <Reviews rating={5} count={111} />
+        </div>
+        <div>
+          <ToLg>
+            <IconButton>
+              <Icon icon="share" />
+            </IconButton>
+            <IconButton>
+              <Icon icon="heartOutline" />
+            </IconButton>
+          </ToLg>
+        </div>
+      </TopWrap>
+
       <ControlsGroup>
         <Label>
           Check in
@@ -143,6 +164,6 @@ export default function() {
       <Tip>You won’t be charged yet</Tip>
 
       <ManyViews mobile />
-    </Form>
+    </div>
   );
 }

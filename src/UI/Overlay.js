@@ -9,4 +9,5 @@ export default styled.div`
   background: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.8;
+  z-index: 800;
 `;

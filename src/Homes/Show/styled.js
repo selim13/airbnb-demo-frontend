@@ -39,8 +39,19 @@ export const SectionParagraph = styled.p`
   color: #383838;
 `;
 
-export const RequestFormWrap = styled.div`
+export const RequestFormOffset = styled.div`
   margin-top: 24px;
+`;
+
+export const RequestFormWrap = styled.div`
+  padding: 15px 24px 24px;
+  border: 1px solid rgba(118, 118, 118, 0.2);
+`;
+
+export const ModalRequestFormWrap = styled.div`
+  @media (min-width: ${bp.sm}px) {
+    max-width: 320px;
+  }
 `;
 
 export const Overview = styled.div`
