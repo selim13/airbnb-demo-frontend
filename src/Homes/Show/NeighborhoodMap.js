@@ -48,6 +48,7 @@ export default function() {
         <GoogleMapReact
           defaultCenter={{ lat: 57.3, lng: 15.53 }}
           defaultZoom={16}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
         >
           <MapAreaMarker lat={57.3} lng={15.53} />
         </GoogleMapReact>

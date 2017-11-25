@@ -131,6 +131,7 @@ export default function() {
           <GoogleMapReact
             defaultCenter={{ lat: 57.307, lng: 15.53 }}
             defaultZoom={5}
+            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
           />
         </MapBox>
         <ToggleMapButton title="Show map" />
