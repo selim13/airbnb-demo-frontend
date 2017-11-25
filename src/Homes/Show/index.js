@@ -18,6 +18,7 @@ import {
   SectionParagraph,
   ReportSticky,
   ReportFlag,
+  ReadMoreWrap,
   Overview,
   Heading,
   Subheading,
@@ -181,8 +182,10 @@ export default class extends React.Component {
                           place to relax and commune with nature.
                         </Description>
 
-                        <SeeAllButton label="Read more about the space" />
-                        <br />
+                        <ReadMoreWrap>
+                          <SeeAllButton label="Read more about the space" />
+                        </ReadMoreWrap>
+
                         <Link href="#">Contact host</Link>
                       </Section>
 

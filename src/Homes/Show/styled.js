@@ -97,6 +97,7 @@ export const AvatarWrap = styled.div`
 
 export const Description = styled.p`
   margin-top: 0;
+  margin-bottom: 24px;
   color: #383838;
   font-size: 16px;
   font-weight: 300;
@@ -108,6 +109,10 @@ export const Description = styled.p`
   @media (min-width: ${bp.lg}px) {
     margin-top: 15px;
   }
+`;
+
+export const ReadMoreWrap = styled.div`
+  margin-bottom: 24px;
 `;
 
 export const ReportMobile = styled.p`
