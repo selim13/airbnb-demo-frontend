@@ -125,6 +125,7 @@ export default class extends React.Component {
                 roomTypes={this.state.roomTypes}
                 priceRange={{ min: 0, max: 1000 }}
                 values={this.state}
+                initialValues={this.initialValues}
                 onMoreFiltersChange={this.changeFilter}
                 onClick={() => this.toggle("more")}
                 onReset={this.resetMore}

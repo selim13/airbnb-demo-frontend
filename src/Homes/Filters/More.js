@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import isEqual from "lodash/isEqual";
 
 import bp from "../../breakpoints";
 import { ToMd } from "../../UI/mediaQueries";
@@ -54,10 +55,37 @@ const facilities = [
   "Hot tub"
 ];
 
+function changedFiltersCount(values, initialValues) {
+  return [
+    "roomTypes",
+    "price",
+    "rooms",
+    "superhost",
+    "instantBook",
+    "amenities",
+    "facilities"
+  ].reduce(
+    (previousValue, filter) =>
+      isEqual(values[filter], initialValues[filter])
+        ? previousValue
+        : previousValue + 1,
+    0
+  );
+}
+
+function labelFormatter(values, initialValues) {
+  const filtersCount = changedFiltersCount(values, initialValues);
+
+  if (filtersCount > 0) return `More filters · ${filtersCount}`;
+
+  return "More filters";
+}
+
 export default function({
   isOpen = false,
   priceRange,
   values,
+  initialValues,
   onMoreFiltersChange = () => {},
   onClick = () => {},
   onClose = () => {},
@@ -66,8 +94,8 @@ export default function({
   return (
     <Dropdown
       isOpen={isOpen}
-      buttonText="More filters"
-      heading="All filters (0)"
+      buttonText={labelFormatter(values, initialValues)}
+      heading={`All filters (${changedFiltersCount(values, initialValues)})`}
       hasMobileHeaderSeparator
       hasMobileFooter
       onClick={onClick}
