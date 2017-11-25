@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import Rheostat from "rheostat";
-import "rheostat/css/slider.css";
-import "rheostat/css/slider-horizontal.css";
+import "./slider.css";
 
-import bp from "../../breakpoints";
+import bp from "../../../breakpoints";
 
 const PriceRange = styled.p`
   margin-top: 0;
@@ -21,6 +20,7 @@ const PriceRange = styled.p`
     font-size: 16px;
   }
 `;
+
 const Average = styled.small`
   display: block;
   margin-bottom: 32px;
@@ -35,6 +35,20 @@ const Average = styled.small`
   @media (min-width: ${bp.lg}px) {
     margin-bottom: 32px;
     font-size: 12px;
+  }
+`;
+
+const Slider = styled.div`
+  @media (min-width: ${bp.sm}px) {
+    padding: 0 32px;
+  }
+
+  @media (min-width: ${bp.md}px) {
+    padding: 0;
+  }
+
+  @media (min-width: ${bp.lg}px) {
+    margin-bottom: 16px;
   }
 `;
 
@@ -53,13 +67,16 @@ export default function({
         ${values.min} &ndash; ${values.max}+
       </PriceRange>
       <Average>The average nightly price is $75.</Average>
-      <Rheostat
-        min={range.min}
-        max={range.max}
-        values={[values.min, values.max]}
-        onValuesUpdated={values =>
-          onFilterChange({ min: values.values[0], max: values.values[1] })}
-      />
+      <Slider>
+        <Rheostat
+          min={range.min}
+          max={range.max}
+          values={[values.min, values.max]}
+          onValuesUpdated={values =>
+            onFilterChange({ min: values.values[0], max: values.values[1] })
+          }
+        />
+      </Slider>
     </div>
   );
 }
