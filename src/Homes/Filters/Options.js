@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import includes from "lodash.includes";
+import includes from "lodash/includes";
 
 import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
