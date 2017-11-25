@@ -5,7 +5,7 @@ import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
 import Container from "../../UI/Container";
 import Button from "../../UI/Button";
-import { XsOnly, Sm, Md } from "../../UI/mediaQueries";
+import { XsOnly, Sm, ToMd, Md } from "../../UI/mediaQueries";
 import { MobilePrimaryButton } from "../../UI/Dropdown/styled";
 import MobileHeader from "../../UI/Dropdown/MobileHeader";
 import Overlay from "../../UI/Overlay";
@@ -143,6 +143,7 @@ export default class extends React.Component {
     isOpen: false,
     heading: "",
     buttonText: "",
+    collapsedButtonText: "",
     onClick: () => {},
     onClose: () => {},
     onReset: () => {}
@@ -151,9 +152,16 @@ export default class extends React.Component {
   render() {
     return (
       <Wrap className={this.props.className}>
-        <Button isActive={this.props.isOpen} onClick={this.props.onClick}>
-          {this.props.buttonText}
-        </Button>
+        <ToMd>
+          <Button isActive={this.props.isOpen} onClick={this.props.onClick}>
+            {this.props.collapsedButtonText}
+          </Button>
+        </ToMd>
+        <Md>
+          <Button isActive={this.props.isOpen} onClick={this.props.onClick}>
+            {this.props.buttonText}
+          </Button>
+        </Md>
         {this.props.isOpen &&
           this.props.children && (
             <div>

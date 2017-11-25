@@ -10,6 +10,7 @@ const Label = styled.label`
   font-size: 16px;
   font-weight: 300;
   line-height: 1.3;
+  cursor: pointer;
 
   @media (min-width: ${bp.sm}px) {
     font-size: 18px;

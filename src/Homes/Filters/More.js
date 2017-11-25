@@ -88,16 +88,20 @@ const facilities = [
   "Hot tub"
 ];
 
-function changedFiltersCount(values, initialValues) {
-  return [
-    "roomTypes",
-    "price",
-    "rooms",
-    "superhost",
-    "instantBook",
-    "amenities",
-    "facilities"
-  ].reduce(
+function changedFiltersCount(values, initialValues, collapsed = false) {
+  const filters = collapsed
+    ? [
+        "roomTypes",
+        "price",
+        "rooms",
+        "superhost",
+        "instantBook",
+        "amenities",
+        "facilities"
+      ]
+    : ["rooms", "superhost", "amenities", "facilities"];
+
+  return filters.reduce(
     (previousValue, filter) =>
       isEqual(values[filter], initialValues[filter])
         ? previousValue
@@ -106,8 +110,8 @@ function changedFiltersCount(values, initialValues) {
   );
 }
 
-function labelFormatter(values, initialValues) {
-  const filtersCount = changedFiltersCount(values, initialValues);
+function labelFormatter(values, initialValues, collapsed = false) {
+  const filtersCount = changedFiltersCount(values, initialValues, collapsed);
 
   if (filtersCount > 0) return `More filters · ${filtersCount}`;
 
@@ -128,7 +132,12 @@ export default function({
     <Dropdown
       isOpen={isOpen}
       buttonText={labelFormatter(values, initialValues)}
-      heading={`All filters (${changedFiltersCount(values, initialValues)})`}
+      collapsedButtonText={labelFormatter(values, initialValues, true)}
+      heading={`All filters (${changedFiltersCount(
+        values,
+        initialValues,
+        true
+      )})`}
       hasMobileHeaderSeparator
       hasMobileFooter
       onClick={onClick}
