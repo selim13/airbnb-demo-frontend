@@ -11,6 +11,7 @@ import sharedSvg from "./shared.svg";
 
 const TypeImg = styled.img`
   display: none;
+  flex-shrink: 0;
   margin-left: 1rem;
 
   @media (min-width: ${bp.sm}px) {

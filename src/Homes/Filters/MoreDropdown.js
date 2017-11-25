@@ -5,7 +5,7 @@ import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
 import Container from "../../UI/Container";
 import Button from "../../UI/Button";
-import { XsOnly, Sm } from "../../UI/mediaQueries";
+import { XsOnly, Sm, Md } from "../../UI/mediaQueries";
 import { MobilePrimaryButton } from "../../UI/Dropdown/styled";
 import MobileHeader from "../../UI/Dropdown/MobileHeader";
 import Overlay from "../../UI/Overlay";
@@ -203,7 +203,9 @@ export default class extends React.Component {
                   </Container>
                 </Footer>
 
-                <MapOverlay onClick={this.props.onClose} />
+                <Md>
+                  <MapOverlay onClick={this.props.onClose} />
+                </Md>
               </Dropdown>
             </div>
           )}

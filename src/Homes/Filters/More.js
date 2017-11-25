@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import isEqual from "lodash/isEqual";
 
 import bp from "../../breakpoints";
 import { ToMd } from "../../UI/mediaQueries";
 import Dropdown from "./MoreDropdown";
 import Toggler from "../../UI/Toggler";
-import { ControlsGroup, Label, Caption } from "./styled";
+import { ControlsGroup, Label } from "./styled";
 import RoomTypes from "./RoomTypes";
 import Price from "./Price";
 import Rooms from "./Rooms";
@@ -33,6 +34,39 @@ const Heading = styled.p`
   }
 `;
 
+const RoomsWrap = styled.div`
+  max-width: 376px;
+`;
+
+const MoreOptionsWrap = styled.div`
+  max-width: 390px;
+`;
+
+const Caption = styled.small`
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 300;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 16px;
+  }
+`;
+
+const Link = styled.a`
+  display: block;
+  margin-top: 4px;
+
+  color: #0f7276;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+
+  @media (min-width: ${bp.sm}px) {
+    font-size: 16px;
+  }
+`;
+
 const amenities = [
   "Heating",
   "Kitchen",
@@ -54,10 +88,37 @@ const facilities = [
   "Hot tub"
 ];
 
+function changedFiltersCount(values, initialValues) {
+  return [
+    "roomTypes",
+    "price",
+    "rooms",
+    "superhost",
+    "instantBook",
+    "amenities",
+    "facilities"
+  ].reduce(
+    (previousValue, filter) =>
+      isEqual(values[filter], initialValues[filter])
+        ? previousValue
+        : previousValue + 1,
+    0
+  );
+}
+
+function labelFormatter(values, initialValues) {
+  const filtersCount = changedFiltersCount(values, initialValues);
+
+  if (filtersCount > 0) return `More filters · ${filtersCount}`;
+
+  return "More filters";
+}
+
 export default function({
   isOpen = false,
   priceRange,
   values,
+  initialValues,
   onMoreFiltersChange = () => {},
   onClick = () => {},
   onClose = () => {},
@@ -66,8 +127,8 @@ export default function({
   return (
     <Dropdown
       isOpen={isOpen}
-      buttonText="More filters"
-      heading="All filters (0)"
+      buttonText={labelFormatter(values, initialValues)}
+      heading={`All filters (${changedFiltersCount(values, initialValues)})`}
       hasMobileHeaderSeparator
       hasMobileFooter
       onClick={onClick}
@@ -95,44 +156,50 @@ export default function({
 
       <Section>
         <Heading>Rooms and beds</Heading>
-        <Rooms
-          bedrooms={values.rooms.bedrooms}
-          beds={values.rooms.beds}
-          bathrooms={values.rooms.bathrooms}
-          onFilterChange={values => onMoreFiltersChange("rooms", values)}
-        />
+
+        <RoomsWrap>
+          <Rooms
+            bedrooms={values.rooms.bedrooms}
+            beds={values.rooms.beds}
+            bathrooms={values.rooms.bathrooms}
+            onFilterChange={values => onMoreFiltersChange("rooms", values)}
+          />
+        </RoomsWrap>
       </Section>
 
       <Section>
         <Heading>More options</Heading>
 
-        <ToMd>
+        <MoreOptionsWrap>
+          <ToMd>
+            <ControlsGroup>
+              <div>
+                <Label>Instant Book</Label>
+                <Caption>
+                  Listings you can book without waiting for host approval.
+                </Caption>
+                <Link href="#">Learn more</Link>
+              </div>
+              <Toggler
+                checked={values.instantBook}
+                onChange={e =>
+                  onMoreFiltersChange("instantBook", e.target.checked)
+                }
+              />
+            </ControlsGroup>
+          </ToMd>
           <ControlsGroup>
             <div>
-              <Label>Instant Book</Label>
-              <Caption>
-                Listings you can book without waiting for host approval.
-              </Caption>
+              <Label>Superhost</Label>
+              <Caption>Stay with recognized hosts.</Caption>
+              <Link href="#">Learn more</Link>
             </div>
             <Toggler
-              checked={values.instantBook}
-              onChange={e =>
-                onMoreFiltersChange("instantBook", e.target.checked)
-              }
+              checked={values.superhost}
+              onChange={e => onMoreFiltersChange("superhost", e.target.checked)}
             />
           </ControlsGroup>
-        </ToMd>
-
-        <ControlsGroup>
-          <div>
-            <Label>Superhost</Label>
-            <Caption>Stay with recognized hosts.</Caption>
-          </div>
-          <Toggler
-            checked={values.superhost}
-            onChange={e => onMoreFiltersChange("superhost", e.target.checked)}
-          />
-        </ControlsGroup>
+        </MoreOptionsWrap>
       </Section>
 
       <Section>
