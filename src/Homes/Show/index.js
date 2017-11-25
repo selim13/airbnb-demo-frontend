@@ -1,16 +1,18 @@
 import React from "react";
-import { Row, Col } from "react-flexbox-grid";
+import { Row, Col, getColumnProps } from "react-flexbox-grid";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
 import SeeAllButton from "../../UI/SeeAllButton";
+import StickyContainerCol from "../../UI/StickyContainerCol";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
-
+import styled from "styled-components";
 import {
   Link,
+  PageNavBar,
   Section,
   SectionHeading,
   SectionParagraph,
@@ -43,12 +45,13 @@ import avatarImg from "./avatar.png";
 import flagSvg from "./flag.svg";
 
 const navBarHeight = 80;
+const pageNavHeight = 50;
 function stickyRequestForm({ isSticky, style }) {
   return (
     <div
       style={{
         ...style,
-        paddingTop: isSticky ? navBarHeight + 24 : 0,
+        paddingTop: isSticky ? navBarHeight + 24 + pageNavHeight : 0,
         paddingBottom: 24
       }}
     >
@@ -61,19 +64,45 @@ function stickyRequestForm({ isSticky, style }) {
   );
 }
 
+function stickyNavigation({ isSticky, style }) {
+  return (
+    <div
+      style={{
+        ...style,
+        top: isSticky ? navBarHeight : 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1
+      }}
+    >
+      {isSticky ? (
+        <PageNavBar>
+          <Container>
+            <Nav />
+          </Container>
+        </PageNavBar>
+      ) : (
+        <PageNavBar>
+          <Nav />
+        </PageNavBar>
+      )}
+    </div>
+  );
+}
+
 export default function() {
   return (
     <div>
       <Navbar searchPlaceholder="Search" />
 
-      <main>
-        <Header />
-        <Container>
-          <article>
-            <StickyContainer>
+      <Header />
+      <StickyContainer>
+        <main>
+          <Container>
+            <article>
               <Row>
                 <Col xs={12} lg={8}>
-                  <Nav />
+                  <Sticky topOffset={-navBarHeight}>{stickyNavigation}</Sticky>
 
                   <Overview id="overview">
                     <Row>
@@ -160,33 +189,37 @@ export default function() {
 
                   <Neighborhood id="location" />
                 </Col>
-                <Col lg={4}>
-                  <Lg>
+
+                {/* NOTE: StickyContainer needs to be a col itself to properly
+                calculate it's height  */}
+                <Lg>
+                  <StickyContainerCol lg={4}>
                     <RequestFormWrap>
-                      <Sticky topOffset={-navBarHeight}>
+                      <Sticky topOffset={-navBarHeight - pageNavHeight}>
                         {stickyRequestForm}
                       </Sticky>
                     </RequestFormWrap>
-                  </Lg>
-                </Col>
+                  </StickyContainerCol>
+                </Lg>
               </Row>
-            </StickyContainer>
-            <NeighborhoodMap />
 
-            <ToLg>
-              <ReportMobile>
-                <Link href="#">Report this listing</Link>
-              </ReportMobile>
-            </ToLg>
-          </article>
-        </Container>
+              <NeighborhoodMap />
 
-        <Similar />
+              <ToLg>
+                <ReportMobile>
+                  <Link href="#">Report this listing</Link>
+                </ReportMobile>
+              </ToLg>
+            </article>
+          </Container>
 
-        <Container>
-          <Explore />
-        </Container>
-      </main>
+          <Similar />
+
+          <Container>
+            <Explore />
+          </Container>
+        </main>
+      </StickyContainer>
 
       <Footer />
     </div>

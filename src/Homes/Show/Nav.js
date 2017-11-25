@@ -5,14 +5,13 @@ import bp from "../../breakpoints";
 import DotSeparator from "../../UI/DotSeparator";
 
 const Nav = styled.nav`
-  padding: 16px 0;
-  margin-bottom: 16px;
-  border-bottom: 1px solid rgba(118, 118, 118, 0.2);
+  padding: 15px 0;
+  height: 50px;
   font-size: 12px;
   color: #008489;
+  background: #ffffff;
 
   @media (min-width: ${bp.sm}px) {
-    margin-bottom: 24px;
     font-size: 14px;
   }
 `;

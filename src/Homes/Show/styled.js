@@ -13,6 +13,10 @@ export const Link = styled.a`
   }
 `;
 
+export const PageNavBar = styled.div`
+  border-bottom: 1px solid rgba(118, 118, 118, 0.2);
+`;
+
 export const Section = styled.section`
   margin-bottom: 24px;
   padding-bottom: 24px;
@@ -40,9 +44,11 @@ export const RequestFormWrap = styled.div`
 `;
 
 export const Overview = styled.div`
+  margin-top: 16px;
   margin-bottom: 24px;
 
   @media (min-width: ${bp.lg}px) {
+    margin-top: 24px;
     margin-bottom: 32px;
   }
 `;
