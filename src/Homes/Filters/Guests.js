@@ -4,9 +4,7 @@ import pluralize from "pluralize";
 
 import bp from "../../breakpoints";
 import NumericInput from "../../UI/NumericInput";
-import Filter from "./Filter";
-
-import { ControlsGroup, Label, Caption } from "./styled";
+import Dropdown from "../../UI/Dropdown";
 
 export const Body = styled.div`
   padding: 40px 8px 8px;
@@ -16,86 +14,120 @@ export const Body = styled.div`
   }
 `;
 
-export default class extends React.Component {
-  state = { adults: 1, children: 0, infants: 0 };
+export const ControlsGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  @media (min-width: ${bp.sm}px) {
+    margin-bottom: 27px;
+  }
+`;
 
-  static defaultProps = {
-    maxGuests: 10,
-    maxInfants: 5
-  };
+const Label = styled.label`
+  display: block;
+  font-size: 18px;
 
-  reset = () => {
-    this.setState({ adults: 1, children: 0, infants: 0 });
-  };
+  @media (min-width: ${bp.sm}px) {
+    font-size: 20px;
+  }
+`;
 
-  guestsLabelFormatter(adults, children, infants) {
-    const guests = adults + children;
+export const Caption = styled.small`
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 300;
 
-    if (guests + infants > 1) {
-      if (infants > 0) {
-        return (
-          `${guests} ${pluralize("guest", guests)}, ` +
-          `${infants} ${pluralize("infant", infants)}`
-        );
-      } else {
-        return `${guests} ${pluralize("guest", guests)}`;
-      }
+  @media (min-width: ${bp.sm}px) {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+`;
+
+function guestsLabelFormatter(adults, children, infants) {
+  const guests = adults + children;
+
+  if (guests + infants > 1) {
+    if (infants > 0) {
+      return (
+        `${guests} ${pluralize("guest", guests)}, ` +
+        `${infants} ${pluralize("infant", infants)}`
+      );
+    } else {
+      return `${guests} ${pluralize("guest", guests)}`;
     }
-
-    return "Guests";
   }
 
-  render() {
-    return (
-      <Filter
-        buttonText={this.guestsLabelFormatter(
-          this.state.adults,
-          this.state.children,
-          this.state.infants
-        )}
-        heading="Guests"
-        hasMobileHeaderSeparator
-        hasMobileFooter
-        onReset={this.reset}
-      >
-        <Body>
-          <ControlsGroup>
-            <div>
-              <Label>Adults</Label>
-            </div>
-            <NumericInput
-              min={1}
-              max={this.props.maxGuests - this.state.children}
-              value={this.state.adults}
-              onValueChange={value => this.setState({ adults: value })}
-            />
-          </ControlsGroup>
-          <ControlsGroup>
-            <div>
-              <Label>Children</Label>
-              <Caption>Ages 2 &ndash; 12</Caption>
-            </div>
-            <NumericInput
-              min={0}
-              max={this.props.maxGuests - this.state.adults}
-              value={this.state.children}
-              onValueChange={value => this.setState({ children: value })}
-            />
-          </ControlsGroup>
-          <ControlsGroup>
-            <div>
-              <Label>Infants</Label>
-              <Caption>Under 2</Caption>
-            </div>
-            <NumericInput
-              min={0}
-              max={this.props.maxInfants}
-              value={this.state.infants}
-              onValueChange={value => this.setState({ infants: value })}
-            />
-          </ControlsGroup>
-        </Body>
-      </Filter>
-    );
-  }
+  return "Guests";
+}
+
+export default function({
+  isOpen = false,
+  maxGuests = 10,
+  maxInfants = 5,
+  adults = 1,
+  children = 0,
+  infants = 0,
+  onFilterChange = () => {},
+  onClick = () => {},
+  onClose = () => {},
+  onReset = () => {}
+}) {
+  return (
+    <Dropdown
+      isOpen={isOpen}
+      buttonText={guestsLabelFormatter(adults, children, infants)}
+      heading="Guests"
+      hasMobileHeaderSeparator
+      hasMobileFooter
+      onClick={onClick}
+      onClose={onClose}
+      onReset={onReset}
+    >
+      <Body>
+        <ControlsGroup>
+          <div>
+            <Label>Adults</Label>
+          </div>
+          <NumericInput
+            min={1}
+            max={maxGuests - children}
+            value={adults}
+            onValueChange={value =>
+              onFilterChange({ adults: value, children, infants })
+            }
+          />
+        </ControlsGroup>
+        <ControlsGroup>
+          <div>
+            <Label>Children</Label>
+            <Caption>Ages 2 &ndash; 12</Caption>
+          </div>
+          <NumericInput
+            min={0}
+            max={maxGuests - adults}
+            value={children}
+            onValueChange={value =>
+              onFilterChange({ children: value, adults, infants })
+            }
+          />
+        </ControlsGroup>
+        <ControlsGroup>
+          <div>
+            <Label>Infants</Label>
+            <Caption>Under 2</Caption>
+          </div>
+          <NumericInput
+            min={0}
+            max={maxInfants}
+            value={infants}
+            onValueChange={value =>
+              onFilterChange({ infants: value, adults, children })
+            }
+          />
+        </ControlsGroup>
+      </Body>
+    </Dropdown>
+  );
 }
