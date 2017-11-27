@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 import { StickyContainer, Sticky } from "react-sticky";
+import { Element as ScrollElement, scrollSpy } from "react-scroll";
 
 import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
@@ -51,11 +52,15 @@ import flagSvg from "./flag.svg";
 const navBarHeight = 80;
 const pageNavHeight = 50;
 
-export default class extends React.Component {
+export default class Show extends React.Component {
   state = { isRequestFormOpened: false };
 
   handleOpenForm = () => this.setState({ isRequestFormOpened: true });
   handleCloseForm = () => this.setState({ isRequestFormOpened: false });
+
+  componentDidMount() {
+    scrollSpy.update();
+  }
 
   stickyRequestForm = ({ isSticky, style }) => {
     return (
@@ -92,12 +97,12 @@ export default class extends React.Component {
         {isSticky ? (
           <PageNavBar>
             <Container>
-              <Nav />
+              <Nav scrollOffset={-navBarHeight - pageNavHeight} />
             </Container>
           </PageNavBar>
         ) : (
           <PageNavBar>
-            <Nav />
+            <Nav scrollOffset={-navBarHeight - pageNavHeight} />
           </PageNavBar>
         )}
       </div>
@@ -143,92 +148,101 @@ export default class extends React.Component {
                         {this.stickyNavigation}
                       </Sticky>
 
-                      <Overview id="overview">
-                        <Row>
-                          <Col xs={10}>
-                            <Heading>Romantic Cabana with view</Heading>
-                            <Subheading>
-                              Entire cabin <DotSeparator /> Armenia
-                            </Subheading>
-                            <Properties
-                              guests={2}
-                              type="Studio"
-                              beds={2}
-                              baths={2}
-                            />
-                          </Col>
-                          <Col xs={2}>
-                            <AvatarWrap>
-                              <Avatar
-                                image={avatarImg}
-                                name="Yudi &amp; Victoria"
+                      <ScrollElement name="overview">
+                        <Overview>
+                          <Row>
+                            <Col xs={10}>
+                              <Heading>Romantic Cabana with view</Heading>
+                              <Subheading>
+                                Entire cabin <DotSeparator /> Armenia
+                              </Subheading>
+                              <Properties
+                                guests={2}
+                                type="Studio"
+                                beds={2}
+                                baths={2}
                               />
-                            </AvatarWrap>
-                          </Col>
-                        </Row>
-                      </Overview>
+                            </Col>
+                            <Col xs={2}>
+                              <AvatarWrap>
+                                <Avatar
+                                  image={avatarImg}
+                                  name="Yudi &amp; Victoria"
+                                />
+                              </AvatarWrap>
+                            </Col>
+                          </Row>
+                        </Overview>
 
-                      <MdOnly>
-                        <ManyViews />
-                      </MdOnly>
+                        <MdOnly>
+                          <ManyViews />
+                        </MdOnly>
 
-                      <Section>
-                        <Description>
-                          Located in the coffee region, in the Andean mountains
-                          of Colombia, South America, a charming cabana made
-                          from bamboo, with a great view and a "sendero" or
-                          pathway through the bamboo forest which criss-crosses
-                          our 5 acre organic farm, leading down to a stream. A
-                          place to relax and commune with nature.
-                        </Description>
+                        <Section>
+                          <Description>
+                            Located in the coffee region, in the Andean
+                            mountains of Colombia, South America, a charming
+                            cabana made from bamboo, with a great view and a
+                            "sendero" or pathway through the bamboo forest which
+                            criss-crosses our 5 acre organic farm, leading down
+                            to a stream. A place to relax and commune with
+                            nature.
+                          </Description>
 
-                        <ReadMoreWrap>
-                          <SeeAllButton label="Read more about the space" />
-                        </ReadMoreWrap>
+                          <ReadMoreWrap>
+                            <SeeAllButton label="Read more about the space" />
+                          </ReadMoreWrap>
 
-                        <Link href="#">Contact host</Link>
-                      </Section>
+                          <Link href="#">Contact host</Link>
+                        </Section>
 
-                      <Section>
-                        <SectionHeading>Amenities</SectionHeading>
+                        <Section>
+                          <SectionHeading>Amenities</SectionHeading>
 
-                        <Amenities />
-                      </Section>
+                          <Amenities />
+                        </Section>
 
-                      <Section>
-                        <SectionHeading>
-                          Always communicate through Airbnb
-                        </SectionHeading>
+                        <Section>
+                          <SectionHeading>
+                            Always communicate through Airbnb
+                          </SectionHeading>
 
-                        <SectionParagraph>
-                          To protect your payment, never transfer money or
-                          communicate outside of the Airbnb website or app.
-                        </SectionParagraph>
+                          <SectionParagraph>
+                            To protect your payment, never transfer money or
+                            communicate outside of the Airbnb website or app.
+                          </SectionParagraph>
 
-                        <Link href="#">Learn more</Link>
-                      </Section>
+                          <Link href="#">Learn more</Link>
+                        </Section>
 
-                      <Section>
-                        <SectionHeading>House Rules</SectionHeading>
+                        <Section>
+                          <SectionHeading>House Rules</SectionHeading>
 
-                        <SectionParagraph>
-                          Check-in is anytime after 1PM<br />
-                          Check out by 11AM
-                        </SectionParagraph>
+                          <SectionParagraph>
+                            Check-in is anytime after 1PM<br />
+                            Check out by 11AM
+                          </SectionParagraph>
 
-                        <SeeAllButton label="Read all rules" />
-                      </Section>
+                          <SeeAllButton label="Read all rules" />
+                        </Section>
 
-                      <Section>
-                        <SectionHeading>Cancellation</SectionHeading>
-                        <Cancellation />
-                      </Section>
+                        <Section>
+                          <SectionHeading>Cancellation</SectionHeading>
+                          <Cancellation />
+                        </Section>
+                      </ScrollElement>
 
-                      <Reviews id="reviews" />
+                      <ScrollElement name="reviews">
+                        <Reviews />
+                      </ScrollElement>
 
-                      <Host id="host" />
+                      <ScrollElement name="host">
+                        <Host />
+                      </ScrollElement>
 
-                      <Neighborhood id="location" />
+                      <ScrollElement name="location">
+                        <Neighborhood />
+                      </ScrollElement>
                     </Col>
 
                     {/* NOTE: StickyContainer needs to be a col itself to properly
