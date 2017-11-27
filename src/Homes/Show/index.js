@@ -7,7 +7,7 @@ import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
 import SeeAllButton from "../../UI/SeeAllButton";
 import StickyContainerCol from "../../UI/StickyContainerCol";
-import Modal from "../../UI/Modal";
+import Dialog from "../../UI/Dialog";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import {
@@ -120,14 +120,14 @@ export default class extends React.Component {
     return (
       <div>
         <ToLg>
-          <Modal
+          <Dialog
             isOpen={this.state.isRequestFormOpened}
             onClose={this.handleCloseForm}
           >
             <ModalRequestFormWrap>
               <RequestForm />
             </ModalRequestFormWrap>
-          </Modal>
+          </Dialog>
         </ToLg>
 
         <StickyContainer>
