@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link as ScrollLink } from "react-scroll";
 
 import bp from "../../breakpoints";
+import ScrollNav from "../../UI/ScrollNav";
 import DotSeparator from "../../UI/DotSeparator";
 
 const Wrap = styled.nav`
@@ -29,68 +30,31 @@ const Link = styled(ScrollLink)`
   }
 `;
 
-// TODO: this can be refactored as a generic component
-export default class Nav extends React.Component {
-  state = { selectedLink: "overview" };
-
-  static defaultProps = {
-    scrollSmooth: true,
-    scrollDuration: 100
-  };
-
-  handleSetActive = link => this.setState({ selectedLink: link });
-
-  render() {
-    return (
-      <Wrap>
-        <Link
-          to="overview"
-          selected={this.state.selectedLink === "overview"}
-          offset={this.props.scrollOffset}
-          spy={true}
-          smooth={this.props.scrollSmooth}
-          duration={this.props.scrollDuration}
-          onSetActive={() => this.handleSetActive("overview")}
-        >
+export default function Nav() {
+  return (
+    <Wrap>
+      <ScrollNav
+        defaultSelected="overview"
+        smooth={true}
+        duration={200}
+        offset={0}
+      >
+        <Link to="overview" spy={true}>
           Overview
         </Link>
         <DotSeparator />
-        <Link
-          to="reviews"
-          selected={this.state.selectedLink === "reviews"}
-          offset={this.props.scrollOffset}
-          spy={true}
-          smooth={this.props.scrollSmooth}
-          duration={this.props.scrollDuration}
-          onSetActive={() => this.handleSetActive("reviews")}
-        >
+        <Link to="reviews" spy={true}>
           Reviews
         </Link>
         <DotSeparator />
-        <Link
-          to="host"
-          selected={this.state.selectedLink === "host"}
-          offset={this.props.scrollOffset}
-          spy={true}
-          smooth={this.props.scrollSmooth}
-          duration={this.props.scrollDuration}
-          onSetActive={() => this.handleSetActive("host")}
-        >
+        <Link to="host" spy={true}>
           The host
         </Link>
         <DotSeparator />
-        <Link
-          to="location"
-          selected={this.state.selectedLink === "location"}
-          offset={this.props.scrollOffset}
-          spy={true}
-          smooth={this.props.scrollSmooth}
-          duration={this.props.scrollDuration}
-          onSetActive={() => this.handleSetActive("location")}
-        >
+        <Link to="location" spy={true}>
           Location
         </Link>
-      </Wrap>
-    );
-  }
+      </ScrollNav>
+    </Wrap>
+  );
 }
