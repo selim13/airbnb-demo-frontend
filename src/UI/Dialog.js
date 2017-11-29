@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import FocusLock from "react-focus-lock";
 
 import bp from "../breakpoints";
 import Modal from "./Modal";
@@ -53,16 +54,18 @@ const CloseButton = styled.button`
 export default function({ isOpen = false, onClose = () => {}, children }) {
   return isOpen ? (
     <Modal>
-      <Overlay key="overlay" onClick={onClose} />
+      <Overlay onClick={onClose} />
 
-      <Wrap key="modal" onClick={onClose}>
-        <Heading>
-          <CloseButton>
-            <Icon icon="close" size="16" />
-          </CloseButton>
-        </Heading>
+      <Wrap>
+        <FocusLock>
+          <Heading>
+            <CloseButton onClick={onClose} aria-label="Close">
+              <Icon icon="close" size="16" />
+            </CloseButton>
+          </Heading>
 
-        {children}
+          {children}
+        </FocusLock>
       </Wrap>
     </Modal>
   ) : null;

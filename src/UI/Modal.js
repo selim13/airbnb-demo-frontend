@@ -4,11 +4,6 @@ import ReactDOM from "react-dom";
 const modalRoot = document.getElementById("modal-root");
 
 export default class extends React.Component {
-  static defaultProps = {
-    isOpen: false,
-    onClose: () => {}
-  };
-
   node = document.createElement("div");
 
   componentDidMount() {
