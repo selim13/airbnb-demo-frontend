@@ -4,12 +4,12 @@ import bp from "../../breakpoints";
 
 export const Link = styled.a`
   border-bottom: 1px solid transparent;
-  color: #008489;
+  color: #0f7276;
   font-size: 16px;
   text-decoration: none;
 
   &:hover {
-    border-color: #008489;
+    border-color: #0f7276;
   }
 `;
 
