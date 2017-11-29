@@ -7,6 +7,8 @@ import ScrollNav from "../../UI/ScrollNav";
 import DotSeparator from "../../UI/DotSeparator";
 
 const Wrap = styled.nav`
+  display: flex;
+  align-items: center;
   padding: 15px 0;
   height: 50px;
   font-size: 12px;
@@ -24,6 +26,7 @@ const Link = styled(ScrollLink)`
   color: ${props => (props.selected ? "#383838" : "#008489")};
   text-decoration: none;
   font-weight: ${props => (props.selected ? "bold" : "400")};
+  cursor: pointer;
 
   &:hover {
     border-color: ${props => (props.selected ? "#383838" : "#008489")};
@@ -37,7 +40,7 @@ export default function Nav() {
         defaultSelected="overview"
         smooth={true}
         duration={200}
-        offset={0}
+        offset={-130}
       >
         <Link to="overview" spy={true}>
           Overview

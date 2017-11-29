@@ -22,7 +22,7 @@ const Caption = styled.small`
 `;
 
 const IconButton = styled.button`
-  margin-left: 8px;
+  margin-left: 16px;
   padding: 0;
   border: none;
   background: transparent;
@@ -45,6 +45,7 @@ const ControlsGroup = styled.div`
 `;
 
 const Label = styled.label`
+  width: 100%;
   font-size: 12px;
 `;
 

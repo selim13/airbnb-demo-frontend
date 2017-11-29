@@ -168,6 +168,7 @@ export default class Show extends React.Component {
                                 <Avatar
                                   image={avatarImg}
                                   name="Yudi &amp; Victoria"
+                                  superhost
                                 />
                               </AvatarWrap>
                             </Col>

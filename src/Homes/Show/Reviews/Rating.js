@@ -4,6 +4,11 @@ import styled from "styled-components";
 import bp from "../../../breakpoints";
 import Icon from "../../../UI/Icon";
 
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Star = styled(Icon)`
   width: 16px;
   height: 16px;
@@ -34,5 +39,5 @@ export default function({ rating = 5, largeStars = false }) {
     else return <EmptyStar key={i} icon="star" largeStars={largeStars} />;
   });
 
-  return <div>{starsList}</div>;
+  return <Wrap>{starsList}</Wrap>;
 }
