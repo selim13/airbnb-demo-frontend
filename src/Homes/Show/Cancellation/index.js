@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
 import { Row, Col } from "react-flexbox-grid";
+
+import ReadMoreText from "../../../UI/ReadMoreText";
 import { Link, SectionParagraph } from "../styled";
 
 import shieldSvg from "./shield.svg";
@@ -47,9 +48,12 @@ export default function() {
       <SectionParagraph>Flexible</SectionParagraph>
 
       <BottomParagraph>
-        Cancel up to 24 hours before check in and get a full refund (minus
-        service fees). Cancel within 24 hours of your trip and the firs…{" "}
-        <Link href="#">Read more</Link>
+        <ReadMoreText lines={2}>
+          Cancel up to 24 hours before check in and get a full refund (minus
+          service fees). Cancel within 24 hours of your trip and the first night
+          is non-refundable. Service fees are refunded when cancellation happens
+          before check in and within 48 hours of booking.
+        </ReadMoreText>
       </BottomParagraph>
     </div>
   );

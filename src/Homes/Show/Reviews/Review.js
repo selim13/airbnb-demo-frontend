@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import ReadMoreText from "../../../UI/ReadMoreText";
 import flagSvg from "../flag.svg";
 
 const Wrap = styled.div`
@@ -63,7 +64,9 @@ export default function({ avatar, name, date, children }) {
           <img src={flagSvg} alt="" width="16" height="16" aria-hidden="true" />
         </FlagButton>
       </Heading>
-      <Description>{children}</Description>
+      <Description>
+        <ReadMoreText lines={4}>{children}</ReadMoreText>
+      </Description>
     </Wrap>
   );
 }

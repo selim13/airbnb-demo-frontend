@@ -5487,6 +5487,10 @@ react-sticky@^6.0.1:
     prop-types "^15.5.8"
     raf "^3.3.0"
 
+react-truncate@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-truncate/-/react-truncate-2.3.0.tgz#d469b355aff1f83ae9e0f2fed0d47dfd061e5d2e"
+
 react-with-direction@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-with-direction/-/react-with-direction-1.1.0.tgz#1043d850db3d5c9970bca9e8d05dbea8c7e958c4"

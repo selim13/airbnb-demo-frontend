@@ -4,7 +4,6 @@ import { Row, Col } from "react-flexbox-grid";
 
 import bp from "../../../breakpoints";
 import Pagination from "../../../UI/Pagination";
-import { Link } from "../styled";
 
 import Search from "./Search";
 import Rating from "./Rating";
@@ -125,8 +124,9 @@ export default function() {
         What an absolutely wonderful place to stay! Yudy and Victoria were so
         kind and lovely, even after we arrived super late due to problems at the
         airport, and Hernando our driver was super friendly and really patient
-        with our little Spanish. Victoria was a lovely host and gave us so…
-        <Link href="#">Read more</Link>
+        with our little Spanish. Victoria was a lovely host and gave us some
+        great tips while Yudy's cooking was super yummy. The cabana is
+        absolutely beautiful and we can't wait to come back!!
       </Review>
 
       <Pagination showRange={false} />
