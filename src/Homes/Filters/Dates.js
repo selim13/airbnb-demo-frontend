@@ -4,7 +4,7 @@ import styled from "styled-components";
 import bp from "../../breakpoints";
 import Dropdown from "../../UI/Dropdown";
 import { XsOnly, SmOnly, Md } from "../../UI/mediaQueries";
-import DatePicker from "../../UI/DatePicker";
+import DateRangePicker from "../../UI/DateRangePicker";
 
 import arrowRightSvg from "./arrowRight.svg";
 
@@ -14,8 +14,12 @@ const Body = styled.div`
     padding-top: 10px;
   }
 `;
-const DateRange = styled.p`margin: 0 8px;`;
-const DateRangeArrow = styled.img`margin: 0 1rem;`;
+const DateRange = styled.p`
+  margin: 0 8px;
+`;
+const DateRangeArrow = styled.img`
+  margin: 0 1rem;
+`;
 const DateRangeLabel = styled.span`
   display: inline-block;
   padding-bottom: 2px;
@@ -76,11 +80,12 @@ export default function({
         </XsOnly>
         <DatePickerWrap>
           <XsOnly>
-            <DatePicker
+            <DateRangePicker
               startDate={startDate}
               endDate={endDate}
               onDatesChange={({ startDate, endDate }) =>
-                onFilterChange({ startDate, endDate })}
+                onFilterChange({ startDate, endDate })
+              }
               orientation="vertical"
               numberOfMonths={2}
               navPrev=""
@@ -88,20 +93,22 @@ export default function({
             />
           </XsOnly>
           <SmOnly>
-            <DatePicker
+            <DateRangePicker
               startDate={startDate}
               endDate={endDate}
               onDatesChange={({ startDate, endDate }) =>
-                onFilterChange({ startDate, endDate })}
+                onFilterChange({ startDate, endDate })
+              }
               numberOfMonths={1}
             />
           </SmOnly>
           <Md>
-            <DatePicker
+            <DateRangePicker
               startDate={startDate}
               endDate={endDate}
               onDatesChange={({ startDate, endDate }) =>
-                onFilterChange({ startDate, endDate })}
+                onFilterChange({ startDate, endDate })
+              }
               numberOfMonths={2}
             />
           </Md>

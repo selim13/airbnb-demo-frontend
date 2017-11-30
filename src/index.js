@@ -5,6 +5,10 @@ import "normalize.css";
 import "./fonts/fonts.css";
 import "./index.css";
 
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
+import "./UI/react_dates_overrides.css";
+
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 

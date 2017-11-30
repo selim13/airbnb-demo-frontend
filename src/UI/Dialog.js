@@ -29,6 +29,7 @@ const Wrap = styled.div`
     height: auto;
     z-index: 1000;
     transform: translate(-50%, -50%);
+    overflow: visible;
 
     padding: 24px;
     border: 1px solid rgba(72, 72, 72, 0.2);

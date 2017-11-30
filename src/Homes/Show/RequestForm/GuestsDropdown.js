@@ -4,7 +4,6 @@ import pluralize from "pluralize";
 import onClickOutside from "react-onclickoutside";
 
 import bp from "../../../breakpoints";
-import Dropdown from "./Dropdown";
 import GuestsSelector from "../../GuestsSelector";
 
 import downArrowSvg from "./downArrow.svg";
@@ -15,6 +14,20 @@ const Wrap = styled.div`
   display: block;
   width: 100%;
   font-size: 12px;
+`;
+
+const Dropdown = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 16px;
+  border: 1px solid rgba(72, 72, 72, 0.2);
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
+  background: #ffffff;
 `;
 
 const SelectButton = styled.button`
@@ -110,23 +123,25 @@ class GuestsDropdown extends React.Component {
             this.props.values.infants
           )}
         </SelectButton>
-        <Dropdown isOpen={this.props.isOpen} onClose={this.props.onCancel}>
-          <GuestsSelector
-            maxGuests={this.props.maxGuests}
-            maxInfants={this.props.maxInfants}
-            values={this.props.values}
-            onValuesChange={this.props.onValuesChange}
-          />
+        {this.props.isOpen && (
+          <Dropdown>
+            <GuestsSelector
+              maxGuests={this.props.maxGuests}
+              maxInfants={this.props.maxInfants}
+              values={this.props.values}
+              onValuesChange={this.props.onValuesChange}
+            />
 
-          <Tip>
-            {this.props.maxGuests} {pluralize("guest", this.props.maxGuests)}{" "}
-            maximum. Infants don’t count toward the number of guests.
-          </Tip>
+            <Tip>
+              {this.props.maxGuests} {pluralize("guest", this.props.maxGuests)}{" "}
+              maximum. Infants don’t count toward the number of guests.
+            </Tip>
 
-          <BottomWrap>
-            <CancelButton onClick={this.props.onCancel}>Cancel</CancelButton>
-          </BottomWrap>
-        </Dropdown>
+            <BottomWrap>
+              <CancelButton onClick={this.props.onCancel}>Cancel</CancelButton>
+            </BottomWrap>
+          </Dropdown>
+        )}
       </Wrap>
     );
   }

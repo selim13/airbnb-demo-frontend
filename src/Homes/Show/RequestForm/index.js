@@ -6,6 +6,7 @@ import Reviews from "../../../UI/Reviews";
 import Icon from "../../../UI/Icon";
 import ManyViews from "../ManyViews";
 import GuestsDropdown from "./GuestsDropdown";
+import DateDropdown from "./DateDropdown";
 
 const Price = styled.p`
   margin-top: 0;
@@ -38,7 +39,8 @@ const TopWrap = styled.div`
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
 `;
 
-const ControlsGroup = styled.div`
+const InputsGroup = styled.div`
+  position: relative;
   display: flex;
   margin-bottom: 16px;
 `;
@@ -54,7 +56,10 @@ const Input = styled.input`
   width: 100%;
   margin-top: 8px;
   padding: 0.75rem;
-  border: 1px solid rgba(118, 118, 118, 0.2);
+  border: ${props =>
+    props.isActive
+      ? "1px solid #008489"
+      : "1px solid rgba(118, 118, 118, 0.2)"};
 
   color: #636363;
   font-size: 14px;
@@ -67,7 +72,7 @@ const Input = styled.input`
   }
 `;
 const CheckInInput = Input.extend`
-  border-right: none;
+  ${props => !props.isActive && "border-right: none;"};
 `;
 
 const Button = styled.button`
@@ -114,7 +119,8 @@ const ChargeTip = styled.p`
 export default class RequestForm extends React.Component {
   state = {
     openedOption: null,
-    dates: { startDate: null, endDate: null },
+    checkIn: null,
+    checkOut: null,
     guests: { adults: 1, children: 0, infants: 0 }
   };
 
@@ -129,11 +135,16 @@ export default class RequestForm extends React.Component {
 
   handleCloseDropdown = () => this.setState({ openedOption: null });
 
-  handleChangeOption = (option, newValues) => {
+  handleResetDates = () =>
+    this.setState({ openedOption: false, checkIn: null, checkOut: null });
+
+  handleChangeDate = (type, date) =>
     this.setState({
-      [option]: newValues
+      [type]: date,
+      openedOption: type === "checkIn" ? "checkOut" : null
     });
-  };
+
+  handleChangeGuests = guests => this.setState({ guests });
 
   render() {
     return (
@@ -157,16 +168,52 @@ export default class RequestForm extends React.Component {
           </div>
         </TopWrap>
 
-        <ControlsGroup>
+        <InputsGroup>
           <DatesLabel>
             Check in
-            <CheckInInput placeholder="mm/dd/yyyy" name="checkin" />
+            <CheckInInput
+              placeholder="mm/dd/yyyy"
+              name="checkIn"
+              value={
+                this.state.checkIn
+                  ? this.state.checkIn.format("MM/DD/YYYY")
+                  : ""
+              }
+              readOnly
+              isActive={this.state.openedOption === "checkIn"}
+              onFocus={() => this.handleToggleDropdown("checkIn")}
+            />
           </DatesLabel>
           <DatesLabel>
             Check out
-            <Input placeholder="mm/dd/yyyy" name="checkout" />
+            <Input
+              placeholder="mm/dd/yyyy"
+              name="checkOut"
+              value={
+                this.state.checkOut
+                  ? this.state.checkOut.format("MM/DD/YYYY")
+                  : ""
+              }
+              readOnly
+              isActive={this.state.openedOption === "checkOut"}
+              onFocus={() => this.handleToggleDropdown("checkOut")}
+            />
           </DatesLabel>
-        </ControlsGroup>
+
+          <DateDropdown
+            isOpen={this.state.openedOption === "checkIn"}
+            date={this.state.checkIn}
+            onDateChange={date => this.handleChangeDate("checkIn", date)}
+            onReset={this.handleResetDates}
+          />
+          <DateDropdown
+            isOpen={this.state.openedOption === "checkOut"}
+            date={this.state.checkOut}
+            rightArrow
+            onDateChange={date => this.handleChangeDate("checkOut", date)}
+            onReset={this.handleResetDates}
+          />
+        </InputsGroup>
 
         <GuestsDropdown
           isOpen={this.state.openedOption === "guests"}
@@ -174,9 +221,7 @@ export default class RequestForm extends React.Component {
           maxInfants={2}
           values={this.state.guests}
           onClick={() => this.handleToggleDropdown("guests")}
-          onValuesChange={newValues =>
-            this.handleChangeOption("guests", newValues)
-          }
+          onValuesChange={newValues => this.handleChangeGuests(newValues)}
           onCancel={this.handleCloseDropdown}
         />
 

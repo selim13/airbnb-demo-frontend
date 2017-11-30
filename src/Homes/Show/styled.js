@@ -50,7 +50,7 @@ export const RequestFormWrap = styled.div`
 
 export const ModalRequestFormWrap = styled.div`
   @media (min-width: ${bp.sm}px) {
-    max-width: 320px;
+    width: 320px;
   }
 `;
 
