@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
 
 import ReadMoreText from "../../../UI/ReadMoreText";
-import { Link, SectionParagraph } from "../styled";
+import { SectionParagraph } from "../styled";
 
 import shieldSvg from "./shield.svg";
 

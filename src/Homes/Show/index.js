@@ -68,7 +68,8 @@ export default class Show extends React.Component {
         style={{
           ...style,
           paddingTop: isSticky ? navBarHeight + 24 + pageNavHeight : 0,
-          paddingBottom: 24
+          paddingBottom: 24,
+          zIndex: 1
         }}
       >
         <RequestFormWrap>
@@ -114,7 +115,8 @@ export default class Show extends React.Component {
       style={{
         ...style,
         bottom: 0,
-        top: "auto"
+        top: "auto",
+        zIndex: 1
       }}
     >
       <RequestPanel onClick={this.handleOpenForm} />

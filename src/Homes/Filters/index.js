@@ -77,9 +77,7 @@ export default class extends React.Component {
                 isOpen={this.state.openedFilter === "guests"}
                 maxGuests={10}
                 maxInfants={5}
-                adults={this.state.guests.adults}
-                children={this.state.guests.children}
-                infants={this.state.guests.infants}
+                values={this.state.guests}
                 onClick={() => this.toggle("guests")}
                 onFilterChange={values => this.changeFilter("guests", values)}
                 onReset={() => this.reset("guests")}

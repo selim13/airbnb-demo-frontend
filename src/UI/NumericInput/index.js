@@ -21,6 +21,11 @@ const Button = styled.button`
   user-select: none;
   cursor: pointer;
 
+  &:focus {
+    box-shadow: 0 0 2px 2px #008489;
+    outline: none;
+  }
+
   &[disabled] {
     opacity: 0.5;
   }
