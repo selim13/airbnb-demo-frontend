@@ -1,10 +1,53 @@
 import React from "react";
 import styled from "styled-components";
+import onClickOutside from "react-onclickoutside";
 
 import bp from "../../../breakpoints";
 import DateRangePicker from "../../../UI/DateRangePicker";
 
 const Wrap = styled.div`
+  position: relative;
+  display: flex;
+  margin-bottom: 16px;
+`;
+
+const DatesLabel = styled.label`
+  position: relative;
+  width: 100%;
+  font-size: 12px;
+`;
+
+const Input = styled.input`
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0.75rem;
+  border: ${props =>
+    props.isActive
+      ? "1px solid #008489"
+      : "1px solid rgba(118, 118, 118, 0.2)"};
+
+  color: #636363;
+  font-size: 14px;
+  font-family: inherit;
+
+  background: #ffffff;
+
+  &::placeholder {
+    color: #636363;
+  }
+`;
+const CheckInInput = Input.extend`
+  border-right-color: transparent;
+  border-color: ${props => props.selectedInput === "checkIn" && "#008489"};
+`;
+const CheckOutInput = Input.extend`
+  ${props =>
+    props.selectedInput === "checkIn" && "border-left-color: transparent;"};
+  border-color: ${props => props.selectedInput === "checkOut" && "#008489"};
+`;
+
+const Dropdown = styled.div`
   position: absolute;
   top: 100%;
   left: 50%;
@@ -75,30 +118,84 @@ const ClearButton = styled.button`
   }
 `;
 
-export default function DateDropdown({
-  isOpen = false,
-  rightArrow = false,
-  children,
-  date,
-  onReset = () => {},
-  onDateChange = () => {}
-}) {
-  return isOpen ? (
-    <Wrap rightArrow={rightArrow}>
-      <DateRangePicker
-        numberOfMonths={1}
-        startDate={date}
-        onDatesChange={({ startDate, endDate }) => onDateChange(startDate)}
-      />
+class DateDropdown extends React.Component {
+  static defaultProps = {
+    openedOption: false,
+    dates: { startDate: null, endDate: null },
+    onClose: () => {},
+    onReset: () => {},
+    onDatesChange: () => {}
+  };
 
-      <Tip>
-        Minimum stay varies<br />
-        Updated 1 day ago
-      </Tip>
+  isOpened = () =>
+    this.props.openedOption === "checkIn" ||
+    this.props.openedOption === "checkOut";
 
-      <BottomWrap>
-        <ClearButton onClick={onReset}>Clear dates</ClearButton>
-      </BottomWrap>
-    </Wrap>
-  ) : null;
+  handleClickOutside = () => {
+    this.isOpened() && this.props.onClose();
+  };
+
+  render() {
+    return (
+      <Wrap>
+        <DatesLabel>
+          Check in
+          <CheckInInput
+            placeholder="mm/dd/yyyy"
+            name="checkIn"
+            value={
+              this.props.dates.startDate
+                ? this.props.dates.startDate.format("MM/DD/YYYY")
+                : ""
+            }
+            readOnly
+            selectedInput={this.props.openedOption}
+            onFocus={() => this.props.onFocusInput("checkIn")}
+          />
+        </DatesLabel>
+        <DatesLabel>
+          Check out
+          <CheckOutInput
+            placeholder="mm/dd/yyyy"
+            name="checkOut"
+            value={
+              this.props.dates.endDate
+                ? this.props.dates.endDate.format("MM/DD/YYYY")
+                : ""
+            }
+            readOnly
+            selectedInput={this.props.openedOption}
+            onFocus={() => this.props.onFocusInput("checkOut")}
+          />
+        </DatesLabel>
+
+        {this.isOpened() && (
+          <Dropdown rightArrow={this.props.openedOption === "checkOut"}>
+            <DateRangePicker
+              numberOfMonths={1}
+              startDate={this.props.dates.startDate}
+              endDate={this.props.dates.endDate}
+              focusedInput={
+                this.props.openedOption === "checkIn" ? "startDate" : "endDate"
+              }
+              onDatesChange={this.props.onDatesChange}
+            />
+
+            <Tip>
+              Minimum stay varies<br />
+              Updated 1 day ago
+            </Tip>
+
+            <BottomWrap>
+              <ClearButton onClick={this.props.onReset}>
+                Clear dates
+              </ClearButton>
+            </BottomWrap>
+          </Dropdown>
+        )}
+      </Wrap>
+    );
+  }
 }
+
+export default onClickOutside(DateDropdown);

@@ -21,6 +21,7 @@ export default class extends React.Component {
     isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
     isDayHighlighted: () => false,
     enableOutsideDays: false,
+    focusedInput: null,
 
     // calendar presentation and interaction related props
     orientation: "horizontal",
@@ -42,6 +43,15 @@ export default class extends React.Component {
     // internationalization
     monthFormat: "MMMM YYYY"
   };
+
+  componentWillReceiveProps({ focusedInput }) {
+    this.setState(
+      prevState =>
+        focusedInput && prevState.focusedInput !== focusedInput
+          ? { focusedInput }
+          : null
+    );
+  }
 
   handleFocusChange = focusedInput => {
     this.setState({

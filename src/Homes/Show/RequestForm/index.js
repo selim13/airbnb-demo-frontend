@@ -39,42 +39,6 @@ const TopWrap = styled.div`
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
 `;
 
-const InputsGroup = styled.div`
-  position: relative;
-  display: flex;
-  margin-bottom: 16px;
-`;
-
-const DatesLabel = styled.label`
-  position: relative;
-  width: 100%;
-  font-size: 12px;
-`;
-
-const Input = styled.input`
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-  padding: 0.75rem;
-  border: ${props =>
-    props.isActive
-      ? "1px solid #008489"
-      : "1px solid rgba(118, 118, 118, 0.2)"};
-
-  color: #636363;
-  font-size: 14px;
-  font-family: inherit;
-
-  background: #ffffff;
-
-  &::placeholder {
-    color: #636363;
-  }
-`;
-const CheckInInput = Input.extend`
-  ${props => !props.isActive && "border-right: none;"};
-`;
-
 const Button = styled.button`
   display: block;
   width: 100%;
@@ -119,12 +83,11 @@ const ChargeTip = styled.p`
 export default class RequestForm extends React.Component {
   state = {
     openedOption: null,
-    checkIn: null,
-    checkOut: null,
+    dates: { startDate: null, endDate: null },
     guests: { adults: 1, children: 0, infants: 0 }
   };
 
-  handleToggleDropdown = option => {
+  handleDropdownToggle = option => {
     this.setState(
       prevState =>
         prevState.openedOption === option
@@ -133,16 +96,22 @@ export default class RequestForm extends React.Component {
     );
   };
 
-  handleCloseDropdown = () => this.setState({ openedOption: null });
+  handleDropdownClose = () => this.setState({ openedOption: null });
 
-  handleResetDates = () =>
-    this.setState({ openedOption: false, checkIn: null, checkOut: null });
-
-  handleChangeDate = (type, date) =>
+  handleDatesReset = () =>
     this.setState({
-      [type]: date,
-      openedOption: type === "checkIn" ? "checkOut" : null
+      openedOption: false,
+      dates: { startDate: null, endDate: null }
     });
+
+  handleDatesChange = dates => {
+    this.setState(prevState => {
+      if (!dates.endDate) return { dates, openedOption: "checkOut" };
+      if (!dates.startDate) return { dates, openedOption: "checkIn" };
+      if (dates.startDate && dates.startDate)
+        return { dates, openedOption: null };
+    });
+  };
 
   handleChangeGuests = guests => this.setState({ guests });
 
@@ -168,61 +137,23 @@ export default class RequestForm extends React.Component {
           </div>
         </TopWrap>
 
-        <InputsGroup>
-          <DatesLabel>
-            Check in
-            <CheckInInput
-              placeholder="mm/dd/yyyy"
-              name="checkIn"
-              value={
-                this.state.checkIn
-                  ? this.state.checkIn.format("MM/DD/YYYY")
-                  : ""
-              }
-              readOnly
-              isActive={this.state.openedOption === "checkIn"}
-              onFocus={() => this.handleToggleDropdown("checkIn")}
-            />
-          </DatesLabel>
-          <DatesLabel>
-            Check out
-            <Input
-              placeholder="mm/dd/yyyy"
-              name="checkOut"
-              value={
-                this.state.checkOut
-                  ? this.state.checkOut.format("MM/DD/YYYY")
-                  : ""
-              }
-              readOnly
-              isActive={this.state.openedOption === "checkOut"}
-              onFocus={() => this.handleToggleDropdown("checkOut")}
-            />
-          </DatesLabel>
-
-          <DateDropdown
-            isOpen={this.state.openedOption === "checkIn"}
-            date={this.state.checkIn}
-            onDateChange={date => this.handleChangeDate("checkIn", date)}
-            onReset={this.handleResetDates}
-          />
-          <DateDropdown
-            isOpen={this.state.openedOption === "checkOut"}
-            date={this.state.checkOut}
-            rightArrow
-            onDateChange={date => this.handleChangeDate("checkOut", date)}
-            onReset={this.handleResetDates}
-          />
-        </InputsGroup>
+        <DateDropdown
+          openedOption={this.state.openedOption}
+          dates={this.state.dates}
+          onFocusInput={input => this.handleDropdownToggle(input)}
+          onClose={this.handleDropdownClose}
+          onReset={this.handleDatesReset}
+          onDatesChange={this.handleDatesChange}
+        />
 
         <GuestsDropdown
           isOpen={this.state.openedOption === "guests"}
           maxGuests={3}
           maxInfants={2}
           values={this.state.guests}
-          onClick={() => this.handleToggleDropdown("guests")}
+          onClick={() => this.handleDropdownToggle("guests")}
           onValuesChange={newValues => this.handleChangeGuests(newValues)}
-          onCancel={this.handleCloseDropdown}
+          onCancel={this.handleDropdownClose}
         />
 
         <RequestButton>Request a book</RequestButton>
