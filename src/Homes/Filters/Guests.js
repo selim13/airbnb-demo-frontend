@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import pluralize from "pluralize";
 
 import bp from "../../breakpoints";
-import GuestsSelector from "../GuestsSelector";
+import GuestsSelector, { guestsLabelFormatter } from "../GuestsSelector";
 import Dropdown from "../../UI/Dropdown";
 
 export const Body = styled.div`
@@ -13,23 +12,6 @@ export const Body = styled.div`
     padding: 30px 16px 0 24px;
   }
 `;
-
-function guestsLabelFormatter(adults, children, infants) {
-  const guests = adults + children;
-
-  if (guests + infants > 1) {
-    if (infants > 0) {
-      return (
-        `${guests} ${pluralize("guest", guests)}, ` +
-        `${infants} ${pluralize("infant", infants)}`
-      );
-    } else {
-      return `${guests} ${pluralize("guest", guests)}`;
-    }
-  }
-
-  return "Guests";
-}
 
 export default function Guests({
   isOpen,
@@ -47,7 +29,8 @@ export default function Guests({
       buttonText={guestsLabelFormatter(
         values.adults,
         values.children,
-        values.infants
+        values.infants,
+        false
       )}
       heading="Guests"
       hasMobileHeaderSeparator

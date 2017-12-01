@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import pluralize from "pluralize";
 
 import bp from "../breakpoints";
 import NumericInput from "../UI/NumericInput";
@@ -34,6 +35,28 @@ const Caption = styled.small`
     font-size: 16px;
   }
 `;
+
+export function guestsLabelFormatter(
+  adults,
+  children,
+  infants,
+  displayOneGuest = true
+) {
+  const guests = adults + children;
+
+  if (displayOneGuest || guests + infants > 1) {
+    if (infants > 0) {
+      return (
+        `${guests} ${pluralize("guest", guests)}, ` +
+        `${infants} ${pluralize("infant", infants)}`
+      );
+    } else {
+      return `${guests} ${pluralize("guest", guests)}`;
+    }
+  }
+
+  return "Guests";
+}
 
 export default function GuestsSelector({
   maxGuests = 1,

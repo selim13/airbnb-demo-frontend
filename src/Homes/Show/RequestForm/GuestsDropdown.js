@@ -4,7 +4,7 @@ import pluralize from "pluralize";
 import onClickOutside from "react-onclickoutside";
 
 import bp from "../../../breakpoints";
-import GuestsSelector from "../../GuestsSelector";
+import GuestsSelector, { guestsLabelFormatter } from "../../GuestsSelector";
 
 import downArrowSvg from "./downArrow.svg";
 import upArrowSvg from "./upArrow.svg";
@@ -87,19 +87,6 @@ const CancelButton = styled.button`
   }
 `;
 
-function guestsLabelFormatter(adults, children, infants) {
-  const guests = adults + children;
-
-  if (infants > 0) {
-    return (
-      `${guests} ${pluralize("guest", guests)}, ` +
-      `${infants} ${pluralize("infant", infants)}`
-    );
-  } else {
-    return `${guests} ${pluralize("guest", guests)}`;
-  }
-}
-
 class GuestsDropdown extends React.Component {
   static defaultProps = {
     isOpen: false,
@@ -120,7 +107,8 @@ class GuestsDropdown extends React.Component {
           {guestsLabelFormatter(
             this.props.values.adults,
             this.props.values.children,
-            this.props.values.infants
+            this.props.values.infants,
+            true
           )}
         </SelectButton>
         {this.props.isOpen && (

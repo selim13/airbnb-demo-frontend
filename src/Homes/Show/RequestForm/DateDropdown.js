@@ -22,10 +22,7 @@ const Input = styled.input`
   width: 100%;
   margin-top: 8px;
   padding: 0.75rem;
-  border: ${props =>
-    props.isActive
-      ? "1px solid #008489"
-      : "1px solid rgba(118, 118, 118, 0.2)"};
+  border: 1px solid rgba(118, 118, 118, 0.2);
 
   color: #636363;
   font-size: 14px;
@@ -136,6 +133,13 @@ class DateDropdown extends React.Component {
   };
 
   render() {
+    const checkInValue = this.props.dates.startDate
+      ? this.props.dates.startDate.format("MM/DD/YYYY")
+      : "";
+    const checkOutValue = this.props.dates.endDate
+      ? this.props.dates.endDate.format("MM/DD/YYYY")
+      : "";
+
     return (
       <Wrap>
         <DatesLabel>
@@ -143,11 +147,7 @@ class DateDropdown extends React.Component {
           <CheckInInput
             placeholder="mm/dd/yyyy"
             name="checkIn"
-            value={
-              this.props.dates.startDate
-                ? this.props.dates.startDate.format("MM/DD/YYYY")
-                : ""
-            }
+            value={checkInValue}
             readOnly
             selectedInput={this.props.openedOption}
             onFocus={() => this.props.onFocusInput("checkIn")}
@@ -158,11 +158,7 @@ class DateDropdown extends React.Component {
           <CheckOutInput
             placeholder="mm/dd/yyyy"
             name="checkOut"
-            value={
-              this.props.dates.endDate
-                ? this.props.dates.endDate.format("MM/DD/YYYY")
-                : ""
-            }
+            value={checkOutValue}
             readOnly
             selectedInput={this.props.openedOption}
             onFocus={() => this.props.onFocusInput("checkOut")}
