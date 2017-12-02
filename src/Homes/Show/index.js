@@ -92,7 +92,7 @@ export default class Show extends React.Component {
           top: isSticky ? navBarHeight : 0,
           left: 0,
           width: "100%",
-          zIndex: 2
+          zIndex: 20
         }}
       >
         {isSticky ? (

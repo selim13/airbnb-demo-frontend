@@ -15,6 +15,7 @@ export const Link = styled.a`
 
 export const PageNavBar = styled.div`
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
+  background: #ffffff;
 `;
 
 export const Section = styled.section`

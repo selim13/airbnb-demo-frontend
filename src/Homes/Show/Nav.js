@@ -13,7 +13,6 @@ const Wrap = styled.nav`
   height: 50px;
   font-size: 12px;
   color: #0f7276;
-  background: #ffffff;
 
   @media (min-width: ${bp.sm}px) {
     font-size: 14px;
