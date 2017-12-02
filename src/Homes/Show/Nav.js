@@ -40,7 +40,7 @@ export default function Nav() {
         defaultSelected="overview"
         smooth={true}
         duration={200}
-        offset={-130}
+        offset={-150}
       >
         <Link to="overview" spy={true}>
           Overview
