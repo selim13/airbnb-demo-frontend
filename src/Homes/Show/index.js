@@ -203,7 +203,20 @@ export default class Show extends React.Component {
                         <Section>
                           <SectionHeading>Amenities</SectionHeading>
 
-                          <Amenities />
+                          <Amenities
+                            summary={[
+                              "internet",
+                              "wifi",
+                              "kidsFriendly",
+                              "parking"
+                            ]}
+                            selected={[
+                              "internet",
+                              "wifi",
+                              "kidsFriendly",
+                              "parking"
+                            ]}
+                          />
                         </Section>
 
                         <Section>

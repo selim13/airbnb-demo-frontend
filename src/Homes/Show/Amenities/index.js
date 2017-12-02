@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
+import includes from "lodash/includes";
 
 import bp from "../../../breakpoints";
 import SeeAllButton from "../../../UI/SeeAllButton";
@@ -31,33 +32,87 @@ const Icon = styled.img`
   }
 `;
 
-export default function() {
-  return (
-    <div>
-      <Row>
-        <Col xs={6}>
-          <Property>
-            <Icon src={internetSvg} /> Internet
-          </Property>
-        </Col>
-        <Col xs={6}>
-          <Property>
-            <Icon src={kidsFriendlySvg} /> Family/kid friendly
-          </Property>
-        </Col>
-        <Col xs={6}>
-          <Property>
-            <Icon src={wifiSvg} /> Wireless Internet
-          </Property>
-        </Col>
-        <Col xs={6}>
-          <Property>
-            <Icon src={parkingSvg} /> Free parking on premises
-          </Property>
-        </Col>
-      </Row>
+const Del = styled.del`
+  color: #767676;
+`;
 
-      <SeeAllButton label="Show all amenities" />
-    </div>
+const amenities = [
+  {
+    key: "internet",
+    title: "Internet",
+    img: internetSvg
+  },
+  {
+    key: "wifi",
+    title: "Wireless Internet",
+    img: wifiSvg
+  },
+  {
+    key: "kidsFriendly",
+    title: "Family/kid friendly",
+    img: kidsFriendlySvg
+  },
+  {
+    key: "parking",
+    title: "Free parking on premises",
+    img: parkingSvg
+  },
+
+  {
+    key: "elevator",
+    title: "Elevator",
+    img: parkingSvg
+  },
+  {
+    key: "pets",
+    title: "Pets allowed",
+    img: parkingSvg
+  }
+];
+
+export default class Amenities extends React.Component {
+  state = { isOpen: false };
+
+  static defaultProps = {
+    selected: [],
+    summary: []
+  };
+
+  handleOpen = () => this.setState({ isOpen: true });
+
+  renderAmenity = (amenity, selected) => (
+    <Col xs={6} key={amenity.key}>
+      <Property>
+        {selected && <Icon src={amenity.img} />}
+        {selected ? (
+          amenity.title
+        ) : (
+          <Del aria-hidden="true">{amenity.title}</Del>
+        )}
+      </Property>
+    </Col>
   );
+
+  render() {
+    const summaryAmenities = amenities.filter(amenity =>
+      includes(this.props.summary, amenity.key)
+    );
+
+    const summaryList = summaryAmenities.map(amenity =>
+      this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
+    );
+    const detailList = amenities.map(amenity =>
+      this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
+    );
+
+    return (
+      <div>
+        <Row>{this.state.isOpen ? detailList : summaryList}</Row>
+
+        {!this.state.isOpen && (
+          <SeeAllButton label="Show all amenities" onClick={this.handleOpen} />
+        )}
+      </div>
+    );
+  }
 }
