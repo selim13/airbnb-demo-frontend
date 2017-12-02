@@ -129,6 +129,7 @@ export default class Show extends React.Component {
         <ToLg>
           <Dialog
             isOpen={this.state.isRequestFormOpened}
+            contentLabel="Request a book"
             onClose={this.handleCloseForm}
           >
             <ModalRequestFormWrap>
