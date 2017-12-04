@@ -8,10 +8,8 @@ before_install:
 install:
   - yarn install
 script:
-  - yarn build
-  - find ./build -type f -name '*.map' -size +1M -exec rm {} \;
-  - now --public --static --name airbnb-master ./build --token=$NOW_TOKEN
-  - now alias --token=$NOW_TOKEN
+  - yarn build    
+  - .travis/deploy-master.sh
 env:
   global:
     secure: h7CVaF8BUUzjUNS7AfZBu2LCGSqb/2H/flsP0qlktQsu+0CuleIbAydbSUFMOPO/TqO8y8rQXn8Q9aiY0mItEcp06s/4ZvO7SQwmto+ATfGScMVutKw3E3CE1pC8dMNd+T1kDUZ2ii8hmrWtd0gLydXV4AaBHkyACpoy+5X4KJs9YBBbYruKMW04qgtL7yiK5gXxY0dVfk8qYiEMmqwa+/hEbF7D3nfdi26xu1RbGtyv6uq99nJ64N35oDLUoishFHhRp5rKfpP9s0Yw7DnV0aD7xMD15mTjJi3hltMsZ7FFrBcP2iCkIqUTMJoKdFmU5hk9PN0OTn+kxR6xPHjliK4MTmAKG4WhydYSJqdoE8aQn03kASGLua9XqzYZXvQ4r5qEBIC+n0C/vRS/f01Pt/H0UV+cU+eWHRV43qs9Aki77yI559ftWtNV4HKRFCjfpgZ5GaT9H7RxeyVMrVLDjsoGADwMEaSd4EdVyiCKe7bHkFcLIGvOZ+hEprMrGKDovztop8Sd9iLUJpBuo+DdHvvpxB2ZnpDuRzv4ONO0hZso4UfNw+9krz3QHS3GPDqRJkBwR8GW6gtE7hme+keKOAyuVWUuHxw+bKIOvY+2zMXK2yTCOwT9RUY32wh2rqYuI5ZjmHDriKvQMsV3qPZQUQ5nJEjoLCHmokLJS1BdcjY=
