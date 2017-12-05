@@ -10,6 +10,7 @@ install:
 script:
 - yarn build
 deploy:
+  skip_cleanup: true
   provider: script
   script: .travis/deploy-master.sh
   on:
