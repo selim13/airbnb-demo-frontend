@@ -1,11 +1,10 @@
 #!/bin/bash
 set -ev
 
-if [ "${TRAVIS_BRANCH}" = "master" ] || [ "${TRAVIS_BRANCH}" = "deploy" ]; then
-    find "${TRAVIS_BUILD_DIR}/build" -type f -name "*.map" -size +1M -exec rm {} \;
-    now --public \
-        --static \
-        --name airbnb-master \
-        --token="${NOW_TOKEN}" "${TRAVIS_BUILD_DIR}/build" 
-    now alias --token="${NOW_TOKEN}"
-fi
+find "${TRAVIS_BUILD_DIR}/build" -type f -name "*.map" -size +1M -exec rm {} \;
+DEPLOYMENT_URL=$(now deploy \
+    --public \
+    --static \
+    --name airbnb-master \
+    --token="${NOW_TOKEN}" "${TRAVIS_BUILD_DIR}/build")
+now alias set ${DEPLOYMENT_URL} ${NOW_MASTER_ALIAS} --token="${NOW_TOKEN}"
