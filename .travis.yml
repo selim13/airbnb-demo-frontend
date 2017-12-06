@@ -9,10 +9,17 @@ install:
 - yarn install
 script:
 - yarn build
-deploy:
+deploy:  
+- provider: script
   skip_cleanup: true
-  provider: script
-  script: .travis/deploy-master.sh
+  script: .travis/deploy-now.sh
+  on:
+    branch:
+    - master
+    - travis
+- provider: heroku
+  api_key: $HEROKU_TOKEN
+  app: dseleznyov-airbnb-demo
   on:
     branch:
     - master
