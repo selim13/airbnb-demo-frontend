@@ -17,7 +17,7 @@ Build a static production code: `yarn build`
 
 ## Deploy
 
-Deploy the production static build of this project to the
+Deploy production static build of this project to the
 [now.sh](https://zeit.co/now) instance with
 [now-cli](https://github.com/zeit/now-cli):
 
@@ -25,6 +25,13 @@ Deploy the production static build of this project to the
 $ now --public --static ./build
 ```
 
+or as Heroku app:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Demo
 
-[Master branch](https://dseleznyov-airbnb-demo.now.sh/) automatic build.
+Latest build of the master branch is deployed to:
+
+* Now: https://dseleznyov-airbnb-demo.now.sh
+* Heroku: https://dseleznyov-airbnb-demo.herokuapp.com
