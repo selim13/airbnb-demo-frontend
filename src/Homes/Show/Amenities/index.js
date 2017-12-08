@@ -5,11 +5,16 @@ import includes from "lodash/includes";
 
 import bp from "../../../breakpoints";
 import SeeAllButton from "../../../UI/SeeAllButton";
+import amenities from "./amenities";
+import familyAmenities from "./familyAmenities";
 
-import internetSvg from "./internet.svg";
-import wifiSvg from "./wifi.svg";
-import kidsFriendlySvg from "./kidsFriendly.svg";
-import parkingSvg from "./parking.svg";
+const FamilyAmenities = styled.h3`
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #383838;
+  font-size: 18px;
+  font-weight: 400;
+`;
 
 const Property = styled.div`
   display: flex;
@@ -36,40 +41,6 @@ const Del = styled.del`
   color: #767676;
 `;
 
-const amenities = [
-  {
-    key: "internet",
-    title: "Internet",
-    img: internetSvg
-  },
-  {
-    key: "wifi",
-    title: "Wireless Internet",
-    img: wifiSvg
-  },
-  {
-    key: "kidsFriendly",
-    title: "Family/kid friendly",
-    img: kidsFriendlySvg
-  },
-  {
-    key: "parking",
-    title: "Free parking on premises",
-    img: parkingSvg
-  },
-
-  {
-    key: "elevator",
-    title: "Elevator",
-    img: parkingSvg
-  },
-  {
-    key: "pets",
-    title: "Pets allowed",
-    img: parkingSvg
-  }
-];
-
 export default class Amenities extends React.Component {
   state = { isOpen: false };
 
@@ -83,7 +54,7 @@ export default class Amenities extends React.Component {
   renderAmenity = (amenity, selected) => (
     <Col xs={6} key={amenity.key}>
       <Property>
-        {selected && <Icon src={amenity.img} />}
+        {selected && amenity.img && <Icon src={amenity.img} />}
         {selected ? (
           amenity.title
         ) : (
@@ -101,13 +72,25 @@ export default class Amenities extends React.Component {
     const summaryList = summaryAmenities.map(amenity =>
       this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
     );
+
     const detailList = amenities.map(amenity =>
       this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
+    );
+    const familyList = familyAmenities.map(amenity =>
+      this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
+    );
+
+    const detail = (
+      <div>
+        <Row>{detailList}</Row>
+        <FamilyAmenities>Family amenities</FamilyAmenities>
+        <Row>{familyList}</Row>
+      </div>
     );
 
     return (
       <div>
-        <Row>{this.state.isOpen ? detailList : summaryList}</Row>
+        {this.state.isOpen ? detail : <Row>{summaryList}</Row>}
 
         {!this.state.isOpen && (
           <SeeAllButton label="Show all amenities" onClick={this.handleOpen} />

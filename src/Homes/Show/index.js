@@ -207,14 +207,19 @@ export default class Show extends React.Component {
                             summary={[
                               "internet",
                               "wifi",
-                              "kidsFriendly",
-                              "parking"
+                              "familyFriendly",
+                              "freePremisesParking"
                             ]}
                             selected={[
+                              "breakfast",
+                              "dryer",
+                              "essentials",
+                              "familyFriendly",
+                              "freePremisesParking",
+                              "hangers",
                               "internet",
-                              "wifi",
-                              "kidsFriendly",
-                              "parking"
+                              "washer",
+                              "wifi"
                             ]}
                           />
                         </Section>
