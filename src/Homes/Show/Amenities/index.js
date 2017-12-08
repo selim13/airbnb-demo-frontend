@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
 import includes from "lodash/includes";
@@ -81,21 +81,21 @@ export default class Amenities extends React.Component {
     );
 
     const detail = (
-      <div>
+      <Fragment>
         <Row>{detailList}</Row>
         <FamilyAmenities>Family amenities</FamilyAmenities>
         <Row>{familyList}</Row>
-      </div>
+      </Fragment>
     );
 
     return (
-      <div>
+      <Fragment>
         {this.state.isOpen ? detail : <Row>{summaryList}</Row>}
 
         {!this.state.isOpen && (
           <SeeAllButton label="Show all amenities" onClick={this.handleOpen} />
         )}
-      </div>
+      </Fragment>
     );
   }
 }
