@@ -133,7 +133,7 @@ export default class Show extends React.Component {
             onClose={this.handleCloseForm}
           >
             <ModalRequestFormWrap>
-              <RequestForm />
+              <RequestForm isModal />
             </ModalRequestFormWrap>
           </Dialog>
         </ToLg>

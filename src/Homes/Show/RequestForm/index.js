@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
+import VisibilitySensor from "react-visibility-sensor";
 
 import { ToLg } from "../../../UI/mediaQueries";
 import Reviews from "../../../UI/Reviews";
@@ -72,12 +73,22 @@ const RequestButton = Button.extend`
 `;
 
 const ChargeTip = styled.p`
-  margin-bottom: 16px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(118, 118, 118, 0.2);
   color: #383838;
   font-size: 12px;
   text-align: center;
+`;
+
+const ManyViewsTransition = styled.div`
+  overflow: hidden;
+  max-height: ${props => (props.isVisible ? "300px" : "0")};
+  opacity: ${props => (props.isVisible ? "1" : "0")};
+  transition: max-height 0.8s, opacity 0.8s linear 0.2s;
+`;
+
+const ManyViewsWrap = styled.div`
+  padding-top: 16px;
+  margin-top: 24px;
+  border-top: 1px solid rgba(118, 118, 118, 0.2);
 `;
 
 export default class RequestForm extends React.Component {
@@ -85,6 +96,10 @@ export default class RequestForm extends React.Component {
     openedOption: null,
     dates: { startDate: null, endDate: null },
     guests: { adults: 1, children: 0, infants: 0 }
+  };
+
+  static defaultProps = {
+    isModal: false
   };
 
   handleDropdownToggle = option => {
@@ -117,7 +132,7 @@ export default class RequestForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <TopWrap>
           <div>
             <Price>
@@ -160,8 +175,23 @@ export default class RequestForm extends React.Component {
 
         <ChargeTip>You won’t be charged yet</ChargeTip>
 
-        <ManyViews mobile />
-      </div>
+        <VisibilitySensor
+          active={!this.props.isModal}
+          offset={{
+            bottom: 200,
+            top: -9999 // skips visibility check, when moved above the screen
+          }}
+          partialVisibility
+        >
+          {({ isVisible }) => (
+            <ManyViewsTransition isVisible={this.props.isModal || isVisible}>
+              <ManyViewsWrap>
+                <ManyViews mobile />
+              </ManyViewsWrap>
+            </ManyViewsTransition>
+          )}
+        </VisibilitySensor>
+      </Fragment>
     );
   }
 }
