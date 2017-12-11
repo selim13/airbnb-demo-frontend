@@ -46,11 +46,11 @@ export default function() {
     <Wrap>
       <MapBox>
         <GoogleMapReact
-          defaultCenter={{ lat: 57.3, lng: 15.53 }}
-          defaultZoom={16}
+          defaultCenter={{ lat: 4.49, lng: -75.7 }}
+          defaultZoom={14}
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
         >
-          <MapAreaMarker lat={57.3} lng={15.53} />
+          <MapAreaMarker lat={4.49} lng={-75.7} />
         </GoogleMapReact>
       </MapBox>
 
