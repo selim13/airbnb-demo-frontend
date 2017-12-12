@@ -6,45 +6,44 @@ import { Element as ScrollElement, scrollSpy } from "react-scroll";
 import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
 import Container from "../../UI/Container";
 import DotSeparator from "../../UI/DotSeparator";
-import SeeAllButton from "../../UI/SeeAllButton";
 import StickyContainerCol from "../../UI/StickyContainerCol";
 import Dialog from "../../UI/Dialog";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
 import {
+  AvatarWrap,
+  Heading,
   Link,
+  ModalRequestFormWrap,
+  Overview,
   PageNavBar,
+  ReportFlag,
+  ReportMobile,
+  ReportSticky,
+  RequestFormOffset,
+  RequestFormWrap,
   Section,
   SectionHeading,
-  SectionParagraph,
-  ReportSticky,
-  ReportFlag,
-  ReadMoreWrap,
-  Overview,
-  Heading,
-  Subheading,
-  AvatarWrap,
-  Description,
-  ReportMobile,
-  RequestFormWrap,
-  RequestFormOffset,
-  ModalRequestFormWrap
+  Paragraph,
+  Subheading
 } from "./styled";
-import RequestForm from "./RequestForm";
-import RequestPanel from "./RequestPanel";
-import Header from "./Header";
-import Nav from "./Nav";
-import Avatar from "./Avatar";
-import Properties from "./Properties";
-import ManyViews from "./ManyViews";
-import Cancellation from "./Cancellation";
 import Amenities from "./Amenities";
-import Reviews from "./Reviews";
+import Avatar from "./Avatar";
+import Cancellation from "./Cancellation";
+import Description from "./Description";
+import Explore from "./Explore";
+import Header from "./Header";
 import Host from "./Host";
+import ManyViews from "./ManyViews";
+import Nav from "./Nav";
 import Neighborhood from "./Neighborhood";
 import NeighborhoodMap from "./NeighborhoodMap";
+import Properties from "./Properties";
+import RequestForm from "./RequestForm";
+import RequestPanel from "./RequestPanel";
+import Reviews from "./Reviews";
+import Rules from "./Rules";
 import Similar from "./Similar";
-import Explore from "./Explore";
 
 import avatarImg from "./avatar.png";
 import flagSvg from "./flag.svg";
@@ -183,20 +182,7 @@ export default class Show extends React.Component {
                         </MdOnly>
 
                         <Section>
-                          <Description>
-                            Located in the coffee region, in the Andean
-                            mountains of Colombia, South America, a charming
-                            cabana made from bamboo, with a great view and a
-                            "sendero" or pathway through the bamboo forest which
-                            criss-crosses our 5 acre organic farm, leading down
-                            to a stream. A place to relax and commune with
-                            nature.
-                          </Description>
-
-                          <ReadMoreWrap>
-                            <SeeAllButton label="Read more about the space" />
-                          </ReadMoreWrap>
-
+                          <Description />
                           <Link href="#">Contact host</Link>
                         </Section>
 
@@ -229,10 +215,10 @@ export default class Show extends React.Component {
                             Always communicate through Airbnb
                           </SectionHeading>
 
-                          <SectionParagraph>
+                          <Paragraph>
                             To protect your payment, never transfer money or
                             communicate outside of the Airbnb website or app.
-                          </SectionParagraph>
+                          </Paragraph>
 
                           <Link href="#">Learn more</Link>
                         </Section>
@@ -240,12 +226,7 @@ export default class Show extends React.Component {
                         <Section>
                           <SectionHeading>House Rules</SectionHeading>
 
-                          <SectionParagraph>
-                            Check-in is anytime after 1PM<br />
-                            Check out by 11AM
-                          </SectionParagraph>
-
-                          <SeeAllButton label="Read all rules" />
+                          <Rules />
                         </Section>
 
                         <Section>

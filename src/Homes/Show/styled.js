@@ -6,6 +6,7 @@ export const Link = styled.a`
   border-bottom: 1px solid transparent;
   color: #0f7276;
   font-size: 16px;
+  font-weight: 400;
   text-decoration: none;
 
   &:hover {
@@ -18,10 +19,25 @@ export const PageNavBar = styled.div`
   background: #ffffff;
 `;
 
+export const TextSubheading = styled.h3`
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1em;
+  font-weight: 400;
+`;
+
+export const Paragraph = styled.p`
+  margin-top: 0;
+  margin-bottom: 16px;
+`;
+
 export const Section = styled.section`
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(118, 118, 118, 0.2);
+  font-size: 16px;
+  font-weight: 300;
+  color: #383838;
 `;
 
 export const SectionHeading = styled.h2`
@@ -30,14 +46,6 @@ export const SectionHeading = styled.h2`
   color: #383838;
   font-size: 16px;
   font-weight: bold;
-`;
-
-export const SectionParagraph = styled.p`
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 16px;
-  font-weight: 300;
-  color: #383838;
 `;
 
 export const RequestFormOffset = styled.div`
@@ -96,22 +104,6 @@ export const AvatarWrap = styled.div`
   }
 `;
 
-export const Description = styled.p`
-  margin-top: 0;
-  margin-bottom: 24px;
-  color: #383838;
-  font-size: 16px;
-  font-weight: 300;
-
-  @media (min-width: ${bp.sm}px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: ${bp.lg}px) {
-    margin-top: 15px;
-  }
-`;
-
 export const ReadMoreWrap = styled.div`
   margin-bottom: 24px;
 `;
@@ -139,4 +131,13 @@ export const ReportSticky = styled.a`
 
 export const ReportFlag = styled.img`
   margin-right: 8px;
+`;
+
+export const ShortHr = styled.hr`
+  max-width: 65px;
+  height: 1px;
+  margin: 4px 0 20px;
+  border: none;
+  color: rgba(118, 118, 118, 0.2);
+  background-color: rgba(118, 118, 118, 0.2);
 `;

@@ -1,24 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-import bp from "../../breakpoints";
 import arrowSvg from "./arrow.svg";
 
 const Button = styled.button`
   padding: 0.5rem 0;
   border: none;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   white-space: nowrap;
   color: #0f7276;
   background: none;
   user-select: none;
   cursor: pointer;
-
-  @media (min-width: ${bp.sm}px) {
-    font-size: 16px;
-  }
 `;
 
 const Arrow = styled.img`
@@ -28,9 +23,9 @@ const Arrow = styled.img`
   transform: ${props => (props.active ? "rotateZ(180deg)" : "none")};
 `;
 
-export default function({ isOpen = false, label = "", ...props }) {
+export default function({ isOpen = false, label = "", className, onClick }) {
   return (
-    <Button {...props}>
+    <Button className={className} onClick={onClick}>
       {label}
       <Arrow
         active={isOpen}

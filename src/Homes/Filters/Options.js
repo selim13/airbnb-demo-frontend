@@ -6,7 +6,7 @@ import bp from "../../breakpoints";
 import { Row, Col } from "react-flexbox-grid";
 import { Sm, ToSm } from "../../UI/mediaQueries";
 import Checkbox from "../../UI/Checkbox";
-import SeeAll from "../../UI/SeeAllButton";
+import SeeAllButton from "../../UI/SeeAllButton";
 
 const HeadingWrap = styled.div`
   display: flex;
@@ -19,6 +19,13 @@ const Heading = styled.p`
 
   @media (min-width: ${bp.sm}px) {
     font-size: 20px;
+  }
+`;
+
+const SeeAll = styled(SeeAllButton)`
+  font-size: 14px;
+  @media (min-width: ${bp.sm}px) {
+    font-size: 16px;
   }
 `;
 

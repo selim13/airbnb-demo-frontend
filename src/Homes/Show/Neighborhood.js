@@ -2,10 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import bp from "../../breakpoints";
-import SeeAllButton from "../../UI/SeeAllButton";
+import { Paragraph, TextSubheading } from "./styled";
+import ReadMore from "../../UI/ReadMore";
 
 const Wrap = styled.div`
   margin-bottom: 16px;
+  color: #383838;
+  font-size: 18px;
+  font-weight: 300;
 `;
 
 const Heading = styled.h2`
@@ -20,24 +24,16 @@ const Heading = styled.h2`
   }
 `;
 
-const Description = styled.p`
-  margin-top: 0;
-  margin-bottom: 16px;
-  color: #383838;
-  font-size: 18px;
-  font-weight: 300;
-`;
-
-export default function() {
+export default function Neighborhood() {
   return (
     <Wrap>
       <Heading>The neighborhood</Heading>
 
-      <Description>
+      <Paragraph>
         Yudy &amp; Victoria’s home is located in Armenia, Quindio, Colombia..
-      </Description>
+      </Paragraph>
 
-      <Description>
+      <Paragraph>
         We are situated in the heart of the coffee region in the Andean
         mountains in Colombia. We are in "Vereda La Pradera" neighborhood, near
         the small town of "El Caimo", 20 minutes from Armenia and 20 minutes
@@ -45,9 +41,19 @@ export default function() {
         enough from the hustle of traffic and city noise that you can commune
         with nature. Sleep to the sound of the crickets and awaken to the sound
         of birds.
-      </Description>
+      </Paragraph>
 
-      <SeeAllButton label="Read more about neighborhood" />
+      <ReadMore openLabel="Read more about neighborhood">
+        <TextSubheading>The space</TextSubheading>
+        <Paragraph>
+          Getting around We are an easy taxi ride (20 mil pesos) to the bus
+          station or the airport in Armenia. There is a bus from Armenia to El
+          Caimo, only 7 minutes by car from our farm. Additionally we have a
+          jeep and our neighbor acts as a taxi for our guests. We will help you
+          get to where you need to go to see any of the local attractions you
+          choose.
+        </Paragraph>
+      </ReadMore>
     </Wrap>
   );
 }

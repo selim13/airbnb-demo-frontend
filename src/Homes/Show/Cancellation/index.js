@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
 
 import ReadMoreText from "../../../UI/ReadMoreText";
-import { SectionParagraph } from "../styled";
+import { Paragraph, ShortHr } from "../styled";
 
 import shieldSvg from "./shield.svg";
 
@@ -14,17 +14,7 @@ const Heading = styled.p`
   font-weight: 400;
   color: #383838;
 `;
-
-const Hr = styled.hr`
-  max-width: 65px;
-  height: 1px;
-  margin: 4px 0 20px;
-  border: none;
-  color: rgba(118, 118, 118, 0.2);
-  background-color: rgba(118, 118, 118, 0.2);
-`;
-
-const BottomParagraph = SectionParagraph.extend`
+const BottomParagraph = Paragraph.extend`
   margin-bottom: 4px;
 `;
 
@@ -34,18 +24,18 @@ export default function() {
       <Row>
         <Col xs={10}>
           <Heading>Free cancellation</Heading>
-          <SectionParagraph>
+          <Paragraph>
             Cancel within 48 hours of booking to get a full refund.
-          </SectionParagraph>
+          </Paragraph>
         </Col>
         <Col xs={2}>
           <img src={shieldSvg} alt="" width="42" height="45" />
         </Col>
       </Row>
 
-      <Hr />
+      <ShortHr />
 
-      <SectionParagraph>Flexible</SectionParagraph>
+      <Paragraph>Flexible</Paragraph>
 
       <BottomParagraph>
         <ReadMoreText lines={2}>
