@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import bp from "../../../breakpoints";
 import Reviews from "../../../UI/Reviews";
+import SaveIcon from "../../../UI/SaveIcon";
 
-import LikeSvg from "./like.svg";
+const Wrap = styled.div`
+  position: relative;
+`;
 
-const Card = styled(Link)`
+const Link = styled(RouterLink)`
+  position: relative;
   font-size: 15px;
   color: #383838;
   text-decoration: none;
@@ -31,15 +35,22 @@ const Image = styled.img`
   height: auto;
 `;
 
-const LikeButton = styled.button`
+const SaveButton = styled.button`
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 0;
+  right: 0;
   padding: 8px;
   border: none;
   background: transparent;
   cursor: pointer;
   user-select: none;
+`;
+
+const CardSaveIcon = SaveIcon.extend`
+  width: 32px;
+  height: 32px;
+  fill: ${props => (props.isSaved ? "#ff5a5f" : "rgba(72, 72, 72, 0.5)")};
+  color: #ffffff;
 `;
 
 const Heading = styled.p`
@@ -74,38 +85,43 @@ const NewBadge = styled.div`
   background: #008489;
 `;
 
-export default function({
-  id,
-  name,
-  image,
-  price,
-  roomType,
-  bedsNumber,
-  hot,
-  reviews = {}
-}) {
-  return (
-    <Card to={"/homes/" + id}>
-      <ImageWrap>
-        <Image src={image} width="738" height="494" alt="" />
-        <LikeButton title="Like">
-          <img src={LikeSvg} alt="" />
-        </LikeButton>
-      </ImageWrap>
-      <Properties hot={hot}>
-        {roomType} · {bedsNumber} beds
-      </Properties>
-      <Heading>{name}</Heading>
-      <Price>${price} per night</Price>
-      {reviews && reviews.count > 0 ? (
-        <Reviews
-          rating={reviews.rating}
-          count={reviews.count}
-          status={reviews.status}
-        />
-      ) : (
-        <NewBadge>New</NewBadge>
-      )}
-    </Card>
-  );
+export default class Card extends React.Component {
+  state = { isSaved: false };
+
+  static defaultProps = {
+    reviews: {}
+  };
+
+  handleToggleSave = () =>
+    this.setState(prevState => ({ isSaved: !prevState.isSaved }));
+
+  render() {
+    return (
+      <Wrap>
+        <Link to={"/homes/" + this.props.id}>
+          <ImageWrap>
+            <Image src={this.props.image} width="738" height="494" alt="" />
+          </ImageWrap>
+          <Properties hot={this.props.hot}>
+            {this.props.roomType} · {this.props.bedsNumber} beds
+          </Properties>
+          <Heading>{this.props.name}</Heading>
+          <Price>${this.props.price} per night</Price>
+          {this.props.reviews && this.props.reviews.count > 0 ? (
+            <Reviews
+              rating={this.props.reviews.rating}
+              count={this.props.reviews.count}
+              status={this.props.reviews.status}
+            />
+          ) : (
+            <NewBadge>New</NewBadge>
+          )}
+        </Link>
+
+        <SaveButton title="Like" onClick={this.handleToggleSave}>
+          <CardSaveIcon isSaved={this.state.isSaved} />
+        </SaveButton>
+      </Wrap>
+    );
+  }
 }

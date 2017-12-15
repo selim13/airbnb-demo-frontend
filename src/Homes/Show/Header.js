@@ -5,6 +5,7 @@ import bp from "../../breakpoints";
 
 import { ToSm, Sm } from "../../UI/mediaQueries";
 import Icon from "../../UI/Icon";
+import SaveIcon from "../../UI/SaveIcon";
 
 import leadImg from "./lead.jpg";
 
@@ -39,7 +40,30 @@ const Container = styled.div`
   width: 100%;
   max-width: ${bp.lg}px;
   margin: 0 auto;
-  padding: 16px 8px 24px;
+  padding: 8px 0 16px;
+
+  @media (min-width: ${bp.sm}px) {
+    padding: 16px 8px 24px;
+  }
+`;
+
+const TopRow = styled.div`
+  align-self: flex-end;
+`;
+
+const MobileButton = styled.button`
+  margin-left: 8px;
+  padding: 8px 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  color: #ffffff;
+`;
+
+const MobileSaveIcon = SaveIcon.extend`
+  fill: ${props => (props.isSaved ? "#ff5a5f" : "transparent")};
+  color: #ffffff;
 `;
 
 const Button = styled.button`
@@ -70,39 +94,34 @@ const Button = styled.button`
   }
 `;
 
-const TopRow = styled.div`
-  align-self: flex-end;
-`;
-
 const TopButton = Button.extend`
   margin-left: 1rem;
 `;
 
-const TopButtonIcon = styled(Icon)`
+const ButtonIcon = styled(Icon)`
   width: 16px;
   height: 16px;
   margin-right: 12px;
   fill: #767676;
 `;
 
-const MobileButton = styled.button`
-  padding: 8px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  user-select: none;
-  color: #ffffff;
+const ButtonSaveIcon = SaveIcon.extend`
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
 `;
 
 const BottomRow = styled.div`
   align-self: flex-end;
+  margin-right: 4px;
 
   @media (min-width: ${bp.sm}px) {
     align-self: flex-start;
+    margin-right: 0;
   }
 `;
 
-export default function() {
+export default function Header({ isSaved = false, onSave = () => {} }) {
   return (
     <Wrap>
       <Container>
@@ -111,16 +130,17 @@ export default function() {
             <MobileButton>
               <Icon icon="share" />
             </MobileButton>
-            <MobileButton>
-              <Icon icon="heartOutline" stroke-width="2" />
+            <MobileButton onClick={onSave}>
+              <MobileSaveIcon isSaved={isSaved} />
             </MobileButton>
           </ToSm>
           <Sm>
             <TopButton>
-              <TopButtonIcon icon="share" /> Share
+              <ButtonIcon icon="share" /> Share
             </TopButton>
-            <TopButton>
-              <TopButtonIcon icon="heartOutline" />Save
+            <TopButton onClick={onSave}>
+              <ButtonSaveIcon isSaved={isSaved} />
+              {isSaved ? "Saved" : "Save"}
             </TopButton>
           </Sm>
         </TopRow>

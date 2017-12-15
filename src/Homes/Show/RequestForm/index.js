@@ -5,6 +5,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import { ToLg } from "../../../UI/mediaQueries";
 import Reviews from "../../../UI/Reviews";
 import Icon from "../../../UI/Icon";
+import SaveIcon from "../../../UI/SaveIcon";
 import ManyViews from "../ManyViews";
 import GuestsDropdown from "./GuestsDropdown";
 import DateDropdown from "./DateDropdown";
@@ -22,9 +23,12 @@ const Caption = styled.small`
   font-size: 12px;
 `;
 
+const IconButtonWrap = styled.div`
+  margin-right: -8px;
+`;
+
 const IconButton = styled.button`
-  margin-left: 16px;
-  padding: 0;
+  padding: 8px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -99,7 +103,9 @@ export default class RequestForm extends React.Component {
   };
 
   static defaultProps = {
-    isModal: false
+    isModal: false,
+    isSaved: false,
+    onSave: () => {}
   };
 
   handleDropdownToggle = option => {
@@ -140,16 +146,16 @@ export default class RequestForm extends React.Component {
             </Price>
             <Reviews rating={5} count={111} />
           </div>
-          <div>
-            <ToLg>
+          <ToLg>
+            <IconButtonWrap>
               <IconButton>
                 <Icon icon="share" />
               </IconButton>
-              <IconButton>
-                <Icon icon="heartOutline" />
+              <IconButton onClick={this.props.onSave}>
+                <SaveIcon isSaved={this.props.isSaved} />
               </IconButton>
-            </ToLg>
-          </div>
+            </IconButtonWrap>
+          </ToLg>
         </TopWrap>
 
         <DateDropdown

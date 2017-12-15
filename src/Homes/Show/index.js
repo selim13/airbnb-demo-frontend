@@ -52,14 +52,17 @@ const navBarHeight = 80;
 const pageNavHeight = 50;
 
 export default class Show extends React.Component {
-  state = { isRequestFormOpened: false };
-
-  handleOpenForm = () => this.setState({ isRequestFormOpened: true });
-  handleCloseForm = () => this.setState({ isRequestFormOpened: false });
+  state = { isRequestFormOpened: false, isSaved: false };
 
   componentDidMount() {
     scrollSpy.update();
   }
+
+  handleOpenForm = () => this.setState({ isRequestFormOpened: true });
+  handleCloseForm = () => this.setState({ isRequestFormOpened: false });
+
+  handleToggleSave = () =>
+    this.setState(prevState => ({ isSaved: !prevState.isSaved }));
 
   stickyRequestForm = ({ isSticky, style }) => {
     return (
@@ -97,7 +100,12 @@ export default class Show extends React.Component {
         {isSticky ? (
           <PageNavBar>
             <Container>
-              <Nav scrollOffset={-navBarHeight - pageNavHeight} />
+              <Nav
+                scrollOffset={-navBarHeight - pageNavHeight}
+                isSticky={true}
+                isSaved={this.state.isSaved}
+                onSave={this.handleToggleSave}
+              />
             </Container>
           </PageNavBar>
         ) : (
@@ -132,14 +140,18 @@ export default class Show extends React.Component {
             onClose={this.handleCloseForm}
           >
             <ModalRequestFormWrap>
-              <RequestForm isModal />
+              <RequestForm
+                isModal
+                isSaved={this.state.isSaved}
+                onSave={this.handleToggleSave}
+              />
             </ModalRequestFormWrap>
           </Dialog>
         </ToLg>
 
         <StickyContainer>
           <Navbar searchPlaceholder="Search" />
-          <Header />
+          <Header isSaved={this.state.isSaved} onSave={this.handleToggleSave} />
           <StickyContainer>
             <main>
               <Container>
