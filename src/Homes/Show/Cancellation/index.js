@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
-import ReadMoreText from "../../../UI/ReadMoreText";
-import { Paragraph, ShortHr } from "../styled";
+import ReadMoreText from '../../../UI/ReadMoreText';
+import { Paragraph, ShortHr } from '../styled';
 
-import shieldSvg from "./shield.svg";
+import shieldSvg from './shield.svg';
 
 const Heading = styled.p`
   margin-top: 0;
@@ -18,7 +18,7 @@ const BottomParagraph = Paragraph.extend`
   margin-bottom: 4px;
 `;
 
-export default function() {
+export default function () {
   return (
     <div>
       <Row>

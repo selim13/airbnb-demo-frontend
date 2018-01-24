@@ -1,16 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
 
-import bp from "../breakpoints";
+import bp from '../breakpoints';
 
-import Container from "../UI/Container";
-import Menu from "./Menu";
-import Search from "./Search";
+import Container from '../UI/Container';
+import Menu from './Menu';
+import Search from './Search';
 
-import logo from "./logo.svg";
-import downArrowSvg from "./downArrow.svg";
+import logo from './logo.svg';
+import downArrowSvg from './downArrow.svg';
 
 const FixedPlaceholder = styled.header`height: 80px;`;
 const Bar = styled.div`
@@ -39,7 +39,7 @@ const LogoButton = styled(Link)`
   }
 `;
 
-export default function({ searchPlaceholder = "Search", searchValue }) {
+export default function ({ searchPlaceholder = 'Search', searchValue }) {
   return (
     <FixedPlaceholder>
       <Bar>

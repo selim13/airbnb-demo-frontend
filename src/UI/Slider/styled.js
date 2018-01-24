@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import rightArrowSvg from "./rightArrow.svg";
+import bp from '../../breakpoints';
+import rightArrowSvg from './rightArrow.svg';
 
 export const SliderContainer = styled.div`
   position: relative;

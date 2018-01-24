@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import bp from "../breakpoints";
-import { Slider, Slide } from "../UI/Slider";
-import Card from "../Restaurants/Card";
+import bp from '../breakpoints';
+import { Slider, Slide } from '../UI/Slider';
+import Card from '../Restaurants/Card';
 
-import data from "../Restaurants/staticData";
+import data from '../Restaurants/staticData';
 
 const ReservationSlide = Slide.extend`
   max-width: 144px;
@@ -13,7 +13,7 @@ const ReservationSlide = Slide.extend`
   }
 `;
 
-export default function() {
+export default function () {
   const restaurantsList = data.map(restaurant => (
     <ReservationSlide key={restaurant.id}>
       <Card

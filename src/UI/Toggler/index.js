@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import offSvg from "./off.svg";
-import onSvg from "./on.svg";
+import offSvg from './off.svg';
+import onSvg from './on.svg';
 
 const Label = styled.label`
   cursor: pointer;
@@ -29,7 +29,7 @@ const OnImg = styled.img`
   }
 `;
 
-export default function({ checked = false, onChange = () => {} }) {
+export default function ({ checked = false, onChange = () => {} }) {
   // FIXME: empty label, wtf?
   return (
     <Label>

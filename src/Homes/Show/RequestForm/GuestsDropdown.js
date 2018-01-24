@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import pluralize from "pluralize";
-import onClickOutside from "react-onclickoutside";
+import React from 'react';
+import styled from 'styled-components';
+import pluralize from 'pluralize';
+import onClickOutside from 'react-onclickoutside';
 
-import bp from "../../../breakpoints";
-import GuestsSelector, { guestsLabelFormatter } from "../../GuestsSelector";
+import bp from '../../../breakpoints';
+import GuestsSelector, { guestsLabelFormatter } from '../../GuestsSelector';
 
-import downArrowSvg from "./downArrow.svg";
-import upArrowSvg from "./upArrow.svg";
+import downArrowSvg from './downArrow.svg';
+import upArrowSvg from './upArrow.svg';
 
 const Wrap = styled.div`
   position: relative;
@@ -47,11 +47,11 @@ const SelectButton = styled.button`
   cursor: pointer;
   user-select: none;
   background: ${props =>
-    props.isActive
+    (props.isActive
       ? `#ffffff url(${upArrowSvg}) right 20px center no-repeat`
-      : `#ffffff url(${downArrowSvg}) right 20px center no-repeat`};
+      : `#ffffff url(${downArrowSvg}) right 20px center no-repeat`)};
 
-  ${props => props.isActive && "border-bottom: 2px solid #008489;"};
+  ${props => props.isActive && 'border-bottom: 2px solid #008489;'};
 `;
 
 const Tip = styled.p`
@@ -92,7 +92,7 @@ class GuestsDropdown extends React.Component {
     isOpen: false,
     onValuesChange: () => {},
     onClick: () => {},
-    onCancel: () => {}
+    onCancel: () => {},
   };
 
   handleClickOutside = () => {
@@ -108,7 +108,7 @@ class GuestsDropdown extends React.Component {
             this.props.values.adults,
             this.props.values.children,
             this.props.values.infants,
-            true
+            true,
           )}
         </SelectButton>
         {this.props.isOpen && (
@@ -121,7 +121,7 @@ class GuestsDropdown extends React.Component {
             />
 
             <Tip>
-              {this.props.maxGuests} {pluralize("guest", this.props.maxGuests)}{" "}
+              {this.props.maxGuests} {pluralize('guest', this.props.maxGuests)}{' '}
               maximum. Infants don’t count toward the number of guests.
             </Tip>
 

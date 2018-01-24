@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Link as RouterLink } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 
-import bp from "../../../breakpoints";
-import Reviews from "../../../UI/Reviews";
-import SaveIcon from "../../../UI/SaveIcon";
+import bp from '../../../breakpoints';
+import Reviews from '../../../UI/Reviews';
+import SaveIcon from '../../../UI/SaveIcon';
 
 const Wrap = styled.div`
   position: relative;
@@ -49,7 +49,7 @@ const SaveButton = styled.button`
 const CardSaveIcon = SaveIcon.extend`
   width: 32px;
   height: 32px;
-  fill: ${props => (props.isSaved ? "#ff5a5f" : "rgba(72, 72, 72, 0.5)")};
+  fill: ${props => (props.isSaved ? '#ff5a5f' : 'rgba(72, 72, 72, 0.5)')};
   color: #ffffff;
 `;
 
@@ -71,7 +71,7 @@ const Properties = styled.p`
   font-size: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  color: ${props => (props.hot ? "#8D1F13" : "#383838")};
+  color: ${props => (props.hot ? '#8D1F13' : '#383838')};
 `;
 
 const NewBadge = styled.div`
@@ -89,7 +89,7 @@ export default class Card extends React.Component {
   state = { isSaved: false };
 
   static defaultProps = {
-    reviews: {}
+    reviews: {},
   };
 
   handleToggleSave = () =>
@@ -98,7 +98,7 @@ export default class Card extends React.Component {
   render() {
     return (
       <Wrap>
-        <Link to={"/homes/" + this.props.id}>
+        <Link to={`/homes/${this.props.id}`}>
           <ImageWrap>
             <Image src={this.props.image} width="738" height="494" alt="" />
           </ImageWrap>

@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const icons = {
   share: (
@@ -26,13 +26,13 @@ const icons = {
 
   close: (
     <path d="M22.86 20.88c.6.6.6 1.58 0 2.18-.6.6-1.58.6-2.17 0l-8.7-8.9-8.9 8.9c-.6.6-1.6.6-2.2 0-.6-.6-.6-1.58 0-2.18L9.82 12l-8.7-8.88c-.6-.6-.6-1.58 0-2.18.6-.6 1.6-.6 2.2 0l8.7 8.9 8.9-8.9c.6-.6 1.56-.6 2.16 0 .6.6.6 1.58 0 2.18L14.17 12l8.7 8.88z" />
-  )
+  ),
 };
 
 const Svg = styled.svg`
   fill: currentColor;
-  width: ${props => (props.size ? props.size + "px" : "24px")};
-  height: ${props => (props.size ? props.size + "px" : "24px")};
+  width: ${props => (props.size ? `${props.size}px` : '24px')};
+  height: ${props => (props.size ? `${props.size}px` : '24px')};
 `;
 
 export default function Icon({

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Truncate from "react-truncate";
+import React from 'react';
+import styled from 'styled-components';
+import Truncate from 'react-truncate';
 
 const ReadMore = styled.button`
   display: inline-block;
@@ -25,7 +25,7 @@ export default class ReadMoreText extends React.Component {
   state = { isOpen: false };
 
   static defaultProps = {
-    lines: 3
+    lines: 3,
   };
 
   handleOpen = () => this.setState({ isOpen: true });

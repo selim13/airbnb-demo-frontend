@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../../breakpoints";
-import Container from "../../../UI/Container";
-import { Slider, Slide } from "../../../UI/Slider";
-import Card from "./Card";
+import bp from '../../../breakpoints';
+import Container from '../../../UI/Container';
+import { Slider, Slide } from '../../../UI/Slider';
+import Card from './Card';
 
-import data from "./staticData";
+import data from './staticData';
 
 const RoomSlide = Slide.extend`
   max-width: 197px;
@@ -33,7 +33,7 @@ const Heading = styled.h2`
   }
 `;
 
-export default function() {
+export default function () {
   const homesList = data.map(home => (
     <RoomSlide key={home.id}>
       <Card

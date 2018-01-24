@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import pluralize from "pluralize";
+import React from 'react';
+import styled from 'styled-components';
+import pluralize from 'pluralize';
 
-import bp from "../breakpoints";
-import NumericInput from "../UI/NumericInput";
+import bp from '../breakpoints';
+import NumericInput from '../UI/NumericInput';
 
 const ControlsGroup = styled.div`
   display: flex;
@@ -40,29 +40,28 @@ export function guestsLabelFormatter(
   adults,
   children,
   infants,
-  displayOneGuest = true
+  displayOneGuest = true,
 ) {
   const guests = adults + children;
 
   if (displayOneGuest || guests + infants > 1) {
     if (infants > 0) {
       return (
-        `${guests} ${pluralize("guest", guests)}, ` +
-        `${infants} ${pluralize("infant", infants)}`
+        `${guests} ${pluralize('guest', guests)}, ` +
+        `${infants} ${pluralize('infant', infants)}`
       );
-    } else {
-      return `${guests} ${pluralize("guest", guests)}`;
     }
+    return `${guests} ${pluralize('guest', guests)}`;
   }
 
-  return "Guests";
+  return 'Guests';
 }
 
 export default function GuestsSelector({
   maxGuests = 1,
   maxInfants = 0,
   values = { adults: 1, children: 0, infants: 0 },
-  onValuesChange = () => {}
+  onValuesChange = () => {},
 }) {
   return (
     <div>
@@ -78,7 +77,7 @@ export default function GuestsSelector({
             onValuesChange({
               adults: newValue,
               children: values.children,
-              infants: values.infants
+              infants: values.infants,
             })
           }
         />
@@ -96,7 +95,7 @@ export default function GuestsSelector({
             onValuesChange({
               children: newValue,
               adults: values.adults,
-              infants: values.infants
+              infants: values.infants,
             })
           }
         />
@@ -114,7 +113,7 @@ export default function GuestsSelector({
             onValuesChange({
               infants: newValue,
               adults: values.adults,
-              children: values.children
+              children: values.children,
             })
           }
         />

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import NumericInput from "../../UI/NumericInput";
+import NumericInput from '../../UI/NumericInput';
 
-import { ControlsGroup, Label } from "./styled";
+import { ControlsGroup, Label } from './styled';
 
-export default function({
+export default function ({
   isOpen = false,
   bedrooms = 0,
   beds = 0,
@@ -12,7 +12,7 @@ export default function({
   onFilterChange = () => {},
   onClick = () => {},
   onClose = () => {},
-  onReset = () => {}
+  onReset = () => {},
 }) {
   return (
     <div>

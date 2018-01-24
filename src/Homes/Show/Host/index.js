@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
-import bp from "../../../breakpoints";
-import ReadMoreText from "../../../UI/ReadMoreText";
-import Avatar from "../Avatar";
+import bp from '../../../breakpoints';
+import ReadMoreText from '../../../UI/ReadMoreText';
+import Avatar from '../Avatar';
 
-import avatarImg from "../avatar.png";
-import verifiedImg from "./verified.png";
+import avatarImg from '../avatar.png';
+import verifiedImg from './verified.png';
 
 const Wrap = styled.div`
   padding-bottom: 48px;
@@ -113,7 +113,7 @@ const PropertyValue = styled.span`
   font-weight: 400;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrap>
       <Row>

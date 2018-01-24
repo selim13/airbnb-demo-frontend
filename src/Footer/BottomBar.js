@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../breakpoints";
-import Link from "../UI/Link";
+import bp from '../breakpoints';
+import Link from '../UI/Link';
 
-import logoSvg from "./logo.svg";
-import facebookSvg from "./facebook.svg";
-import instagramSvg from "./instagram.svg";
-import twitterSvg from "./twitter.svg";
+import logoSvg from './logo.svg';
+import facebookSvg from './facebook.svg';
+import instagramSvg from './instagram.svg';
+import twitterSvg from './twitter.svg';
 
 const BottomBar = styled.div`
   padding: 32px 0;
@@ -53,7 +53,7 @@ const SocialLink = styled.a`
   padding: 0 6px;
 `;
 
-export default function() {
+export default function () {
   return (
     <BottomBar>
       <LogoWrap>

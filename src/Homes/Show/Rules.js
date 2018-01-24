@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
-import { Paragraph, ShortHr } from "./styled";
-import ReadMore from "../../UI/ReadMore";
+import { Paragraph, ShortHr } from './styled';
+import ReadMore from '../../UI/ReadMore';
 
 const Acknowledge = styled.h3`
   margin-top: 0;

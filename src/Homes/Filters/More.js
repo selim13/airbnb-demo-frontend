@@ -1,16 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import isEqual from "lodash/isEqual";
+import React from 'react';
+import styled from 'styled-components';
+import isEqual from 'lodash/isEqual';
 
-import bp from "../../breakpoints";
-import { ToMd } from "../../UI/mediaQueries";
-import Dropdown from "./MoreDropdown";
-import Toggler from "../../UI/Toggler";
-import { ControlsGroup, Label } from "./styled";
-import RoomTypes from "./RoomTypes";
-import Price from "./Price";
-import Rooms from "./Rooms";
-import Options from "./Options";
+import bp from '../../breakpoints';
+import { ToMd } from '../../UI/mediaQueries';
+import Dropdown from './MoreDropdown';
+import Toggler from '../../UI/Toggler';
+import { ControlsGroup, Label } from './styled';
+import RoomTypes from './RoomTypes';
+import Price from './Price';
+import Rooms from './Rooms';
+import Options from './Options';
 
 const Section = styled.div`
   margin-top: 32px;
@@ -68,45 +68,45 @@ const Link = styled.a`
 `;
 
 const amenities = [
-  "Heating",
-  "Kitchen",
-  "TV",
-  "Wireless Internet",
-  "Washer",
-  "Dryer",
-  "Shampoo",
-  "Iron",
-  "Doorman"
+  'Heating',
+  'Kitchen',
+  'TV',
+  'Wireless Internet',
+  'Washer',
+  'Dryer',
+  'Shampoo',
+  'Iron',
+  'Doorman',
 ];
 
 const facilities = [
-  "Elevator",
-  "Free parking on premises",
-  "Pool",
-  "Wheelchair accessible",
-  "Gym",
-  "Hot tub"
+  'Elevator',
+  'Free parking on premises',
+  'Pool',
+  'Wheelchair accessible',
+  'Gym',
+  'Hot tub',
 ];
 
 function changedFiltersCount(values, initialValues, collapsed = false) {
   const filters = collapsed
     ? [
-        "roomTypes",
-        "price",
-        "rooms",
-        "superhost",
-        "instantBook",
-        "amenities",
-        "facilities"
-      ]
-    : ["rooms", "superhost", "amenities", "facilities"];
+      'roomTypes',
+      'price',
+      'rooms',
+      'superhost',
+      'instantBook',
+      'amenities',
+      'facilities',
+    ]
+    : ['rooms', 'superhost', 'amenities', 'facilities'];
 
   return filters.reduce(
     (previousValue, filter) =>
-      isEqual(values[filter], initialValues[filter])
+      (isEqual(values[filter], initialValues[filter])
         ? previousValue
-        : previousValue + 1,
-    0
+        : previousValue + 1),
+    0,
   );
 }
 
@@ -115,10 +115,10 @@ function labelFormatter(values, initialValues, collapsed = false) {
 
   if (filtersCount > 0) return `More filters · ${filtersCount}`;
 
-  return "More filters";
+  return 'More filters';
 }
 
-export default function({
+export default function ({
   isOpen = false,
   priceRange,
   values,
@@ -126,7 +126,7 @@ export default function({
   onMoreFiltersChange = () => {},
   onClick = () => {},
   onClose = () => {},
-  onReset = () => {}
+  onReset = () => {},
 }) {
   return (
     <Dropdown
@@ -136,7 +136,7 @@ export default function({
       heading={`All filters (${changedFiltersCount(
         values,
         initialValues,
-        true
+        true,
       )})`}
       hasMobileHeaderSeparator
       hasMobileFooter
@@ -149,7 +149,7 @@ export default function({
           <Heading>Room type</Heading>
           <RoomTypes
             roomTypes={values.roomTypes}
-            onFilterChange={values => onMoreFiltersChange("roomTypes", values)}
+            onFilterChange={values => onMoreFiltersChange('roomTypes', values)}
           />
         </Section>
 
@@ -158,7 +158,7 @@ export default function({
           <Price
             range={priceRange}
             values={values.price}
-            onFilterChange={values => onMoreFiltersChange("price", values)}
+            onFilterChange={values => onMoreFiltersChange('price', values)}
           />
         </Section>
       </ToMd>
@@ -171,7 +171,7 @@ export default function({
             bedrooms={values.rooms.bedrooms}
             beds={values.rooms.beds}
             bathrooms={values.rooms.bathrooms}
-            onFilterChange={values => onMoreFiltersChange("rooms", values)}
+            onFilterChange={values => onMoreFiltersChange('rooms', values)}
           />
         </RoomsWrap>
       </Section>
@@ -192,7 +192,7 @@ export default function({
               <Toggler
                 checked={values.instantBook}
                 onChange={e =>
-                  onMoreFiltersChange("instantBook", e.target.checked)
+                  onMoreFiltersChange('instantBook', e.target.checked)
                 }
               />
             </ControlsGroup>
@@ -205,7 +205,7 @@ export default function({
             </div>
             <Toggler
               checked={values.superhost}
-              onChange={e => onMoreFiltersChange("superhost", e.target.checked)}
+              onChange={e => onMoreFiltersChange('superhost', e.target.checked)}
             />
           </ControlsGroup>
         </MoreOptionsWrap>
@@ -216,7 +216,7 @@ export default function({
           heading="Amenities"
           options={amenities}
           selected={values.amenities}
-          onFilterChange={values => onMoreFiltersChange("amenities", values)}
+          onFilterChange={values => onMoreFiltersChange('amenities', values)}
         />
       </Section>
 
@@ -225,7 +225,7 @@ export default function({
           heading="Facilities"
           options={facilities}
           selected={values.facilities}
-          onFilterChange={values => onMoreFiltersChange("facilities", values)}
+          onFilterChange={values => onMoreFiltersChange('facilities', values)}
         />
       </Section>
     </Dropdown>

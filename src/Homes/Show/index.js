@@ -1,15 +1,15 @@
-import React from "react";
-import { Row, Col } from "react-flexbox-grid";
-import { StickyContainer, Sticky } from "react-sticky";
-import { Element as ScrollElement, scrollSpy } from "react-scroll";
+import React from 'react';
+import { Row, Col } from 'react-flexbox-grid';
+import { StickyContainer, Sticky } from 'react-sticky';
+import { Element as ScrollElement, scrollSpy } from 'react-scroll';
 
-import { MdOnly, ToLg, Lg } from "../../UI/mediaQueries";
-import Container from "../../UI/Container";
-import DotSeparator from "../../UI/DotSeparator";
-import StickyContainerCol from "../../UI/StickyContainerCol";
-import Dialog from "../../UI/Dialog";
-import Navbar from "../../Navbar";
-import Footer from "../../Footer";
+import { MdOnly, ToLg, Lg } from '../../UI/mediaQueries';
+import Container from '../../UI/Container';
+import DotSeparator from '../../UI/DotSeparator';
+import StickyContainerCol from '../../UI/StickyContainerCol';
+import Dialog from '../../UI/Dialog';
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 import {
   AvatarWrap,
   Heading,
@@ -25,28 +25,28 @@ import {
   Section,
   SectionHeading,
   Paragraph,
-  Subheading
-} from "./styled";
-import Amenities from "./Amenities";
-import Avatar from "./Avatar";
-import Cancellation from "./Cancellation";
-import Description from "./Description";
-import Explore from "./Explore";
-import Header from "./Header";
-import Host from "./Host";
-import ManyViews from "./ManyViews";
-import Nav from "./Nav";
-import Neighborhood from "./Neighborhood";
-import NeighborhoodMap from "./NeighborhoodMap";
-import Properties from "./Properties";
-import RequestForm from "./RequestForm";
-import RequestPanel from "./RequestPanel";
-import Reviews from "./Reviews";
-import Rules from "./Rules";
-import Similar from "./Similar";
+  Subheading,
+} from './styled';
+import Amenities from './Amenities';
+import Avatar from './Avatar';
+import Cancellation from './Cancellation';
+import Description from './Description';
+import Explore from './Explore';
+import Header from './Header';
+import Host from './Host';
+import ManyViews from './ManyViews';
+import Nav from './Nav';
+import Neighborhood from './Neighborhood';
+import NeighborhoodMap from './NeighborhoodMap';
+import Properties from './Properties';
+import RequestForm from './RequestForm';
+import RequestPanel from './RequestPanel';
+import Reviews from './Reviews';
+import Rules from './Rules';
+import Similar from './Similar';
 
-import avatarImg from "./avatar.png";
-import flagSvg from "./flag.svg";
+import avatarImg from './avatar.png';
+import flagSvg from './flag.svg';
 
 const navBarHeight = 80;
 const pageNavHeight = 50;
@@ -61,69 +61,64 @@ export default class Show extends React.Component {
   handleOpenForm = () => this.setState({ isRequestFormOpened: true });
   handleCloseForm = () => this.setState({ isRequestFormOpened: false });
 
-  handleToggleSave = () =>
-    this.setState(prevState => ({ isSaved: !prevState.isSaved }));
+  handleToggleSave = () => this.setState(prevState => ({ isSaved: !prevState.isSaved }));
 
-  stickyRequestForm = ({ isSticky, style }) => {
-    return (
-      <div
-        style={{
-          ...style,
-          paddingTop: isSticky ? navBarHeight + 24 + pageNavHeight : 0,
-          paddingBottom: 24,
-          zIndex: 1
-        }}
-      >
-        <RequestFormWrap>
-          <RequestForm />
-        </RequestFormWrap>
+  stickyRequestForm = ({ isSticky, style }) => (
+    <div
+      style={{
+        ...style,
+        paddingTop: isSticky ? navBarHeight + 24 + pageNavHeight : 0,
+        paddingBottom: 24,
+        zIndex: 1,
+      }}
+    >
+      <RequestFormWrap>
+        <RequestForm />
+      </RequestFormWrap>
 
-        <ReportSticky href="#">
-          <ReportFlag src={flagSvg} alt="" width="16" height="16" />
-          Report this listing
-        </ReportSticky>
-      </div>
-    );
-  };
+      <ReportSticky href="#">
+        <ReportFlag src={flagSvg} alt="" width="16" height="16" />
+        Report this listing
+      </ReportSticky>
+    </div>
+  );
 
-  stickyNavigation = ({ isSticky, style }) => {
-    return (
-      <div
-        style={{
-          ...style,
-          top: isSticky ? navBarHeight : 0,
-          left: 0,
-          width: "100%",
-          zIndex: 20
-        }}
-      >
-        {isSticky ? (
-          <PageNavBar>
-            <Container>
-              <Nav
-                scrollOffset={-navBarHeight - pageNavHeight}
-                isSticky={true}
-                isSaved={this.state.isSaved}
-                onSave={this.handleToggleSave}
-              />
-            </Container>
-          </PageNavBar>
-        ) : (
-          <PageNavBar>
-            <Nav scrollOffset={-navBarHeight - pageNavHeight} />
-          </PageNavBar>
-        )}
-      </div>
-    );
-  };
+  stickyNavigation = ({ isSticky, style }) => (
+    <div
+      style={{
+        ...style,
+        top: isSticky ? navBarHeight : 0,
+        left: 0,
+        width: '100%',
+        zIndex: 20,
+      }}
+    >
+      {isSticky ? (
+        <PageNavBar>
+          <Container>
+            <Nav
+              scrollOffset={-navBarHeight - pageNavHeight}
+              isSticky
+              isSaved={this.state.isSaved}
+              onSave={this.handleToggleSave}
+            />
+          </Container>
+        </PageNavBar>
+      ) : (
+        <PageNavBar>
+          <Nav scrollOffset={-navBarHeight - pageNavHeight} />
+        </PageNavBar>
+      )}
+    </div>
+  );
 
-  stickyRequestPanel = ({ isSticky, style }) => (
+  stickyRequestPanel = ({ style }) => (
     <div
       style={{
         ...style,
         bottom: 0,
-        top: "auto",
-        zIndex: 1
+        top: 'auto',
+        zIndex: 1,
       }}
     >
       <RequestPanel onClick={this.handleOpenForm} />
@@ -140,11 +135,7 @@ export default class Show extends React.Component {
             onClose={this.handleCloseForm}
           >
             <ModalRequestFormWrap>
-              <RequestForm
-                isModal
-                isSaved={this.state.isSaved}
-                onSave={this.handleToggleSave}
-              />
+              <RequestForm isModal isSaved={this.state.isSaved} onSave={this.handleToggleSave} />
             </ModalRequestFormWrap>
           </Dialog>
         </ToLg>
@@ -158,9 +149,7 @@ export default class Show extends React.Component {
                 <article>
                   <Row>
                     <Col xs={12} lg={8}>
-                      <Sticky topOffset={-navBarHeight}>
-                        {this.stickyNavigation}
-                      </Sticky>
+                      <Sticky topOffset={-navBarHeight}>{this.stickyNavigation}</Sticky>
 
                       <ScrollElement name="overview">
                         <Overview>
@@ -170,20 +159,11 @@ export default class Show extends React.Component {
                               <Subheading>
                                 Entire cabin <DotSeparator /> Armenia
                               </Subheading>
-                              <Properties
-                                guests={2}
-                                type="Studio"
-                                beds={2}
-                                baths={2}
-                              />
+                              <Properties guests={2} type="Studio" beds={2} baths={2} />
                             </Col>
                             <Col xs={2}>
                               <AvatarWrap>
-                                <Avatar
-                                  image={avatarImg}
-                                  name="Yudi &amp; Victoria"
-                                  superhost
-                                />
+                                <Avatar image={avatarImg} name="Yudi &amp; Victoria" superhost />
                               </AvatarWrap>
                             </Col>
                           </Row>
@@ -202,34 +182,27 @@ export default class Show extends React.Component {
                           <SectionHeading>Amenities</SectionHeading>
 
                           <Amenities
-                            summary={[
-                              "internet",
-                              "wifi",
-                              "familyFriendly",
-                              "freePremisesParking"
-                            ]}
+                            summary={['internet', 'wifi', 'familyFriendly', 'freePremisesParking']}
                             selected={[
-                              "breakfast",
-                              "dryer",
-                              "essentials",
-                              "familyFriendly",
-                              "freePremisesParking",
-                              "hangers",
-                              "internet",
-                              "washer",
-                              "wifi"
+                              'breakfast',
+                              'dryer',
+                              'essentials',
+                              'familyFriendly',
+                              'freePremisesParking',
+                              'hangers',
+                              'internet',
+                              'washer',
+                              'wifi',
                             ]}
                           />
                         </Section>
 
                         <Section>
-                          <SectionHeading>
-                            Always communicate through Airbnb
-                          </SectionHeading>
+                          <SectionHeading>Always communicate through Airbnb</SectionHeading>
 
                           <Paragraph>
-                            To protect your payment, never transfer money or
-                            communicate outside of the Airbnb website or app.
+                            To protect your payment, never transfer money or communicate outside of
+                            the Airbnb website or app.
                           </Paragraph>
 
                           <Link href="#">Learn more</Link>

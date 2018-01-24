@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import VisuallyHidden from "../../UI/VisuallyHidden";
-import downArrowSvg from "./downArrow.svg";
+import bp from '../../breakpoints';
+import VisuallyHidden from '../../UI/VisuallyHidden';
+import downArrowSvg from './downArrow.svg';
 
-const Label = VisuallyHidden.withComponent("label");
+const Label = VisuallyHidden.withComponent('label');
 
 const Select = styled.select`
   display: block;
@@ -33,7 +33,9 @@ const Select = styled.select`
   }
 `;
 
-export default function({ className, id, name, label, children }) {
+export default function ({
+  className, id, name, label, children,
+}) {
   return (
     <div className={className}>
       <Label htmlFor={id}>{label}</Label>

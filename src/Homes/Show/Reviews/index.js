@@ -1,16 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
-import bp from "../../../breakpoints";
-import Pagination from "../../../UI/Pagination";
+import bp from '../../../breakpoints';
+import Pagination from '../../../UI/Pagination';
 
-import Search from "./Search";
-import Rating from "./Rating";
-import Review from "./Review";
+import Search from './Search';
+import Rating from './Rating';
+import Review from './Review';
 
-import avatar1 from "./avatar1.png";
-import avatar2 from "./avatar2.png";
+import avatar1 from './avatar1.png';
+import avatar2 from './avatar2.png';
 
 const Wrap = styled.div`
   padding-top: 24px;
@@ -67,7 +67,7 @@ const TypeRating = styled.div`
   font-weight: 300;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrap>
       <Section>

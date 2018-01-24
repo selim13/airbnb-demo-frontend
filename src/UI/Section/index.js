@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import Container from "../../UI/Container";
-import rightArrowSvg from "./rightArrow.svg";
+import bp from '../../breakpoints';
+import Container from '../../UI/Container';
+import rightArrowSvg from './rightArrow.svg';
 
 const Section = styled.section`margin: 48px 0;`;
 const HeadingWrapper = styled.div`
@@ -39,7 +39,7 @@ const SeeAll = styled(Link)`
 `;
 const RightArrow = styled.img`margin-left: 8px;`;
 
-export default function({ children, title, to }) {
+export default function ({ children, title, to }) {
   return (
     <Section>
       <Container>
@@ -47,7 +47,7 @@ export default function({ children, title, to }) {
           <Heading>{title}</Heading>
           {to && (
             <SeeAll to={to}>
-              See all{" "}
+              See all{' '}
               <RightArrow src={rightArrowSvg} aria-hidden="true" alt="" />
             </SeeAll>
           )}

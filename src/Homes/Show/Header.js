@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
+import bp from '../../breakpoints';
 
-import { ToSm, Sm } from "../../UI/mediaQueries";
-import Icon from "../../UI/Icon";
-import SaveIcon from "../../UI/SaveIcon";
+import { ToSm, Sm } from '../../UI/mediaQueries';
+import Icon from '../../UI/Icon';
+import SaveIcon from '../../UI/SaveIcon';
 
-import leadImg from "./lead.jpg";
+import leadImg from './lead.jpg';
 
 const Wrap = styled.div`
   position: relative;
@@ -62,7 +62,7 @@ const MobileButton = styled.button`
 `;
 
 const MobileSaveIcon = SaveIcon.extend`
-  fill: ${props => (props.isSaved ? "#ff5a5f" : "transparent")};
+  fill: ${props => (props.isSaved ? '#ff5a5f' : 'transparent')};
   color: #ffffff;
 `;
 
@@ -140,7 +140,7 @@ export default function Header({ isSaved = false, onSave = () => {} }) {
             </TopButton>
             <TopButton onClick={onSave}>
               <ButtonSaveIcon isSaved={isSaved} />
-              {isSaved ? "Saved" : "Save"}
+              {isSaved ? 'Saved' : 'Save'}
             </TopButton>
           </Sm>
         </TopRow>

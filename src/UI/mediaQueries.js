@@ -1,7 +1,7 @@
-import React from "react";
-import MediaQuery from "react-responsive";
+import React from 'react';
+import MediaQuery from 'react-responsive';
 
-import bp from "../breakpoints";
+import bp from '../breakpoints';
 
 export const Sm = props => <MediaQuery {...props} minWidth={bp.sm} />;
 export const Md = props => <MediaQuery {...props} minWidth={bp.md} />;

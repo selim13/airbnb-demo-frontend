@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import ReadMoreText from "../../../UI/ReadMoreText";
-import flagSvg from "../flag.svg";
+import ReadMoreText from '../../../UI/ReadMoreText';
+import flagSvg from '../flag.svg';
 
 const Wrap = styled.div`
   margin-bottom: 24px;
@@ -51,7 +51,9 @@ const FlagButton = styled.button`
   user-select: none;
 `;
 
-export default function({ avatar, name, date, children }) {
+export default function ({
+  avatar, name, date, children,
+}) {
   return (
     <Wrap>
       <Heading>

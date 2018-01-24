@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import onClickOutside from "react-onclickoutside";
+import React from 'react';
+import styled from 'styled-components';
+import onClickOutside from 'react-onclickoutside';
 
-import bp from "../../../breakpoints";
-import DateRangePicker from "../../../UI/DateRangePicker";
+import bp from '../../../breakpoints';
+import DateRangePicker from '../../../UI/DateRangePicker';
 
 const Wrap = styled.div`
   position: relative;
@@ -36,12 +36,12 @@ const Input = styled.input`
 `;
 const CheckInInput = Input.extend`
   border-right-color: transparent;
-  border-color: ${props => props.selectedInput === "checkIn" && "#008489"};
+  border-color: ${props => props.selectedInput === 'checkIn' && '#008489'};
 `;
 const CheckOutInput = Input.extend`
   ${props =>
-    props.selectedInput === "checkIn" && "border-left-color: transparent;"};
-  border-color: ${props => props.selectedInput === "checkOut" && "#008489"};
+    props.selectedInput === 'checkIn' && 'border-left-color: transparent;'};
+  border-color: ${props => props.selectedInput === 'checkOut' && '#008489'};
 `;
 
 const Dropdown = styled.div`
@@ -61,7 +61,7 @@ const Dropdown = styled.div`
     position: absolute;
     top: -11px;
     left: ${props =>
-      props.rightArrow ? "calc(50% + 50px)" : "calc(50% - 60px)"};
+    (props.rightArrow ? 'calc(50% + 50px)' : 'calc(50% - 60px)')};
     display: inline-block;
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
@@ -73,7 +73,7 @@ const Dropdown = styled.div`
     position: absolute;
     top: -10px;
     left: ${props =>
-      props.rightArrow ? "calc(50% + 51px)" : "calc(50% - 59px)"};
+    (props.rightArrow ? 'calc(50% + 51px)' : 'calc(50% - 59px)')};
     display: inline-block;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
@@ -121,12 +121,12 @@ class DateDropdown extends React.Component {
     dates: { startDate: null, endDate: null },
     onClose: () => {},
     onReset: () => {},
-    onDatesChange: () => {}
+    onDatesChange: () => {},
   };
 
   isOpened = () =>
-    this.props.openedOption === "checkIn" ||
-    this.props.openedOption === "checkOut";
+    this.props.openedOption === 'checkIn' ||
+    this.props.openedOption === 'checkOut';
 
   handleClickOutside = () => {
     this.isOpened() && this.props.onClose();
@@ -134,11 +134,11 @@ class DateDropdown extends React.Component {
 
   render() {
     const checkInValue = this.props.dates.startDate
-      ? this.props.dates.startDate.format("MM/DD/YYYY")
-      : "";
+      ? this.props.dates.startDate.format('MM/DD/YYYY')
+      : '';
     const checkOutValue = this.props.dates.endDate
-      ? this.props.dates.endDate.format("MM/DD/YYYY")
-      : "";
+      ? this.props.dates.endDate.format('MM/DD/YYYY')
+      : '';
 
     return (
       <Wrap>
@@ -150,7 +150,7 @@ class DateDropdown extends React.Component {
             value={checkInValue}
             readOnly
             selectedInput={this.props.openedOption}
-            onFocus={() => this.props.onFocusInput("checkIn")}
+            onFocus={() => this.props.onFocusInput('checkIn')}
           />
         </DatesLabel>
         <DatesLabel>
@@ -161,18 +161,18 @@ class DateDropdown extends React.Component {
             value={checkOutValue}
             readOnly
             selectedInput={this.props.openedOption}
-            onFocus={() => this.props.onFocusInput("checkOut")}
+            onFocus={() => this.props.onFocusInput('checkOut')}
           />
         </DatesLabel>
 
         {this.isOpened() && (
-          <Dropdown rightArrow={this.props.openedOption === "checkOut"}>
+          <Dropdown rightArrow={this.props.openedOption === 'checkOut'}>
             <DateRangePicker
               numberOfMonths={1}
               startDate={this.props.dates.startDate}
               endDate={this.props.dates.endDate}
               focusedInput={
-                this.props.openedOption === "checkIn" ? "startDate" : "endDate"
+                this.props.openedOption === 'checkIn' ? 'startDate' : 'endDate'
               }
               onDatesChange={this.props.onDatesChange}
             />

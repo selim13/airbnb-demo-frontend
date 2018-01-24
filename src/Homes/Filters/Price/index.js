@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Rheostat from "rheostat";
-import "./slider.css";
+import Rheostat from 'rheostat';
+import './slider.css';
 
-import bp from "../../../breakpoints";
+import bp from '../../../breakpoints';
 
 const PriceRange = styled.p`
   margin-top: 0;
@@ -52,14 +52,14 @@ const Slider = styled.div`
   }
 `;
 
-export default function({
+export default function ({
   isOpen = false,
   range = { min: 0, max: 1000 },
   values = { min: 0, max: 1000 },
   onFilterChange = () => {},
   onClick = () => {},
   onClose = () => {},
-  onReset = () => {}
+  onReset = () => {},
 }) {
   return (
     <div>

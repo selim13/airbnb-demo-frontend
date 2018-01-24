@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import includes from "lodash/includes";
+import React from 'react';
+import styled from 'styled-components';
+import includes from 'lodash/includes';
 
-import bp from "../../breakpoints";
-import { Row, Col } from "react-flexbox-grid";
-import { Sm, ToSm } from "../../UI/mediaQueries";
-import Checkbox from "../../UI/Checkbox";
-import SeeAllButton from "../../UI/SeeAllButton";
+import bp from '../../breakpoints';
+import { Row, Col } from 'react-flexbox-grid';
+import { Sm, ToSm } from '../../UI/mediaQueries';
+import Checkbox from '../../UI/Checkbox';
+import SeeAllButton from '../../UI/SeeAllButton';
 
 const HeadingWrap = styled.div`
   display: flex;
@@ -41,21 +41,20 @@ export default class extends React.Component {
   state = { seeAll: false };
 
   static defaultProps = {
-    heading: "",
+    heading: '',
     options: [],
     selected: [],
-    onFilterChange: () => {}
+    onFilterChange: () => {},
   };
 
   toggle = () =>
     this.setState(prevState => ({
-      seeAll: !prevState.seeAll
+      seeAll: !prevState.seeAll,
     }));
 
   handleCheck = (option, state) => {
     if (state) this.props.onFilterChange([...this.props.selected, option]);
-    else
-      this.props.onFilterChange(this.props.selected.filter(o => o !== option));
+    else { this.props.onFilterChange(this.props.selected.filter(o => o !== option)); }
   };
 
   render() {

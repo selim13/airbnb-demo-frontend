@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import BodyClassName from "react-body-classname";
+import React from 'react';
+import styled from 'styled-components';
+import BodyClassName from 'react-body-classname';
 
-import Button from "../Button";
-import { XsOnly, Sm } from "../mediaQueries";
-import MobileHeader from "./MobileHeader";
-import Overlay from "../Overlay";
+import Button from '../Button';
+import { XsOnly, Sm } from '../mediaQueries';
+import MobileHeader from './MobileHeader';
+import Overlay from '../Overlay';
 
 import {
   Dropdown,
@@ -13,8 +13,8 @@ import {
   CancelButton,
   ApplyButton,
   MobileFooter,
-  MobilePrimaryButton
-} from "./styled";
+  MobilePrimaryButton,
+} from './styled';
 
 const Wrap = styled.div`
   position: relative;
@@ -31,14 +31,14 @@ const DropdownOverlay = Overlay.extend`
 export default class extends React.Component {
   static defaultProps = {
     isOpen: false,
-    heading: "",
-    buttonText: "",
-    resetButtonTitle: "Reset",
+    heading: '',
+    buttonText: '',
+    resetButtonTitle: 'Reset',
     hasMobileHeaderSeparator: false,
     hasMobileFooter: false,
     onClick: () => {},
     onClose: () => {},
-    onReset: () => {}
+    onReset: () => {},
   };
   render() {
     return (

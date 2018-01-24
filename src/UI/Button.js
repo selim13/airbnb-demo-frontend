@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default styled.button`
   display: inline-block;
@@ -7,10 +7,10 @@ export default styled.button`
   border-width: 1px;
   border-style: solid;
   border-color: ${props =>
-    props.isActive ? "#008489" : "rgba(72, 72, 72, 0.2)"};
+    (props.isActive ? '#008489' : 'rgba(72, 72, 72, 0.2)')};
   border-radius: 4px;
 
-  color: ${props => (props.isActive ? "#ffffff" : "#383838")};
+  color: ${props => (props.isActive ? '#ffffff' : '#383838')};
   font-family: inherit;
   font-size: 14px;
   font-weight: normal;
@@ -19,7 +19,7 @@ export default styled.button`
   text-decoration: none;
   white-space: nowrap;
 
-  background-color: ${props => (props.isActive ? "#008489" : "#ffffff")};
+  background-color: ${props => (props.isActive ? '#008489' : '#ffffff')};
 
   cursor: pointer;
   user-select: none;

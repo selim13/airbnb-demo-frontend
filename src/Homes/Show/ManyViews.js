@@ -1,21 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
+import bp from '../../breakpoints';
 
-import bulbImg from "./bulb.png";
+import bulbImg from './bulb.png';
 
 const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: ${props => (props.mobile ? "0" : "24px")};
-  padding: ${props => (props.mobile ? "0" : "13px 32px 13px 24px")};
+  margin-bottom: ${props => (props.mobile ? '0' : '24px')};
+  padding: ${props => (props.mobile ? '0' : '13px 32px 13px 24px')};
   border: ${props =>
-    props.mobile ? "none" : "1px solid rgba(118, 118, 118, 0.2)"};
+    (props.mobile ? 'none' : '1px solid rgba(118, 118, 118, 0.2)')};
 
   @media (min-width: ${bp.lg}px) {
-    margin-bottom: ${props => (props.mobile ? "0" : "32px")};
+    margin-bottom: ${props => (props.mobile ? '0' : '32px')};
   }
 `;
 
@@ -36,7 +36,7 @@ const BulbImg = styled.img`
   margin-left: 8px;
 `;
 
-export default function({ mobile }) {
+export default function ({ mobile }) {
   return (
     <Wrap mobile={mobile}>
       <div>

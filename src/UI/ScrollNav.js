@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default class Nav extends React.Component {
   static defaultProps = {
@@ -6,7 +6,7 @@ export default class Nav extends React.Component {
     duration: 100,
     isDynamic: false,
     offset: 0,
-    smooth: true
+    smooth: true,
   };
 
   state = { selectedLink: this.props.defaultSelected };
@@ -16,7 +16,7 @@ export default class Nav extends React.Component {
   handleSetActive = link => this.setState({ selectedLink: link });
 
   render() {
-    return React.Children.map(this.props.children, element => {
+    return React.Children.map(this.props.children, (element) => {
       if (this.isValidLink(element)) {
         return React.cloneElement(element, {
           smooth: element.props.smooth
@@ -33,7 +33,7 @@ export default class Nav extends React.Component {
             : this.props.duration,
 
           selected: element.props.to === this.state.selectedLink,
-          onSetActive: () => this.handleSetActive(element.props.to)
+          onSetActive: () => this.handleSetActive(element.props.to),
         });
       }
 

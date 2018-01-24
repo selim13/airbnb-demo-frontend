@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import Toggler from "../../UI/Toggler";
-import Dropdown from "../../UI/Dropdown";
+import bp from '../../breakpoints';
+import Toggler from '../../UI/Toggler';
+import Dropdown from '../../UI/Dropdown';
 
-import { Caption } from "./styled";
+import { Caption } from './styled';
 
 export const Body = styled.div`
   padding: 24px 16px 16px;
@@ -26,13 +26,13 @@ const Label = styled.label`
   font-size: 18px;
 `;
 
-export default function({
+export default function ({
   isOpen = false,
   instantBook,
   onFilterChange = () => {},
   onClick = () => {},
   onClose = () => {},
-  onReset = () => {}
+  onReset = () => {},
 }) {
   return (
     <Dropdown

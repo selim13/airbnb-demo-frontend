@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import { Row, Col } from "react-flexbox-grid";
-import Container from "../../UI/Container";
-import Button from "../../UI/Button";
-import { XsOnly, Sm, ToMd, Md } from "../../UI/mediaQueries";
-import { MobilePrimaryButton } from "../../UI/Dropdown/styled";
-import MobileHeader from "../../UI/Dropdown/MobileHeader";
-import Overlay from "../../UI/Overlay";
+import bp from '../../breakpoints';
+import { Row, Col } from 'react-flexbox-grid';
+import Container from '../../UI/Container';
+import Button from '../../UI/Button';
+import { XsOnly, Sm, ToMd, Md } from '../../UI/mediaQueries';
+import { MobilePrimaryButton } from '../../UI/Dropdown/styled';
+import MobileHeader from '../../UI/Dropdown/MobileHeader';
+import Overlay from '../../UI/Overlay';
 
 const Wrap = styled.div`
   position: relative;
@@ -141,12 +141,12 @@ const SeeHomesButton = FooterButton.extend`
 export default class extends React.Component {
   static defaultProps = {
     isOpen: false,
-    heading: "",
-    buttonText: "",
-    collapsedButtonText: "",
+    heading: '',
+    buttonText: '',
+    collapsedButtonText: '',
     onClick: () => {},
     onClose: () => {},
-    onReset: () => {}
+    onReset: () => {},
   };
 
   render() {

@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import { Paragraph, TextSubheading } from "./styled";
-import ReadMore from "../../UI/ReadMore";
+import bp from '../../breakpoints';
+import { Paragraph, TextSubheading } from './styled';
+import ReadMore from '../../UI/ReadMore';
 
 const Wrap = styled.div`
   margin-top: 0;

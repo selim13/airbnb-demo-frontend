@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import GoogleMapReact from "google-map-react";
+import React from 'react';
+import styled from 'styled-components';
+import GoogleMapReact from 'google-map-react';
 
-import bp from "../../breakpoints";
+import bp from '../../breakpoints';
 
 const Wrap = styled.div`
   margin-bottom: 24px;
@@ -41,7 +41,7 @@ const MapAreaMarker = styled.div`
   background: rgba(3, 178, 185, 0.2);
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrap>
       <MapBox>
