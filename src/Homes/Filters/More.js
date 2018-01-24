@@ -90,22 +90,12 @@ const facilities = [
 
 function changedFiltersCount(values, initialValues, collapsed = false) {
   const filters = collapsed
-    ? [
-      'roomTypes',
-      'price',
-      'rooms',
-      'superhost',
-      'instantBook',
-      'amenities',
-      'facilities',
-    ]
+    ? ['roomTypes', 'price', 'rooms', 'superhost', 'instantBook', 'amenities', 'facilities']
     : ['rooms', 'superhost', 'amenities', 'facilities'];
 
   return filters.reduce(
     (previousValue, filter) =>
-      (isEqual(values[filter], initialValues[filter])
-        ? previousValue
-        : previousValue + 1),
+      (isEqual(values[filter], initialValues[filter]) ? previousValue : previousValue + 1),
     0,
   );
 }
@@ -133,11 +123,7 @@ export default function ({
       isOpen={isOpen}
       buttonText={labelFormatter(values, initialValues)}
       collapsedButtonText={labelFormatter(values, initialValues, true)}
-      heading={`All filters (${changedFiltersCount(
-        values,
-        initialValues,
-        true,
-      )})`}
+      heading={`All filters (${changedFiltersCount(values, initialValues, true)})`}
       hasMobileHeaderSeparator
       hasMobileFooter
       onClick={onClick}
@@ -149,7 +135,7 @@ export default function ({
           <Heading>Room type</Heading>
           <RoomTypes
             roomTypes={values.roomTypes}
-            onFilterChange={values => onMoreFiltersChange('roomTypes', values)}
+            onFilterChange={newValues => onMoreFiltersChange('roomTypes', newValues)}
           />
         </Section>
 
@@ -158,7 +144,7 @@ export default function ({
           <Price
             range={priceRange}
             values={values.price}
-            onFilterChange={values => onMoreFiltersChange('price', values)}
+            onFilterChange={newValues => onMoreFiltersChange('price', newValues)}
           />
         </Section>
       </ToMd>
@@ -171,7 +157,7 @@ export default function ({
             bedrooms={values.rooms.bedrooms}
             beds={values.rooms.beds}
             bathrooms={values.rooms.bathrooms}
-            onFilterChange={values => onMoreFiltersChange('rooms', values)}
+            onFilterChange={newValues => onMoreFiltersChange('rooms', newValues)}
           />
         </RoomsWrap>
       </Section>
@@ -184,16 +170,12 @@ export default function ({
             <ControlsGroup>
               <div>
                 <Label>Instant Book</Label>
-                <Caption>
-                  Listings you can book without waiting for host approval.
-                </Caption>
+                <Caption>Listings you can book without waiting for host approval.</Caption>
                 <Link href="#">Learn more</Link>
               </div>
               <Toggler
                 checked={values.instantBook}
-                onChange={e =>
-                  onMoreFiltersChange('instantBook', e.target.checked)
-                }
+                onChange={e => onMoreFiltersChange('instantBook', e.target.checked)}
               />
             </ControlsGroup>
           </ToMd>
@@ -216,7 +198,7 @@ export default function ({
           heading="Amenities"
           options={amenities}
           selected={values.amenities}
-          onFilterChange={values => onMoreFiltersChange('amenities', values)}
+          onFilterChange={newValues => onMoreFiltersChange('amenities', newValues)}
         />
       </Section>
 
@@ -225,7 +207,7 @@ export default function ({
           heading="Facilities"
           options={facilities}
           selected={values.facilities}
-          onFilterChange={values => onMoreFiltersChange('facilities', values)}
+          onFilterChange={newValues => onMoreFiltersChange('facilities', newValues)}
         />
       </Section>
     </Dropdown>

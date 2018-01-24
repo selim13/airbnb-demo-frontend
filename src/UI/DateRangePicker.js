@@ -11,8 +11,6 @@ import './react_dates_overrides.css';
  * A wrapper component from the react-dates doc
  */
 export default class extends React.Component {
-  state = { focusedInput: 'startDate' };
-
   static defaultProps = {
     // day presentation and interaction related props
     renderDay: null,
@@ -44,11 +42,11 @@ export default class extends React.Component {
     monthFormat: 'MMMM YYYY',
   };
 
+  state = { focusedInput: 'startDate' };
+
   componentWillReceiveProps({ focusedInput }) {
     this.setState(prevState =>
-      (focusedInput && prevState.focusedInput !== focusedInput
-        ? { focusedInput }
-        : null));
+      (focusedInput && prevState.focusedInput !== focusedInput ? { focusedInput } : null));
   }
 
   handleFocusChange = (focusedInput) => {

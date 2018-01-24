@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import includes from 'lodash/includes';
+import { Row, Col } from 'react-flexbox-grid';
 
 import bp from '../../breakpoints';
-import { Row, Col } from 'react-flexbox-grid';
 import { Sm, ToSm } from '../../UI/mediaQueries';
 import Checkbox from '../../UI/Checkbox';
 import SeeAllButton from '../../UI/SeeAllButton';
@@ -38,14 +38,14 @@ const Option = styled.div`
 `;
 
 export default class extends React.Component {
-  state = { seeAll: false };
-
   static defaultProps = {
     heading: '',
     options: [],
     selected: [],
     onFilterChange: () => {},
   };
+
+  state = { seeAll: false };
 
   toggle = () =>
     this.setState(prevState => ({
@@ -54,7 +54,9 @@ export default class extends React.Component {
 
   handleCheck = (option, state) => {
     if (state) this.props.onFilterChange([...this.props.selected, option]);
-    else { this.props.onFilterChange(this.props.selected.filter(o => o !== option)); }
+    else {
+      this.props.onFilterChange(this.props.selected.filter(o => o !== option));
+    }
   };
 
   render() {
@@ -79,17 +81,11 @@ export default class extends React.Component {
           <Heading>{this.props.heading}</Heading>
 
           <ToSm>
-            <SeeAll
-              isOpen={this.state.seeAll}
-              label="See all"
-              onClick={this.toggle}
-            />
+            <SeeAll isOpen={this.state.seeAll} label="See all" onClick={this.toggle} />
           </ToSm>
         </HeadingWrap>
         <ToSm>
-          <Row>
-            {this.state.seeAll && <SectionBody>{allOptions}</SectionBody>}
-          </Row>
+          <Row>{this.state.seeAll && <SectionBody>{allOptions}</SectionBody>}</Row>
         </ToSm>
         <Sm>
           <SectionBody>

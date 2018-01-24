@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
 import bp from '../../breakpoints';
-import { Row, Col } from 'react-flexbox-grid';
 import Container from '../../UI/Container';
 import Button from '../../UI/Button';
 import { XsOnly, Sm, ToMd, Md } from '../../UI/mediaQueries';
@@ -138,86 +138,79 @@ const SeeHomesButton = FooterButton.extend`
   background: #008489;
 `;
 
-export default class extends React.Component {
-  static defaultProps = {
-    isOpen: false,
-    heading: '',
-    buttonText: '',
-    collapsedButtonText: '',
-    onClick: () => {},
-    onClose: () => {},
-    onReset: () => {},
-  };
+export default function MoreDropdown({
+  className,
+  children,
+  isOpen = false,
+  heading = '',
+  buttonText = '',
+  hasMobileHeaderSeparator = false,
+  collapsedButtonText = '',
+  onClick = () => {},
+  onClose = () => {},
+  onReset = () => {},
+}) {
+  return (
+    <Wrap className={className}>
+      <ToMd>
+        <Button isActive={isOpen} onClick={onClick}>
+          {collapsedButtonText}
+        </Button>
+      </ToMd>
+      <Md>
+        <Button isActive={isOpen} onClick={onClick}>
+          {buttonText}
+        </Button>
+      </Md>
+      {isOpen &&
+        children && (
+          <div>
+            <Dropdown>
+              <Fill />
 
-  render() {
-    return (
-      <Wrap className={this.props.className}>
-        <ToMd>
-          <Button isActive={this.props.isOpen} onClick={this.props.onClick}>
-            {this.props.collapsedButtonText}
-          </Button>
-        </ToMd>
-        <Md>
-          <Button isActive={this.props.isOpen} onClick={this.props.onClick}>
-            {this.props.buttonText}
-          </Button>
-        </Md>
-        {this.props.isOpen &&
-          this.props.children && (
-            <div>
-              <Dropdown>
-                <Fill />
+              <XsOnly>
+                <MobileHeader
+                  heading={heading}
+                  hasSeparator={hasMobileHeaderSeparator}
+                  resetButtonTitle="Clear All"
+                  onClose={onClose}
+                  onReset={onReset}
+                />
+              </XsOnly>
 
-                <XsOnly>
-                  <MobileHeader
-                    heading={this.props.heading}
-                    hasSeparator={this.props.hasMobileHeaderSeparator}
-                    resetButtonTitle="Clear All"
-                    onClose={this.props.onClose}
-                    onReset={this.props.onReset}
-                  />
-                </XsOnly>
+              <Body>
+                <Container>
+                  <Row>
+                    <Col xs={12} md={8}>
+                      {children}
+                    </Col>
+                  </Row>
+                </Container>
+              </Body>
+              <Footer>
+                <Container>
+                  <Row>
+                    <Col xs={12} md={8}>
+                      <FooterButtons>
+                        <XsOnly>
+                          <MobilePrimaryButton onClick={onClose}>See homes</MobilePrimaryButton>
+                        </XsOnly>
+                        <Sm>
+                          <CancelButton onClick={onReset}>Cancel</CancelButton>
+                          <SeeHomesButton onClick={onClose}>See homes</SeeHomesButton>
+                        </Sm>
+                      </FooterButtons>
+                    </Col>
+                  </Row>
+                </Container>
+              </Footer>
 
-                <Body>
-                  <Container>
-                    <Row>
-                      <Col xs={12} md={8}>
-                        {this.props.children}
-                      </Col>
-                    </Row>
-                  </Container>
-                </Body>
-                <Footer>
-                  <Container>
-                    <Row>
-                      <Col xs={12} md={8}>
-                        <FooterButtons>
-                          <XsOnly>
-                            <MobilePrimaryButton onClick={this.props.onClose}>
-                              See homes
-                            </MobilePrimaryButton>
-                          </XsOnly>
-                          <Sm>
-                            <CancelButton onClick={this.props.onReset}>
-                              Cancel
-                            </CancelButton>
-                            <SeeHomesButton onClick={this.props.onClose}>
-                              See homes
-                            </SeeHomesButton>
-                          </Sm>
-                        </FooterButtons>
-                      </Col>
-                    </Row>
-                  </Container>
-                </Footer>
-
-                <Md>
-                  <MapOverlay onClick={this.props.onClose} />
-                </Md>
-              </Dropdown>
-            </div>
-          )}
-      </Wrap>
-    );
-  }
+              <Md>
+                <MapOverlay onClick={onClose} />
+              </Md>
+            </Dropdown>
+          </div>
+        )}
+    </Wrap>
+  );
 }

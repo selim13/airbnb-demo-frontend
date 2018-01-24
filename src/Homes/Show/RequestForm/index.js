@@ -96,23 +96,21 @@ const ManyViewsWrap = styled.div`
 `;
 
 export default class RequestForm extends React.Component {
-  state = {
-    openedOption: null,
-    dates: { startDate: null, endDate: null },
-    guests: { adults: 1, children: 0, infants: 0 },
-  };
-
   static defaultProps = {
     isModal: false,
     isSaved: false,
     onSave: () => {},
   };
 
+  state = {
+    openedOption: null,
+    dates: { startDate: null, endDate: null },
+    guests: { adults: 1, children: 0, infants: 0 },
+  };
+
   handleDropdownToggle = (option) => {
     this.setState(prevState =>
-      (prevState.openedOption === option
-        ? { openedOption: null }
-        : { openedOption: option }));
+      (prevState.openedOption === option ? { openedOption: null } : { openedOption: option }));
   };
 
   handleDropdownClose = () => this.setState({ openedOption: null });
@@ -124,10 +122,13 @@ export default class RequestForm extends React.Component {
     });
 
   handleDatesChange = (dates) => {
-    this.setState((prevState) => {
+    this.setState(() => {
       if (!dates.endDate) return { dates, openedOption: 'checkOut' };
       if (!dates.startDate) return { dates, openedOption: 'checkIn' };
-      if (dates.startDate && dates.startDate) { return { dates, openedOption: null }; }
+      if (dates.startDate && dates.startDate) {
+        return { dates, openedOption: null };
+      }
+      return null;
     });
   };
 

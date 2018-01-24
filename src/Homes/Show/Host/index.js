@@ -119,9 +119,7 @@ export default function () {
       <Row>
         <Col xs={10}>
           <Heading>Hosted by Yudy &amp; Victoria</Heading>
-          <Subheading>
-            Santa Ana, California, United States · Joined in August 2014
-          </Subheading>
+          <Subheading>Santa Ana, California, United States · Joined in August 2014</Subheading>
 
           <Badges>
             <Badge>
@@ -139,15 +137,13 @@ export default function () {
 
       <Description>
         <ReadMoreText lines={3}>
-          Yudy and I (Victoria) are sisters-in law. Yudy lives in Colombia and
-          would be your hostess on the property. I live in California and am the
-          owner of the property. It is my goal to create a "boutique eco-resort"
-          on the approximately 5 acre farm we have in the coffee growing region
-          in the Andean mountains. We have tried to create a retreat that will
-          soothe your soul and rejuvenate your spirit. Yudy speaks fluent
-          Spanish and some English, punctuated with laughter and hand gestures.
-          She is warm, friendly, capable and a very good cook! Yudy will help
-          you arrange transportation, reservations, tours, and anything you may
+          Yudy and I (Victoria) are sisters-in law. Yudy lives in Colombia and would be your hostess
+          on the property. I live in California and am the owner of the property. It is my goal to
+          create a &quot;boutique eco-resort&quot; on the approximately 5 acre farm we have in the
+          coffee growing region in the Andean mountains. We have tried to create a retreat that will
+          soothe your soul and rejuvenate your spirit. Yudy speaks fluent Spanish and some English,
+          punctuated with laughter and hand gestures. She is warm, friendly, capable and a very good
+          cook! Yudy will help you arrange transportation, reservations, tours, and anything you may
           need.
         </ReadMoreText>
       </Description>

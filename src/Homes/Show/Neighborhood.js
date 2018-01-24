@@ -29,29 +29,24 @@ export default function Neighborhood() {
     <Wrap>
       <Heading>The neighborhood</Heading>
 
-      <Paragraph>
-        Yudy &amp; Victoria’s home is located in Armenia, Quindio, Colombia..
-      </Paragraph>
+      <Paragraph>Yudy &amp; Victoria’s home is located in Armenia, Quindio, Colombia..</Paragraph>
 
       <Paragraph>
-        We are situated in the heart of the coffee region in the Andean
-        mountains in Colombia. We are in "Vereda La Pradera" neighborhood, near
-        the small town of "El Caimo", 20 minutes from Armenia and 20 minutes
-        from the airport, by car. Close enough for comfort and easy access, far
-        enough from the hustle of traffic and city noise that you can commune
-        with nature. Sleep to the sound of the crickets and awaken to the sound
-        of birds.
+        We are situated in the heart of the coffee region in the Andean mountains in Colombia. We
+        are in &quot;Vereda La Pradera&quot; neighborhood, near the small town of &quot;El
+        Caimo&quot;, 20 minutes from Armenia and 20 minutes from the airport, by car. Close enough
+        for comfort and easy access, far enough from the hustle of traffic and city noise that you
+        can commune with nature. Sleep to the sound of the crickets and awaken to the sound of
+        birds.
       </Paragraph>
 
       <ReadMore openLabel="Read more about neighborhood">
         <TextSubheading>The space</TextSubheading>
         <Paragraph>
-          Getting around We are an easy taxi ride (20 mil pesos) to the bus
-          station or the airport in Armenia. There is a bus from Armenia to El
-          Caimo, only 7 minutes by car from our farm. Additionally we have a
-          jeep and our neighbor acts as a taxi for our guests. We will help you
-          get to where you need to go to see any of the local attractions you
-          choose.
+          Getting around We are an easy taxi ride (20 mil pesos) to the bus station or the airport
+          in Armenia. There is a bus from Armenia to El Caimo, only 7 minutes by car from our farm.
+          Additionally we have a jeep and our neighbor acts as a taxi for our guests. We will help
+          you get to where you need to go to see any of the local attractions you choose.
         </Paragraph>
       </ReadMore>
     </Wrap>

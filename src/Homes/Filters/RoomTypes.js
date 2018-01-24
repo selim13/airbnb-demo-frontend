@@ -20,12 +20,8 @@ const TypeImg = styled.img`
 `;
 
 export default function ({
-  isOpen = false,
   roomTypes = { entire: false, private: false, shared: false },
   onFilterChange = () => {},
-  onClick = () => {},
-  onClose = () => {},
-  onReset = () => {},
 }) {
   return (
     <div>

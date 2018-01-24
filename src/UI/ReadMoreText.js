@@ -22,11 +22,11 @@ const ReadMore = styled.button`
 `;
 
 export default class ReadMoreText extends React.Component {
-  state = { isOpen: false };
-
   static defaultProps = {
     lines: 3,
   };
+
+  state = { isOpen: false };
 
   handleOpen = () => this.setState({ isOpen: true });
 

@@ -86,14 +86,13 @@ const NewBadge = styled.div`
 `;
 
 export default class Card extends React.Component {
-  state = { isSaved: false };
-
   static defaultProps = {
     reviews: {},
   };
 
-  handleToggleSave = () =>
-    this.setState(prevState => ({ isSaved: !prevState.isSaved }));
+  state = { isSaved: false };
+
+  handleToggleSave = () => this.setState(prevState => ({ isSaved: !prevState.isSaved }));
 
   render() {
     return (

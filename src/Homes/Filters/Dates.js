@@ -23,8 +23,7 @@ const DateRangeArrow = styled.img`
 const DateRangeLabel = styled.span`
   display: inline-block;
   padding-bottom: 2px;
-  border-bottom: ${props =>
-    (props.active ? '1px solid #0F7276' : '1px solid transparent')};
+  border-bottom: ${props => (props.active ? '1px solid #0F7276' : '1px solid transparent')};
   font-size: 18px;
   color: ${props => (props.active ? '#0F7276' : '#636363')};
 `;
@@ -39,7 +38,9 @@ function dateLabelFormatter(startDate, endDate) {
   }
 
   if (startDate && endDate) {
-    if (endDate.isSame(startDate, 'month')) { return `${startDate.format('MMM D')} – ${endDate.format('D')}`; }
+    if (endDate.isSame(startDate, 'month')) {
+      return `${startDate.format('MMM D')} – ${endDate.format('D')}`;
+    }
     return `${startDate.format('MMM D')} – ${endDate.format('MMM D')}`;
   }
 
@@ -72,9 +73,7 @@ export default function ({
           <DateRange>
             <DateRangeLabel active={!startDate}>{checkIn}</DateRangeLabel>
             <DateRangeArrow src={arrowRightSvg} alt="" width="18" height="11" />
-            <DateRangeLabel active={startDate && !endDate}>
-              {checkOut}
-            </DateRangeLabel>
+            <DateRangeLabel active={startDate && !endDate}>{checkOut}</DateRangeLabel>
           </DateRange>
         </XsOnly>
         <DatePickerWrap>
@@ -82,8 +81,8 @@ export default function ({
             <DateRangePicker
               startDate={startDate}
               endDate={endDate}
-              onDatesChange={({ startDate, endDate }) =>
-                onFilterChange({ startDate, endDate })
+              onDatesChange={newDate =>
+                onFilterChange({ startDate: newDate.startDate, endDate: newDate.endDate })
               }
               orientation="vertical"
               numberOfMonths={2}
@@ -95,8 +94,8 @@ export default function ({
             <DateRangePicker
               startDate={startDate}
               endDate={endDate}
-              onDatesChange={({ startDate, endDate }) =>
-                onFilterChange({ startDate, endDate })
+              onDatesChange={newDate =>
+                onFilterChange({ startDate: newDate.startDate, endDate: newDate.endDate })
               }
               numberOfMonths={1}
             />
@@ -105,8 +104,8 @@ export default function ({
             <DateRangePicker
               startDate={startDate}
               endDate={endDate}
-              onDatesChange={({ startDate, endDate }) =>
-                onFilterChange({ startDate, endDate })
+              onDatesChange={newDate =>
+                onFilterChange({ startDate: newDate.startDate, endDate: newDate.endDate })
               }
               numberOfMonths={2}
             />

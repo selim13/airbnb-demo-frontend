@@ -42,12 +42,12 @@ const Del = styled.del`
 `;
 
 export default class Amenities extends React.Component {
-  state = { isOpen: false };
-
   static defaultProps = {
     selected: [],
     summary: [],
   };
+
+  state = { isOpen: false };
 
   handleOpen = () => this.setState({ isOpen: true });
 
@@ -55,18 +55,13 @@ export default class Amenities extends React.Component {
     <Col xs={6} key={amenity.key}>
       <Property>
         {selected && amenity.img && <Icon src={amenity.img} />}
-        {selected ? (
-          amenity.title
-        ) : (
-          <Del aria-hidden="true">{amenity.title}</Del>
-        )}
+        {selected ? amenity.title : <Del aria-hidden="true">{amenity.title}</Del>}
       </Property>
     </Col>
   );
 
   render() {
-    const summaryAmenities = amenities.filter(amenity =>
-      includes(this.props.summary, amenity.key));
+    const summaryAmenities = amenities.filter(amenity => includes(this.props.summary, amenity.key));
 
     const summaryList = summaryAmenities.map(amenity =>
       this.renderAmenity(amenity, includes(this.props.selected, amenity.key)));

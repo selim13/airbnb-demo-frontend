@@ -53,13 +53,9 @@ const Slider = styled.div`
 `;
 
 export default function ({
-  isOpen = false,
   range = { min: 0, max: 1000 },
   values = { min: 0, max: 1000 },
   onFilterChange = () => {},
-  onClick = () => {},
-  onClose = () => {},
-  onReset = () => {},
 }) {
   return (
     <div>

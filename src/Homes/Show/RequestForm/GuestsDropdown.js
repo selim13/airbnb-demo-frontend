@@ -96,7 +96,7 @@ class GuestsDropdown extends React.Component {
   };
 
   handleClickOutside = () => {
-    this.props.isOpen && this.props.onCancel();
+    if (this.props.isOpen) this.props.onCancel();
   };
 
   render() {
@@ -121,8 +121,8 @@ class GuestsDropdown extends React.Component {
             />
 
             <Tip>
-              {this.props.maxGuests} {pluralize('guest', this.props.maxGuests)}{' '}
-              maximum. Infants don’t count toward the number of guests.
+              {this.props.maxGuests} {pluralize('guest', this.props.maxGuests)} maximum. Infants
+              don’t count toward the number of guests.
             </Tip>
 
             <BottomWrap>
