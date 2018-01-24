@@ -46,14 +46,9 @@ export default function ({
         <ControlsGroup>
           <div>
             <Label>Instant Book</Label>
-            <Caption>
-              Listings you can book without waiting for host approval.
-            </Caption>
+            <Caption>Listings you can book without waiting for host approval.</Caption>
           </div>
-          <Toggler
-            checked={instantBook}
-            onChange={e => onFilterChange(e.target.checked)}
-          />
+          <Toggler checked={instantBook} onChange={e => onFilterChange(e.target.checked)} />
         </ControlsGroup>
       </Body>
     </Dropdown>

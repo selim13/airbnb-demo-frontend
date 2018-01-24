@@ -34,12 +34,7 @@ export default function ({
   return (
     <div className={className}>
       <Label htmlFor={id}>Search</Label>
-      <Input
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        defaultValue={value}
-      />
+      <Input id={id} name={name} placeholder={placeholder} defaultValue={value} />
     </div>
   );
 }

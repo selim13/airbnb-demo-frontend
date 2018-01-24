@@ -29,7 +29,9 @@ const LogoWrap = styled.div`
   }
 `;
 
-const Copyright = styled.span`margin-left: 16px;`;
+const Copyright = styled.span`
+  margin-left: 16px;
+`;
 const Navs = styled.div`
   display: flex;
   align-items: center;
@@ -40,7 +42,9 @@ const MenuNav = styled.nav`
   margin-left: -8px;
 `;
 
-const MenuLink = Link.extend`padding: 0 8px;`;
+const MenuLink = Link.extend`
+  padding: 0 8px;
+`;
 const SocialNav = styled.nav`
   display: flex;
   margin-left: 10px;
@@ -67,10 +71,7 @@ export default function () {
           <MenuLink href="#">Site map</MenuLink>
         </MenuNav>
         <SocialNav>
-          <SocialLink
-            href="https://www.facebook.com/AirbnbRussia"
-            title="Facebook"
-          >
+          <SocialLink href="https://www.facebook.com/AirbnbRussia" title="Facebook">
             <img src={facebookSvg} width="24" height="24" alt="Facebook" />
           </SocialLink>
           <SocialLink href="https://twitter.com/airbnb_ru" title="Twitter">

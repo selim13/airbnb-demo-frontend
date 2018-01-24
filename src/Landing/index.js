@@ -24,10 +24,7 @@ export default function () {
         <Section title="Homes" to="/homes">
           <Homes />
         </Section>
-        <Section
-          title="Popular reservations around the world"
-          to="/restaurants"
-        >
+        <Section title="Popular reservations around the world" to="/restaurants">
           <Reservations />
         </Section>
         <Section title="Featured destinations">

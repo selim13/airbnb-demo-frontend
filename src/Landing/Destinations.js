@@ -16,11 +16,7 @@ const DestinationsSlide = Slide.extend`
 export default function () {
   const destinationsList = data.map(destination => (
     <DestinationsSlide key={destination.code}>
-      <Card
-        code={destination.code}
-        name={destination.name}
-        image={destination.image}
-      />
+      <Card code={destination.code} name={destination.name} image={destination.image} />
     </DestinationsSlide>
   ));
   return <Slider hasDesktopNavigation>{destinationsList}</Slider>;

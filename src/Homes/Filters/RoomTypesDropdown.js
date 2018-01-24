@@ -10,8 +10,7 @@ export const Body = styled.div`
 
 function roomTypesLabelFormatter(roomTypes) {
   const optionsCount = Object.keys(roomTypes).reduce(
-    (previousValue, key) =>
-      (roomTypes[key] ? previousValue + 1 : previousValue),
+    (previousValue, key) => (roomTypes[key] ? previousValue + 1 : previousValue),
     0,
   );
   if (optionsCount > 1) return `Room type · ${optionsCount}`;

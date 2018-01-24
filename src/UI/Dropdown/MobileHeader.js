@@ -11,9 +11,7 @@ const MobileHeader = styled.div`
   align-items: center;
   padding: 8px 0;
   border-bottom: ${props =>
-    (props.separator
-      ? '1px solid rgba(72, 72, 72, 0.3)'
-      : '1px solid transparent')};
+    (props.separator ? '1px solid rgba(72, 72, 72, 0.3)' : '1px solid transparent')};
   font-size: 14px;
 `;
 

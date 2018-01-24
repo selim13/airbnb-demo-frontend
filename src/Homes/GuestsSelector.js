@@ -36,19 +36,13 @@ const Caption = styled.small`
   }
 `;
 
-export function guestsLabelFormatter(
-  adults,
-  children,
-  infants,
-  displayOneGuest = true,
-) {
+export function guestsLabelFormatter(adults, children, infants, displayOneGuest = true) {
   const guests = adults + children;
 
   if (displayOneGuest || guests + infants > 1) {
     if (infants > 0) {
       return (
-        `${guests} ${pluralize('guest', guests)}, ` +
-        `${infants} ${pluralize('infant', infants)}`
+        `${guests} ${pluralize('guest', guests)}, ` + `${infants} ${pluralize('infant', infants)}`
       );
     }
     return `${guests} ${pluralize('guest', guests)}`;

@@ -34,22 +34,12 @@ const Input = styled.input`
 `;
 
 export default function ({
-  className,
-  id,
-  name,
-  placeholder = '',
-  value = '',
-  label = '',
+  className, id, name, placeholder = '', value = '', label = '',
 }) {
   return (
     <div className={className}>
       <Label htmlFor={id}>{label}</Label>
-      <Input
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        defaultValue={value}
-      />
+      <Input id={id} name={name} placeholder={placeholder} defaultValue={value} />
     </div>
   );
 }

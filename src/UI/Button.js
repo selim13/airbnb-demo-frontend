@@ -6,8 +6,7 @@ export default styled.button`
 
   border-width: 1px;
   border-style: solid;
-  border-color: ${props =>
-    (props.isActive ? '#008489' : 'rgba(72, 72, 72, 0.2)')};
+  border-color: ${props => (props.isActive ? '#008489' : 'rgba(72, 72, 72, 0.2)')};
   border-radius: 4px;
 
   color: ${props => (props.isActive ? '#ffffff' : '#383838')};

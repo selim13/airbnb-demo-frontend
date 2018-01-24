@@ -34,7 +34,9 @@ const EmptyStar = Star.extend`
 
 export default function ({ rating = 5, largeStars = false }) {
   const starsList = [1, 2, 3, 4, 5].map((i) => {
-    if (i <= rating) { return <FilledStar key={i} icon="star" largeStars={largeStars} />; }
+    if (i <= rating) {
+      return <FilledStar key={i} icon="star" largeStars={largeStars} />;
+    }
     return <EmptyStar key={i} icon="star" largeStars={largeStars} />;
   });
 

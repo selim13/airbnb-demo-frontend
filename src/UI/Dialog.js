@@ -66,18 +66,10 @@ const modalStyles = {
 ReactModal.setAppElement('#root');
 
 export default function ({
-  isOpen = false,
-  contentLabel,
-  onClose = () => {},
-  children,
+  isOpen = false, contentLabel, onClose = () => {}, children,
 }) {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel={contentLabel}
-      style={modalStyles}
-    >
+    <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel={contentLabel} style={modalStyles}>
       <Heading>
         <CloseButton onClick={onClose} aria-label="Close">
           <Icon icon="close" size="16" />

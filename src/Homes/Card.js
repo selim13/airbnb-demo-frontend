@@ -42,13 +42,7 @@ const Description = styled.p`
 `;
 
 export default function ({
-  id,
-  name,
-  image,
-  price,
-  roomType,
-  bedsNumber,
-  reviews = {},
+  id, name, image, price, roomType, bedsNumber, reviews = {},
 }) {
   return (
     <Card to={`/homes/${id}`}>
@@ -59,11 +53,7 @@ export default function ({
       <Description>
         {roomType} · {bedsNumber} beds
       </Description>
-      <Reviews
-        rating={reviews.rating}
-        count={reviews.count}
-        status={reviews.status}
-      />
+      <Reviews rating={reviews.rating} count={reviews.count} status={reviews.status} />
     </Card>
   );
 }

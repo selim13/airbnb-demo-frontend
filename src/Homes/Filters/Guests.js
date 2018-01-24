@@ -26,12 +26,7 @@ export default function Guests({
   return (
     <Dropdown
       isOpen={isOpen}
-      buttonText={guestsLabelFormatter(
-        values.adults,
-        values.children,
-        values.infants,
-        false,
-      )}
+      buttonText={guestsLabelFormatter(values.adults, values.children, values.infants, false)}
       heading="Guests"
       hasMobileHeaderSeparator
       hasMobileFooter

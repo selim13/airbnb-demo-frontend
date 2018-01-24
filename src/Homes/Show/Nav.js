@@ -70,19 +70,10 @@ const ButtonSaveIcon = SaveIcon.extend`
   margin-right: 12px;
 `;
 
-export default function Nav({
-  isSticky = false,
-  isSaved = false,
-  onSave = () => {},
-}) {
+export default function Nav({ isSticky = false, isSaved = false, onSave = () => {} }) {
   return (
     <Wrap>
-      <ScrollNav
-        defaultSelected="overview"
-        smooth
-        duration={200}
-        offset={-150}
-      >
+      <ScrollNav defaultSelected="overview" smooth duration={200} offset={-150}>
         <Link to="overview" spy>
           Overview
         </Link>

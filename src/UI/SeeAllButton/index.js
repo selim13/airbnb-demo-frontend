@@ -29,14 +29,7 @@ export default function ({
   return (
     <Button className={className} onClick={onClick}>
       {label}
-      <Arrow
-        active={isOpen}
-        src={arrowSvg}
-        alt=""
-        aria-hidden="true"
-        width="12"
-        height="7"
-      />
+      <Arrow active={isOpen} src={arrowSvg} alt="" aria-hidden="true" width="12" height="7" />
     </Button>
   );
 }

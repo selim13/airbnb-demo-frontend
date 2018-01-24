@@ -43,11 +43,7 @@ const Value = styled.p`
 `;
 
 export default function ({
-  min = 0,
-  max = 5,
-  value = 0,
-  suffix = '',
-  onValueChange,
+  min = 0, max = 5, value = 0, suffix = '', onValueChange,
 }) {
   const modifyValue = (delta) => {
     const newValue = value + delta;

@@ -12,7 +12,9 @@ import Search from './Search';
 import logo from './logo.svg';
 import downArrowSvg from './downArrow.svg';
 
-const FixedPlaceholder = styled.header`height: 80px;`;
+const FixedPlaceholder = styled.header`
+  height: 80px;
+`;
 const Bar = styled.div`
   position: fixed;
   top: 0;
@@ -23,7 +25,9 @@ const Bar = styled.div`
   border-bottom: 1px solid #e3e3e3;
   background-color: #ffffff;
 `;
-const BarRow = styled(Row)`height: 79px;`;
+const BarRow = styled(Row)`
+  height: 79px;
+`;
 const LogoButton = styled(Link)`
   display: flex;
   align-items: center;

@@ -18,9 +18,7 @@ export default class ReadMore extends React.Component {
 
   render() {
     const displayButton = this.props.isClosable || !this.state.isOpen;
-    const buttonLabel = this.state.isOpen
-      ? this.props.closeLabel
-      : this.props.openLabel;
+    const buttonLabel = this.state.isOpen ? this.props.closeLabel : this.props.openLabel;
 
     return (
       <Fragment>

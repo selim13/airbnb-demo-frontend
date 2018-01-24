@@ -19,19 +19,10 @@ export default class Nav extends React.Component {
     return React.Children.map(this.props.children, (element) => {
       if (this.isValidLink(element)) {
         return React.cloneElement(element, {
-          smooth: element.props.smooth
-            ? element.props.smooth
-            : this.props.smooth,
-          offset: element.props.offset
-            ? element.props.offset
-            : this.props.offset,
-          isDynamic: element.props.isDynamic
-            ? element.props.isDynamic
-            : this.props.isDynamic,
-          duration: element.props.duration
-            ? element.props.duration
-            : this.props.duration,
-
+          smooth: element.props.smooth ? element.props.smooth : this.props.smooth,
+          offset: element.props.offset ? element.props.offset : this.props.offset,
+          isDynamic: element.props.isDynamic ? element.props.isDynamic : this.props.isDynamic,
+          duration: element.props.duration ? element.props.duration : this.props.duration,
           selected: element.props.to === this.state.selectedLink,
           onSetActive: () => this.handleSetActive(element.props.to),
         });

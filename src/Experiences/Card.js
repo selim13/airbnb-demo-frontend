@@ -24,7 +24,9 @@ const Heading = styled.p`
   margin: 0;
   font-weight: 300;
 `;
-const Price = styled.span`font-weight: bold;`;
+const Price = styled.span`
+  font-weight: bold;
+`;
 
 export default function ({
   id, name, image, price, reviews = {},

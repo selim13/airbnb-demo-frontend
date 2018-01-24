@@ -30,7 +30,7 @@ const Tip = styled.p`
 
 const markerSize = 77;
 const MapAreaMarker = styled.div`
-  position: "absolute";
+  position: 'absolute';
   width: ${markerSize}px;
   height: ${markerSize}px;
   left: ${markerSize / 2}px;
@@ -54,9 +54,7 @@ export default function () {
         </GoogleMapReact>
       </MapBox>
 
-      <Tip>
-        Exact location information is provided after a booking is confirmed.
-      </Tip>
+      <Tip>Exact location information is provided after a booking is confirmed.</Tip>
     </Wrap>
   );
 }

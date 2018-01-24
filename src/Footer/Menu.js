@@ -57,11 +57,7 @@ export default function () {
               </LanguageSelect>
             </Col>
             <Col xs={6} md={12}>
-              <Select
-                id="currency-selector"
-                name="currency-selector"
-                label="Choose your currency"
-              >
+              <Select id="currency-selector" name="currency-selector" label="Choose your currency">
                 <option>United States dollar</option>
                 <option>Russian Rouble</option>
               </Select>

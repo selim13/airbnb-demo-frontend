@@ -101,10 +101,7 @@ export default function () {
 
   return (
     <div>
-      <Navbar
-        searchPlaceholder="Anywhere"
-        searchValue="Anywhere &middot; Homes"
-      />
+      <Navbar searchPlaceholder="Anywhere" searchValue="Anywhere &middot; Homes" />
 
       <Filters />
 
@@ -119,8 +116,7 @@ export default function () {
                     <Pagination />
                   </PaginationWrap>
                   <Info>
-                    Enter dates to see full pricing. Additional fees apply.
-                    Taxes may be added.
+                    Enter dates to see full pricing. Additional fees apply. Taxes may be added.
                   </Info>
                 </Col>
               </Row>

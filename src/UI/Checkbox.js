@@ -58,10 +58,7 @@ const CheckMarkIcon = () => (
 );
 
 export default function ({
-  checked = false,
-  label = '',
-  caption = '',
-  onChange = () => {},
+  checked = false, label = '', caption = '', onChange = () => {},
 }) {
   return (
     <Label>

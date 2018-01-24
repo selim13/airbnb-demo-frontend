@@ -89,9 +89,7 @@ export default function () {
             <MoreLink href="#">Cartagena Vacation Rentals</MoreLink>
             <MoreLink href="#">Bucaramanga</MoreLink>
             <MoreLink href="#">Manuel Antonio</MoreLink>
-            <MoreLink href="#">
-              Cartagena De Indias (Distrito Turistico Y Cultural)
-            </MoreLink>
+            <MoreLink href="#">Cartagena De Indias (Distrito Turistico Y Cultural)</MoreLink>
             <MoreLink href="#">Quito</MoreLink>
             <MoreLink href="#">Santander de Quilichao</MoreLink>
           </MorePlaces>
@@ -100,9 +98,7 @@ export default function () {
           <MorePlaces>
             <MoreLink href="#">San Andrés Vacation Rentals</MoreLink>
             <MoreLink href="#">Bogota</MoreLink>
-            <MoreLink href="#">
-              Santa Marta (Distrito Turistico Cultural E Historico)
-            </MoreLink>
+            <MoreLink href="#">Santa Marta (Distrito Turistico Cultural E Historico)</MoreLink>
             <MoreLink href="#">Rionegro</MoreLink>
             <MoreLink href="#">Anapoima</MoreLink>
             <MoreLink href="#">Puerto Rico</MoreLink>

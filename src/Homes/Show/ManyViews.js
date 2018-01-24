@@ -11,8 +11,7 @@ const Wrap = styled.div`
   align-items: center;
   margin-bottom: ${props => (props.mobile ? '0' : '24px')};
   padding: ${props => (props.mobile ? '0' : '13px 32px 13px 24px')};
-  border: ${props =>
-    (props.mobile ? 'none' : '1px solid rgba(118, 118, 118, 0.2)')};
+  border: ${props => (props.mobile ? 'none' : '1px solid rgba(118, 118, 118, 0.2)')};
 
   @media (min-width: ${bp.lg}px) {
     margin-bottom: ${props => (props.mobile ? '0' : '32px')};
