@@ -8,7 +8,7 @@ export const Slide = styled.div`
   margin: 0 8px;
 `;
 
-export const Slider = function ({ children, hasDesktopNavigation }) {
+export const Slider = function Slider({ children, hasDesktopNavigation }) {
   return (
     <SliderContainer>
       {/* TODO: PrevBtn */}
