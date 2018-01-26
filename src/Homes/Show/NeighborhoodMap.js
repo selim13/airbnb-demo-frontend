@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import GoogleMapReact from "google-map-react";
+import React from 'react';
+import styled from 'styled-components';
+import GoogleMapReact from 'google-map-react';
 
-import bp from "../../breakpoints";
+import bp from '../../breakpoints';
 
 const Wrap = styled.div`
   margin-bottom: 24px;
@@ -30,7 +30,7 @@ const Tip = styled.p`
 
 const markerSize = 77;
 const MapAreaMarker = styled.div`
-  position: "absolute";
+  position: 'absolute';
   width: ${markerSize}px;
   height: ${markerSize}px;
   left: ${markerSize / 2}px;
@@ -41,7 +41,7 @@ const MapAreaMarker = styled.div`
   background: rgba(3, 178, 185, 0.2);
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrap>
       <MapBox>
@@ -54,9 +54,7 @@ export default function() {
         </GoogleMapReact>
       </MapBox>
 
-      <Tip>
-        Exact location information is provided after a booking is confirmed.
-      </Tip>
+      <Tip>Exact location information is provided after a booking is confirmed.</Tip>
     </Wrap>
   );
 }

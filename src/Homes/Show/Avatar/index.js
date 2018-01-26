@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../../breakpoints";
+import bp from '../../../breakpoints';
 
-import superhostSvg from "./superhost.svg";
+import superhostSvg from './superhost.svg';
 
 const Wrap = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const Name = styled.p`
   }
 `;
 
-export default function({ image, name, superhost }) {
+export default function ({ image, name, superhost }) {
   return (
     <Wrap>
       <AvatarWrap>

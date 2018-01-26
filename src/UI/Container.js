@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import bp from "../breakpoints";
+import bp from '../breakpoints';
 
 export default styled.div`
   width: 100%;

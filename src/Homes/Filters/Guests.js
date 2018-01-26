@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import GuestsSelector, { guestsLabelFormatter } from "../GuestsSelector";
-import Dropdown from "../../UI/Dropdown";
+import bp from '../../breakpoints';
+import GuestsSelector, { guestsLabelFormatter } from '../GuestsSelector';
+import Dropdown from '../../UI/Dropdown';
 
 export const Body = styled.div`
   padding: 40px 8px 8px;
@@ -21,17 +21,12 @@ export default function Guests({
   onFilterChange = () => {},
   onClick = () => {},
   onClose = () => {},
-  onReset = () => {}
+  onReset = () => {},
 }) {
   return (
     <Dropdown
       isOpen={isOpen}
-      buttonText={guestsLabelFormatter(
-        values.adults,
-        values.children,
-        values.infants,
-        false
-      )}
+      buttonText={guestsLabelFormatter(values.adults, values.children, values.infants, false)}
       heading="Guests"
       hasMobileHeaderSeparator
       hasMobileFooter

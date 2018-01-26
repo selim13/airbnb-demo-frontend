@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../breakpoints";
-import Link from "../UI/Link";
+import bp from '../breakpoints';
+import Link from '../UI/Link';
 
-import logoSvg from "./logo.svg";
-import facebookSvg from "./facebook.svg";
-import instagramSvg from "./instagram.svg";
-import twitterSvg from "./twitter.svg";
+import logoSvg from './logo.svg';
+import facebookSvg from './facebook.svg';
+import instagramSvg from './instagram.svg';
+import twitterSvg from './twitter.svg';
 
 const BottomBar = styled.div`
   padding: 32px 0;
@@ -29,7 +29,9 @@ const LogoWrap = styled.div`
   }
 `;
 
-const Copyright = styled.span`margin-left: 16px;`;
+const Copyright = styled.span`
+  margin-left: 16px;
+`;
 const Navs = styled.div`
   display: flex;
   align-items: center;
@@ -40,7 +42,9 @@ const MenuNav = styled.nav`
   margin-left: -8px;
 `;
 
-const MenuLink = Link.extend`padding: 0 8px;`;
+const MenuLink = Link.extend`
+  padding: 0 8px;
+`;
 const SocialNav = styled.nav`
   display: flex;
   margin-left: 10px;
@@ -53,7 +57,7 @@ const SocialLink = styled.a`
   padding: 0 6px;
 `;
 
-export default function() {
+export default function () {
   return (
     <BottomBar>
       <LogoWrap>
@@ -67,10 +71,7 @@ export default function() {
           <MenuLink href="#">Site map</MenuLink>
         </MenuNav>
         <SocialNav>
-          <SocialLink
-            href="https://www.facebook.com/AirbnbRussia"
-            title="Facebook"
-          >
+          <SocialLink href="https://www.facebook.com/AirbnbRussia" title="Facebook">
             <img src={facebookSvg} width="24" height="24" alt="Facebook" />
           </SocialLink>
           <SocialLink href="https://twitter.com/airbnb_ru" title="Twitter">

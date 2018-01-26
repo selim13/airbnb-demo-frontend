@@ -1,5 +1,5 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 // https://reacttraining.com/react-router/web/guides/scroll-restoration
 class ScrollToTop extends React.Component {

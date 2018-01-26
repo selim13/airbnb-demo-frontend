@@ -1,16 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
-import bp from "../../../breakpoints";
-import Pagination from "../../../UI/Pagination";
+import bp from '../../../breakpoints';
+import Pagination from '../../../UI/Pagination';
 
-import Search from "./Search";
-import Rating from "./Rating";
-import Review from "./Review";
+import Search from './Search';
+import Rating from './Rating';
+import Review from './Review';
 
-import avatar1 from "./avatar1.png";
-import avatar2 from "./avatar2.png";
+import avatar1 from './avatar1.png';
+import avatar2 from './avatar2.png';
 
 const Wrap = styled.div`
   padding-top: 24px;
@@ -67,7 +67,7 @@ const TypeRating = styled.div`
   font-weight: 300;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrap>
       <Section>
@@ -76,11 +76,7 @@ export default function() {
             <TotalReviews>113 Reviews</TotalReviews>
             <Rating rating={5} largeStars />
           </TotalReviewsWrap>
-          <Search
-            placeholder="Search reviews"
-            label="Search reviews"
-            id="review-search"
-          />
+          <Search placeholder="Search reviews" label="Search reviews" id="review-search" />
         </Heading>
 
         <Row>
@@ -116,17 +112,16 @@ export default function() {
       </Section>
 
       <Review name="Marlee" date="November 2017" avatar={avatar1}>
-        This was one of my favourite places we stayed in all on Colombia. A very
-        peaceful setting and a great spot to unwind.
+        This was one of my favourite places we stayed in all on Colombia. A very peaceful setting
+        and a great spot to unwind.
       </Review>
 
       <Review name="Michelle" date="November 2017" avatar={avatar2}>
-        What an absolutely wonderful place to stay! Yudy and Victoria were so
-        kind and lovely, even after we arrived super late due to problems at the
-        airport, and Hernando our driver was super friendly and really patient
-        with our little Spanish. Victoria was a lovely host and gave us some
-        great tips while Yudy's cooking was super yummy. The cabana is
-        absolutely beautiful and we can't wait to come back!!
+        What an absolutely wonderful place to stay! Yudy and Victoria were so kind and lovely, even
+        after we arrived super late due to problems at the airport, and Hernando our driver was
+        super friendly and really patient with our little Spanish. Victoria was a lovely host and
+        gave us some great tips while Yudy&apos;s cooking was super yummy. The cabana is absolutely
+        beautiful and we can&apos;t wait to come back!!
       </Review>
 
       <Pagination showRange={false} />

@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import VisuallyHidden from "../UI/VisuallyHidden";
-import searchIcon from "./search.svg";
+import VisuallyHidden from '../UI/VisuallyHidden';
+import searchIcon from './search.svg';
 
-const Label = VisuallyHidden.withComponent("label");
+const Label = VisuallyHidden.withComponent('label');
 
 const Input = styled.input`
   display: block;
@@ -28,16 +28,13 @@ const Input = styled.input`
   }
 `;
 
-export default function({ className, id, name, placeholder, value }) {
+export default function ({
+  className, id, name, placeholder, value,
+}) {
   return (
     <div className={className}>
       <Label htmlFor={id}>Search</Label>
-      <Input
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        defaultValue={value}
-      />
+      <Input id={id} name={name} placeholder={placeholder} defaultValue={value} />
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
-import bp from "../../breakpoints";
-import DotSeparator from "../../UI/DotSeparator";
+import bp from '../../breakpoints';
+import DotSeparator from '../../UI/DotSeparator';
 
 export const Link = styled.a`
   color: #636363;
@@ -63,13 +63,13 @@ const MoreLink = Link.extend`
   color: #636363;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrap>
       <Heading>Explore other options in and around Armenia</Heading>
 
       <PlacesRow>
-        More places to stay in Armenia:{" "}
+        More places to stay in Armenia:{' '}
         <Places>
           <Link href="#">Apartments</Link>
           <DotSeparator />
@@ -89,9 +89,7 @@ export default function() {
             <MoreLink href="#">Cartagena Vacation Rentals</MoreLink>
             <MoreLink href="#">Bucaramanga</MoreLink>
             <MoreLink href="#">Manuel Antonio</MoreLink>
-            <MoreLink href="#">
-              Cartagena De Indias (Distrito Turistico Y Cultural)
-            </MoreLink>
+            <MoreLink href="#">Cartagena De Indias (Distrito Turistico Y Cultural)</MoreLink>
             <MoreLink href="#">Quito</MoreLink>
             <MoreLink href="#">Santander de Quilichao</MoreLink>
           </MorePlaces>
@@ -100,9 +98,7 @@ export default function() {
           <MorePlaces>
             <MoreLink href="#">San Andrés Vacation Rentals</MoreLink>
             <MoreLink href="#">Bogota</MoreLink>
-            <MoreLink href="#">
-              Santa Marta (Distrito Turistico Cultural E Historico)
-            </MoreLink>
+            <MoreLink href="#">Santa Marta (Distrito Turistico Cultural E Historico)</MoreLink>
             <MoreLink href="#">Rionegro</MoreLink>
             <MoreLink href="#">Anapoima</MoreLink>
             <MoreLink href="#">Puerto Rico</MoreLink>

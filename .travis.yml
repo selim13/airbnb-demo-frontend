@@ -8,7 +8,7 @@ before_install:
 install:
 - yarn install
 script:
-- yarn build
+- yarn eslint src && yarn build
 deploy:  
 - provider: script
   skip_cleanup: true

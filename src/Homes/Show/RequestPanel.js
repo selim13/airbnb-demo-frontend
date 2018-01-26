@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import Reviews from "../../UI/Reviews";
+import bp from '../../breakpoints';
+import Reviews from '../../UI/Reviews';
 
 const Wrap = styled.nav`
   display: flex;
@@ -65,7 +65,7 @@ const RequestButton = Button.extend`
   }
 `;
 
-export default function({ onClick }) {
+export default function ({ onClick }) {
   return (
     <Wrap>
       <div>

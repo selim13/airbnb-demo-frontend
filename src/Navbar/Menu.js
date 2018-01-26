@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../breakpoints";
-import Link from "../UI/Link";
+import bp from '../breakpoints';
+import Link from '../UI/Link';
 
 const Nav = styled.nav`
   display: none;
@@ -19,7 +19,7 @@ const MenuLink = Link.extend`
   color: #383838;
 `;
 
-export default function() {
+export default function () {
   return (
     <Nav>
       <MenuLink href="#">Become a host</MenuLink>

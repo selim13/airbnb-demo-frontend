@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import bp from "../../breakpoints";
-import { Slider } from "../../UI/Slider";
+import bp from '../../breakpoints';
+import { Slider } from '../../UI/Slider';
 
-import homeImg from "./homes.png";
-import expImg from "./experiences.png";
-import restaurantsImg from "./restaurants.png";
+import homeImg from './homes.png';
+import expImg from './experiences.png';
+import restaurantsImg from './restaurants.png';
 
 const Card = styled(Link)`
   flex: 0 0 auto;
@@ -48,7 +48,7 @@ const Heading = styled.div`
   }
 `;
 
-export default function() {
+export default function () {
   return (
     <Slider>
       <Card to="/homes">

@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // import leftArrowSvg from "./leftArrow.svg";
-import rightArrowSvg from "./rightArrow.svg";
+import rightArrowSvg from './rightArrow.svg';
 
 const Pagination = styled.div`
   text-align: center;
@@ -27,9 +27,9 @@ const Button = styled.a`
   cursor: pointer;
 `;
 const PageNumber = Button.extend`
-  border-color: ${props => (props.isActive ? "#008489" : "transparent")};
-  color: ${props => (props.isActive ? "#ffffff" : "#0f7276")};
-  background-color: ${props => (props.isActive ? "#008489" : "transparent")};
+  border-color: ${props => (props.isActive ? '#008489' : 'transparent')};
+  color: ${props => (props.isActive ? '#ffffff' : '#0f7276')};
+  background-color: ${props => (props.isActive ? '#008489' : 'transparent')};
 
   &:hover {
     text-decoration: underline;
@@ -54,7 +54,7 @@ const Footer = styled.p`
   font-size: 16px;
 `;
 
-export default function({ showRange = true }) {
+export default function ({ showRange = true }) {
   return (
     <Pagination>
       <List>

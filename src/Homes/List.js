@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
-import GoogleMapReact from "google-map-react";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
+import GoogleMapReact from 'google-map-react';
 
-import bp from "../breakpoints";
-import Container from "../UI/Container";
-import Card from "./Card";
-import Filters from "./Filters";
-import Pagination from "../UI/Pagination";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
-import VisuallyHidden from "../UI/VisuallyHidden";
+import bp from '../breakpoints';
+import Container from '../UI/Container';
+import Card from './Card';
+import Filters from './Filters';
+import Pagination from '../UI/Pagination';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
+import VisuallyHidden from '../UI/VisuallyHidden';
 
-import data from "./staticData";
-import pinIconSvg from "./pinIcon.svg";
+import data from './staticData';
+import pinIconSvg from './pinIcon.svg';
 
 const CardWrap = styled.div`
   margin-bottom: 24px;
@@ -82,7 +82,7 @@ const ToggleMapButton = styled.button`
   }
 `;
 
-export default function() {
+export default function () {
   const homesList = data.map(home => (
     <Col xs={12} sm={6} key={home.id}>
       <CardWrap>
@@ -101,10 +101,7 @@ export default function() {
 
   return (
     <div>
-      <Navbar
-        searchPlaceholder="Anywhere"
-        searchValue="Anywhere &middot; Homes"
-      />
+      <Navbar searchPlaceholder="Anywhere" searchValue="Anywhere &middot; Homes" />
 
       <Filters />
 
@@ -119,8 +116,7 @@ export default function() {
                     <Pagination />
                   </PaginationWrap>
                   <Info>
-                    Enter dates to see full pricing. Additional fees apply.
-                    Taxes may be added.
+                    Enter dates to see full pricing. Additional fees apply. Taxes may be added.
                   </Info>
                 </Col>
               </Row>

@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Link as ScrollLink } from "react-scroll";
+import React from 'react';
+import styled from 'styled-components';
+import { Link as ScrollLink } from 'react-scroll';
 
-import bp from "../../breakpoints";
-import { Sm } from "../../UI/mediaQueries";
-import ScrollNav from "../../UI/ScrollNav";
-import DotSeparator from "../../UI/DotSeparator";
-import Icon from "../../UI/Icon";
-import SaveIcon from "../../UI/SaveIcon";
+import bp from '../../breakpoints';
+import { Sm } from '../../UI/mediaQueries';
+import ScrollNav from '../../UI/ScrollNav';
+import DotSeparator from '../../UI/DotSeparator';
+import Icon from '../../UI/Icon';
+import SaveIcon from '../../UI/SaveIcon';
 
 const Wrap = styled.nav`
   display: flex;
@@ -25,13 +25,13 @@ const Wrap = styled.nav`
 const Link = styled(ScrollLink)`
   display: inline-block;
   border-bottom: 1px solid transparent;
-  color: ${props => (props.selected ? "#383838" : "#008489")};
+  color: ${props => (props.selected ? '#383838' : '#008489')};
   text-decoration: none;
-  font-weight: ${props => (props.selected ? "bold" : "400")};
+  font-weight: ${props => (props.selected ? 'bold' : '400')};
   cursor: pointer;
 
   &:hover {
-    border-color: ${props => (props.selected ? "#383838" : "#008489")};
+    border-color: ${props => (props.selected ? '#383838' : '#008489')};
   }
 `;
 
@@ -70,32 +70,23 @@ const ButtonSaveIcon = SaveIcon.extend`
   margin-right: 12px;
 `;
 
-export default function Nav({
-  isSticky = false,
-  isSaved = false,
-  onSave = () => {}
-}) {
+export default function Nav({ isSticky = false, isSaved = false, onSave = () => {} }) {
   return (
     <Wrap>
-      <ScrollNav
-        defaultSelected="overview"
-        smooth={true}
-        duration={200}
-        offset={-150}
-      >
-        <Link to="overview" spy={true}>
+      <ScrollNav defaultSelected="overview" smooth duration={200} offset={-150}>
+        <Link to="overview" spy>
           Overview
         </Link>
         <DotSeparator />
-        <Link to="reviews" spy={true}>
+        <Link to="reviews" spy>
           Reviews
         </Link>
         <DotSeparator />
-        <Link to="host" spy={true}>
+        <Link to="host" spy>
           The host
         </Link>
         <DotSeparator />
-        <Link to="location" spy={true}>
+        <Link to="location" spy>
           Location
         </Link>
       </ScrollNav>
@@ -109,7 +100,7 @@ export default function Nav({
             </Button>
             <Button onClick={onSave}>
               <ButtonSaveIcon isSaved={isSaved} />
-              {isSaved ? "Saved" : "Save"}
+              {isSaved ? 'Saved' : 'Save'}
             </Button>
           </Buttons>
         </Sm>

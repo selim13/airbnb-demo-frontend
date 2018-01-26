@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
-import VisibilitySensor from "react-visibility-sensor";
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import VisibilitySensor from 'react-visibility-sensor';
 
-import { ToLg } from "../../../UI/mediaQueries";
-import Reviews from "../../../UI/Reviews";
-import Icon from "../../../UI/Icon";
-import SaveIcon from "../../../UI/SaveIcon";
-import ManyViews from "../ManyViews";
-import GuestsDropdown from "./GuestsDropdown";
-import DateDropdown from "./DateDropdown";
+import { ToLg } from '../../../UI/mediaQueries';
+import Reviews from '../../../UI/Reviews';
+import Icon from '../../../UI/Icon';
+import SaveIcon from '../../../UI/SaveIcon';
+import ManyViews from '../ManyViews';
+import GuestsDropdown from './GuestsDropdown';
+import DateDropdown from './DateDropdown';
 
 const Price = styled.p`
   margin-top: 0;
@@ -84,8 +84,8 @@ const ChargeTip = styled.p`
 
 const ManyViewsTransition = styled.div`
   overflow: hidden;
-  max-height: ${props => (props.isVisible ? "300px" : "0")};
-  opacity: ${props => (props.isVisible ? "1" : "0")};
+  max-height: ${props => (props.isVisible ? '300px' : '0')};
+  opacity: ${props => (props.isVisible ? '1' : '0')};
   transition: max-height 0.8s, opacity 0.8s linear 0.2s;
 `;
 
@@ -96,25 +96,21 @@ const ManyViewsWrap = styled.div`
 `;
 
 export default class RequestForm extends React.Component {
-  state = {
-    openedOption: null,
-    dates: { startDate: null, endDate: null },
-    guests: { adults: 1, children: 0, infants: 0 }
-  };
-
   static defaultProps = {
     isModal: false,
     isSaved: false,
-    onSave: () => {}
+    onSave: () => {},
   };
 
-  handleDropdownToggle = option => {
-    this.setState(
-      prevState =>
-        prevState.openedOption === option
-          ? { openedOption: null }
-          : { openedOption: option }
-    );
+  state = {
+    openedOption: null,
+    dates: { startDate: null, endDate: null },
+    guests: { adults: 1, children: 0, infants: 0 },
+  };
+
+  handleDropdownToggle = (option) => {
+    this.setState(prevState =>
+      (prevState.openedOption === option ? { openedOption: null } : { openedOption: option }));
   };
 
   handleDropdownClose = () => this.setState({ openedOption: null });
@@ -122,15 +118,17 @@ export default class RequestForm extends React.Component {
   handleDatesReset = () =>
     this.setState({
       openedOption: false,
-      dates: { startDate: null, endDate: null }
+      dates: { startDate: null, endDate: null },
     });
 
-  handleDatesChange = dates => {
-    this.setState(prevState => {
-      if (!dates.endDate) return { dates, openedOption: "checkOut" };
-      if (!dates.startDate) return { dates, openedOption: "checkIn" };
-      if (dates.startDate && dates.startDate)
+  handleDatesChange = (dates) => {
+    this.setState(() => {
+      if (!dates.endDate) return { dates, openedOption: 'checkOut' };
+      if (!dates.startDate) return { dates, openedOption: 'checkIn' };
+      if (dates.startDate && dates.startDate) {
         return { dates, openedOption: null };
+      }
+      return null;
     });
   };
 
@@ -168,11 +166,11 @@ export default class RequestForm extends React.Component {
         />
 
         <GuestsDropdown
-          isOpen={this.state.openedOption === "guests"}
+          isOpen={this.state.openedOption === 'guests'}
           maxGuests={3}
           maxInfants={2}
           values={this.state.guests}
-          onClick={() => this.handleDropdownToggle("guests")}
+          onClick={() => this.handleDropdownToggle('guests')}
           onValuesChange={newValues => this.handleChangeGuests(newValues)}
           onCancel={this.handleDropdownClose}
         />
@@ -185,7 +183,7 @@ export default class RequestForm extends React.Component {
           active={!this.props.isModal}
           offset={{
             bottom: 200,
-            top: -9999 // skips visibility check, when moved above the screen
+            top: -9999, // skips visibility check, when moved above the screen
           }}
           partialVisibility
         >

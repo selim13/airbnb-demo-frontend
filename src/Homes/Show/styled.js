@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
+import bp from '../../breakpoints';
 
 export const Link = styled.a`
   border-bottom: 1px solid transparent;

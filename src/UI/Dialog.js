@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import ReactModal from "react-modal";
+import React from 'react';
+import styled from 'styled-components';
+import ReactModal from 'react-modal';
 
-import bp from "../breakpoints";
-import Icon from "./Icon";
+import bp from '../breakpoints';
+import Icon from './Icon';
 
 const Modal = styled(ReactModal)`
   position: fixed;
@@ -51,33 +51,25 @@ const CloseButton = styled.button`
 
 const modalStyles = {
   overlay: {
-    position: "fixed",
+    position: 'fixed',
     top: 80,
     left: 0,
     right: 0,
     bottom: 0,
     zIndex: 800,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
-    mixBlendMode: "normal"
-  }
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    mixBlendMode: 'normal',
+  },
 };
 
 // required by react-modal to set aria-hidden
-ReactModal.setAppElement("#root");
+ReactModal.setAppElement('#root');
 
-export default function({
-  isOpen = false,
-  contentLabel,
-  onClose = () => {},
-  children
+export default function ({
+  isOpen = false, contentLabel, onClose = () => {}, children,
 }) {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel={contentLabel}
-      style={modalStyles}
-    >
+    <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel={contentLabel} style={modalStyles}>
       <Heading>
         <CloseButton onClick={onClose} aria-label="Close">
           <Icon icon="close" size="16" />

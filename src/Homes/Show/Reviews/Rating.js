@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../../breakpoints";
-import Icon from "../../../UI/Icon";
+import bp from '../../../breakpoints';
+import Icon from '../../../UI/Icon';
 
 const Wrap = styled.div`
   display: flex;
@@ -19,8 +19,8 @@ const Star = styled(Icon)`
   }
 
   @media (min-width: ${bp.sm}px) {
-    width: ${props => (props.largeStars ? "20px" : "16px")};
-    height: ${props => (props.largeStars ? "20px" : "16px")};
+    width: ${props => (props.largeStars ? '20px' : '16px')};
+    height: ${props => (props.largeStars ? '20px' : '16px')};
   }
 `;
 
@@ -32,11 +32,12 @@ const EmptyStar = Star.extend`
   fill: #d8d8d8;
 `;
 
-export default function({ rating = 5, largeStars = false }) {
-  const starsList = [1, 2, 3, 4, 5].map(i => {
-    if (i <= rating)
+export default function ({ rating = 5, largeStars = false }) {
+  const starsList = [1, 2, 3, 4, 5].map((i) => {
+    if (i <= rating) {
       return <FilledStar key={i} icon="star" largeStars={largeStars} />;
-    else return <EmptyStar key={i} icon="star" largeStars={largeStars} />;
+    }
+    return <EmptyStar key={i} icon="star" largeStars={largeStars} />;
   });
 
   return <Wrap>{starsList}</Wrap>;

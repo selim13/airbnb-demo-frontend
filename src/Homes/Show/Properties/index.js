@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
-import pluralize from "pluralize";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
+import pluralize from 'pluralize';
 
-import bp from "../../../breakpoints";
-import { ToSm, Sm } from "../../../UI/mediaQueries";
+import bp from '../../../breakpoints';
+import { ToSm, Sm } from '../../../UI/mediaQueries';
 
-import guestsSvg from "./guests.svg";
-import bedSvg from "./bed.svg";
-import studioSvg from "./studio.svg";
-import bathtubSvg from "./bathtub.svg";
+import guestsSvg from './guests.svg';
+import bedSvg from './bed.svg';
+import studioSvg from './studio.svg';
+import bathtubSvg from './bathtub.svg';
 
 const Wrap = styled.div`
   margin-top: 32px;
@@ -39,14 +39,16 @@ const Icon = styled.img`
   margin-right: 8px;
 `;
 
-export default function({ guests, type, beds, baths }) {
+export default function ({
+  guests, type, beds, baths,
+}) {
   return (
     <Wrap>
       <ToSm>
         <Row>
           <Col xs={6}>
             <Property>
-              <Icon src={guestsSvg} /> {guests} {pluralize("guest", guests)}
+              <Icon src={guestsSvg} /> {guests} {pluralize('guest', guests)}
             </Property>
             <Property>
               <Icon src={studioSvg} /> {type}
@@ -54,10 +56,10 @@ export default function({ guests, type, beds, baths }) {
           </Col>
           <Col xs={6}>
             <Property>
-              <Icon src={bedSvg} /> {beds} {pluralize("bed", beds)}
+              <Icon src={bedSvg} /> {beds} {pluralize('bed', beds)}
             </Property>
             <Property>
-              <Icon src={bathtubSvg} /> {baths} {pluralize("bath", baths)}
+              <Icon src={bathtubSvg} /> {baths} {pluralize('bath', baths)}
             </Property>
           </Col>
         </Row>
@@ -65,16 +67,16 @@ export default function({ guests, type, beds, baths }) {
       <Sm>
         <List>
           <Property>
-            <Icon src={guestsSvg} /> {guests} {pluralize("guest", guests)}
+            <Icon src={guestsSvg} /> {guests} {pluralize('guest', guests)}
           </Property>
           <Property>
             <Icon src={studioSvg} /> {type}
           </Property>
           <Property>
-            <Icon src={bedSvg} /> {beds} {pluralize("bed", beds)}
+            <Icon src={bedSvg} /> {beds} {pluralize('bed', beds)}
           </Property>
           <Property>
-            <Icon src={bathtubSvg} /> {baths} {pluralize("bath", baths)}
+            <Icon src={bathtubSvg} /> {baths} {pluralize('bath', baths)}
           </Property>
         </List>
       </Sm>

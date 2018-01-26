@@ -1,10 +1,10 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route } from 'react-router-dom';
 
-import List from "./List";
-import Show from "./Show";
+import List from './List';
+import Show from './Show';
 
-export default function() {
+export default function () {
   return (
     <div>
       <Route exact path="/homes" component={List} />

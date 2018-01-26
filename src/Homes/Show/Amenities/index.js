@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
-import includes from "lodash/includes";
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
+import includes from 'lodash/includes';
 
-import bp from "../../../breakpoints";
-import SeeAllButton from "../../../UI/SeeAllButton";
-import amenities from "./amenities";
-import familyAmenities from "./familyAmenities";
+import bp from '../../../breakpoints';
+import SeeAllButton from '../../../UI/SeeAllButton';
+import amenities from './amenities';
+import familyAmenities from './familyAmenities';
 
 const FamilyAmenities = styled.h3`
   margin-top: 0;
@@ -42,12 +42,12 @@ const Del = styled.del`
 `;
 
 export default class Amenities extends React.Component {
-  state = { isOpen: false };
-
   static defaultProps = {
     selected: [],
-    summary: []
+    summary: [],
   };
+
+  state = { isOpen: false };
 
   handleOpen = () => this.setState({ isOpen: true });
 
@@ -55,30 +55,21 @@ export default class Amenities extends React.Component {
     <Col xs={6} key={amenity.key}>
       <Property>
         {selected && amenity.img && <Icon src={amenity.img} />}
-        {selected ? (
-          amenity.title
-        ) : (
-          <Del aria-hidden="true">{amenity.title}</Del>
-        )}
+        {selected ? amenity.title : <Del aria-hidden="true">{amenity.title}</Del>}
       </Property>
     </Col>
   );
 
   render() {
-    const summaryAmenities = amenities.filter(amenity =>
-      includes(this.props.summary, amenity.key)
-    );
+    const summaryAmenities = amenities.filter(amenity => includes(this.props.summary, amenity.key));
 
     const summaryList = summaryAmenities.map(amenity =>
-      this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
-    );
+      this.renderAmenity(amenity, includes(this.props.selected, amenity.key)));
 
     const detailList = amenities.map(amenity =>
-      this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
-    );
+      this.renderAmenity(amenity, includes(this.props.selected, amenity.key)));
     const familyList = familyAmenities.map(amenity =>
-      this.renderAmenity(amenity, includes(this.props.selected, amenity.key))
-    );
+      this.renderAmenity(amenity, includes(this.props.selected, amenity.key)));
 
     const detail = (
       <Fragment>

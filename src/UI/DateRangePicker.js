@@ -1,18 +1,16 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
-import "react-dates/initialize";
-import { DayPickerRangeController } from "react-dates";
-import isInclusivelyAfterDay from "react-dates/src/utils/isInclusivelyAfterDay";
-import "react-dates/lib/css/_datepicker.css";
-import "./react_dates_overrides.css";
+import 'react-dates/initialize';
+import { DayPickerRangeController } from 'react-dates';
+import isInclusivelyAfterDay from 'react-dates/src/utils/isInclusivelyAfterDay';
+import 'react-dates/lib/css/_datepicker.css';
+import './react_dates_overrides.css';
 
 /**
  * A wrapper component from the react-dates doc
  */
 export default class extends React.Component {
-  state = { focusedInput: "startDate" };
-
   static defaultProps = {
     // day presentation and interaction related props
     renderDay: null,
@@ -24,7 +22,7 @@ export default class extends React.Component {
     focusedInput: null,
 
     // calendar presentation and interaction related props
-    orientation: "horizontal",
+    orientation: 'horizontal',
     withPortal: false,
     initialVisibleMonth: null,
     numberOfMonths: 2,
@@ -41,22 +39,20 @@ export default class extends React.Component {
     onNextMonthClick() {},
 
     // internationalization
-    monthFormat: "MMMM YYYY"
+    monthFormat: 'MMMM YYYY',
   };
 
+  state = { focusedInput: 'startDate' };
+
   componentWillReceiveProps({ focusedInput }) {
-    this.setState(
-      prevState =>
-        focusedInput && prevState.focusedInput !== focusedInput
-          ? { focusedInput }
-          : null
-    );
+    this.setState(prevState =>
+      (focusedInput && prevState.focusedInput !== focusedInput ? { focusedInput } : null));
   }
 
-  handleFocusChange = focusedInput => {
+  handleFocusChange = (focusedInput) => {
     this.setState({
       // Force the focusedInput to always be truthy so that dates are always selectable
-      focusedInput: !focusedInput ? "startDate" : focusedInput
+      focusedInput: !focusedInput ? 'startDate' : focusedInput,
     });
   };
 

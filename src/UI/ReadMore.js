@@ -1,26 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
-import SeeAllButton from "./SeeAllButton";
+import SeeAllButton from './SeeAllButton';
 
 export default class ReadMore extends React.Component {
   static defaultProps = {
-    openLabel: "Read more",
-    closeLabel: "Read less",
-    isClosable: false
+    openLabel: 'Read more',
+    closeLabel: 'Read less',
+    isClosable: false,
   };
 
   state = { isOpen: false };
 
   handleToggle = () =>
     this.setState(prevState => ({
-      isOpen: !prevState.isOpen
+      isOpen: !prevState.isOpen,
     }));
 
   render() {
     const displayButton = this.props.isClosable || !this.state.isOpen;
-    const buttonLabel = this.state.isOpen
-      ? this.props.closeLabel
-      : this.props.openLabel;
+    const buttonLabel = this.state.isOpen ? this.props.closeLabel : this.props.openLabel;
 
     return (
       <Fragment>

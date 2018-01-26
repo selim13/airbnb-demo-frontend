@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import bp from "../../../breakpoints";
+import React from 'react';
+import styled from 'styled-components';
+import bp from '../../../breakpoints';
 
-import VisuallyHidden from "../../../UI/VisuallyHidden";
-import searchIcon from "./search.svg";
+import VisuallyHidden from '../../../UI/VisuallyHidden';
+import searchIcon from './search.svg';
 
-const Label = VisuallyHidden.withComponent("label");
+const Label = VisuallyHidden.withComponent('label');
 
 const Input = styled.input`
   display: block;
@@ -33,23 +33,13 @@ const Input = styled.input`
   }
 `;
 
-export default function({
-  className,
-  id,
-  name,
-  placeholder = "",
-  value = "",
-  label = ""
+export default function ({
+  className, id, name, placeholder = '', value = '', label = '',
 }) {
   return (
     <div className={className}>
       <Label htmlFor={id}>{label}</Label>
-      <Input
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        defaultValue={value}
-      />
+      <Input id={id} name={name} placeholder={placeholder} defaultValue={value} />
     </div>
   );
 }
