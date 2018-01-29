@@ -1,18 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import NumericInput from "../../UI/NumericInput";
+import NumericInput from '../../UI/NumericInput';
+import { ControlsGroup, Label } from './styled';
 
-import { ControlsGroup, Label } from "./styled";
-
-export default function({
-  isOpen = false,
-  bedrooms = 0,
-  beds = 0,
-  bathrooms = 0,
-  onFilterChange = () => {},
-  onClick = () => {},
-  onClose = () => {},
-  onReset = () => {}
+export default function ({
+  bedrooms = 0, beds = 0, bathrooms = 0, onFilterChange = () => {},
 }) {
   return (
     <div>
@@ -25,9 +17,7 @@ export default function({
           max={100}
           value={bedrooms}
           suffix="+"
-          onValueChange={value =>
-            onFilterChange({ bedrooms: value, beds, bathrooms })
-          }
+          onValueChange={value => onFilterChange({ bedrooms: value, beds, bathrooms })}
         />
       </ControlsGroup>
       <ControlsGroup>
@@ -39,9 +29,7 @@ export default function({
           max={100}
           value={beds}
           suffix="+"
-          onValueChange={value =>
-            onFilterChange({ beds: value, bedrooms, bathrooms })
-          }
+          onValueChange={value => onFilterChange({ beds: value, bedrooms, bathrooms })}
         />
       </ControlsGroup>
       <ControlsGroup>
@@ -53,9 +41,7 @@ export default function({
           max={100}
           value={bathrooms}
           suffix="+"
-          onValueChange={value =>
-            onFilterChange({ bathrooms: value, beds, bedrooms })
-          }
+          onValueChange={value => onFilterChange({ bathrooms: value, beds, bedrooms })}
         />
       </ControlsGroup>
     </div>

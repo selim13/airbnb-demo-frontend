@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import bp from "../breakpoints";
+import bp from '../breakpoints';
 
 const Card = styled(Link)`
   font-size: 15px;
@@ -25,9 +25,9 @@ const Heading = styled.p`
   }
 `;
 
-export default function({ code, name, image }) {
+export default function ({ code, name, image }) {
   return (
-    <Card to={"/destination/" + code}>
+    <Card to={`/destination/${code}`}>
       <Image src={image} width="221" height="330" alt="" />
       <Heading>{name}</Heading>
     </Card>

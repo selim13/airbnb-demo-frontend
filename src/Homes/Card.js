@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import bp from "../breakpoints";
-import Reviews from "../UI/Reviews";
+import bp from '../breakpoints';
+import Reviews from '../UI/Reviews';
 
 const Card = styled(Link)`
   font-size: 13px;
@@ -41,17 +41,11 @@ const Description = styled.p`
   font-weight: 300;
 `;
 
-export default function({
-  id,
-  name,
-  image,
-  price,
-  roomType,
-  bedsNumber,
-  reviews = {}
+export default function ({
+  id, name, image, price, roomType, bedsNumber, reviews = {},
 }) {
   return (
-    <Card to={"/homes/" + id}>
+    <Card to={`/homes/${id}`}>
       <Image src={image} width="738" height="494" alt="" />
       <Heading>
         ${price} {name}
@@ -59,11 +53,7 @@ export default function({
       <Description>
         {roomType} · {bedsNumber} beds
       </Description>
-      <Reviews
-        rating={reviews.rating}
-        count={reviews.count}
-        status={reviews.status}
-      />
+      <Reviews rating={reviews.rating} count={reviews.count} status={reviews.status} />
     </Card>
   );
 }

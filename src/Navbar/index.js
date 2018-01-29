@@ -1,18 +1,20 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
 
-import bp from "../breakpoints";
+import bp from '../breakpoints';
 
-import Container from "../UI/Container";
-import Menu from "./Menu";
-import Search from "./Search";
+import Container from '../UI/Container';
+import Menu from './Menu';
+import Search from './Search';
 
-import logo from "./logo.svg";
-import downArrowSvg from "./downArrow.svg";
+import logo from './logo.svg';
+import downArrowSvg from './downArrow.svg';
 
-const FixedPlaceholder = styled.header`height: 80px;`;
+const FixedPlaceholder = styled.header`
+  height: 80px;
+`;
 const Bar = styled.div`
   position: fixed;
   top: 0;
@@ -23,7 +25,9 @@ const Bar = styled.div`
   border-bottom: 1px solid #e3e3e3;
   background-color: #ffffff;
 `;
-const BarRow = styled(Row)`height: 79px;`;
+const BarRow = styled(Row)`
+  height: 79px;
+`;
 const LogoButton = styled(Link)`
   display: flex;
   align-items: center;
@@ -39,7 +43,7 @@ const LogoButton = styled(Link)`
   }
 `;
 
-export default function({ searchPlaceholder = "Search", searchValue }) {
+export default function ({ searchPlaceholder = 'Search', searchValue }) {
   return (
     <FixedPlaceholder>
       <Bar>

@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  yarn: true
+before_install:
+- npm install -g now
+install:
+- yarn install
+script:
+- yarn eslint src && yarn build
+deploy:  
+- provider: script
+  skip_cleanup: true
+  script: .travis/deploy-now.sh
+  on:
+    branch:
+    - master
+    - travis
+- provider: heroku
+  api_key: $HEROKU_TOKEN
+  app: dseleznyov-airbnb-demo
+  on:
+    branch:
+    - master
+    - travis

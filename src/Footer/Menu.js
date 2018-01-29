@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Col } from 'react-flexbox-grid';
 
-import bp from "../breakpoints";
-import Link from "../UI/Link";
-import Select from "../UI/Select";
+import bp from '../breakpoints';
+import Link from '../UI/Link';
+import Select from '../UI/Select';
 
 const Menu = styled.div`
   padding: 16px 0;
@@ -35,7 +35,7 @@ const MenuLink = Link.extend`
   margin-bottom: 8px;
 `;
 
-export default function() {
+export default function () {
   return (
     <Menu>
       <Row>
@@ -57,11 +57,7 @@ export default function() {
               </LanguageSelect>
             </Col>
             <Col xs={6} md={12}>
-              <Select
-                id="currency-selector"
-                name="currency-selector"
-                label="Choose your currency"
-              >
+              <Select id="currency-selector" name="currency-selector" label="Choose your currency">
                 <option>United States dollar</option>
                 <option>Russian Rouble</option>
               </Select>

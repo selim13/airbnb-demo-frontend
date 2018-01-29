@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import closeSvg from "./close.svg";
+import closeSvg from './close.svg';
 
 const MobileHeader = styled.div`
   flex: 0 0 auto;
@@ -11,9 +11,7 @@ const MobileHeader = styled.div`
   align-items: center;
   padding: 8px 0;
   border-bottom: ${props =>
-    props.separator
-      ? "1px solid rgba(72, 72, 72, 0.3)"
-      : "1px solid transparent"};
+    (props.separator ? '1px solid rgba(72, 72, 72, 0.3)' : '1px solid transparent')};
   font-size: 14px;
 `;
 
@@ -35,12 +33,12 @@ const ResetButton = styled.button`
   cursor: pointer;
 `;
 
-export default function({
-  heading = "",
+export default function ({
+  heading = '',
   hasSeparator = true,
-  resetButtonTitle = "Reset",
+  resetButtonTitle = 'Reset',
   onClose = () => {},
-  onReset = () => {}
+  onReset = () => {},
 }) {
   return (
     <MobileHeader separator={hasSeparator}>
