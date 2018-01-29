@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import includes from "lodash/includes";
+import React from 'react';
+import styled from 'styled-components';
+import includes from 'lodash/includes';
+import { Row, Col } from 'react-flexbox-grid';
 
-import bp from "../../breakpoints";
-import { Row, Col } from "react-flexbox-grid";
-import { Sm, ToSm } from "../../UI/mediaQueries";
-import Checkbox from "../../UI/Checkbox";
-import SeeAll from "../../UI/SeeAllButton";
+import bp from '../../breakpoints';
+import { Sm, ToSm } from '../../UI/mediaQueries';
+import Checkbox from '../../UI/Checkbox';
+import SeeAllButton from '../../UI/SeeAllButton';
 
 const HeadingWrap = styled.div`
   display: flex;
@@ -22,6 +22,13 @@ const Heading = styled.p`
   }
 `;
 
+const SeeAll = styled(SeeAllButton)`
+  font-size: 14px;
+  @media (min-width: ${bp.sm}px) {
+    font-size: 16px;
+  }
+`;
+
 const SectionBody = styled.div`
   padding-top: 24px;
 `;
@@ -31,24 +38,25 @@ const Option = styled.div`
 `;
 
 export default class extends React.Component {
-  state = { seeAll: false };
-
   static defaultProps = {
-    heading: "",
+    heading: '',
     options: [],
     selected: [],
-    onFilterChange: () => {}
+    onFilterChange: () => {},
   };
+
+  state = { seeAll: false };
 
   toggle = () =>
     this.setState(prevState => ({
-      seeAll: !prevState.seeAll
+      seeAll: !prevState.seeAll,
     }));
 
   handleCheck = (option, state) => {
     if (state) this.props.onFilterChange([...this.props.selected, option]);
-    else
+    else {
       this.props.onFilterChange(this.props.selected.filter(o => o !== option));
+    }
   };
 
   render() {
@@ -73,17 +81,11 @@ export default class extends React.Component {
           <Heading>{this.props.heading}</Heading>
 
           <ToSm>
-            <SeeAll
-              isOpen={this.state.seeAll}
-              label="See all"
-              onClick={this.toggle}
-            />
+            <SeeAll isOpen={this.state.seeAll} label="See all" onClick={this.toggle} />
           </ToSm>
         </HeadingWrap>
         <ToSm>
-          <Row>
-            {this.state.seeAll && <SectionBody>{allOptions}</SectionBody>}
-          </Row>
+          <Row>{this.state.seeAll && <SectionBody>{allOptions}</SectionBody>}</Row>
         </ToSm>
         <Sm>
           <SectionBody>

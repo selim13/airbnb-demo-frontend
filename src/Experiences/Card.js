@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import bp from "../breakpoints";
-import Reviews from "../UI/Reviews";
+import bp from '../breakpoints';
+import Reviews from '../UI/Reviews';
 
 const Card = styled(Link)`
   font-size: 13px;
@@ -24,11 +24,15 @@ const Heading = styled.p`
   margin: 0;
   font-weight: 300;
 `;
-const Price = styled.span`font-weight: bold;`;
+const Price = styled.span`
+  font-weight: bold;
+`;
 
-export default function({ id, name, image, price, reviews = {} }) {
+export default function ({
+  id, name, image, price, reviews = {},
+}) {
   return (
-    <Card to={"/experiences/" + id}>
+    <Card to={`/experiences/${id}`}>
       <Image src={image} width="458" height="694" alt="" />
       <Heading>
         <Price>${price}</Price> {name}

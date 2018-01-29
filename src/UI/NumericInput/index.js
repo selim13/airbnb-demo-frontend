@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import plusSvg from "./plus.svg";
-import minusSvg from "./minus.svg";
+import plusSvg from './plus.svg';
+import minusSvg from './minus.svg';
 
 const NumericInput = styled.div`
   display: flex;
@@ -21,6 +21,11 @@ const Button = styled.button`
   user-select: none;
   cursor: pointer;
 
+  &:focus {
+    box-shadow: 0 0 2px 2px #008489;
+    outline: none;
+  }
+
   &[disabled] {
     opacity: 0.5;
   }
@@ -37,14 +42,10 @@ const Value = styled.p`
   color: #383838;
 `;
 
-export default function({
-  min = 0,
-  max = 5,
-  value = 0,
-  suffix = "",
-  onValueChange
+export default function ({
+  min = 0, max = 5, value = 0, suffix = '', onValueChange,
 }) {
-  const modifyValue = delta => {
+  const modifyValue = (delta) => {
     const newValue = value + delta;
     if (newValue >= min && newValue <= max) {
       onValueChange(newValue);

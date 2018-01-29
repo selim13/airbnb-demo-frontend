@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../../breakpoints";
-import Checkbox from "../../UI/Checkbox";
-import { ControlsGroup } from "./styled";
+import bp from '../../breakpoints';
+import Checkbox from '../../UI/Checkbox';
+import { ControlsGroup } from './styled';
 
-import entireSvg from "./entire.svg";
-import privateSvg from "./private.svg";
-import sharedSvg from "./shared.svg";
+import entireSvg from './entire.svg';
+import privateSvg from './private.svg';
+import sharedSvg from './shared.svg';
 
 const TypeImg = styled.img`
   display: none;
@@ -19,13 +19,9 @@ const TypeImg = styled.img`
   }
 `;
 
-export default function({
-  isOpen = false,
+export default function ({
   roomTypes = { entire: false, private: false, shared: false },
   onFilterChange = () => {},
-  onClick = () => {},
-  onClose = () => {},
-  onReset = () => {}
 }) {
   return (
     <div>
@@ -36,7 +32,7 @@ export default function({
             onFilterChange({
               entire: e.target.checked,
               private: roomTypes.private,
-              shared: roomTypes.shared
+              shared: roomTypes.shared,
             })
           }
           label="Entire home"
@@ -51,7 +47,7 @@ export default function({
             onFilterChange({
               entire: roomTypes.entire,
               private: e.target.checked,
-              shared: roomTypes.shared
+              shared: roomTypes.shared,
             })
           }
           label="Private room"
@@ -66,7 +62,7 @@ export default function({
             onFilterChange({
               entire: roomTypes.entire,
               private: roomTypes.private,
-              shared: e.target.checked
+              shared: e.target.checked,
             })
           }
           label="Shared room"

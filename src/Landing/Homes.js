@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import bp from "../breakpoints";
-import { Slider, Slide } from "../UI/Slider";
-import Card from "../Homes/Card";
+import bp from '../breakpoints';
+import { Slider, Slide } from '../UI/Slider';
+import Card from '../Homes/Card';
 
-import data from "../Homes/staticData";
+import data from '../Homes/staticData';
 
 const HomeSlide = Slide.extend`
   max-width: 197px;
@@ -13,7 +13,7 @@ const HomeSlide = Slide.extend`
   }
 `;
 
-export default function() {
+export default function () {
   const homesList = data.map(home => (
     <HomeSlide key={home.id}>
       <Card

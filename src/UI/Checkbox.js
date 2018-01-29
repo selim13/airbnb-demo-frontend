@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import bp from "../breakpoints";
+import bp from '../breakpoints';
 
 const Label = styled.label`
   display: flex;
@@ -57,11 +57,8 @@ const CheckMarkIcon = () => (
   </Svg>
 );
 
-export default function({
-  checked = false,
-  label = "",
-  caption = "",
-  onChange = () => {}
+export default function ({
+  checked = false, label = '', caption = '', onChange = () => {},
 }) {
   return (
     <Label>

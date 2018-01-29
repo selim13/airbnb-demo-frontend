@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default styled.div`
   position: fixed;
@@ -9,4 +9,5 @@ export default styled.div`
   background: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.8;
+  z-index: 800;
 `;

@@ -10,6 +10,7 @@ html {
   box-sizing: inherit;
 }
 
-.body--fixed {
+.body--fixed,
+.ReactModal__Body--open {
   overflow: hidden;
 }
