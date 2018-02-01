@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
-import GoogleMapReact from 'google-map-react';
 
 import apiGet from '../apiGet';
 import bp from '../breakpoints';
 import Container from '../UI/Container';
+import MapPrices from './MapPrices';
 import Card from './Card';
 import Filters from './Filters';
 import Pagination from '../UI/Pagination';
@@ -137,13 +137,11 @@ export default class List extends React.Component {
               </Col>
             </Row>
           </Container>
+
           <MapBox>
-            <GoogleMapReact
-              defaultCenter={{ lat: 57.307, lng: 15.53 }}
-              defaultZoom={5}
-              bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
-            />
+            <MapPrices homes={this.state.homes} />
           </MapBox>
+
           <ToggleMapButton title="Show map" />
         </main>
 
