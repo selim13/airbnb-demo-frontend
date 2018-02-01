@@ -8,6 +8,7 @@
     "moment": "^2.19.2",
     "normalize.css": "^7.0.0",
     "pluralize": "^7.0.0",
+    "qs": "^6.5.1",
     "react": "^16.2.0",
     "react-addons-shallow-compare": "^15.6.2",
     "react-body-classname": "^1.2.0",

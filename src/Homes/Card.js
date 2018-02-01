@@ -41,19 +41,34 @@ const Description = styled.p`
   font-weight: 300;
 `;
 
+const roomTypes = { entire_home: 'Entire house', private_room: 'Private room' };
+
 export default function ({
-  id, name, image, price, roomType, bedsNumber, reviews = {},
+  id,
+  name,
+  image,
+  price,
+  currency = '$',
+  roomType,
+  bedsNumber = 0,
+  rating = 0,
+  reviewsCount = 0,
+  isSuperhost,
 }) {
   return (
     <Card to={`/homes/${id}`}>
       <Image src={image} width="738" height="494" alt="" />
       <Heading>
-        ${price} {name}
+        {price && `${currency}${price}`} {name}
       </Heading>
       <Description>
-        {roomType} · {bedsNumber} beds
+        {roomTypes[roomType]} · {bedsNumber} beds
       </Description>
-      <Reviews rating={reviews.rating} count={reviews.count} status={reviews.status} />
+      <Reviews
+        rating={Math.floor(rating)}
+        count={reviewsCount}
+        status={isSuperhost ? 'Superhost' : false}
+      />
     </Card>
   );
 }
