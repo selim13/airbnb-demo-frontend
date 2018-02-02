@@ -1,9 +1,10 @@
 import React from 'react';
+import times from 'lodash/times';
 
 import apiGet from '../apiGet';
 import bp from '../breakpoints';
 import { Slider, Slide } from '../UI/Slider';
-import Card from '../Homes/Card';
+import Wrap from '../Homes/Card';
 
 const HomeSlide = Slide.extend`
   max-width: 197px;
@@ -13,10 +14,12 @@ const HomeSlide = Slide.extend`
 `;
 
 export default class Homes extends React.Component {
+  static defaultProps = { displayNumber: 6 };
+
   state = { homes: [] };
 
   componentDidMount() {
-    apiGet('/homes', { limit: 6 })
+    apiGet('/homes', { limit: this.props.displayNumber })
       .then((data) => {
         this.setState({ homes: data.items });
       })
@@ -24,12 +27,17 @@ export default class Homes extends React.Component {
   }
 
   render() {
-    const homesList = this.state.homes.map(home => (
+    const homes =
+      this.state.homes.length > 0
+        ? this.state.homes
+        : times(this.props.displayNumber, index => ({ id: index })); // dummy for skeleton
+
+    const slides = homes.map(home => (
       <HomeSlide key={home.id}>
-        <Card
+        <Wrap
           id={home.id}
           name={home.name}
-          image={home.images[0].picture}
+          image={home.images && home.images[0].picture}
           price={home.price}
           currency={home.currency}
           roomType={home.kind}
@@ -41,6 +49,6 @@ export default class Homes extends React.Component {
       </HomeSlide>
     ));
 
-    return <Slider hasDesktopNavigation>{homesList}</Slider>;
+    return <Slider hasDesktopNavigation>{slides}</Slider>;
   }
 }

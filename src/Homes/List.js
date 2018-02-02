@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
+import times from 'lodash/times';
 
 import apiGet from '../apiGet';
 import bp from '../breakpoints';
 import Container from '../UI/Container';
 import MapPrices from './MapPrices';
-import Card from './Card';
+import Wrap from './Card';
 import Filters from './Filters';
 import Pagination from '../UI/Pagination';
 import Navbar from '../Navbar';
@@ -83,10 +84,12 @@ const ToggleMapButton = styled.button`
 `;
 
 export default class List extends React.Component {
+  static defaultProps = { displayNumber: 12 };
+
   state = { homes: [] };
 
   componentDidMount() {
-    apiGet('/homes', { limit: 12 })
+    apiGet('/homes', { limit: this.props.displayNumber })
       .then((data) => {
         this.setState({ homes: data.items });
       })
@@ -94,13 +97,18 @@ export default class List extends React.Component {
   }
 
   render() {
-    const homesList = this.state.homes.map(home => (
+    const homes =
+      this.state.homes.length > 0
+        ? this.state.homes
+        : times(this.props.displayNumber, index => ({ id: index })); // dummy for skeleton
+
+    const cards = homes.map(home => (
       <Col xs={12} sm={6} key={home.id}>
         <CardWrap>
-          <Card
+          <Wrap
             id={home.id}
             name={home.name}
-            image={home.images[0].picture}
+            image={home.images && home.images[0].picture}
             price={home.price}
             currency={home.currency}
             roomType={home.kind}
@@ -123,7 +131,7 @@ export default class List extends React.Component {
           <Container>
             <Row>
               <Col xs={12} md={8}>
-                <Row>{homesList}</Row>
+                <Row>{cards}</Row>
                 <Row center="xs">
                   <Col xs={12}>
                     <PaginationWrap>
