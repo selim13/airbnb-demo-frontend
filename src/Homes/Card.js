@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import bp from '../breakpoints';
+import formatPrice from '../formatPrice';
 import Reviews from '../UI/Reviews';
 
 const Card = styled(Link)`
@@ -48,7 +49,7 @@ export default function ({
   name,
   image,
   price,
-  currency = '$',
+  currency = 'USD',
   roomType,
   bedsNumber = 0,
   rating = 0,
@@ -59,7 +60,7 @@ export default function ({
     <Card to={`/homes/${id}`}>
       <Image src={image} width="738" height="494" alt="" />
       <Heading>
-        {price && `${currency}${price}`} {name}
+        {price && `${formatPrice(price, currency)}`} {name}
       </Heading>
       <Description>
         {roomTypes[roomType]} · {bedsNumber} beds

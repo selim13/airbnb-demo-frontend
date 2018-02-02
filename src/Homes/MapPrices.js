@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
 
+import formatPrice from '../formatPrice';
+
 const PricePin = styled.div`
   position: absolute;
   padding: 5px;
@@ -18,8 +20,7 @@ const PricePin = styled.div`
 export default function MapPrices({ homes = [] }) {
   const pins = homes.map(home => (
     <PricePin key={home.id} lat={home.lat} lng={home.lng}>
-      {home.currency ? home.currency : '$'}
-      {home.price}
+      {formatPrice(home.price, home.currency)}
     </PricePin>
   ));
 
