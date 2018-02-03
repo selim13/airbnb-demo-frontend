@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import repeat from 'lodash/repeat';
+import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor';
 import { Link } from 'react-router-dom';
 
 import bp from '../breakpoints';
+import formatPrice from '../formatPrice';
 import Reviews from '../UI/Reviews';
 
-const Card = styled(Link)`
+const Wrap = styled(Link)`
   font-size: 13px;
   color: #383838;
   text-decoration: none;
@@ -14,12 +17,18 @@ const Card = styled(Link)`
     font-size: 15px;
   }
 `;
+
+const ImageWrap = createSkeletonElement(styled.div`
+  min-height: 210px; // for skeleton
+  margin-bottom: 8px;
+`);
+
 const Image = styled.img`
   display: block;
   width: 100%;
   height: auto;
-  margin-bottom: 8px;
 `;
+
 const Heading = styled.p`
   margin: 0;
   overflow: hidden;
@@ -36,24 +45,64 @@ const Heading = styled.p`
     max-height: 21px;
   }
 `;
+
 const Description = styled.p`
   margin: 0;
   font-weight: 300;
 `;
 
-export default function ({
-  id, name, image, price, roomType, bedsNumber, reviews = {},
+const InlineSkeleton = createSkeletonElement('span');
+
+const roomTypes = { entire_home: 'Entire house', private_room: 'Private room' };
+
+function Card({
+  id,
+  name,
+  image,
+  price,
+  currency = 'USD',
+  roomType,
+  bedsNumber = 0,
+  rating = 0,
+  reviewsCount = 0,
+  isSuperhost,
 }) {
   return (
-    <Card to={`/homes/${id}`}>
-      <Image src={image} width="738" height="494" alt="" />
+    <Wrap to={`/homes/${id}`}>
+      <ImageWrap>{image && <Image src={image} width="738" height="494" alt="" />}</ImageWrap>
       <Heading>
-        ${price} {name}
+        <InlineSkeleton>
+          {price && `${formatPrice(price, currency)}`} {name}
+        </InlineSkeleton>
       </Heading>
       <Description>
-        {roomType} · {bedsNumber} beds
+        <InlineSkeleton>
+          {roomTypes[roomType]} · {bedsNumber} beds
+        </InlineSkeleton>
       </Description>
-      <Reviews rating={reviews.rating} count={reviews.count} status={reviews.status} />
-    </Card>
+      <Reviews
+        rating={Math.floor(rating)}
+        count={reviewsCount}
+        status={isSuperhost ? 'Superhost' : false}
+      />
+    </Wrap>
   );
 }
+
+export default createSkeletonProvider(
+  // Dummy data with a similar shape to the component's data
+  {
+    name: repeat('-', 42),
+    roomType: 'entire_home',
+    price: 0,
+    currency: 'USD',
+    bedsNumber: 0,
+  },
+  // Predicate that returns true if component is in a loading state
+  ({ name }) => name === undefined,
+  // Placeholder styling
+  () => ({
+    color: '#fafafa',
+    backgroundColor: '#fafafa',
+  }),
+)(Card);

@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
-import GoogleMapReact from 'google-map-react';
+import times from 'lodash/times';
 
+import apiGet from '../apiGet';
 import bp from '../breakpoints';
 import Container from '../UI/Container';
-import Card from './Card';
+import MapPrices from './MapPrices';
+import Wrap from './Card';
 import Filters from './Filters';
 import Pagination from '../UI/Pagination';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import VisuallyHidden from '../UI/VisuallyHidden';
 
-import data from './staticData';
 import pinIconSvg from './pinIcon.svg';
 
 const CardWrap = styled.div`
@@ -82,60 +83,80 @@ const ToggleMapButton = styled.button`
   }
 `;
 
-export default function () {
-  const homesList = data.map(home => (
-    <Col xs={12} sm={6} key={home.id}>
-      <CardWrap>
-        <Card
-          id={home.id}
-          name={home.name}
-          image={home.image}
-          price={home.price}
-          roomType={home.roomType}
-          bedsNumber={home.bedsNumber}
-          reviews={home.reviews}
-        />
-      </CardWrap>
-    </Col>
-  ));
+export default class List extends React.Component {
+  static defaultProps = { displayNumber: 12 };
 
-  return (
-    <div>
-      <Navbar searchPlaceholder="Anywhere" searchValue="Anywhere &middot; Homes" />
+  state = { homes: [] };
 
-      <Filters />
+  componentDidMount() {
+    apiGet('/homes', { limit: this.props.displayNumber })
+      .then((data) => {
+        this.setState({ homes: data.items });
+      })
+      .catch(err => console.error(err));
+  }
 
-      <main>
-        <Container>
-          <Row>
-            <Col xs={12} md={8}>
-              <Row>{homesList}</Row>
-              <Row center="xs">
-                <Col xs={12}>
-                  <PaginationWrap>
-                    <Pagination />
-                  </PaginationWrap>
-                  <Info>
-                    Enter dates to see full pricing. Additional fees apply. Taxes may be added.
-                  </Info>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-        <MapBox>
-          <GoogleMapReact
-            defaultCenter={{ lat: 57.307, lng: 15.53 }}
-            defaultZoom={5}
-            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
+  render() {
+    const homes =
+      this.state.homes.length > 0
+        ? this.state.homes
+        : times(this.props.displayNumber, index => ({ id: index })); // dummy for skeleton
+
+    const cards = homes.map(home => (
+      <Col xs={12} sm={6} key={home.id}>
+        <CardWrap>
+          <Wrap
+            id={home.id}
+            name={home.name}
+            image={home.images && home.images[0].picture}
+            price={home.price}
+            currency={home.currency}
+            roomType={home.kind}
+            bedsNumber={home.bedsCount}
+            rating={home.rating}
+            reviewsCount={home.reviewsCount}
+            isSuperhost={home.isSuperhost}
           />
-        </MapBox>
-        <ToggleMapButton title="Show map" />
-      </main>
+        </CardWrap>
+      </Col>
+    ));
 
-      <VisuallyHidden>
-        <Footer />
-      </VisuallyHidden>
-    </div>
-  );
+    return (
+      <div>
+        <Navbar searchPlaceholder="Anywhere" searchValue="Anywhere &middot; Homes" />
+
+        <Filters />
+
+        <main>
+          <Container>
+            <Row>
+              <Col xs={12} md={8}>
+                <Row>{cards}</Row>
+                <Row center="xs">
+                  <Col xs={12}>
+                    <PaginationWrap>
+                      <Pagination />
+                    </PaginationWrap>
+                    <Info>
+                      Enter dates to see full pricing. Additional fees apply. Taxes may be added.
+                    </Info>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+
+          <MapBox>
+            <MapPrices homes={this.state.homes} />
+          </MapBox>
+
+          <ToggleMapButton title="Show map" />
+        </main>
+
+        <VisuallyHidden>
+          <Footer />
+        </VisuallyHidden>
+      </div>
+    );
+  }
 }
